@@ -43,7 +43,10 @@ export default function Navbar() {
               src={LogoVerla} 
               alt="Verla" 
               className="h-14 w-auto max-w-[200px]" 
-              style={{ transition: "all 300ms ease" }}
+              style={{ 
+                transition: "all 300ms ease",
+                filter: isDark ? "brightness(1.5) contrast(1.3) saturate(1.1)" : "none",
+              }}
             />
           </Link>
 
