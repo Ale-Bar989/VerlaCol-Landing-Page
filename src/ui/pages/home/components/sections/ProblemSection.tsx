@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useTheme } from "../../../../../contexts";
 import { ArrowRight, X, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { ROUTES } from "../../../../../router/routes.config";
@@ -29,7 +29,7 @@ const steps = [
   },
 ];
 
-export default function ProblemSection() {
+function ProblemSection() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -360,3 +360,5 @@ export default function ProblemSection() {
     </>
   );
 }
+
+export default memo(ProblemSection);

@@ -82,9 +82,9 @@ export default function HeroSection() {
   const activeSlide = slides[currentSlide];
 
   return (
-    <section className="relative min-h-screen overflow-hidden p-6 md:p-8 lg:p-12 flex items-center">
+    <section className="relative min-h-screen overflow-hidden p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 flex items-center">
       {/* Contenedor del slider con bordes redondeados */}
-      <div className="relative w-full h-[85vh] rounded-3xl overflow-hidden shadow-2xl">
+      <div className="relative w-full h-[92vh] sm:h-[88vh] md:h-[85vh] rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
         {/* Imagen de fondo con transición suave */}
         <div
           key={`bg-${currentSlide}`}
@@ -99,23 +99,23 @@ export default function HeroSection() {
           {/* Overlay oscuro para legibilidad del texto */}
           {/* <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/30"></div> */}
 
-          {/* Efectos de blur sutiles sobre la imagen */}
+          {/* Efectos de blur sutiles sobre la imagen - optimizado para móviles */}
           <div className="absolute inset-0 pointer-events-none">
             <div
-              className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
+              className="absolute top-1/4 left-1/4 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] lg:blur-[120px] animate-pulse-slow"
               style={{ backgroundColor: "#5B6FFF15" }}
             ></div>
             <div
-              className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
+              className="absolute top-1/3 right-1/4 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] lg:blur-[120px] animate-pulse-slow"
               style={{ backgroundColor: "#7A8FFF15", animationDelay: "1s" }}
             ></div>
           </div>
         </div>
 
         {/* Contenido sobre la imagen */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-12 lg:p-16">
+        <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16">
           {/* Contenido superior */}
-          <div className="max-w-2xl">
+          <div className="max-w-full sm:max-w-xl md:max-w-2xl mt-12 sm:mt-16 md:mt-20 lg:mt-0">
             {/* Slider Content con animación de fade */}
             <div
               key={currentSlide}
@@ -126,7 +126,7 @@ export default function HeroSection() {
             >
               {/* Badge superior - tech style */}
               <div
-                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full backdrop-blur-md"
+                className="inline-flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5 md:mb-6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md"
                 style={{
                   background: isDark
                     ? "rgba(255, 255, 255, 0.1)"
@@ -141,7 +141,7 @@ export default function HeroSection() {
               >
                 {activeSlide.badgeIcon && (
                   <activeSlide.badgeIcon
-                    className="w-4 h-4"
+                    className="w-3 h-3 sm:w-4 sm:h-4"
                     style={{ color: "#FFFFFF" }}
                   />
                 )}
@@ -159,7 +159,7 @@ export default function HeroSection() {
 
               {/* Subtítulo superior - minimal */}
               <p
-                className="text-xs md:text-sm font-medium text-white uppercase tracking-[0.3em] mb-3"
+                className="text-[10px] sm:text-xs md:text-sm font-medium text-white uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-2 sm:mb-3"
                 style={{
                   textShadow:
                     "0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.7)",
@@ -170,7 +170,7 @@ export default function HeroSection() {
 
               {/* Título principal - mix de weights para contraste moderno */}
               <h1
-                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 leading-[0.95] tracking-tighter"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4 sm:mb-5 md:mb-6 leading-[0.95] tracking-tighter"
                 style={{
                   textShadow:
                     "0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.8), 0 12px 60px rgba(0, 0, 0, 0.7)",
@@ -186,7 +186,7 @@ export default function HeroSection() {
 
               {/* Descripción - moderna y legible */}
               <p
-                className="text-base md:text-lg lg:text-xl text-white max-w-xl leading-relaxed font-light tracking-wide"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-white max-w-full sm:max-w-md md:max-w-xl leading-relaxed font-light tracking-wide"
                 style={{
                   textShadow:
                     "0 2px 12px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.7)",
@@ -197,10 +197,10 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Botón en esquina inferior izquierda */}
-          <div className="self-start">
+          {/* Botón en esquina inferior - responsive */}
+          <div className="self-start w-full sm:w-auto">
             <div
-              className="button-wrapper-custom relative -left-[5em] -bottom-[5em] px-7 py-7 rounded-3xl"
+              className="button-wrapper-custom relative -left-[0.2rem] sm:-left-[3.2rem] md:-left-[4.2rem] lg:-left-[5em] -bottom-[2em] sm:-bottom-[4em] md:-bottom-[5em] lg:-bottom-[5em] px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6 lg:px-7 lg:py-7 rounded-2xl sm:rounded-3xl"
               style={{
                 borderTop: "3px solid #000000",
                 borderRight: "3px solid #000000",
@@ -209,12 +209,12 @@ export default function HeroSection() {
             >
               <Link
                 to={activeSlide.ctaRoute}
-                className="flex items-center justify-center gap-4 bg-white/95 dark:bg-black/95 text-black dark:text-white px-40 py-4 rounded-2xl shadow-xl"
+                className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 bg-white/95 dark:bg-black/95 text-black dark:text-white px-6 sm:px-12 md:px-20 lg:px-32 xl:px-40 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl shadow-xl"
               >
-                <span className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
+                <span className="text-xs sm:text-sm md:text-base font-bold uppercase tracking-widest sm:tracking-[0.15em]">
                   {activeSlide.ctaPrimary}
                 </span>
-                <ArrowRight size={20} className="shrink-0" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               </Link>
             </div>
           </div>

@@ -13,7 +13,7 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { ROUTES } from "../../../../router/routes.config";
 import { useTheme } from "../../../../contexts";
 import LogoVerla from "../../../../../src/shared/assets/logo verla horizontal.png";
@@ -21,7 +21,7 @@ import LogoVerla from "../../../../../src/shared/assets/logo verla horizontal.pn
 // Navbar moderno con diseño tipo Superhuman
 // Ubicación: src/ui/components/layout/Navbar/Navbar.tsx
 
-export default function Navbar() {
+function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLegalOpen, setIsLegalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -912,3 +912,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+export default memo(Navbar);

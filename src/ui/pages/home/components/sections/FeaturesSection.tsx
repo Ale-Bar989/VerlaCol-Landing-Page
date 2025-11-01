@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../../../../contexts";
 import { Zap, Shield, Rocket } from "lucide-react";
@@ -6,7 +7,7 @@ import { ROUTES } from "../../../../../router/routes.config";
 // Video section - Sección de video corporativo con fondo de video
 // Ubicación: src/ui/pages/home/components/FeaturesSection.tsx
 
-export default function FeaturesSection() {
+function FeaturesSection() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -392,3 +393,5 @@ export default function FeaturesSection() {
     </section>
   );
 }
+
+export default memo(FeaturesSection);

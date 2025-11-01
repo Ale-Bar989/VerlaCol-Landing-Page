@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Mail, Phone, Send } from "lucide-react";
 import { ROUTES } from "../../../../../router/routes.config";
@@ -6,7 +7,7 @@ import { useTheme } from "../../../../../contexts";
 // Footer section adaptado al diseño moderno horizontal
 // Ubicación: src/ui/pages/home/components/FooterSection.tsx
 
-export default function FooterSection() {
+const FooterSection = memo(() => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -279,4 +280,6 @@ export default function FooterSection() {
       </div>
     </footer>
   );
-}
+});
+
+export default FooterSection;

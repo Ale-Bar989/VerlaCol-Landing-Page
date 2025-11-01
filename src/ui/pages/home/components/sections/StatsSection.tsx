@@ -1,9 +1,10 @@
-// Stats section with VERLA background and metrics
+// Stats section con diseño moderno tipo Superhuman
 // Ubicación: src/ui/pages/home/components/StatsSection.tsx
 
+import { memo } from "react";
 import { useTheme } from "../../../../../contexts";
 
-export default function StatsSection() {
+function StatsSection() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -195,3 +196,5 @@ export default function StatsSection() {
     </section>
   );
 }
+
+export default memo(StatsSection);
