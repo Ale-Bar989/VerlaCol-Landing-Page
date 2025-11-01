@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Wifi, Tv, Zap } from "lucide-react";
+import { ArrowRight, Wifi, Tv, Zap, Rocket } from "lucide-react";
 import { useTheme } from "../../../../../contexts";
+import { ROUTES } from "../../../../../router/routes.config";
 
 // Hero section with modern custom slider
 // Ubicación: src/ui/pages/home/components/HeroSection.tsx
@@ -10,8 +11,9 @@ import { useTheme } from "../../../../../contexts";
 const slides = [
   {
     id: 1,
-    badge: "🚀 Especial",
-    badgeColor: "#4A5CFF",
+    badge: "Especial",
+    badgeColor: "#0000",
+    badgeIcon: Rocket,
     title: "Conectividad",
     titleHighlight: "Premium",
     subtitle: "Fibra Óptica",
@@ -21,13 +23,15 @@ const slides = [
     icon: Wifi,
     ctaPrimary: "Ver Planes",
     ctaSecondary: "Consultar Cobertura",
-    ctaRoute: "/precios",
+    // ctaRoute: "/precios",
+    ctaRoute: ROUTES.PRICING,
     gradient: "linear-gradient(135deg, #5B6FFF, #7A8FFF, #4A5CFF)",
   },
   {
     id: 2,
-    badge: "📺 TV Premium",
+    badge: "TV Premium",
     badgeColor: "#7A8FFF",
+    badgeIcon: Tv,
     title: "Entretenimiento",
     titleHighlight: "Sin Límites",
     subtitle: "TV 4K",
@@ -37,13 +41,15 @@ const slides = [
     icon: Tv,
     ctaPrimary: "Ver Canales",
     ctaSecondary: "Planes TV",
-    ctaRoute: "/legal/comparador-tarifas",
+    // ctaRoute: "/legal/comparador-tarifas",
+    ctaRoute: ROUTES.LEGAL.COMPARADOR_TARIFAS,
     gradient: "linear-gradient(135deg, #7A8FFF, #4A5CFF, #5B6FFF)",
   },
   {
     id: 3,
-    badge: "⚡ FTTH",
+    badge: "FTTH",
     badgeColor: "#4A5CFF",
+    badgeIcon: Zap,
     title: "Velocidad",
     titleHighlight: "Extrema",
     subtitle: "Hasta 1 Gbps",
@@ -53,13 +59,15 @@ const slides = [
     icon: Zap,
     ctaPrimary: "Contratar Ahora",
     ctaSecondary: "Ver Beneficios",
-    ctaRoute: "/contact",
+    // ctaRoute: "/contact",
+    ctaRoute: ROUTES.CONTACT,
     gradient: "linear-gradient(135deg, #4A5CFF, #FFFFFF, #7A8FFF)",
   },
 ];
 
 export default function HeroSection() {
   const { theme } = useTheme();
+  const isDark = theme === "dark";
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Auto-play functionality (siempre activo)
@@ -117,12 +125,32 @@ export default function HeroSection() {
               }}
             >
               {/* Badge superior - tech style */}
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+              <div
+                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full backdrop-blur-md"
+                style={{
+                  background: isDark
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
+                  border: isDark
+                    ? "1px solid rgba(255, 255, 255, 0.2)"
+                    : "1px solid rgba(74, 92, 255, 0.5)",
+                  boxShadow: isDark
+                    ? "none"
+                    : "0 4px 16px rgba(74, 92, 255, 0.4)",
+                }}
+              >
+                {activeSlide.badgeIcon && (
+                  <activeSlide.badgeIcon
+                    className="w-4 h-4"
+                    style={{ color: "#FFFFFF" }}
+                  />
+                )}
                 <span
                   className="text-xs md:text-sm font-bold text-white uppercase tracking-[0.2em] letter-spacing-wide"
                   style={{
-                    textShadow:
-                      "0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6)",
+                    textShadow: isDark
+                      ? "0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6)"
+                      : "0 2px 8px rgba(0, 0, 0, 0.3)",
                   }}
                 >
                   {activeSlide.badge}

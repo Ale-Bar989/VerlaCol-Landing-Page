@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTheme } from "../../../../../contexts";
 import { ArrowRight, X, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { ROUTES } from "../../../../../router/routes.config";
 
 // Solutions section - Simple process showcase
 // Ubicación: src/ui/pages/home/components/ProblemSection.tsx
@@ -286,7 +287,8 @@ export default function ProblemSection() {
 
               {/* CTA */}
               <button
-                onClick={() => (window.location.href = "#contact")}
+                // onClick={() => (window.location.href = "#contact")}
+                onClick={() => (window.location.href = ROUTES.CONTACT)}
                 className="w-full py-4 rounded-xl bg-linear-to-r from-blue-600 to-purple-600 text-white font-bold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/20"
               >
                 Iniciar Ahora

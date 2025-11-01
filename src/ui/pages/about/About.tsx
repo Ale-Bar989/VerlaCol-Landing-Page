@@ -1,5 +1,4 @@
-import { Target, Heart, ArrowLeft, Sparkles, Tv, Globe, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Target, Heart, Sparkles, Tv, Globe, Zap, Radio, Shuffle, Link as LinkIcon, BarChart3, Lock, HeadphonesIcon } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar/Navbar';
 import { BackgroundEffects } from '../../../shared/components';
 import { DESIGN_SYSTEM } from '../../../shared/styles/design-system';
@@ -15,20 +14,6 @@ export default function About() {
       
       <div className="pt-32 pb-20 px-6 relative z-10">
         <div className="container mx-auto max-w-5xl">
-          {/* Botón volver moderno */}
-          <Link
-            to="/"
-            className="group inline-flex items-center gap-2 px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 backdrop-blur-sm mb-12"
-          >
-            <div className="relative">
-              <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" strokeWidth={2} />
-              <div className="absolute inset-0 bg-[#4A5CFF]/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-              Volver
-            </span>
-          </Link>
-
           {/* Header moderno */}
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
@@ -152,14 +137,14 @@ export default function About() {
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { name: 'FTTH/FTTX', icon: '📡', desc: 'Fibra hasta el hogar' },
-                  { name: 'GPON/OLT', icon: '⚡', desc: 'Red óptica pasiva' },
-                  { name: 'Core Routers', icon: '🔀', desc: 'Enrutamiento principal' },
-                  { name: 'Switches', icon: '🔗', desc: 'Agregación de red' },
-                  { name: 'TV Headend', icon: '📺', desc: 'Sistema TV IP' },
-                  { name: 'DNS/CDN', icon: '🌐', desc: 'Distribución contenido' },
-                  { name: 'NMS', icon: '📊', desc: 'Monitoreo de red' },
-                  { name: 'AAA Radius', icon: '🔐', desc: 'Autenticación' }
+                  { name: 'FTTH/FTTX', Icon: Radio, desc: 'Fibra hasta el hogar' },
+                  { name: 'GPON/OLT', Icon: Zap, desc: 'Red óptica pasiva' },
+                  { name: 'Core Routers', Icon: Shuffle, desc: 'Enrutamiento principal' },
+                  { name: 'Switches', Icon: LinkIcon, desc: 'Agregación de red' },
+                  { name: 'TV Headend', Icon: Tv, desc: 'Sistema TV IP' },
+                  { name: 'DNS/CDN', Icon: Globe, desc: 'Distribución contenido' },
+                  { name: 'NMS', Icon: BarChart3, desc: 'Monitoreo de red' },
+                  { name: 'AAA Radius', Icon: Lock, desc: 'Autenticación' }
                 ].map((tech) => (
                   <div 
                     key={tech.name}
@@ -169,8 +154,8 @@ export default function About() {
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))' }}></div>
                     
                     <div className="relative z-10">
-                      <div className="text-4xl mb-3 group-hover/item:scale-110 transition-transform duration-300">
-                        {tech.icon}
+                      <div className="mb-3 group-hover/item:scale-110 transition-transform duration-300">
+                        <tech.Icon className="w-10 h-10 text-[#4A5CFF]" strokeWidth={1.5} />
                       </div>
                       <h4 className="font-bold text-white mb-1">
                         {tech.name}
@@ -183,17 +168,21 @@ export default function About() {
               
               {/* Ventajas competitivas */}
               <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
-                  ⚡ Velocidad Simétrica
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                  <Zap className="w-4 h-4" />
+                  Velocidad Simétrica
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
-                  📺 TV HD/4K
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                  <Tv className="w-4 h-4" />
+                  TV HD/4K
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
-                  🔒 Red Segura
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                  <Lock className="w-4 h-4" />
+                  Red Segura
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
-                  🆘 Soporte 24/7
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                  <HeadphonesIcon className="w-4 h-4" />
+                  Soporte 24/7
                 </span>
               </div>
             </div>

@@ -28,7 +28,7 @@ export default function BackgroundEffects() {
             style={{
               width: theme === "dark" ? "1px" : "2px",
               height: theme === "dark" ? "1px" : "2px",
-              backgroundColor: theme === "dark" ? "#ffffff" : "#4A5CFF",
+              backgroundColor: theme === "dark" ? "#ffffff" : "#000000",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               opacity:

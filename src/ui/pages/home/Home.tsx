@@ -1,9 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 import Navbar from "../../components/layout/Navbar/Navbar";
 import {
   BackgroundEffects,
-  ChatWidget,
+  // ChatWidget,
   HeroSection,
   StatsSection,
   ProblemSection,
@@ -15,7 +15,7 @@ import {
 // Página Home con diseño moderno tipo Superhuman
 // Ubicación: src/ui/pages/home/Home.tsx
 export default function Home() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  // const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -23,10 +23,10 @@ export default function Home() {
       <BackgroundEffects />
 
       {/* Chat widget */}
-      <ChatWidget
+      {/* <ChatWidget
         isOpen={isChatOpen}
         onToggle={() => setIsChatOpen(!isChatOpen)}
-      />
+      /> */}
 
       <Navbar />
 
