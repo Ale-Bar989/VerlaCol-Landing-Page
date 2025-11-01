@@ -1,5 +1,6 @@
 import { Target, Heart, Sparkles, Tv, Globe, Zap, Radio, Shuffle, Link as LinkIcon, BarChart3, Lock, HeadphonesIcon } from 'lucide-react';
 import Navbar from '../../components/layout/Navbar/Navbar';
+import FooterSection from '../home/components/sections/FooterSection';
 import { BackgroundEffects } from '../../../shared/components';
 import { DESIGN_SYSTEM } from '../../../shared/styles/design-system';
 
@@ -189,6 +190,8 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <FooterSection />
     </div>
   );
 }

@@ -16,6 +16,7 @@ import {
 import { useState } from "react";
 import { ROUTES } from "../../../../router/routes.config";
 import { useTheme } from "../../../../contexts";
+import LogoVerla from "../../../../../src/shared/assets/logo verla horizontal.png";
 
 // Navbar moderno con diseño tipo Superhuman
 // Ubicación: src/ui/components/layout/Navbar/Navbar.tsx
@@ -36,24 +37,14 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          {/* Logo moderno */}
-          <Link to="/" className="group flex items-center gap-2">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{
-                background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-              }}
-            >
-              <span className="text-white font-black text-sm">V</span>
-            </div>
-            <span
-              className={`font-bold text-lg tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-[#4A5CFF] group-hover:to-[#7A8FFF] ${
-                isDark ? "text-white" : "text-gray-900"
-              }`}
-              style={{ transition: "all 400ms ease" }}
-            >
-              Verla
-            </span>
+          {/* Logo */}
+          <Link to="/" className="group flex items-center">
+            <img 
+              src={LogoVerla} 
+              alt="Verla" 
+              className="h-14 w-auto max-w-[200px]" 
+              style={{ transition: "all 300ms ease" }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
