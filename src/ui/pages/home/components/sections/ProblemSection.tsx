@@ -106,27 +106,20 @@ export default function ProblemSection() {
                   <div key={step.number} className="flex items-start gap-4">
                     {/* Number Circle */}
                     <div
-                      className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
+                      className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
                       style={{
                         background: "linear-gradient(135deg, #5B6FFF, #7A8FFF)",
+                        color: "#FFFFFF",
                       }}
                     >
                       {step.number}
                     </div>
                     {/* Content */}
                     <div className="pt-1">
-                      <h3
-                        className={`font-bold text-lg mb-1 ${
-                          isDark ? "text-white" : "text-gray-900"
-                        }`}
-                      >
+                      <h3 className="font-bold text-lg mb-1 text-white">
                         {step.title}
                       </h3>
-                      <p
-                        className={`text-sm ${
-                          isDark ? "text-gray-400" : "text-gray-600"
-                        }`}
-                      >
+                      <p className="text-sm text-white/80">
                         {step.description}
                       </p>
                     </div>
@@ -138,10 +131,11 @@ export default function ProblemSection() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => setIsDrawerOpen(true)}
-                  className="inline-flex items-center gap-2 px-8 py-3 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                   style={{
                     background: "linear-gradient(135deg, #4A5CFF, #FFFFFF)",
                     backgroundSize: "200% 100%",
+                    color: "#FFFFFF",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.backgroundPosition = "100% 0")
@@ -151,7 +145,7 @@ export default function ProblemSection() {
                   }
                 >
                   Saber más
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" stroke="#FFFFFF" strokeWidth={2} />
                 </button>
               </div>
             </div>
@@ -169,25 +163,41 @@ export default function ProblemSection() {
           />
 
           {/* Drawer Panel */}
-          <div className="fixed bottom-0 left-0 right-0 w-full max-h-[85vh] bg-linear-to-t from-black to-gray-900 border-t border-blue-500/30 shadow-2xl shadow-blue-500/20 z-50 animate-slideInUp overflow-y-auto rounded-t-3xl">
+          <div className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl backdrop-blur-xl ${
+            isDark 
+              ? 'bg-gray-900/95' 
+              : 'bg-white/95'
+          }`}>
             {/* Handle */}
-            <div className="sticky top-0 flex justify-center pt-3 pb-2 bg-gray-900/95 backdrop-blur-sm">
-              <div className="w-12 h-1.5 rounded-full bg-gray-600"></div>
+            <div className="sticky top-0 flex justify-center pt-3 pb-2">
+              <div className={`w-12 h-1.5 rounded-full ${
+                isDark ? 'bg-gray-600' : 'bg-gray-300'
+              }`}></div>
             </div>
 
             {/* Header */}
-            <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm border-b border-white/10 px-6 pb-6 flex items-center justify-between z-10">
-              <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-                <span className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <div className={`px-6 pb-6 flex items-center justify-between border-b ${
+              isDark 
+                ? 'border-white/10' 
+                : 'border-gray-200'
+            }`}>
+              <h2 className={`text-2xl font-bold flex items-center gap-3 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
                   📋
                 </span>
                 Información de Contacto
               </h2>
               <button
                 onClick={() => setIsDrawerOpen(false)}
-                className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-all"
+                className={`p-2 rounded-xl transition-all ${
+                  isDark 
+                    ? 'bg-white/5 hover:bg-white/10' 
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
               >
-                <X className="w-5 h-5 text-gray-400" />
+                <X className={`w-5 h-5 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
               </button>
             </div>
 
@@ -195,18 +205,28 @@ export default function ProblemSection() {
             <div className="p-6 space-y-6">
               {/* Contacto */}
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-white">Contáctanos</h3>
+                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>Contáctanos</h3>
 
                 {/* Teléfono */}
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center shrink-0">
-                    <Phone className="w-6 h-6 text-blue-400" />
+                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                  isDark 
+                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20' 
+                    : 'bg-blue-50 border-blue-200 hover:bg-blue-100'
+                }`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                    isDark ? 'bg-blue-500/20' : 'bg-blue-200'
+                  }`}>
+                    <Phone className={`w-6 h-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Teléfono</p>
+                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Teléfono</p>
                     <a
                       href="tel:+573001234567"
-                      className="text-white font-semibold hover:text-blue-400 transition-all"
+                      className={`font-semibold transition-all ${
+                        isDark 
+                          ? 'text-white hover:text-blue-400' 
+                          : 'text-gray-900 hover:text-blue-600'
+                      }`}
                     >
                       +57 300 123 4567
                     </a>
@@ -214,15 +234,25 @@ export default function ProblemSection() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6 text-purple-400" />
+                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                  isDark 
+                    ? 'bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20' 
+                    : 'bg-purple-50 border-purple-200 hover:bg-purple-100'
+                }`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                    isDark ? 'bg-purple-500/20' : 'bg-purple-200'
+                  }`}>
+                    <Mail className={`w-6 h-6 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Email</p>
+                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Email</p>
                     <a
                       href="mailto:info@verlapage.com"
-                      className="text-white font-semibold hover:text-purple-400 transition-all"
+                      className={`font-semibold transition-all ${
+                        isDark 
+                          ? 'text-white hover:text-purple-400' 
+                          : 'text-gray-900 hover:text-purple-600'
+                      }`}
                     >
                       info@verlapage.com
                     </a>
@@ -230,13 +260,19 @@ export default function ProblemSection() {
                 </div>
 
                 {/* Dirección */}
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-green-500/10 border border-green-500/20 hover:bg-green-500/20 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-green-400" />
+                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                  isDark 
+                    ? 'bg-green-500/10 border-green-500/20 hover:bg-green-500/20' 
+                    : 'bg-green-50 border-green-200 hover:bg-green-100'
+                }`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                    isDark ? 'bg-green-500/20' : 'bg-green-200'
+                  }`}>
+                    <MapPin className={`w-6 h-6 ${isDark ? 'text-green-400' : 'text-green-600'}`} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">Dirección</p>
-                    <p className="text-white font-semibold">
+                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Dirección</p>
+                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
                       Calle 123 #45-67
                       <br />
                       Bogotá, Colombia
@@ -245,15 +281,21 @@ export default function ProblemSection() {
                 </div>
 
                 {/* Horario */}
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 hover:bg-orange-500/20 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center shrink-0">
-                    <Clock className="w-6 h-6 text-orange-400" />
+                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                  isDark 
+                    ? 'bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20' 
+                    : 'bg-orange-50 border-orange-200 hover:bg-orange-100'
+                }`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                    isDark ? 'bg-orange-500/20' : 'bg-orange-200'
+                  }`}>
+                    <Clock className={`w-6 h-6 ${isDark ? 'text-orange-400' : 'text-orange-600'}`} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400 mb-1">
+                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                       Horario de Atención
                     </p>
-                    <p className="text-white font-semibold">
+                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
                       Lunes a Viernes: 8:00 AM - 6:00 PM
                       <br />
                       Sábados: 9:00 AM - 1:00 PM
@@ -264,20 +306,24 @@ export default function ProblemSection() {
 
               {/* Pasos */}
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-white">Proceso Simple</h3>
+                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>Proceso Simple</h3>
                 {steps.map((step) => (
                   <div
                     key={step.number}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10"
+                    className={`flex items-start gap-3 p-4 rounded-xl border ${
+                      isDark 
+                        ? 'bg-white/5 border-white/10' 
+                        : 'bg-gray-50 border-gray-200'
+                    }`}
                   >
-                    <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center text-white font-bold text-sm shrink-0">
                       {step.number}
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold mb-1">
+                      <h4 className={`font-semibold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         {step.title}
                       </h4>
-                      <p className="text-gray-400 text-sm">
+                      <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                         {step.description}
                       </p>
                     </div>
