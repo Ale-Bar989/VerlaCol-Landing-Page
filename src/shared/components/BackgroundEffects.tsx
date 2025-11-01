@@ -13,7 +13,7 @@ export default function BackgroundEffects({
   opacity = 15 
 }: BackgroundEffectsProps) {
   const baseClass = variant === 'animated' 
-    ? "absolute rounded-full blur-[150px] animate-pulse-slow"
+    ? "absolute rounded-full blur-[150px] animate-pulse"
     : "absolute rounded-full blur-[150px]";
 
   return (

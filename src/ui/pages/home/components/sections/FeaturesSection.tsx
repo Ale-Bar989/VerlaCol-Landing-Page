@@ -258,7 +258,7 @@ export default function FeaturesSection() {
                     background: "linear-gradient(135deg, #5B6FFF, #7A8FFF)",
                   }}
                 >
-                  <Zap className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  <Zap className="w-7 h-7" stroke="#FFFFFF" strokeWidth={2.5} />
                 </div>
                 <div className="flex-1">
                   <h3
@@ -308,7 +308,7 @@ export default function FeaturesSection() {
                     background: "linear-gradient(135deg, #7A8FFF, #5B6FFF)",
                   }}
                 >
-                  <Shield className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  <Shield className="w-7 h-7" stroke="#FFFFFF" strokeWidth={2.5} />
                 </div>
                 <div className="flex-1">
                   <h3
@@ -359,7 +359,7 @@ export default function FeaturesSection() {
                     background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
                   }}
                 >
-                  <Rocket className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  <Rocket className="w-7 h-7" stroke="#FFFFFF" strokeWidth={2.5} />
                 </div>
                 <div className="flex-1">
                   <h3
