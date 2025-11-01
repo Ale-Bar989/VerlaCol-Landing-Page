@@ -16,7 +16,8 @@ import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BackgroundEffects } from "../../../shared/components";
 import Navbar from "../../components/layout/Navbar/Navbar";
-import { ROUTES } from "../../../router/routes.config";
+import FooterSection from "../home/components/sections/FooterSection";                                   
+import { ROUTES } from "../../../router/routes.config";                                                                                                                   
 
 // Página de Precios de Verla
 // Ubicación: src/ui/pages/pricing/index.tsx
@@ -513,6 +514,8 @@ export default function PricingPage() {
           100% { background-position: -200% center; }
         }
       `}</style>
+
+      <FooterSection />
     </div>
   );
 }
