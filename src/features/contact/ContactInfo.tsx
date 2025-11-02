@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconBadge } from '../../components/common';
+import { IconBadge } from '@/shared/components';
 import type { ContactInfoProps } from './types';
 
 // Componente ContactInfo optimizado con React.memo
