@@ -1,9 +1,14 @@
-// Barrel export para componentes compartidos
+// Barrel export para componentes compartidos - Screaming Architecture
 // Ubicación: src/shared/components/index.ts
 
-export { default as PageLayout } from './PageLayout';
-export { default as ServiceHeroSection } from './ServiceHeroSection';
-export { default as FeaturesGrid } from './FeaturesGrid';
-export type { Feature } from './FeaturesGrid';
-export { default as CTASection } from './CTASection';
-export { default as BackgroundEffects } from './BackgroundEffects';
+// Layout components
+export * from './layout';
+
+// UI components
+export * from './ui';
+
+// Section components
+export * from './sections';
+
+// Effects components
+export * from './effects';

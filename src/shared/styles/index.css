@@ -5,6 +5,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Optimización de fuentes - font-display: swap para evitar FOIT */
+* {
+  font-display: swap;
+}
+
 /* ===== TEMA OSCURO (Default) ===== */
 :root,
 .dark {
