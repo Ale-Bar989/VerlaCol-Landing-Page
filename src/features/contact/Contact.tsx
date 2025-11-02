@@ -11,6 +11,7 @@ import {
 // import { Link } from "react-router-dom";
 import { BackgroundEffects, Navbar } from "@/shared//components";
 import { DESIGN_SYSTEM } from "@/shared//styles/design-system";
+import { FooterSection } from "../home/components";
 
 // Página Contact con diseño moderno
 // Ubicación: src/ui/pages/contact/Contact.tsx
@@ -339,6 +340,8 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      <FooterSection/>
     </div>
   );
 }
