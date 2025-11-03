@@ -1,6 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
 import { useLocalTheme } from '@/shared/hooks/useLocalTheme';
-import { DESIGN_SYSTEM } from '@/shared/styles/design-system';
 
 // Hero section reutilizable para páginas de servicios
 // Ubicación: src/shared/components/ServiceHeroSection.tsx
@@ -12,6 +11,46 @@ interface ServiceHeroSectionProps {
   subtitle: string;
 }
 
+// Componente para las líneas de fibra óptica
+const FiberOpticLines = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Líneas de fibra óptica */}
+      {[...Array(20)].map((_, i) => (
+        <div 
+          key={i}
+          className="absolute h-full w-[1px]"
+          style={{
+            left: `${5 + (i * 5)}%`,
+            background: 'linear-gradient(to bottom, transparent, #4A5CFF, transparent)',
+            opacity: 0.1,
+          }}
+        >
+          {/* Efecto de luz que viaja por la fibra */}
+          <div 
+            className="absolute w-full h-10 bg-white rounded-full animate-pulse"
+            style={{
+              top: `${Math.random() * 100}%`,
+              animationDuration: `${3 + Math.random() * 5}s`,
+              animationDelay: `${Math.random() * 5}s`,
+              boxShadow: '0 0 15px 2px rgba(74, 92, 255, 0.8)',
+              opacity: 0,
+              animationName: 'pulse',
+              animationIterationCount: 'infinite'
+            }}
+          />
+        </div>
+      ))}
+      
+      {/* Puntos de conexión */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(74, 92, 255, 0.1) 1px, transparent 1px)',
+        backgroundSize: '30px 30px'
+      }} />
+    </div>
+  );
+};
+
 export default function ServiceHeroSection({ 
   icon: Icon, 
   title, 
@@ -21,58 +60,98 @@ export default function ServiceHeroSection({
   const { isDark } = useLocalTheme();
 
   return (
-    <section className={`py-20 px-6 relative overflow-hidden ${
-      isDark ? 'bg-gray-950' : 'bg-gray-50'
+    <section className={`relative py-28 px-6 overflow-hidden ${
+      isDark ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-50 to-gray-100'
     }`}>
-      {/* Efectos de fondo */}
+      {/* Fondo de fibra óptica */}
+      <FiberOpticLines />
+      
+      {/* Efectos de luz */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px]" 
-          style={{ backgroundColor: isDark ? '#5B6FFF15' : '#5B6FFF08' }}
+          className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(74, 92, 255, 0.15) 0%, rgba(0,0,0,0) 70%)',
+            transform: 'translate(-50%, -50%)',
+            filter: 'blur(60px)'
+          }}
         />
         <div 
-          className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px]" 
-          style={{ backgroundColor: isDark ? '#7A8FFF15' : '#7A8FFF08' }}
+          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(122, 143, 255, 0.1) 0%, rgba(0,0,0,0) 70%)',
+            transform: 'translate(50%, -50%)',
+            filter: 'blur(40px)'
+          }}
         />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center">
           {/* Icon */}
           <div 
-            className="inline-flex items-center justify-center w-20 h-20 rounded-3xl mb-6" 
+            className="inline-flex items-center justify-center w-24 h-24 rounded-3xl mb-8 relative group"
             style={{
-              background: DESIGN_SYSTEM.gradients.primary,
-              boxShadow: DESIGN_SYSTEM.shadows.large
+              background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)',
+              boxShadow: '0 0 40px rgba(74, 92, 255, 0.3)'
             }}
           >
-            <Icon className="w-10 h-10 text-white" />
+            <Icon className="w-12 h-12 text-white transition-transform group-hover:scale-110" />
+            {/* Efecto de resplandor */}
+            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
+              background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)',
+            }} />
           </div>
 
           {/* Title */}
-          <h1 className={`text-4xl md:text-6xl font-bold mb-6 ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
             {title}{' '}
-            <span 
-              className="text-transparent bg-clip-text" 
-              style={{
-                backgroundImage: DESIGN_SYSTEM.gradients.primaryWithWhite,
-                backgroundSize: '200% 100%'
-              }}
-            >
+            <span className="bg-clip-text text-transparent" style={{ 
+              backgroundImage: 'linear-gradient(90deg, #4A5CFF, #7A8FFF)'
+            }}>
               {highlight}
             </span>
           </h1>
-
-          {/* Subtitle */}
-          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${
-            isDark ? 'text-gray-300' : 'text-gray-700'
-          }`}>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
+
+          {/* Efecto de partículas */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(20)].map((_, i) => (
+              <div 
+                key={`particle-${i}`}
+                className="absolute rounded-full bg-white/20"
+                style={{
+                  width: `${Math.random() * 6 + 2}px`,
+                  height: `${Math.random() * 6 + 2}px`,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animation: `float ${5 + Math.random() * 10}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  opacity: 0.3 + Math.random() * 0.7
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
+      
+      {/* Animaciones CSS */}
+      <style jsx global>{`
+        @keyframes float {
+          0% { transform: translateY(0) translateX(0); opacity: 0; }
+          10% { opacity: 0.5; }
+          90% { opacity: 0.5; }
+          100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+        }
+        @keyframes pulse {
+          0% { transform: translateY(-50px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(calc(100vh + 50px)); opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 }
