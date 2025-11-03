@@ -209,7 +209,7 @@ export default function FibraResidencialPage() {
       <section className={`${isDark ? "bg-black" : "bg-white"}`}>
         <div className="container mx-auto max-w-7xl px-6 pb-1">
           <h2
-            className={`text-3xl md:text-4xl font-bold text-center mb-1 mt-20 ${
+            className={`text-3xl md:text-4xl font-bold text-center mb-1 pt-20 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >

@@ -27,7 +27,7 @@ export default function FeaturesGrid({ features, columns = 4 }: FeaturesGridProp
   };
 
   return (
-    <section className="py-20 relative">
+    <section className="pt-15 pb-20 relative">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div 

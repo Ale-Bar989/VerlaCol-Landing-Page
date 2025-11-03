@@ -9,6 +9,7 @@ interface ServiceHeroSectionProps {
   title: string;
   highlight: string;
   subtitle: string;
+  isDark?: boolean;
 }
 
 // Componente para las líneas de fibra óptica
@@ -55,13 +56,14 @@ export default function ServiceHeroSection({
   icon: Icon, 
   title, 
   highlight, 
-  subtitle 
+  subtitle,
+  isDark = false 
 }: ServiceHeroSectionProps) {
-  const { isDark } = useLocalTheme();
+  const { isDark: themeIsDark } = useLocalTheme();
 
   return (
     <section className={`relative py-28 px-6 overflow-hidden ${
-      isDark ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-50 to-gray-100'
+      (isDark || themeIsDark) ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-50 to-gray-100'
     }`}>
       {/* Fondo de fibra óptica */}
       <FiberOpticLines />
@@ -96,11 +98,13 @@ export default function ServiceHeroSection({
               boxShadow: '0 0 40px rgba(74, 92, 255, 0.3)'
             }}
           >
-            <Icon className="w-12 h-12 text-white transition-transform group-hover:scale-110" />
-            {/* Efecto de resplandor */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-              background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)',
-            }} />
+            <Icon className="w-12 h-12 text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-110" />
+            {/* Efecto de resplandor solo en tema oscuro */}
+            {isDark && (
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" style={{
+                background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)',
+              }} />
+            )}
           </div>
 
           {/* Title */}
