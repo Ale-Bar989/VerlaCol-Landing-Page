@@ -207,7 +207,7 @@ function HeroSection() {
               style={{
                 borderTop: "3px solid #000000",
                 borderRight: "3px solid #000000",
-                backgroundColor: theme === "dark" ? "#000000" : "#ffffff",
+                backgroundColor: theme === "dark" ? "#000000" : "#f5f7fa",
               }}
             >
               <Link
