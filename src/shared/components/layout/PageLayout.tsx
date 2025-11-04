@@ -17,7 +17,7 @@ export default function PageLayout({ children, className = '' }: PageLayoutProps
   return (
     <div className={`min-h-screen ${isDark ? 'bg-black' : 'bg-white'} ${className}`}>
       <Navbar />
-      <main className="pt-24 pb-16">
+      <main className="pt-19 pb-0">
         {children}
       </main>
       <FooterSection />
