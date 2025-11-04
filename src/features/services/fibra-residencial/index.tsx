@@ -64,7 +64,7 @@ export default function FibraResidencialPage() {
 
       {/* Main Description */}
       <section className={`relative py-20 px-6 overflow-hidden ${
-        isDark ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-50 to-gray-100'
+        isDark ? 'bg-linear-to-br from-gray-900 to-black' : 'bg-linear-to-br from-gray-50 to-gray-100'
       }`}>
         {/* Fiber Optic Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -72,7 +72,7 @@ export default function FibraResidencialPage() {
           {[...Array(20)].map((_, i) => (
             <div 
               key={i}
-              className="absolute h-full w-[1px]"
+              className="absolute h-full w-px"
               style={{
                 left: `${5 + (i * 5)}%`,
                 background: 'linear-gradient(to bottom, transparent, #4A5CFF, transparent)',
@@ -130,7 +130,7 @@ export default function FibraResidencialPage() {
               } border ${
                 isDark ? 'border-gray-800' : 'border-gray-200'
               } shadow-2xl transform transition-all duration-500 hover:scale-[1.02]`}>
-                <h2 className={`text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${
+                <h2 className={`text-3xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r ${
                   isDark ? 'from-blue-400 to-cyan-400' : 'from-blue-600 to-cyan-600'
                 }`}>
                   Conexión de Próxima Generación
@@ -169,13 +169,13 @@ export default function FibraResidencialPage() {
               <div className="absolute inset-0 bg-cover bg-center" style={{
                 backgroundImage: 'url(https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)'
               }} />
-              <div className={`absolute inset-0 bg-gradient-to-t ${
+              <div className={`absolute inset-0 bg-linear-to-t ${
                 isDark ? 'from-black/80 to-transparent' : 'from-white/80 to-transparent'
               }`} />
               <div className="absolute inset-0 flex items-end p-8">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                  <button className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium rounded-lg flex items-center space-x-2">
+                  <div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                  <button className="relative px-6 py-3 bg-linear-to-r from-blue-600 to-cyan-600 text-white font-medium rounded-lg flex items-center space-x-2">
                     <span>Ver planes disponibles</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -188,7 +188,7 @@ export default function FibraResidencialPage() {
         </div>
         
         {/* Animation keyframes */}
-        <style jsx global>{`
+        <style>{`
           @keyframes pulse {
             0% { 
               transform: translateY(-100%);
@@ -220,7 +220,7 @@ export default function FibraResidencialPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-gradient-to-br from-gray-50 to-white"}`}>
+      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-linear-to-br from-gray-50 to-white"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div 
@@ -257,7 +257,7 @@ export default function FibraResidencialPage() {
                 }}
               >
                 {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="flex items-center gap-4 relative z-10">
                   <div
@@ -287,7 +287,7 @@ export default function FibraResidencialPage() {
                 {/* Animated border effect */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden">
                   <div 
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                       maskComposite: 'exclude',

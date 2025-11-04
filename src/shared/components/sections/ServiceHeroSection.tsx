@@ -20,7 +20,7 @@ const FiberOpticLines = () => {
       {[...Array(20)].map((_, i) => (
         <div 
           key={i}
-          className="absolute h-full w-[1px]"
+          className="absolute h-full w-px"
           style={{
             left: `${5 + (i * 5)}%`,
             background: 'linear-gradient(to bottom, transparent, #4A5CFF, transparent)',
@@ -63,7 +63,7 @@ export default function ServiceHeroSection({
 
   return (
     <section className={`relative py-28 px-6 overflow-hidden ${
-      (isDark || themeIsDark) ? 'bg-gradient-to-br from-gray-900 to-black' : 'bg-gradient-to-br from-gray-50 to-gray-100'
+      (isDark || themeIsDark) ? 'bg-linear-to-br from-gray-900 to-black' : 'bg-linear-to-br from-gray-50 to-gray-100'
     }`}>
       {/* Fondo de fibra óptica */}
       <FiberOpticLines />
@@ -98,17 +98,17 @@ export default function ServiceHeroSection({
               boxShadow: '0 0 40px rgba(74, 92, 255, 0.3)'
             }}
           >
-            <Icon className="w-12 h-12 text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-110" />
+            <Icon className="w-12 h-12 text-white transition-all duration-500 ease-in-out group-hover:scale-110" />
             {/* Efecto de resplandor solo en tema oscuro */}
             {isDark && (
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" style={{
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out" style={{
                 background: 'radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 70%)',
               }} />
             )}
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-linear-to-r from-white to-gray-300">
             {title}{' '}
             <span className="bg-clip-text text-transparent" style={{ 
               backgroundImage: 'linear-gradient(90deg, #4A5CFF, #7A8FFF)'
@@ -142,7 +142,7 @@ export default function ServiceHeroSection({
       </div>
       
       {/* Animaciones CSS */}
-      <style jsx global>{`
+      <style>{`
         @keyframes float {
           0% { transform: translateY(0) translateX(0); opacity: 0; }
           10% { opacity: 0.5; }

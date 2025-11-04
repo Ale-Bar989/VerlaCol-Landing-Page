@@ -17,7 +17,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       return "dark";
     }
 
-    return "dark"; // Default to dark
+    return "light"; // Default to light
   });
 
   // Apply theme to document
@@ -34,6 +34,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     // Save to localStorage
     localStorage.setItem("theme", theme);
+
+    // Dispatch custom event for components using useLocalTheme
+    window.dispatchEvent(new CustomEvent("themeChange", { detail: theme }));
   }, [theme]);
 
   // Memoizar toggleTheme para evitar recreación en cada render
