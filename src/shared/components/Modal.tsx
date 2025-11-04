@@ -39,7 +39,7 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-9999 flex items-center justify-center p-4"
+      className="fixed inset-0 z-9999 flex items-center justify-center p-2 sm:p-4"
       style={{
         animation: 'fadeIn 0.3s ease-out',
       }}
@@ -55,7 +55,7 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-linear-to-br from-gray-900 via-black to-gray-900 border border-white/10 rounded-3xl shadow-2xl"
+        className="relative w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-linear-to-br from-gray-900 via-black to-gray-900 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl"
         style={{
           animation: 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           boxShadow: '0 25px 50px -12px rgba(74, 92, 255, 0.25)',
@@ -63,13 +63,13 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
       >
         {/* Header */}
         {title && (
-          <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 bg-black/50 backdrop-blur-xl border-b border-white/10">
-            <h2 className="text-2xl font-bold text-white">{title}</h2>
+          <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 sm:py-6 bg-black/50 backdrop-blur-xl border-b border-white/10">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{title}</h2>
             <button
               onClick={onClose}
               className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
             >
-              <X className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" strokeWidth={2.5} />
+              <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" strokeWidth={2.5} />
             </button>
           </div>
         )}
@@ -78,14 +78,14 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
         {!title && (
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-10 p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 z-10 p-1.5 sm:p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 group"
           >
-            <X className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" strokeWidth={2.5} />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" strokeWidth={2.5} />
           </button>
         )}
 
         {/* Content */}
-        <div className="p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           {children}
         </div>
       </div>

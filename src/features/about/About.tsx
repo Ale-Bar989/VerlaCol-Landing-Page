@@ -13,18 +13,18 @@ export default function About() {
       
       <Navbar />
       
-      <div className="pt-32 pb-20 px-6 relative z-10">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 relative z-10">
         <div className="container mx-auto max-w-5xl">
           {/* Header moderno */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
-              <Sparkles className="w-4 h-4 text-[#4A5CFF]" />
-              <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 bg-white/5 border border-white/10 rounded-full mb-6 sm:mb-8">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4A5CFF]" />
+              <span className="text-xs sm:text-sm font-semibold text-gray-300 uppercase tracking-wider">
                 Nuestra Historia
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight">
               Sobre{' '}
               <span 
                 className="text-transparent bg-clip-text animate-gradient inline-block"
@@ -37,32 +37,32 @@ export default function About() {
               </span>
             </h1>
             
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Conectamos hogares colombianos con la mejor tecnología en{' '}
               <span className="text-white font-semibold">Internet y TV IP</span>
             </p>
           </div>
 
           {/* Card principal con diseño premium */}
-          <div className="relative rounded-3xl p-12 mb-20 overflow-hidden group">
+          <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 md:mb-20 overflow-hidden group">
             {/* Fondo con gradiente */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))' }}></div>
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-center mb-8">
+              <div className="flex items-center justify-center mb-6 sm:mb-8">
                 <div 
-                  className="w-24 h-24 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500" 
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500" 
                   style={{ background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)', boxShadow: '0 8px 32px rgba(74, 92, 255, 0.4)' }}
                 >
-                  <Tv size={48} className="text-white" strokeWidth={2.5} />
+                  <Tv size={40} className="sm:w-12 sm:h-12 text-white" strokeWidth={2.5} />
                 </div>
               </div>
-              <p className="text-2xl text-white text-center leading-relaxed mb-6 font-semibold">
+              <p className="text-lg sm:text-xl md:text-2xl text-white text-center leading-relaxed mb-4 sm:mb-6 font-semibold">
                 Verla es un proveedor de servicios de telecomunicaciones especializado en Internet de fibra óptica y TV IP.
               </p>
-              <p className="text-lg text-gray-300 text-center leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 text-center leading-relaxed max-w-3xl mx-auto">
                 Ofrecemos conexiones de alta velocidad simétricas (FTTH) y televisión por IP en alta definición,
                 llevando entretenimiento sin límites a los hogares colombianos con tecnología de última generación.
               </p>
@@ -70,41 +70,41 @@ export default function About() {
           </div>
 
           {/* Cards MVV modernas */}
-          <div className="grid md:grid-cols-3 gap-6 mb-20">
-            <div className="relative rounded-2xl p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)' }}>
-                  <Target size={28} className="text-white" strokeWidth={2.5} />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)' }}>
+                  <Target size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white">Misión</h3>
+                <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Misión</h3>
                 <p className="text-gray-300 leading-relaxed">
                   Conectar hogares colombianos con servicios de Internet de fibra óptica y TV IP de alta calidad, brindando velocidad, estabilidad y entretenimiento sin límites.
                 </p>
               </div>
             </div>
 
-            <div className="relative rounded-2xl p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={{ background: DESIGN_SYSTEM.gradients.primary }}>
-                  <Heart size={28} className="text-white" strokeWidth={2.5} />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: DESIGN_SYSTEM.gradients.primary }}>
+                  <Heart size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white">Valores</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Valores</h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Calidad de servicio, innovación tecnológica y atención al cliente son los pilares que guían cada decisión en Verla.
                 </p>
               </div>
             </div>
 
-            <div className="relative rounded-2xl p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #7A8FFF, #4A5CFF)' }}>
-                  <Globe size={28} className="text-white" strokeWidth={2.5} />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #7A8FFF, #4A5CFF)' }}>
+                  <Globe size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white">Visión</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Visión</h3>
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Ser el proveedor líder de telecomunicaciones en Colombia, reconocido por nuestra tecnología FTTH y servicio al cliente excepcional.
                 </p>
               </div>
@@ -112,31 +112,31 @@ export default function About() {
           </div>
 
           {/* Infraestructura Tecnológica */}
-          <div className="relative rounded-3xl p-12 text-center overflow-hidden">
+          <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center overflow-hidden">
             {/* Fondo con gradiente */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))' }}></div>
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full mb-6">
-                <Zap className="w-4 h-4 text-[#4A5CFF]" />
+              <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full mb-4 sm:mb-6">
+                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4A5CFF]" />
                 <span className="text-xs font-bold text-white uppercase tracking-wider">
                   Infraestructura
                 </span>
               </div>
               
-              <h2 className="text-4xl font-black mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4">
                 Nuestra{' '}
                 <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)' }}>
                   Tecnología
                 </span>
               </h2>
-              <p className="text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4">
                 Infraestructura de telecomunicaciones de última generación para garantizar la mejor experiencia
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                 {[
                   { name: 'FTTH/FTTX', Icon: Radio, desc: "Fibra hasta el hogar" },
                   { name: 'GPON/OLT', Icon: Zap, desc: "Red óptica pasiva" },
@@ -149,28 +149,28 @@ export default function About() {
                 ].map((tech) => (
                   <div 
                     key={tech.name}
-                    className="relative rounded-2xl p-6 group/item transition-all duration-300 hover:scale-105"
+                    className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 group/item transition-all duration-300 hover:scale-105"
                     style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))', border: '1px solid rgba(74, 92, 255, 0.2)' }}
                   >
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))' }}></div>
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))' }}></div>
                     
                     <div className="relative z-10">
-                      <div className="mb-3 group-hover/item:scale-110 transition-transform duration-300">
-                        <tech.Icon className="w-10 h-10 text-[#4A5CFF]" strokeWidth={1.5} />
+                      <div className="mb-2 sm:mb-3 group-hover/item:scale-110 transition-transform duration-300">
+                        <tech.Icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#4A5CFF]" strokeWidth={1.5} />
                       </div>
-                      <h4 className="font-bold text-white mb-1">
+                      <h4 className="text-sm sm:text-base font-bold text-white mb-1">
                         {tech.name}
                       </h4>
-                      <p className="text-xs text-gray-400">{tech.desc}</p>
+                      <p className="text-[10px] sm:text-xs text-gray-400">{tech.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
               {/* Ventajas competitivas */}
-              <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8 sm:mt-10 md:mt-12">
                 <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
-                  <Zap className="w-4 h-4" />
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   Velocidad Simétrica
                 </span>
                 <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
