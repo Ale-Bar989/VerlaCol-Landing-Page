@@ -62,10 +62,10 @@ export default function FeaturesGrid({ features, columns = 4 }: FeaturesGridProp
                 {/* Shine effect */}
                 <div className="absolute inset-0 overflow-hidden">
                   <div 
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
                   <div 
-                    className="shine-border absolute inset-0 bg-gradient-to-r from-blue-500/20 via-cyan-500/40 to-transparent w-1/2 transform -skew-x-12"
+                    className="shine-border absolute inset-0 bg-linear-to-r from-blue-500/20 via-cyan-500/40 to-transparent w-1/2 transform -skew-x-12"
                     style={{
                       height: '200%',
                       top: '-50%',
@@ -117,7 +117,7 @@ export default function FeaturesGrid({ features, columns = 4 }: FeaturesGridProp
           })}
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes shineUp {
           0% {
             transform: translateY(100%) skewX(-12deg);

@@ -24,16 +24,17 @@ import LogoVerla from "@/shared/assets/logo verla horizontal.png";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLegalOpen, setIsLegalOpen] = useState(false);
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
   // Memoizar handlers para evitar recreación
   const handleMenuToggle = useCallback(() => {
-    setIsMenuOpen(prev => !prev);
+    setIsMenuOpen((prev) => !prev);
   }, []);
 
   const handleLegalToggle = useCallback(() => {
-    setIsLegalOpen(prev => !prev);
+    setIsLegalOpen((prev) => !prev);
   }, []);
 
   const handleMenuClose = useCallback(() => {
@@ -52,13 +53,15 @@ function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="group flex items-center">
-            <img 
-              src={LogoVerla} 
-              alt="Verla" 
-              className="h-14 w-auto max-w-[200px]" 
-              style={{ 
+            <img
+              src={LogoVerla}
+              alt="Verla"
+              className="h-14 w-auto max-w-[200px]"
+              style={{
                 transition: "all 300ms ease",
-                filter: isDark ? "brightness(1.5) contrast(1.3) saturate(1.1)" : "none",
+                filter: isDark
+                  ? "brightness(1.5) contrast(1.3) saturate(1.1)"
+                  : "none",
               }}
             />
           </Link>
@@ -466,7 +469,9 @@ function Navbar() {
           {/* Theme Toggle Button - Oculto en móvil */}
           <button
             onClick={toggleTheme}
-            className="hidden md:flex group relative w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 items-center justify-center transition-all duration-500 hover:scale-105 overflow-hidden"
+            onMouseEnter={() => setIsTooltipVisible(true)}
+            onMouseLeave={() => setIsTooltipVisible(false)}
+            className="hidden md:flex group relative w-11 h-11 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 items-center justify-center transition-all duration-500 hover:scale-105"
             aria-label={
               theme === "dark"
                 ? "Cambiar a tema claro"
@@ -479,28 +484,31 @@ function Navbar() {
                   : "0 2px 8px rgba(74, 92, 255, 0.25)",
             }}
           >
-            {/* Efecto de fondo animado */}
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500"
-              style={{
-                background:
-                  theme === "dark"
-                    ? "linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.15))"
-                    : "linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.15))",
-              }}
-            ></div>
+            {/* Contenedor con overflow para efectos internos */}
+            <div className="absolute inset-0 rounded-xl overflow-hidden">
+              {/* Efecto de fondo animado */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                style={{
+                  background:
+                    theme === "dark"
+                      ? "linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.15))"
+                      : "linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.15))",
+                }}
+              ></div>
 
-            {/* Círculo de fondo giratorio */}
-            <div
-              className="absolute inset-0 rounded-xl transition-all duration-700"
-              style={{
-                background:
-                  theme === "dark"
-                    ? "conic-gradient(from 0deg, transparent, rgba(74, 92, 255, 0.15), transparent)"
-                    : "conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.25), transparent)",
-                transform: `rotate(${theme === "dark" ? "0deg" : "180deg"})`,
-              }}
-            ></div>
+              {/* Círculo de fondo giratorio */}
+              <div
+                className="absolute inset-0 rounded-xl transition-all duration-700"
+                style={{
+                  background:
+                    theme === "dark"
+                      ? "conic-gradient(from 0deg, transparent, rgba(74, 92, 255, 0.15), transparent)"
+                      : "conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.25), transparent)",
+                  transform: `rotate(${theme === "dark" ? "0deg" : "180deg"})`,
+                }}
+              ></div>
+            </div>
 
             {/* Iconos con animación mejorada */}
             <div className="relative w-5 h-5 z-10">
@@ -536,29 +544,79 @@ function Navbar() {
               />
             </div>
 
-            {/* Tooltip mejorado */}
+            {/* Tooltip moderno - Aparece hacia abajo - Adaptado al tema */}
             <div
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-2 rounded-lg text-xs font-semibold opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-300 whitespace-nowrap pointer-events-none z-50"
+              className="absolute top-full left-1/2 -translate-x-1/2 mt-3 px-4 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(0, 0, 0, 0.98))",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(74, 92, 255, 0.3)",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-                color: "#ffffff",
+                  theme === "dark"
+                    ? "linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(15, 15, 15, 0.98))"
+                    : "linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98))",
+                backdropFilter: "blur(20px)",
+                border: `1.5px solid ${
+                  theme === "dark"
+                    ? "rgba(74, 92, 255, 0.4)"
+                    : "rgba(74, 92, 255, 0.3)"
+                }`,
+                boxShadow:
+                  theme === "dark"
+                    ? "0 10px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(74, 92, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                    : "0 10px 40px rgba(74, 92, 255, 0.25), 0 0 0 1px rgba(74, 92, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
+                color: theme === "dark" ? "#ffffff" : "#1a1a1a",
+                zIndex: 9999,
+                opacity: isTooltipVisible ? 1 : 0,
+                transform: isTooltipVisible 
+                  ? "translateY(0) scale(1)" 
+                  : "translateY(-8px) scale(0.95)",
+                transition: "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
-              <span>
-                {theme === "dark" ? "☀️ Tema Claro" : "🌙 Tema Oscuro"}
-              </span>
+              {/* Flecha superior */}
               <div
-                className="absolute top-full left-1/2 -translate-x-1/2 -mt-px"
+                className="absolute bottom-full left-1/2 -translate-x-1/2"
                 style={{
                   width: 0,
                   height: 0,
-                  borderLeft: "5px solid transparent",
-                  borderRight: "5px solid transparent",
-                  borderTop: "5px solid rgba(74, 92, 255, 0.3)",
+                  borderLeft: "7px solid transparent",
+                  borderRight: "7px solid transparent",
+                  borderBottom: `7px solid ${
+                    theme === "dark"
+                      ? "rgba(26, 26, 26, 0.98)"
+                      : "rgba(255, 255, 255, 0.98)"
+                  }`,
+                  marginBottom: "-1px",
+                  opacity: isTooltipVisible ? 1 : 0,
+                  transition: "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+              ></div>
+
+              <span className="flex items-center gap-2 relative">
+                {theme === "dark" ? (
+                  <Moon className="w-4 h-4 text-blue-400" strokeWidth={2.5} />
+                ) : (
+                  <Sun className="w-4 h-4 text-yellow-500" strokeWidth={2.5} />
+                )}
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      theme === "dark"
+                        ? "linear-gradient(to right, #ffffff, #e5e7eb)"
+                        : "linear-gradient(to right, #1a1a1a, #4b5563)",
+                  }}
+                >
+                  {theme === "dark" ? "Tema Oscuro" : "Tema Claro"}
+                </span>
+              </span>
+
+              {/* Brillo sutil */}
+              <div
+                className="absolute inset-0 rounded-xl opacity-30 pointer-events-none"
+                style={{
+                  background:
+                    theme === "dark"
+                      ? "linear-gradient(135deg, rgba(74, 92, 255, 0.2), transparent)"
+                      : "linear-gradient(135deg, rgba(74, 92, 255, 0.15), transparent)",
                 }}
               ></div>
             </div>
@@ -886,15 +944,15 @@ function Navbar() {
                   {theme === "dark" ? "Tema Oscuro" : "Tema Claro"}
                 </span>
               </div>
-              <div
+              {/* <div
                 className={`text-xs px-2.5 py-1 rounded-lg ${
                   isDark
                     ? "text-gray-400 bg-white/5"
                     : "text-gray-600 bg-gray-100"
                 }`}
-              >
-                {theme === "dark" ? "☀️" : "🌙"}
-              </div>
+              > */}
+              {/* {theme === "dark" ? "☀️" : "🌙"} */}
+              {/* </div> */}
             </button>
 
             {/* Separador */}

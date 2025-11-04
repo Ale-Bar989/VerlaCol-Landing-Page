@@ -30,7 +30,7 @@ export default function CTASection({
   };
 
   return (
-    <section className={`relative flex items-center justify-center min-h-[60vh] py-16 px-6 overflow-hidden ${isDark ? 'bg-gray-950' : 'bg-gradient-to-br from-gray-50 to-white'}`}>
+    <section className={`relative flex items-center justify-center min-h-[60vh] py-16 px-6 overflow-hidden ${isDark ? 'bg-gray-950' : 'bg-linear-to-br from-gray-50 to-white'}`}>
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
@@ -65,7 +65,7 @@ export default function CTASection({
           <div className="absolute bottom-0 left-0 w-64 h-64 -ml-32 -mb-32 bg-cyan-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
           
           <div className="relative z-10 text-center">
-            <h2 className={`text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent mx-auto ${isDark ? 'bg-gradient-to-r from-white to-blue-100' : 'bg-gradient-to-br from-gray-50 to-white'}`}>
+            <h2 className={`text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent mx-auto ${isDark ? 'bg-linear-to-r from-white to-blue-100' : 'bg-linear-to-br from-gray-50 to-white'}`}>
               {title}
             </h2>
             
@@ -79,21 +79,21 @@ export default function CTASection({
                 className={`group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full transition-all duration-500 overflow-hidden ${
                   isDark 
                     ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20' 
-                    : 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1'
+                    : 'bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1'
                 }`}
               >
                 <span className={`relative z-10 flex items-center`}>
                   {buttonText}
                   <ArrowRight className="ml-3 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
                 </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
+                <span className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
               </button>
             </div>
           </div>
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         @keyframes blob {
           0% { transform: translate(0px, 0px) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }

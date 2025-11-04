@@ -164,7 +164,7 @@ export default function TVDigitalPage() {
       </section>
 
       {/* Channel Categories */}
-      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gradient-to-br from-gray-950 to-gray-900" : "bg-gradient-to-br from-gray-50 to-gray-100"}`}>
+      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-linear-to-br from-gray-950 to-gray-900" : "bg-linear-to-br from-gray-50 to-gray-100"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div 
@@ -179,7 +179,7 @@ export default function TVDigitalPage() {
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent ${isDark ? 'bg-gradient-to-r from-white to-gray-300' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
+            <h2 className={`text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent ${isDark ? 'bg-linear-to-r from-white to-gray-300' : 'bg-linear-to-br from-gray-50 to-gray-100'}`}>
               Categorías de Contenido
             </h2>
             <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -212,7 +212,7 @@ export default function TVDigitalPage() {
                 >
                   {/* Hover effect */}
                   <div 
-                    className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100"
+                    className="absolute inset-0 bg-linear-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100"
                     style={{
                       transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                       willChange: 'opacity'
@@ -299,7 +299,7 @@ export default function TVDigitalPage() {
                     pointerEvents: 'none'
                   }}>
                     <div 
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100"
                       style={{
                         transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                         willChange: 'opacity',
@@ -317,7 +317,7 @@ export default function TVDigitalPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-gradient-to-br from-gray-50 to-white"}`}>
+      <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-linear-to-br from-gray-50 to-white"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div 
@@ -354,7 +354,7 @@ export default function TVDigitalPage() {
                 }}
               >
                 {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="flex items-center gap-4 relative z-10">
                   <div
@@ -384,7 +384,7 @@ export default function TVDigitalPage() {
                 {/* Animated border effect */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden">
                   <div 
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                       maskComposite: 'exclude',
