@@ -4,3 +4,5 @@
 export { useLocalTheme } from './useLocalTheme';
 export { useIntersectionObserver } from './useIntersectionObserver';
 export { useDebounce } from './useDebounce';
+export { useRealConnection } from './useRealConnection';
+export { useRealStats } from './useRealStats';

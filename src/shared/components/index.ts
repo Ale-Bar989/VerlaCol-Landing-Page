@@ -12,3 +12,6 @@ export * from './sections';
 
 // Effects components
 export * from './effects';
+
+// Modal and interactive components
+export { Modal } from './Modal';

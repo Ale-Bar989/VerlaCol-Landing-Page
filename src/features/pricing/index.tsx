@@ -13,11 +13,11 @@ import {
   Film,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
-import { BackgroundEffects } from '@/shared/components';
+import { useState } from "react";
+import { BackgroundEffects, Modal } from '@/shared/components';
 import { Navbar } from '@/shared/components';
 import FooterSection from '@/features/home/components/sections/FooterSection';
-import { ROUTES } from '@/core/router/routes.config';                                                                                                                   
+import { PricingSpeedTest } from './components';                                                                                                                   
 
 // Página de Precios de Verla
 // Ubicación: src/ui/pages/pricing/index.tsx
@@ -140,6 +140,19 @@ const plans: Plan[] = [
 ];
 
 export default function PricingPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+
+  const handleOpenModal = (plan: Plan) => {
+    setSelectedPlan(plan);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedPlan(null), 300);
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
@@ -392,8 +405,8 @@ export default function PricingPage() {
                     </div>
 
                     {/* Botón CTA moderno con icono */}
-                    <Link
-                      to={ROUTES.CONTACT}
+                    <button
+                      onClick={() => handleOpenModal(plan)}
                       className={`group/btn relative flex items-center justify-center gap-2 w-full py-4 rounded-xl font-bold transition-all duration-300 overflow-hidden ${
                         plan.highlighted
                           ? "text-white shadow-lg hover:shadow-xl hover:scale-105"
@@ -425,7 +438,7 @@ export default function PricingPage() {
                         className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform"
                         strokeWidth={2.5}
                       />
-                    </Link>
+                    </button>
                   </div>
 
                   {/* Línea decorativa inferior */}
@@ -516,6 +529,16 @@ export default function PricingPage() {
       `}</style>
 
       <FooterSection />
+
+      {/* Modal con SpeedTest animado */}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {selectedPlan && (
+          <PricingSpeedTest
+            planName={selectedPlan.name}
+            planSpeed={selectedPlan.speed}
+          />
+        )}
+      </Modal>
     </div>
   );
 }
