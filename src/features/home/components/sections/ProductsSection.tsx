@@ -36,12 +36,12 @@ const PRODUCTS_DATA = [
   },
   {
     id: 3,
-    title: "Internet + TV",
+    title: "Planes Empresariales",
     description:
-      "El mejor combo de internet de alta velocidad y televisión de calidad. Ahorra con nuestros paquetes combinados diseñados para toda la familia.",
+      "Soluciones de conectividad empresarial con ancho de banda dedicado, IP fija y soporte prioritario. Garantizamos la estabilidad que tu negocio necesita para operar sin interrupciones.",
     image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    link: ROUTES.SERVICES.FIBRA_RESIDENCIAL,
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    link: ROUTES.SERVICES.PLANES_EMPRESARIALES,
     glowColor: {
       start: "rgba(168, 85, 247, 0.9)",
       mid: "rgba(147, 51, 234, 0.7)",
