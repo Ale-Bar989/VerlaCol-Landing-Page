@@ -194,6 +194,19 @@ export const SpeedTestCard: React.FC = memo(() => {
             </div>
           )}
 
+          {/* Tips rotatorios cuando está midiendo */}
+          {isMeasuring && (
+            <div className="text-center min-h-[40px] flex items-center justify-center">
+              <p
+                className={`text-sm font-medium ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                💡 {CONNECTION_TIPS[tipIndex]}
+              </p>
+            </div>
+          )}
+
           {/* Tips visibles cuando NO está midiendo */}
           {!isMeasuring && (
             <div className="text-center min-h-[40px] flex items-center justify-center">
