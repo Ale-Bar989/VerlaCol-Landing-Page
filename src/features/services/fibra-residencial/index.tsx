@@ -175,7 +175,10 @@ export default function FibraResidencialPage() {
               <div className="absolute inset-0 flex items-end p-8">
                 <div className="relative">
                   <div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                  <button className="relative px-6 py-3 bg-linear-to-r from-blue-600 to-cyan-600 text-white font-medium rounded-lg flex items-center space-x-2">
+                  <button 
+                    onClick={() => window.location.href = ROUTES.PRICING}
+                    className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-medium rounded-lg flex items-center space-x-2 transition-colors duration-200"
+                  >
                     <span>Ver planes disponibles</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
