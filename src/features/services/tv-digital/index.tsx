@@ -132,17 +132,6 @@ export default function TVDigitalPage() {
     },
   ];
 
-  const benefits = [
-    "Plataforma IPTV White Label personalizable",
-    "Panel de control administrativo completo",
-    "Sistema de facturación y gestión de usuarios",
-    "API de integración para desarrolladores",
-    "Servidores dedicados de alto rendimiento",
-    "Soporte técnico prioritario 24/7",
-    "Actualizaciones constantes de contenido",
-    "Solución escalable para cualquier tamaño de negocio",
-  ];
-
   const wholesaleSolutions: string[] = [
     "Panel de control empresarial completo",
     "Sistema de facturación integrado",
