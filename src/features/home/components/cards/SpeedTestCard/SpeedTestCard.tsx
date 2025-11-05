@@ -123,8 +123,8 @@ export const SpeedTestCard: React.FC = memo(() => {
     <ModernCard icon={<Zap className='w-6 h-6 text-[#4A5CFF]' strokeWidth={2.5} />}>
       <div className='space-y-8'>
         <div className='text-center'>
-          <h3 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Test de Velocidad Real</h3>
-          <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Medición real de tu conexión a Internet</p>
+          <h3 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Test de TÚ VELOCIDAD REAL</h3>
+          <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Medición real de tu conexión a Internet con otros proveedores</p>
         </div>
 
         {/* Estado central limpio y ordenado */}
