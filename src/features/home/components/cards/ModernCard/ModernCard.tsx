@@ -1,6 +1,8 @@
-// ModernCard - Tarjeta moderna con efectos glassmorphism
+// ModernCard - Tarjeta moderna con efectos glassmorphism (OPTIMIZADO)
 // Ubicación: src/features/home/components/cards/ModernCard/ModernCard.tsx
+// Optimizaciones: React.memo para evitar re-renders innecesarios
 
+import { memo } from 'react';
 import { useTheme } from '@/core/contexts';
 
 type ModernCardProps = {
@@ -9,7 +11,7 @@ type ModernCardProps = {
   icon?: React.ReactNode;
 };
 
-export const ModernCard: React.FC<ModernCardProps> = ({ children, className = '', icon }) => {
+export const ModernCard: React.FC<ModernCardProps> = memo(({ children, className = '', icon }) => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   
@@ -64,4 +66,6 @@ export const ModernCard: React.FC<ModernCardProps> = ({ children, className = ''
       </div>
     </div>
   );
-};
+});
+
+ModernCard.displayName = 'ModernCard';

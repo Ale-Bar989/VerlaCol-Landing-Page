@@ -1,63 +1,109 @@
-import { memo, useCallback } from 'react';
+// ContactForm - Formulario de contacto refactorizado (SOLID + DIP + SRP)
+// Ubicación: src/features/contact/ContactForm.tsx
+// Separación de concerns: UI vs Lógica de negocio
+// Usa componentes reutilizables: Button, FormField
 
-// Componente ContactForm separado siguiendo responsabilidad única - Optimizado
-// Ubicación: src/ui/pages/contact/ContactForm.tsx
+import { memo } from "react";
+import { AlertCircle, CheckCircle } from "lucide-react";
+import { useContactForm } from "@/shared/hooks";
+import { Button, FormField } from "@/shared/components";
+
+/**
+ * Componente ContactForm refactorizado
+ * Implementa Single Responsibility Principle (SRP)
+ * Responsabilidad única: Renderizar UI del formulario
+ *
+ * La lógica de validación, sanitización y manejo de estado
+ * está delegada al hook useContactForm
+ */
 function ContactForm() {
-  // Memoizar handler para evitar recreación
-  const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implementar lógica de envío de formulario
-    console.log('Formulario enviado');
-  }, []);
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    submitStatus,
+    handleChange,
+    handleSubmit,
+  } = useContactForm();
 
   return (
     <div className="mt-8 pt-6 border-t border-gray-200">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">
         Envíanos un mensaje
       </h3>
+
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Nombre
-          </label>
-          <input
-            type="text"
-            id="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="Tu nombre"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="tu@email.com"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-            Mensaje
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="Tu mensaje..."
-            required
-          />
-        </div>
-        <button
+        {/* Campo Nombre */}
+        <FormField
+          label="Nombre"
+          name="name"
+          type="text"
+          value={formData.name}
+          onChange={handleChange}
+          error={errors.name}
+          placeholder="Tu nombre"
+          maxLength={50}
+          disabled={isSubmitting}
+          required
+        />
+
+        {/* Campo Email */}
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          error={errors.email}
+          placeholder="tu@email.com"
+          disabled={isSubmitting}
+          required
+        />
+
+        {/* Campo Mensaje */}
+        <FormField
+          fieldType="textarea"
+          label="Mensaje"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          error={errors.message}
+          placeholder="Tu mensaje..."
+          rows={4}
+          maxLength={500}
+          disabled={isSubmitting}
+          helperText={`${formData.message.length}/500`}
+          required
+        />
+
+        {/* Mensajes de estado */}
+        {submitStatus === "success" && (
+          <div className="p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 text-green-800">
+            <CheckCircle className="w-5 h-5" />
+            <span className="font-medium">¡Mensaje enviado exitosamente!</span>
+          </div>
+        )}
+
+        {submitStatus === "error" && (
+          <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-800">
+            <AlertCircle className="w-5 h-5" />
+            <span className="font-medium">
+              Error al enviar. Inténtalo nuevamente.
+            </span>
+          </div>
+        )}
+
+        {/* Botón de envío */}
+        <Button
           type="submit"
-          className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300"
+          variant="primary"
+          size="lg"
+          fullWidth
+          loading={isSubmitting}
+          disabled={isSubmitting}
         >
-          Enviar Mensaje
-        </button>
+          {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+        </Button>
       </form>
     </div>
   );

@@ -1,8 +1,9 @@
-// Componente Modal reutilizable con animaciones
+// Componente Modal reutilizable con animaciones (OPTIMIZADO)
 // Ubicación: src/shared/components/Modal.tsx
+// Optimizaciones: React.memo, useCallback para reducir re-renders
 
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, memo, useCallback } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,7 +12,7 @@ interface ModalProps {
   title?: string;
 }
 
-export function Modal({ isOpen, onClose, children, title }: ModalProps) {
+export const Modal = memo(({ isOpen, onClose, children, title }: ModalProps) => {
   // Bloquear scroll del body cuando el modal está abierto
   useEffect(() => {
     if (isOpen) {
@@ -24,16 +25,17 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
     };
   }, [isOpen]);
 
-  // Cerrar con tecla Escape
+  // Cerrar con tecla Escape - memoizado
+  const handleEscape = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen) {
+      onClose();
+    }
+  }, [isOpen, onClose]);
+
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
+  }, [handleEscape]);
 
   if (!isOpen) return null;
 
@@ -133,4 +135,6 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
       `}</style>
     </div>
   );
-}
+});
+
+Modal.displayName = 'Modal';

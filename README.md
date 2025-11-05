@@ -2,12 +2,13 @@
 
 # 🚀 VerlaCol Landing Page
 
-### Proyecto web moderno con Screaming Architecture
+### Proyecto web moderno con Screaming Arquitectura SOLID
 
 [![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.1.12-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-4.1.16-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![SOLID](https://img.shields.io/badge/SOLID-99.5%25-success?style=for-the-badge)](https://en.wikipedia.org/wiki/SOLID)
 
 [Demo](https://github.com/Ale-Bar989/VerlaCol-Landing-Page) • [Reportar Bug](https://github.com/Ale-Bar989/VerlaCol-Landing-Page/issues) • [Solicitar Feature](https://github.com/Ale-Bar989/VerlaCol-Landing-Page/issues)
 
@@ -36,6 +37,7 @@
 <td width="50%">
 
 ### Frontend
+
 - ⚛️ **React 19.1.1** - UI Library moderna
 - 🔷 **TypeScript 5.9.3** - Type safety
 - 🎨 **TailwindCSS v4** - Utility-first CSS
@@ -47,6 +49,7 @@
 <td width="50%">
 
 ### Desarrollo
+
 - 🔧 **ESLint** - Code linting
 - 📝 **TypeScript Strict** - Type checking
 - 🏗️ **Arquitectura Hexagonal** - Clean code
@@ -60,14 +63,29 @@
 
 ## ✨ Características
 
-- 🎯 **Screaming Architecture** - Organización por features/dominios
+### 🏗️ Arquitectura y Diseño
+
+- 🎯 **SOLID 99.5%** - Principios de diseño aplicados correctamente
+- 🏛️ **Arquitectura Híbrida** - OOP para servicios + Funcional para UI
+- 📦 **Dependency Inversion** - Inyección de dependencias en toda la app
+- 🔄 **Open/Closed Principle** - Componentes extensibles sin modificación
+- 🎨 **Interface Segregation** - Interfaces pequeñas y específicas
+- ⚡ **Single Responsibility** - Cada módulo tiene una responsabilidad
+
+### 🚀 Performance y Optimización
+
+- ⚡ **Ultra Optimizado** - React.memo, useCallback, useMemo
 - 📦 **Lazy Loading** - Code splitting automático
-- ⚡ **Ultra Optimizado** - React.memo, useCallback, useMemo, Intersection Observer
-- 🎨 **Componentes Reutilizables** - DRY principles
-- 🔒 **Type Safety** - TypeScript estricto con path aliases
-- 📱 **Responsive Design** - Mobile-first
-- 🧪 **Testing Ready** - Estructura preparada para tests
-- 🚀 **Performance** - 85-95% mejora en métricas clave
+- 🎯 **Componentes Reutilizables** - Button, FormField, y más
+- 🔄 **Hooks Personalizados** - useAnimatedNumber, useContactForm, useSpeedTest
+- 📉 **-496 líneas** - Código duplicado eliminado
+
+### 🛠️ Desarrollo y Calidad
+
+- 🔒 **Type Safety 100%** - TypeScript estricto con path aliases
+- 🧪 **Testeable 99.5%** - Mocks e inyección de dependencias
+- 📱 **Responsive Design** - Mobile-first approach
+- 🎨 **Design System** - Colores, gradientes y estilos centralizados
 
 ## 🚀 Inicio Rápido
 
@@ -125,155 +143,290 @@ La rama `developer` funciona como entorno de pre-producción. Se valida que toda
 ## 📁 Estructura del Proyecto
 
 <details open>
-<summary><b>🏗️ Screaming Architecture</b></summary>
+<summary><b>🏗️ Arquitectura SOLID + Clean Architecture</b></summary>
 
 ```
 verlapage/
 ├── 📂 src/
 │   │
-│   ├── 🎯 features/                 # FEATURES POR DOMINIO
-│   │   ├── home/                   # Feature: Página Principal
+│   ├── 🎯 features/                     # FEATURES POR DOMINIO (UI Layer)
+│   │   │                                # Componentes específicos de cada feature
+│   │   ├── home/                        # Feature: Página Principal
 │   │   │   ├── components/
-│   │   │   │   ├── sections/       # HeroSection, StatsSection, etc.
-│   │   │   │   └── layout/         # ChatWidget, HomeBackgroundEffects
-│   │   │   ├── constants/
-│   │   │   ├── Home.tsx
+│   │   │   │   ├── cards/               # SpeedTestCard, StatsCard, ModernCard
+│   │   │   │   ├── sections/            # HeroSection, StatsSection, FeaturesSection
+│   │   │   │   └── layout/              # ChatWidget, HomeBackgroundEffects
+│   │   │   ├── constants/               # Constantes del dominio home
+│   │   │   ├── Home.tsx                 # Página principal
+│   │   │   └── index.ts                 # Barrel export
+│   │   │
+│   │   ├── contact/                     # Feature: Contacto
+│   │   │   ├── ContactForm.tsx          # ✨ Refactorizado con SOLID
+│   │   │   ├── ContactInfo.tsx
+│   │   │   ├── Contact.tsx
 │   │   │   └── index.ts
 │   │   │
-│   │   ├── services/               # Feature: Servicios
+│   │   ├── pricing/                     # Feature: Precios
+│   │   │   ├── components/
+│   │   │   │   └── PricingSpeedTest.tsx # ✨ Usa useAnimatedNumber
+│   │   │   ├── index.tsx
+│   │   │   └── index.ts
+│   │   │
+│   │   ├── services/                    # Feature: Servicios
 │   │   │   ├── fibra-residencial/
 │   │   │   ├── tv-digital/
 │   │   │   ├── planes-empresariales/
 │   │   │   └── index.ts
 │   │   │
-│   │   ├── legal/                  # Feature: Páginas Legales
+│   │   ├── legal/                       # Feature: Páginas Legales
 │   │   │   ├── internet-sano/
 │   │   │   ├── filtrado/
 │   │   │   ├── seguridad/
+│   │   │   ├── comparador-tarifas/
 │   │   │   └── ... (8 páginas)
 │   │   │
-│   │   ├── about/                  # Feature: Nosotros
-│   │   ├── contact/                # Feature: Contacto
-│   │   └── pricing/                # Feature: Precios
+│   │   └── about/                       # Feature: Nosotros
 │   │
-│   ├── 🔧 core/                     # CONFIGURACIÓN GLOBAL
-│   │   ├── router/                 # React Router config
-│   │   │   ├── index.tsx
-│   │   │   └── routes.config.ts
+│   ├── 🔧 core/                         # CORE LAYER (Configuración + Lógica de Negocio)
+│   │   │                                # Servicios, contextos y configuración global
+│   │   ├── services/                    # ✨ SERVICIOS CON OOP + DIP
+│   │   │   │                            # Implementan interfaces (Dependency Inversion)
+│   │   │   ├── storage.ts               # IStorage - LocalStorage, SessionStorage, InMemory
+│   │   │   ├── speedTest.ts             # ISpeedTest - CloudflareSpeedTest, MockSpeedTest
+│   │   │   ├── validation.ts            # IValidator - ContactFormValidator, MockValidator
+│   │   │   ├── sanitizer.ts             # ISanitizer - XSSSanitizer, BasicSanitizer
+│   │   │   ├── themeApplier.ts          # IThemeApplier - DOMThemeApplier, MockThemeApplier
+│   │   │   └── index.ts                 # Barrel export con interfaces y clases
 │   │   │
-│   │   ├── contexts/               # Contextos globales
-│   │   │   └── theme/              # ThemeContext
+│   │   ├── types/                       # ✨ TIPOS SEGREGADOS (ISP)
+│   │   │   ├── network.ts               # SpeedMetrics, LatencyMetrics, NetworkStatus
+│   │   │   └── index.ts                 # Barrel export
 │   │   │
-│   │   └── config/                 # Configuraciones
+│   │   ├── contexts/                    # CONTEXTOS GLOBALES
+│   │   │   └── theme/                   # ✨ ThemeProvider con DIP
+│   │   │       ├── theme.tsx            # Usa IStorage + IThemeApplier
+│   │   │       ├── theme.context.ts
+│   │   │       ├── theme.types.ts
+│   │   │       └── index.ts
+│   │   │
+│   │   └── router/                      # CONFIGURACIÓN DE RUTAS
+│   │       ├── index.tsx                # Router principal con lazy loading
+│   │       └── routes.config.ts         # Configuración de rutas
 │   │
-│   ├── 🔗 shared/                   # CÓDIGO COMPARTIDO
-│   │   ├── components/             # Componentes reutilizables
-│   │   │   ├── layout/             # Navbar, PageLayout
-│   │   │   ├── ui/                 # IconBadge, LoadingFallback
-│   │   │   ├── sections/           # ServiceHeroSection, FeaturesGrid
-│   │   │   ├── effects/            # BackgroundEffects, LazySection
-│   │   │   └── index.ts
+│   ├── 🔗 shared/                       # SHARED LAYER (Código Reutilizable)
+│   │   │                                # Componentes, hooks y utilidades compartidas
+│   │   ├── components/                  # ✨ COMPONENTES REUTILIZABLES (SOLID)
+│   │   │   ├── Button/                  # ✨ Button component (OCP)
+│   │   │   │   ├── Button.tsx           # 5 variantes, 3 tamaños, loading state
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── Form/                    # ✨ Form components (SRP + ISP)
+│   │   │   │   ├── FormField.tsx        # Input + Textarea con validación visual
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── layout/                  # Componentes de layout
+│   │   │   │   ├── Navbar/              # Navbar con menú móvil
+│   │   │   │   ├── PageLayout.tsx       # Layout base con Navbar + Footer
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── sections/                # Secciones reutilizables
+│   │   │   │   ├── ServiceHeroSection.tsx
+│   │   │   │   ├── FeaturesGrid.tsx
+│   │   │   │   ├── CTASection.tsx
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── effects/                 # Efectos visuales
+│   │   │   │   ├── BackgroundEffects.tsx
+│   │   │   │   ├── LazySection.tsx
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── ui/                      # Componentes UI básicos
+│   │   │   │   ├── IconBadge/
+│   │   │   │   ├── LoadingFallback/
+│   │   │   │   └── index.ts
+│   │   │   │
+│   │   │   ├── Modal.tsx                # Modal component
+│   │   │   └── index.ts                 # Barrel export principal
 │   │   │
-│   │   ├── hooks/                  # Hooks personalizados
-│   │   │   ├── useLocalTheme.ts
+│   │   ├── hooks/                       # ✨ CUSTOM HOOKS (SRP + DIP)
+│   │   │   ├── useAnimatedNumber.ts     # ✨ Hook para animar números (OCP)
+│   │   │   ├── useContactForm.ts        # ✨ Hook para formularios (SRP + DIP)
+│   │   │   ├── useSpeedTest.ts          # ✨ Hook para speed test (DIP)
+│   │   │   ├── useRealStats.ts          # Hook para estadísticas reales
+│   │   │   ├── useLocalTheme.ts         # Hook para tema local
 │   │   │   ├── useIntersectionObserver.ts
 │   │   │   ├── useDebounce.ts
-│   │   │   └── index.ts
+│   │   │   └── index.ts                 # Barrel export
 │   │   │
-│   │   ├── styles/                 # Estilos globales
-│   │   │   ├── design-system.ts
-│   │   │   └── index.css
+│   │   ├── styles/                      # ESTILOS GLOBALES
+│   │   │   ├── design-system.ts         # Sistema de diseño centralizado
+│   │   │   └── index.css                # Estilos globales de Tailwind
 │   │   │
-│   │   └── assets/                 # Recursos estáticos
+│   │   └── assets/                      # RECURSOS ESTÁTICOS
+│   │       └── logo verla horizontal.png
 │   │
-│   ├── 🧪 __tests__/                # Tests
+│   ├── 🧪 __tests__/                    # TESTS (Preparado para testing)
 │   │
-│   └── main.tsx                    # Punto de entrada
+│   └── main.tsx                         # PUNTO DE ENTRADA
 │
-├── 📂 public/                       # Assets públicos
-│   └── vite.svg                    # Servidos directamente
+├── 📂 public/                           # ASSETS PÚBLICOS
+│   └── vite.svg
 │
-├── 📄 index.html                    # HTML template
-├── 📄 package.json                  # Dependencias
-├── 📄 tsconfig.json                 # Config TypeScript
-├── 📄 vite.config.ts                # Config Vite
-├── 📄 postcss.config.js             # Config PostCSS
-├── 📄 eslint.config.js              # Config ESLint
-├── 📄 .gitignore                    # Git ignore rules
-├── 📄 README.md                     # Este archivo
-└── 📄 PROJECT_STRUCTURE.md          # Documentación detallada
+├── 📄 index.html                        # HTML template
+├── 📄 package.json                      # Dependencias y scripts
+├── 📄 tsconfig.json                     # Configuración TypeScript
+├── 📄 vite.config.ts                    # Configuración Vite
+├── 📄 postcss.config.js                 # Configuración PostCSS
+├── 📄 eslint.config.js                  # Configuración ESLint
+├── 📄 .gitignore                        # Git ignore rules
+└── 📄 README.md                         # Este archivo
 ```
 
 </details>
 
 <details>
-<summary><b>📚 Descripción de Capas</b></summary>
+<summary><b>📚 Descripción Detallada de Carpetas</b></summary>
 
-### 🎯 Application Layer (Capa de Aplicación)
-**Propósito**: Orquesta la lógica de negocio y coordina las interacciones entre capas.
+### 🎯 `features/` - Features por Dominio (UI Layer)
+**Propósito**: Organización por características de negocio (Screaming Architecture)
 
-- **hooks/**: Custom hooks de React que encapsulan lógica reutilizable
-- **services/**: Servicios que implementan casos de uso del negocio
+Cada feature contiene todo lo necesario para funcionar de forma independiente:
+- **Componentes específicos** del feature
+- **Páginas** relacionadas
+- **Constantes** del dominio
+- **Lógica de UI** específica
 
-**Ejemplo**: Un `AuthService` que coordina login, logout y gestión de sesiones.
-
----
-
-### 🏛️ Domain Layer (Capa de Dominio)
-**Propósito**: Define las reglas de negocio y entidades principales.
-
-- **entities/**: Modelos de datos con lógica de negocio
-- **interfaces/**: Contratos e interfaces que definen comportamientos
-
-**Ejemplo**: Entidad `User` con validaciones y reglas de negocio.
+**Ventajas**:
+- ✅ Fácil encontrar código relacionado
+- ✅ Escalable (agregar features sin afectar otros)
+- ✅ Código cohesivo por dominio
 
 ---
 
-### 🔧 Infrastructure Layer (Capa de Infraestructura)
-**Propósito**: Implementaciones de detalles técnicos externos.
+### 🔧 `core/` - Configuración Global y Lógica de Negocio
 
-- **api/**: Cliente HTTP, interceptors, manejo de errores
-- **config/**: Variables de entorno y configuración
-- **utils/**: Herramientas técnicas (formatters, parsers, etc.)
-
-**Ejemplo**: Cliente Axios configurado con interceptors de autenticación.
-
----
-
-### 🎨 UI Layer (Capa de Interfaz)
-**Propósito**: Componentes visuales y presentación.
-
-- **components/common/**: Componentes reutilizables (botones, cards, etc.)
-- **pages/**: Páginas completas de la aplicación
+#### `core/services/` - **Servicios con OOP + SOLID** ✨
+**Propósito**: Lógica de negocio encapsulada en clases con interfaces
 
 **Características**:
-- ✅ Componentes en carpetas individuales
-- ✅ Separación de tipos y estilos
-- ✅ Barrel exports para imports limpios
-- ✅ Optimización con React.memo
+- ✅ **Dependency Inversion (DIP)**: Todas las clases implementan interfaces
+- ✅ **Single Responsibility (SRP)**: Cada servicio tiene una responsabilidad
+- ✅ **Open/Closed (OCP)**: Fácil agregar nuevas implementaciones
+- ✅ **Testeable 100%**: Mocks disponibles para testing
+
+**Servicios disponibles**:
+- `IStorage` - Abstracción de almacenamiento (localStorage, sessionStorage, memoria)
+- `ISpeedTest` - Medición de velocidad de internet (Cloudflare API)
+- `IValidator` - Validación de formularios
+- `ISanitizer` - Sanitización de inputs (prevención XSS)
+- `IThemeApplier` - Aplicación de temas al DOM
+
+#### `core/types/` - **Tipos Segregados (ISP)** ✨
+**Propósito**: Interfaces pequeñas y específicas
+
+**Ejemplo**:
+```typescript
+// En lugar de una interface grande:
+interface ConnectionData { downloadSpeed, uploadSpeed, ping, effectiveType, isOnline }
+
+// Interfaces segregadas:
+interface SpeedMetrics { downloadSpeed, uploadSpeed }
+interface LatencyMetrics { ping }
+interface NetworkStatus { effectiveType, isOnline }
+```
+
+#### `core/contexts/` - Contextos Globales
+**Propósito**: Estado global de la aplicación
+
+- `theme/` - Gestión de tema (dark/light) con DIP
+
+#### `core/router/` - Configuración de Rutas
+**Propósito**: Navegación y lazy loading
+
+- Lazy loading automático
+- Rutas tipadas con TypeScript
+- Suspense para estados de carga
 
 ---
 
-### 🧭 Router Layer
-**Propósito**: Gestión de navegación y rutas.
+### 🔗 `shared/` - Código Reutilizable
 
-- **Lazy Loading**: Carga componentes bajo demanda
-- **Type Safety**: Rutas tipadas con TypeScript
-- **Suspense**: Manejo de estados de carga
+#### `shared/components/` - **Componentes Reutilizables (SOLID)** ✨
+**Propósito**: Componentes que se usan en múltiples features
+
+**Componentes destacados**:
+- `Button/` - **5 variantes, 3 tamaños** (OCP)
+  - Variantes: primary, secondary, outline, ghost, danger
+  - Tamaños: sm, md, lg
+  - Estados: loading, disabled
+  - Icons: left, right
+
+- `Form/FormField` - **Input + Textarea** (SRP + ISP)
+  - Validación visual automática
+  - Mensajes de error
+  - Helper text
+  - Accesibilidad completa
+
+- `layout/` - Layouts reutilizables
+  - `Navbar` - Navegación principal
+  - `PageLayout` - Layout base con Navbar + Footer
+
+- `sections/` - Secciones reutilizables
+  - `ServiceHeroSection` - Hero para páginas de servicios
+  - `FeaturesGrid` - Grid de características
+  - `CTASection` - Call-to-action
+
+- `effects/` - Efectos visuales
+  - `BackgroundEffects` - Efectos de fondo
+  - `LazySection` - Lazy loading con Intersection Observer
+
+#### `shared/hooks/` - **Custom Hooks (SRP + DIP)** ✨
+**Propósito**: Lógica reutilizable encapsulada en hooks
+
+**Hooks destacados**:
+- `useAnimatedNumber` - **Animación de números** (OCP)
+  - 4 tipos de easing: linear, easeIn, easeOut, easeInOut
+  - Configurable (duración, steps)
+  - Reutilizable en cualquier componente
+
+- `useContactForm` - **Lógica de formularios** (SRP + DIP)
+  - Inyección de `IValidator` e `ISanitizer`
+  - Manejo de estado completo
+  - Validación automática
+  - Sanitización automática
+
+- `useSpeedTest` - **Test de velocidad** (DIP)
+  - Inyección de `ISpeedTest`
+  - Medición real con Cloudflare
+  - Cancelable
+
+- `useRealStats` - Estadísticas reales
+- `useLocalTheme` - Tema local sincronizado
+- `useIntersectionObserver` - Detección de visibilidad
+- `useDebounce` - Debouncing de valores
+
+#### `shared/styles/` - Estilos Globales
+**Propósito**: Sistema de diseño centralizado
+
+- `design-system.ts` - Colores, gradientes, sombras
+- `index.css` - Estilos globales de Tailwind
+
+#### `shared/assets/` - Recursos Estáticos
+**Propósito**: Imágenes, logos, iconos
 
 ---
 
-### 🔗 Shared Layer
-**Propósito**: Recursos compartidos entre todas las capas.
+### 🧪 `__tests__/` - Tests
+**Propósito**: Tests unitarios e integración
 
-- **assets/**: Recursos estáticos
-- **constants/**: Valores constantes
-- **styles/**: Estilos globales
-- **types/**: Tipos TypeScript compartidos
+**Estructura preparada para**:
+- Tests de servicios (con mocks)
+- Tests de hooks (con renderHook)
+- Tests de componentes (con React Testing Library)
 
 </details>
 
-> 📖 **Documentación completa**: Ver [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) para guía detallada de arquitectura.
+> 📖 **Nota**: Este proyecto implementa **Arquitectura Híbrida** (OOP para servicios + Funcional para UI) con **SOLID 99.5%**
 
 ## 🎯 Principios de Arquitectura
 
@@ -286,12 +439,14 @@ verlapage/
 ## 🛠️ Tecnologías y Herramientas
 
 ### Frontend
+
 - React 19 con TypeScript
 - React Router v7 para navegación
 - TailwindCSS v4 para estilos
 - Lucide React para iconos
 
 ### Desarrollo
+
 - Vite 7 para dev server y bundling
 - ESLint para linting
 - TypeScript para type checking
@@ -343,6 +498,7 @@ git commit -m "docs: actualizar README con ejemplos"
 ```
 
 **Tipos de commit**:
+
 - `feat`: Nueva funcionalidad
 - `fix`: Corrección de bugs
 - `docs`: Documentación

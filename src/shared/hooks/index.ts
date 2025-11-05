@@ -4,5 +4,9 @@
 export { useLocalTheme } from './useLocalTheme';
 export { useIntersectionObserver } from './useIntersectionObserver';
 export { useDebounce } from './useDebounce';
-export { useRealConnection } from './useRealConnection';
+export { useSpeedTest } from './useSpeedTest';
 export { useRealStats } from './useRealStats';
+export { useAnimatedNumber, useAnimatedNumbers } from './useAnimatedNumber';
+export type { AnimationConfig, EasingType } from './useAnimatedNumber';
+export { useContactForm } from './useContactForm';
+export type { UseContactFormOptions, UseContactFormResult, SubmitStatus } from './useContactForm';

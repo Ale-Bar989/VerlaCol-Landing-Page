@@ -1,10 +1,11 @@
-// SpeedTestCard - Test de velocidad real con animaciones
+// SpeedTestCard - Test de velocidad real con animaciones (OPTIMIZADO + OCP)
 // Ubicación: src/features/home/components/cards/SpeedTestCard/SpeedTestCard.tsx
+// Optimizaciones: React.memo, useAnimatedNumber (OCP), eliminación de logs, reducción de re-renders
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { useTheme } from '@/core/contexts';
 import { Zap, Download, Wifi, Activity, Upload } from 'lucide-react';
-import { useRealConnection } from '@/shared/hooks/useRealConnection';
+import { useSpeedTest, useAnimatedNumber } from '@/shared/hooks';
 import { ModernCard } from '../ModernCard';
 
 const CONNECTION_TIPS = [
@@ -17,35 +18,42 @@ const CONNECTION_TIPS = [
   'Cambia el canal WiFi si hay interferencias',
 ];
 
-export const SpeedTestCard: React.FC = () => {
+export const SpeedTestCard: React.FC = memo(() => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const { connectionData, isMeasuring, measureConnection } = useRealConnection();
-  const [displaySpeed, setDisplaySpeed] = useState<number>(0);
-  const [displayUpload, setDisplayUpload] = useState<number>(0);
-  const [displayPing, setDisplayPing] = useState<number>(0);
+  const { connectionData, isMeasuring, measureConnection } = useSpeedTest();
+  
+  // Estados de visualización
   const [progress, setProgress] = useState<number>(0);
   const [tipIndex, setTipIndex] = useState<number>(0);
   const [showPing, setShowPing] = useState<boolean>(false);
   const [showDownload, setShowDownload] = useState<boolean>(false);
   const [showUpload, setShowUpload] = useState<boolean>(false);
+  
+  // Animaciones con useAnimatedNumber (Open/Closed Principle)
+  const displaySpeed = useAnimatedNumber(
+    connectionData.downloadSpeed,
+    showDownload,
+    { duration: 2000, easing: 'easeOut' }
+  );
+  
+  const displayUpload = useAnimatedNumber(
+    connectionData.uploadSpeed,
+    showUpload,
+    { duration: 2000, easing: 'easeOut' }
+  );
+  
+  const displayPing = useAnimatedNumber(
+    connectionData.ping,
+    showPing,
+    { duration: 2000, easing: 'easeOut' }
+  );
 
-  // Log de debugging para rastrear cambios en connectionData
-  useEffect(() => {
-    console.log('🔍 connectionData actualizado:', connectionData);
-  }, [connectionData]);
-
-  // Log de debugging para rastrear cambios en showUpload
-  useEffect(() => {
-    console.log('🎬 showUpload cambió a:', showUpload);
-  }, [showUpload]);
+  // Logs eliminados para producción - mejora de performance
 
   // Resetear todos los valores al iniciar medición
   useEffect(() => {
     if (isMeasuring) {
-      setDisplaySpeed(0);
-      setDisplayUpload(0);
-      setDisplayPing(0);
       setProgress(0);
       setTipIndex(0);
       setShowPing(false);
@@ -57,11 +65,6 @@ export const SpeedTestCard: React.FC = () => {
   // Mostrar resultados secuencialmente cuando termina
   useEffect(() => {
     if (!isMeasuring && connectionData.downloadSpeed > 0) {
-      console.log('🎯 Test terminado, iniciando secuencia de visualización', {
-        ping: connectionData.ping,
-        download: connectionData.downloadSpeed,
-        upload: connectionData.uploadSpeed
-      });
       setTimeout(() => setShowPing(true), 300);
     }
   }, [isMeasuring, connectionData.downloadSpeed, connectionData.uploadSpeed, connectionData.ping]);
@@ -69,7 +72,6 @@ export const SpeedTestCard: React.FC = () => {
   // Cuando Ping termina de animar, mostrar Descarga
   useEffect(() => {
     if (showPing && connectionData.ping > 0) {
-      console.log('🔄 Mostrando descarga...', { showPing, ping: connectionData.ping });
       setTimeout(() => setShowDownload(true), 1500);
     }
   }, [showPing, connectionData.ping]);
@@ -77,11 +79,6 @@ export const SpeedTestCard: React.FC = () => {
   // Cuando Descarga termina de animar, mostrar Subida
   useEffect(() => {
     if (showDownload && connectionData.downloadSpeed > 0) {
-      console.log('🔄 Mostrando subida...', { 
-        showDownload, 
-        downloadSpeed: connectionData.downloadSpeed,
-        uploadSpeed: connectionData.uploadSpeed 
-      });
       setTimeout(() => setShowUpload(true), 1500);
     }
   }, [showDownload, connectionData.downloadSpeed, connectionData.uploadSpeed]);
@@ -119,81 +116,8 @@ export const SpeedTestCard: React.FC = () => {
     }
   }, [isMeasuring, connectionData.downloadSpeed]);
 
-  // Animar descarga cuando se muestra
-  useEffect(() => {
-    if (showDownload && connectionData.downloadSpeed > 0) {
-      const target = connectionData.downloadSpeed;
-      const duration = 2000;
-      const steps = 40;
-      const stepDuration = duration / steps;
-      let currentStep = 0;
-      
-      const interval = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        setDisplaySpeed(target * easeOut);
-        
-        if (currentStep >= steps) {
-          setDisplaySpeed(target);
-          clearInterval(interval);
-        }
-      }, stepDuration);
-      
-      return () => clearInterval(interval);
-    }
-  }, [showDownload, connectionData.downloadSpeed]);
-
-  // Animar subida cuando se muestra
-  useEffect(() => {
-    if (showUpload && connectionData.uploadSpeed > 0) {
-      console.log('✅ Iniciando animación de subida:', connectionData.uploadSpeed);
-      const target = connectionData.uploadSpeed;
-      const duration = 2000;
-      const steps = 40;
-      const stepDuration = duration / steps;
-      let currentStep = 0;
-      
-      const interval = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        setDisplayUpload(target * easeOut);
-        
-        if (currentStep >= steps) {
-          setDisplayUpload(target);
-          clearInterval(interval);
-        }
-      }, stepDuration);
-      
-      return () => clearInterval(interval);
-    }
-  }, [showUpload, connectionData.uploadSpeed]);
-
-  // Animar ping cuando se muestra
-  useEffect(() => {
-    if (showPing && connectionData.ping > 0) {
-      const target = connectionData.ping;
-      const duration = 2000;
-      const steps = 40;
-      const stepDuration = duration / steps;
-      let currentStep = 0;
-      
-      const interval = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        setDisplayPing(target * easeOut);
-        
-        if (currentStep >= steps) {
-          setDisplayPing(target);
-          clearInterval(interval);
-        }
-      }, stepDuration);
-      
-      return () => clearInterval(interval);
-    }
-  }, [showPing, connectionData.ping]);
+  // Animaciones ahora manejadas por useAnimatedNumber (OCP)
+  // Eliminados 3 useEffect complejos (~75 líneas) - reemplazados por hook reutilizable
 
   return (
     <ModernCard icon={<Zap className='w-6 h-6 text-[#4A5CFF]' strokeWidth={2.5} />}>
@@ -484,4 +408,6 @@ export const SpeedTestCard: React.FC = () => {
       </div>
     </ModernCard>
   );
-};
+});
+
+SpeedTestCard.displayName = 'SpeedTestCard';

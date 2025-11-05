@@ -1,9 +1,11 @@
-// PricingSpeedTest - Test de velocidad animado para modal de pricing
+// PricingSpeedTest - Test de velocidad animado para modal de pricing (OPTIMIZADO + OCP)
 // Ubicación: src/features/pricing/components/PricingSpeedTest.tsx
+// Optimizaciones: useAnimatedNumber (OCP), reducción de código
 
 import { useState, useEffect } from 'react';
 import { Zap, Wifi, Download, Upload, Activity } from 'lucide-react';
 import { useTheme } from '@/core/contexts';
+import { useAnimatedNumber } from '@/shared/hooks';
 
 interface PricingSpeedTestProps {
   planName: string;
@@ -15,16 +17,21 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({ planName, pl
   const isDark = theme === 'dark';
   const [isRunning, setIsRunning] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [currentSpeed, setCurrentSpeed] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
   // Extraer número de velocidad del plan
   const targetSpeed = parseInt(planSpeed.replace(/[^0-9]/g, ''));
+  
+  // Animar velocidad con useAnimatedNumber (Open/Closed Principle)
+  const currentSpeed = useAnimatedNumber(
+    targetSpeed,
+    isRunning,
+    { duration: 2500, easing: 'easeOut' }
+  );
 
   const startTest = () => {
     setIsRunning(true);
     setProgress(0);
-    setCurrentSpeed(0);
     setIsComplete(false);
   };
 
@@ -46,19 +53,8 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({ planName, pl
     }
   }, [isRunning, progress]);
 
-  // Animar velocidad
-  useEffect(() => {
-    if (isRunning && currentSpeed < targetSpeed) {
-      const interval = setInterval(() => {
-        setCurrentSpeed(prev => {
-          const increment = Math.ceil(targetSpeed / 50);
-          const next = prev + increment;
-          return next > targetSpeed ? targetSpeed : next;
-        });
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [isRunning, currentSpeed, targetSpeed]);
+  // Animación de velocidad ahora manejada por useAnimatedNumber (OCP)
+  // Eliminado useEffect complejo (~15 líneas) - reemplazado por hook reutilizable
 
   return (
     <div className={`p-4 sm:p-6 md:p-8 ${isDark ? 'bg-gray-900' : 'bg-white'} rounded-xl sm:rounded-2xl max-w-2xl mx-auto`}>
@@ -136,7 +132,7 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({ planName, pl
         <div className="text-center">
           <Download className={`w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 mx-auto mb-2 sm:mb-3 ${isComplete ? 'text-[#4A5CFF]' : isDark ? 'text-gray-600' : 'text-gray-400'}`} strokeWidth={2} />
           <div className={`text-xl sm:text-2xl md:text-3xl font-bold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            {isComplete ? targetSpeed : '--'}
+            {isComplete ? targetSpeed : Math.round(currentSpeed)}
           </div>
           <div className={`text-xs sm:text-sm ${isDark ? 'text-gray-500' : 'text-gray-600'}`}><span className="hidden sm:inline">Descarga </span>(Mbps)</div>
         </div>

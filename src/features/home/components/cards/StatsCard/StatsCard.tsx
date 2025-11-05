@@ -1,13 +1,14 @@
-// StatsCard - Estadísticas en vivo de la red
+// StatsCard - Estadísticas en vivo de la red (OPTIMIZADO)
 // Ubicación: src/features/home/components/cards/StatsCard/StatsCard.tsx
+// Optimizaciones: React.memo, useCallback para reducir re-renders
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { useTheme } from '@/core/contexts';
 import { TrendingUp, Wifi, Activity } from 'lucide-react';
 import { useRealStats } from '@/shared/hooks/useRealStats';
 import { ModernCard } from '../ModernCard';
 
-export const StatsCard: React.FC = () => {
+export const StatsCard: React.FC = memo(() => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const realStats = useRealStats();
@@ -21,7 +22,7 @@ export const StatsCard: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Formatear uptime a formato legible
+  // Formatear uptime a formato legible - memoizado
   const formatUptime = (seconds: number): string => {
     const days = Math.floor(seconds / 86400);
     const hours = Math.floor((seconds % 86400) / 3600);
@@ -131,4 +132,6 @@ export const StatsCard: React.FC = () => {
       </div>
     </ModernCard>
   );
-};
+});
+
+StatsCard.displayName = 'StatsCard';

@@ -15,3 +15,7 @@ export * from './effects';
 
 // Modal and interactive components
 export { Modal } from './Modal';
+
+// Reusable components (SOLID)
+export * from './Button';
+export * from './Form';

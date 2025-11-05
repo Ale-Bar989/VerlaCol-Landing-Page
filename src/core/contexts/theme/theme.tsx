@@ -2,14 +2,31 @@ import { useEffect, useState, useMemo, useCallback } from "react";
 import type { ReactNode } from "react";
 import { ThemeContext } from "./theme.context";
 import type { Theme } from "./theme.types";
+import { 
+  defaultStorage, 
+  defaultThemeApplier,
+  type IStorage,
+  type IThemeApplier 
+} from "@/core/services";
 
-// Provider de Tema - Optimizado con useMemo y useCallback
+// Provider de Tema - Optimizado con DIP (Dependency Inversion Principle)
 // Ubicación: src/contexts/theme.tsx
+// Usa IStorage e IThemeApplier en lugar de implementaciones directas
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+interface ThemeProviderProps {
+  children: ReactNode;
+  storage?: IStorage; // Inyección de dependencia opcional
+  themeApplier?: IThemeApplier; // Inyección de dependencia opcional
+}
+
+export function ThemeProvider({ 
+  children, 
+  storage = defaultStorage,
+  themeApplier = defaultThemeApplier
+}: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    // Check storage first (abstracción en lugar de localStorage directo)
+    const savedTheme = storage.getItem("theme") as Theme | null;
     if (savedTheme) return savedTheme;
 
     // Check system preference
@@ -22,22 +39,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Apply theme to document
   useEffect(() => {
-    const root = document.documentElement;
+    // Usar themeApplier en lugar de manipular DOM directamente
+    themeApplier.apply(theme);
 
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.classList.remove("light");
-    } else {
-      root.classList.add("light");
-      root.classList.remove("dark");
-    }
-
-    // Save to localStorage
-    localStorage.setItem("theme", theme);
+    // Save to storage (abstracción)
+    storage.setItem("theme", theme);
 
     // Dispatch custom event for components using useLocalTheme
     window.dispatchEvent(new CustomEvent("themeChange", { detail: theme }));
-  }, [theme]);
+  }, [theme, storage, themeApplier]);
 
   // Memoizar toggleTheme para evitar recreación en cada render
   const toggleTheme = useCallback(() => {
