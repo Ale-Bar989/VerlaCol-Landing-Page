@@ -2,52 +2,52 @@
 // Ubicación: src/features/home/components/cards/SpeedTestCard/SpeedTestCard.tsx
 // Optimizaciones: React.memo, useAnimatedNumber (OCP), eliminación de logs, reducción de re-renders
 
-import { useEffect, useState, memo } from 'react';
-import { useTheme } from '@/core/contexts';
-import { Zap, Download, Wifi, Activity, Upload } from 'lucide-react';
-import { useSpeedTest, useAnimatedNumber } from '@/shared/hooks';
-import { ModernCard } from '../ModernCard';
+import { useEffect, useState, memo } from "react";
+import { useTheme } from "@/core/contexts";
+import { Zap, Download, Wifi, Activity, Upload } from "lucide-react";
+import { useSpeedTest, useAnimatedNumber } from "@/shared/hooks";
+import { ModernCard } from "../ModernCard";
+import { SpeedGauge } from "@/shared/components";
 
 const CONNECTION_TIPS = [
-  'Cierra aplicaciones que no estés usando',
-  'Acerca tu dispositivo al router',
-  'Evita obstáculos entre el router y tu dispositivo',
-  'Reinicia tu router cada cierto tiempo',
-  'Usa cable ethernet para mejor velocidad',
-  'Actualiza el firmware de tu router',
-  'Cambia el canal WiFi si hay interferencias',
+  "Cierra aplicaciones que no estés usando",
+  "Acerca tu dispositivo al router",
+  "Evita obstáculos entre el router y tu dispositivo",
+  "Reinicia tu router cada cierto tiempo",
+  "Usa cable ethernet para mejor velocidad",
+  "Actualiza el firmware de tu router",
+  "Cambia el canal WiFi si hay interferencias",
 ];
 
 export const SpeedTestCard: React.FC = memo(() => {
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  const isDark = theme === "dark";
   const { connectionData, isMeasuring, measureConnection } = useSpeedTest();
-  
+
   // Estados de visualización
   const [progress, setProgress] = useState<number>(0);
   const [tipIndex, setTipIndex] = useState<number>(0);
   const [showPing, setShowPing] = useState<boolean>(false);
   const [showDownload, setShowDownload] = useState<boolean>(false);
   const [showUpload, setShowUpload] = useState<boolean>(false);
-  
+
   // Animaciones con useAnimatedNumber (Open/Closed Principle)
   const displaySpeed = useAnimatedNumber(
     connectionData.downloadSpeed,
     showDownload,
-    { duration: 2000, easing: 'easeOut' }
+    { duration: 2000, easing: "easeOut" }
   );
-  
+
   const displayUpload = useAnimatedNumber(
     connectionData.uploadSpeed,
     showUpload,
-    { duration: 2000, easing: 'easeOut' }
+    { duration: 2000, easing: "easeOut" }
   );
-  
-  const displayPing = useAnimatedNumber(
-    connectionData.ping,
-    showPing,
-    { duration: 2000, easing: 'easeOut' }
-  );
+
+  const displayPing = useAnimatedNumber(connectionData.ping, showPing, {
+    duration: 2000,
+    easing: "easeOut",
+  });
 
   // Logs eliminados para producción - mejora de performance
 
@@ -62,12 +62,42 @@ export const SpeedTestCard: React.FC = memo(() => {
     }
   }, [isMeasuring]);
 
+  // Calcular progreso basado en las fases del test
+  useEffect(() => {
+    if (isMeasuring) {
+      // Fase 1: Ping (0-33%)
+      if (connectionData.ping > 0) {
+        setProgress(33);
+      }
+      // Fase 2: Download (33-66%)
+      if (connectionData.downloadSpeed > 0) {
+        setProgress(66);
+      }
+      // Fase 3: Upload (66-100%)
+      if (connectionData.uploadSpeed > 0) {
+        setProgress(100);
+      }
+    } else if (connectionData.downloadSpeed > 0) {
+      setProgress(100);
+    }
+  }, [
+    isMeasuring,
+    connectionData.ping,
+    connectionData.downloadSpeed,
+    connectionData.uploadSpeed,
+  ]);
+
   // Mostrar resultados secuencialmente cuando termina
   useEffect(() => {
     if (!isMeasuring && connectionData.downloadSpeed > 0) {
       setTimeout(() => setShowPing(true), 300);
     }
-  }, [isMeasuring, connectionData.downloadSpeed, connectionData.uploadSpeed, connectionData.ping]);
+  }, [
+    isMeasuring,
+    connectionData.downloadSpeed,
+    connectionData.uploadSpeed,
+    connectionData.ping,
+  ]);
 
   // Cuando Ping termina de animar, mostrar Descarga
   useEffect(() => {
@@ -87,153 +117,98 @@ export const SpeedTestCard: React.FC = memo(() => {
   useEffect(() => {
     if (isMeasuring) {
       const interval = setInterval(() => {
-        setTipIndex(prev => (prev + 1) % CONNECTION_TIPS.length);
+        setTipIndex((prev) => (prev + 1) % CONNECTION_TIPS.length);
       }, 3000);
       return () => clearInterval(interval);
     }
   }, [isMeasuring]);
 
-  // Animar progreso de 0 a 100 durante la medición
-  useEffect(() => {
-    if (isMeasuring) {
-      const duration = 15000;
-      const steps = 100;
-      const stepDuration = duration / steps;
-      let currentStep = 0;
-      
-      const interval = setInterval(() => {
-        currentStep++;
-        setProgress(currentStep);
-        
-        if (currentStep >= 100) {
-          clearInterval(interval);
-        }
-      }, stepDuration);
-      
-      return () => clearInterval(interval);
-    } else if (connectionData.downloadSpeed > 0) {
-      setProgress(100);
-    }
-  }, [isMeasuring, connectionData.downloadSpeed]);
-
   // Animaciones ahora manejadas por useAnimatedNumber (OCP)
   // Eliminados 3 useEffect complejos (~75 líneas) - reemplazados por hook reutilizable
 
   return (
-    <ModernCard icon={<Zap className='w-6 h-6 text-[#4A5CFF]' strokeWidth={2.5} />}>
-      <div className='space-y-8'>
-        <div className='text-center'>
-          <h3 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>Test de TÚ VELOCIDAD REAL</h3>
-          <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Medición real de tu conexión a Internet con otros proveedores</p>
+    <ModernCard
+      icon={<Zap className="w-6 h-6 text-[#4A5CFF]" strokeWidth={2.5} />}
+    >
+      <div className="space-y-8">
+        <div className="text-center">
+          <h3
+            className={`text-2xl font-bold mb-2 ${
+              isDark ? "text-white" : "text-gray-900"
+            }`}
+          >
+            Mide tu velocidad Actual
+          </h3>
+          <p
+            className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
+          >
+            Medición de tu conexión a Internet
+          </p>
         </div>
 
-        {/* Estado central limpio y ordenado */}
-        <div className='flex flex-col items-center justify-center py-8'>
-          {(isMeasuring || connectionData.downloadSpeed > 0) ? (
-            <div className='relative w-52 h-52 mb-6'>
-              {/* Círculo de progreso SVG limpio */}
-              <svg className='absolute inset-0 w-full h-full transform -rotate-90' viewBox='0 0 208 208'>
-                <circle
-                  cx='104'
-                  cy='104'
-                  r='95'
-                  fill='none'
-                  stroke={isDark ? 'rgba(74, 92, 255, 0.08)' : 'rgba(74, 92, 255, 0.06)'}
-                  strokeWidth='8'
-                />
-                <circle
-                  cx='104'
-                  cy='104'
-                  r='95'
-                  fill='none'
-                  stroke='#7A8FFF'
-                  strokeWidth='8'
-                  strokeLinecap='round'
-                  strokeDasharray={`${2 * Math.PI * 95}`}
-                  strokeDashoffset={`${2 * Math.PI * 95 * (1 - progress / 100)}`}
-                  style={{
-                    transition: 'stroke-dashoffset 0.3s ease-out'
-                  }}
-                />
-              </svg>
-              
-              {/* Contenido central */}
-              <div className='absolute inset-0 flex flex-col items-center justify-center'>
-                {isMeasuring ? (
-                  <>
-                    <Download className='w-14 h-14 text-[#4A5CFF] mb-3' strokeWidth={2.5} />
-                    <div className={`text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'}`}
-                      style={{ letterSpacing: '-0.03em' }}
-                    >
-                      {Math.round(displaySpeed)}
-                    </div>
-                    <div className={`text-sm font-semibold ${isDark ? 'text-gray-400' : 'text-gray-600'} uppercase mt-1`}>
-                      Mbps
-                    </div>
-                    <div className='text-xs font-bold text-[#7A8FFF] mt-3'>
-                      {progress}%
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className='w-16 h-16 rounded-full flex items-center justify-center mb-3'
-                      style={{
-                        background: isDark 
-                          ? 'rgba(122, 143, 255, 0.15)'
-                          : 'rgba(122, 143, 255, 0.1)'
-                      }}
-                    >
-                      <svg 
-                        className='w-8 h-8 text-[#7A8FFF]' 
-                        fill='none' 
-                        viewBox='0 0 24 24' 
-                        stroke='currentColor'
-                        strokeWidth={3}
-                      >
-                        <path 
-                          strokeLinecap='round' 
-                          strokeLinejoin='round' 
-                          d='M5 13l4 4L19 7' 
-                        />
-                      </svg>
-                    </div>
-                    <div className={`text-base font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      ¡Test completado!
-                    </div>
-                  </>
-                )}
-              </div>
+        {/* Estado central con velocímetro animado */}
+        <div className="flex flex-col items-center justify-center py-8">
+          {isMeasuring ? (
+            <div className="mb-6">
+              {/* Velocímetro animado tipo gauge */}
+              <SpeedGauge
+                speed={connectionData.downloadSpeed}
+                maxSpeed={1000}
+                size={300}
+                type="download"
+                showMarks={true}
+                label="Mbps"
+                isMeasuring={isMeasuring}
+              />
+
+              {/* Indicador de progreso debajo del velocímetro - Solo visible durante la medición */}
+              {isMeasuring && (
+                <div className="text-center mt-4 space-y-2">
+                  <div className="text-xs font-bold text-[#7A8FFF]">
+                    {progress === 0 && "Iniciando test..."}
+                    {progress === 33 && "Midiendo latencia..."}
+                    {progress === 66 && "Midiendo descarga..."}
+                    {progress === 100 && "Midiendo subida..."}
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
-            <div className='w-36 h-36 mb-6 rounded-full flex items-center justify-center'
+            <div
+              className="w-36 h-36 mb-6 rounded-full flex items-center justify-center"
               style={{
-                background: isDark 
-                  ? 'rgba(74, 92, 255, 0.05)'
-                  : 'rgba(74, 92, 255, 0.03)',
-                border: `2px dashed ${isDark ? 'rgba(74, 92, 255, 0.2)' : 'rgba(74, 92, 255, 0.15)'}`
+                background: isDark
+                  ? "rgba(74, 92, 255, 0.05)"
+                  : "rgba(74, 92, 255, 0.03)",
+                border: `2px dashed ${
+                  isDark ? "rgba(74, 92, 255, 0.2)" : "rgba(74, 92, 255, 0.15)"
+                }`,
               }}
             >
-              <Wifi className={`w-16 h-16 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} strokeWidth={2} />
+              <Wifi
+                className={`w-16 h-16 ${
+                  isDark ? "text-gray-600" : "text-gray-400"
+                }`}
+                strokeWidth={2}
+              />
             </div>
           )}
-          
-          <div className='text-center min-h-[40px] flex items-center justify-center'>
-            {isMeasuring ? (
-              <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
-                key={tipIndex}
-                style={{
-                  animation: 'fadeIn 0.5s ease-in'
-                }}
+
+          {/* Tips visibles cuando NO está midiendo */}
+          {!isMeasuring && (
+            <div className="text-center min-h-[40px] flex items-center justify-center">
+              <p
+                className={`text-sm font-medium ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
               >
-                💡 {CONNECTION_TIPS[tipIndex]}
+                {connectionData.downloadSpeed > 0
+                  ? "Listo para medir nuevamente"
+                  : "Listo para iniciar"}
               </p>
-            ) : (
-              <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                {connectionData.downloadSpeed > 0 ? 'Conexión medida' : 'Listo para iniciar'}
-              </p>
-            )}
-          </div>
-          
+            </div>
+          )}
+
           <style>{`
             @keyframes fadeIn {
               from {
@@ -270,120 +245,177 @@ export const SpeedTestCard: React.FC = memo(() => {
         </div>
 
         {/* Grid de métricas - 3 columnas */}
-        <div className='grid grid-cols-3 gap-4'>
+        <div className="grid grid-cols-3 gap-4">
           {/* Ping */}
-          <div className='text-center'
+          <div
+            className="text-center"
             style={{
               opacity: showPing ? 1 : 0,
-              transform: showPing ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'all 0.5s ease-out'
+              transform: showPing ? "translateY(0)" : "translateY(20px)",
+              transition: "all 0.5s ease-out",
             }}
           >
-            <div className='relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden'
+            <div
+              className="relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden"
               style={{
-                background: isDark 
-                  ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))'
-                  : 'linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.03))',
+                background: isDark
+                  ? "linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))"
+                  : "linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.03))",
               }}
             >
               {showPing && (
-                <div className='absolute inset-0 rounded-2xl'
+                <div
+                  className="absolute inset-0 rounded-2xl"
                   style={{
-                    border: '2px solid rgba(34, 197, 94, 1)',
-                    boxShadow: '0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.6), inset 0 0 10px rgba(34, 197, 94, 0.4)',
-                    animation: displayPing < connectionData.ping ? 'borderSweep 2s linear' : 'none'
+                    border: "2px solid rgba(34, 197, 94, 1)",
+                    boxShadow:
+                      "0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.6), inset 0 0 10px rgba(34, 197, 94, 0.4)",
+                    animation:
+                      displayPing < connectionData.ping
+                        ? "borderSweep 2s linear"
+                        : "none",
                   }}
                 />
               )}
-              <Activity className='w-8 h-8 text-green-500 relative z-10' strokeWidth={2.5} />
+              <Activity
+                className="w-8 h-8 text-green-500 relative z-10"
+                strokeWidth={2.5}
+              />
             </div>
-            <div className={`text-3xl font-black mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}
-              style={{ 
-                letterSpacing: '-0.02em',
-                textShadow: `0 0 20px rgba(34, 197, 94, ${isDark ? '0.3' : '0.2'})`
+            <div
+              className={`text-3xl font-black mb-1 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+              style={{
+                letterSpacing: "-0.02em",
+                textShadow: `0 0 20px rgba(34, 197, 94, ${
+                  isDark ? "0.3" : "0.2"
+                })`,
               }}
             >
-              {showPing ? Math.round(displayPing) : '--'}
+              {showPing ? Math.round(displayPing) : "--"}
             </div>
-            <div className={`text-xs font-semibold uppercase tracking-wider ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+            <div
+              className={`text-xs font-semibold uppercase tracking-wider ${
+                isDark ? "text-gray-500" : "text-gray-600"
+              }`}
+            >
               Ping
             </div>
           </div>
 
           {/* Descarga */}
-          <div className='text-center'
+          <div
+            className="text-center"
             style={{
               opacity: showDownload ? 1 : 0,
-              transform: showDownload ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'all 0.5s ease-out'
+              transform: showDownload ? "translateY(0)" : "translateY(20px)",
+              transition: "all 0.5s ease-out",
             }}
           >
-            <div className='relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden'
+            <div
+              className="relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden"
               style={{
-                background: isDark 
-                  ? 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(74, 92, 255, 0.08))'
-                  : 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(74, 92, 255, 0.05))',
+                background: isDark
+                  ? "linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(74, 92, 255, 0.08))"
+                  : "linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(74, 92, 255, 0.05))",
               }}
             >
               {showDownload && (
-                <div className='absolute inset-0 rounded-2xl'
+                <div
+                  className="absolute inset-0 rounded-2xl"
                   style={{
-                    border: '2px solid rgba(74, 92, 255, 1)',
-                    boxShadow: '0 0 10px rgba(74, 92, 255, 0.8), 0 0 20px rgba(74, 92, 255, 0.6), inset 0 0 10px rgba(74, 92, 255, 0.4)',
-                    animation: displaySpeed < connectionData.downloadSpeed ? 'borderSweep 2s linear' : 'none'
+                    border: "2px solid rgba(74, 92, 255, 1)",
+                    boxShadow:
+                      "0 0 10px rgba(74, 92, 255, 0.8), 0 0 20px rgba(74, 92, 255, 0.6), inset 0 0 10px rgba(74, 92, 255, 0.4)",
+                    animation:
+                      displaySpeed < connectionData.downloadSpeed
+                        ? "borderSweep 2s linear"
+                        : "none",
                   }}
                 />
               )}
-              <Download className='w-8 h-8 text-[#4A5CFF] relative z-10' strokeWidth={2.5} />
+              <Download
+                className="w-8 h-8 text-[#4A5CFF] relative z-10"
+                strokeWidth={2.5}
+              />
             </div>
-            <div className={`text-3xl font-black mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}
-              style={{ 
-                letterSpacing: '-0.02em',
-                textShadow: `0 0 20px rgba(74, 92, 255, ${isDark ? '0.4' : '0.2'})`
+            <div
+              className={`text-3xl font-black mb-1 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+              style={{
+                letterSpacing: "-0.02em",
+                textShadow: `0 0 20px rgba(74, 92, 255, ${
+                  isDark ? "0.4" : "0.2"
+                })`,
               }}
             >
-              {showDownload ? Math.round(displaySpeed) : '--'}
+              {showDownload ? Math.round(displaySpeed) : "--"}
             </div>
-            <div className={`text-xs font-semibold uppercase tracking-wider ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+            <div
+              className={`text-xs font-semibold uppercase tracking-wider ${
+                isDark ? "text-gray-500" : "text-gray-600"
+              }`}
+            >
               Descarga (Mbps)
             </div>
           </div>
 
           {/* Subida */}
-          <div className='text-center'
+          <div
+            className="text-center"
             style={{
               opacity: showUpload ? 1 : 0,
-              transform: showUpload ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'all 0.5s ease-out'
+              transform: showUpload ? "translateY(0)" : "translateY(20px)",
+              transition: "all 0.5s ease-out",
             }}
           >
-            <div className='relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden'
+            <div
+              className="relative w-16 h-16 mx-auto mb-3 rounded-2xl flex items-center justify-center overflow-hidden"
               style={{
-                background: isDark 
-                  ? 'linear-gradient(135deg, rgba(122, 143, 255, 0.15), rgba(122, 143, 255, 0.08))'
-                  : 'linear-gradient(135deg, rgba(122, 143, 255, 0.1), rgba(122, 143, 255, 0.05))',
+                background: isDark
+                  ? "linear-gradient(135deg, rgba(122, 143, 255, 0.15), rgba(122, 143, 255, 0.08))"
+                  : "linear-gradient(135deg, rgba(122, 143, 255, 0.1), rgba(122, 143, 255, 0.05))",
               }}
             >
               {showUpload && (
-                <div className='absolute inset-0 rounded-2xl'
+                <div
+                  className="absolute inset-0 rounded-2xl"
                   style={{
-                    border: '2px solid rgba(122, 143, 255, 1)',
-                    boxShadow: '0 0 10px rgba(122, 143, 255, 0.8), 0 0 20px rgba(122, 143, 255, 0.6), inset 0 0 10px rgba(122, 143, 255, 0.4)',
-                    animation: displayUpload < connectionData.uploadSpeed ? 'borderSweep 2s linear' : 'none'
+                    border: "2px solid rgba(122, 143, 255, 1)",
+                    boxShadow:
+                      "0 0 10px rgba(122, 143, 255, 0.8), 0 0 20px rgba(122, 143, 255, 0.6), inset 0 0 10px rgba(122, 143, 255, 0.4)",
+                    animation:
+                      displayUpload < connectionData.uploadSpeed
+                        ? "borderSweep 2s linear"
+                        : "none",
                   }}
                 />
               )}
-              <Upload className='w-8 h-8 text-[#7A8FFF] relative z-10' strokeWidth={2.5} />
+              <Upload
+                className="w-8 h-8 text-[#7A8FFF] relative z-10"
+                strokeWidth={2.5}
+              />
             </div>
-            <div className={`text-3xl font-black mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}
-              style={{ 
-                letterSpacing: '-0.02em',
-                textShadow: `0 0 20px rgba(122, 143, 255, ${isDark ? '0.4' : '0.2'})`
+            <div
+              className={`text-3xl font-black mb-1 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+              style={{
+                letterSpacing: "-0.02em",
+                textShadow: `0 0 20px rgba(122, 143, 255, ${
+                  isDark ? "0.4" : "0.2"
+                })`,
               }}
             >
-              {showUpload ? Math.round(displayUpload) : '--'}
+              {showUpload ? Math.round(displayUpload) : "--"}
             </div>
-            <div className={`text-xs font-semibold uppercase tracking-wider ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>
+            <div
+              className={`text-xs font-semibold uppercase tracking-wider ${
+                isDark ? "text-gray-500" : "text-gray-600"
+              }`}
+            >
               Subida (Mbps)
             </div>
           </div>
@@ -393,16 +425,20 @@ export const SpeedTestCard: React.FC = memo(() => {
         <button
           onClick={measureConnection}
           disabled={isMeasuring}
-          className='w-full py-4 rounded-2xl font-bold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group/btn relative overflow-hidden'
+          className="w-full py-4 rounded-2xl font-bold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group/btn relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)',
-            boxShadow: '0 10px 30px rgba(74, 92, 255, 0.4)'
+            background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
+            boxShadow: "0 10px 30px rgba(74, 92, 255, 0.4)",
           }}
         >
-          <div className='absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000' />
-          <span className='relative flex items-center justify-center gap-2'>
-            <Zap className='w-5 h-5' strokeWidth={2.5} />
-            {isMeasuring ? 'Midiendo...' : connectionData.downloadSpeed > 0 ? 'Medir Nuevamente' : 'Iniciar Test'}
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+          <span className="relative flex items-center justify-center gap-2">
+            <Zap className="w-5 h-5" strokeWidth={2.5} />
+            {isMeasuring
+              ? "Midiendo..."
+              : connectionData.downloadSpeed > 0
+              ? "Medir Nuevamente"
+              : "Iniciar Test"}
           </span>
         </button>
       </div>
@@ -410,4 +446,4 @@ export const SpeedTestCard: React.FC = memo(() => {
   );
 });
 
-SpeedTestCard.displayName = 'SpeedTestCard';
+SpeedTestCard.displayName = "SpeedTestCard";

@@ -19,3 +19,4 @@ export { Modal } from './Modal';
 // Reusable components (SOLID)
 export * from './Button';
 export * from './Form';
+export * from './SpeedGauge';

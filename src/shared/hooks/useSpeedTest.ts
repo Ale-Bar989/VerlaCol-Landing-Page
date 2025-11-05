@@ -72,32 +72,46 @@ export function useSpeedTest(options: UseSpeedTestOptions = {}) {
     setIsMeasuring(true);
     console.log('🚀 Iniciando test de velocidad real...');
 
+    // Resetear valores al iniciar
+    setConnectionData({
+      downloadSpeed: 0,
+      uploadSpeed: 0,
+      ping: 0,
+      effectiveType: '4g',
+      isOnline: true,
+    });
+
     try {
       const networkInfo = getNetworkInfo();
       console.log('📡 Tipo de conexión:', networkInfo.effectiveType);
 
-      // Medir ping usando el servicio
-      console.log('⏱️ Midiendo ping...');
-      const ping = await speedTest.measurePing();
+      // Usar runFullTest con callback de progreso en tiempo real
+      const results = await speedTest.runFullTest((progressData) => {
+        // Actualizar datos en tiempo real mientras se mide
+        console.log('📊 Progreso:', progressData);
+        setConnectionData(prev => {
+          if (progressData.type === 'download') {
+            return { ...prev, downloadSpeed: progressData.currentValue };
+          } else if (progressData.type === 'upload') {
+            return { ...prev, uploadSpeed: progressData.currentValue };
+          } else if (progressData.type === 'latency') {
+            return { ...prev, ping: progressData.currentValue };
+          }
+          return prev;
+        });
+      });
 
-      // Medir velocidad de descarga usando el servicio
-      console.log('⬇️ Midiendo velocidad de descarga...');
-      const downloadSpeed = await speedTest.measureDownload();
-
-      // Medir velocidad de subida usando el servicio
-      console.log('⬆️ Midiendo velocidad de subida...');
-      const uploadSpeed = await speedTest.measureUpload();
-
-      const results = {
-        downloadSpeed,
-        uploadSpeed,
-        ping,
+      // Actualizar con resultados finales
+      const finalResults = {
+        downloadSpeed: results.download,
+        uploadSpeed: results.upload,
+        ping: results.ping,
         effectiveType: networkInfo.effectiveType,
         isOnline: navigator.onLine,
       };
 
-      console.log('✅ Test completado:', results);
-      setConnectionData(results);
+      console.log('✅ Test completado:', finalResults);
+      setConnectionData(finalResults);
     } catch (error) {
       console.error('❌ Error en test de velocidad:', error);
       // En caso de error, mantener valores anteriores o usar fallback

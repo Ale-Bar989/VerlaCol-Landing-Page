@@ -14,6 +14,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@cloudflare/speedtest": "^1.7.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/pdfjs-dist": "^2.10.377",
     "class-variance-authority": "^0.7.1",
