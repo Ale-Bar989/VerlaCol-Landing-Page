@@ -14,10 +14,12 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useState } from "react";
-import { BackgroundEffects, Modal } from '@/shared/components';
-import { Navbar } from '@/shared/components';
-import FooterSection from '@/features/home/components/sections/FooterSection';
-import { PricingSpeedTest } from './components';                                                                                                                   
+import { Link } from "react-router-dom";
+import { BackgroundEffects, Modal } from "@/shared/components";
+import { Navbar } from "@/shared/components";
+import { ROUTES } from "@/core/router/routes.config";
+import FooterSection from "@/features/home/components/sections/FooterSection";
+import { PricingSpeedTest } from "./components";
 
 // Página de Precios de Verla
 // Ubicación: src/ui/pages/pricing/index.tsx
@@ -320,11 +322,15 @@ export default function PricingPage() {
 
                       {/* Precio */}
                       <div className="flex items-baseline justify-center gap-0.5 sm:gap-1 mb-2">
-                        <span className="text-2xl sm:text-3xl text-gray-400">$</span>
+                        <span className="text-2xl sm:text-3xl text-gray-400">
+                          $
+                        </span>
                         <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
                           {plan.price}
                         </span>
-                        <span className="text-base sm:text-xl text-gray-400">/mes</span>
+                        <span className="text-base sm:text-xl text-gray-400">
+                          /mes
+                        </span>
                       </div>
 
                       {/* Ahorro (solo para Plan Familia) */}
@@ -405,8 +411,8 @@ export default function PricingPage() {
                     </div>
 
                     {/* Botón CTA moderno con icono */}
-                    <button
-                      onClick={() => handleOpenModal(plan)}
+                    <Link
+                      to={ROUTES.CONTACT}
                       className={`group/btn relative flex items-center justify-center gap-1.5 sm:gap-2 w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden ${
                         plan.highlighted
                           ? "text-white shadow-lg hover:shadow-xl hover:scale-105"
@@ -438,7 +444,7 @@ export default function PricingPage() {
                         className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform"
                         strokeWidth={2.5}
                       />
-                    </button>
+                    </Link>
                   </div>
 
                   {/* Línea decorativa inferior */}
@@ -468,7 +474,10 @@ export default function PricingPage() {
                     background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
                   }}
                 >
-                  <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={3} />
+                  <Check
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    strokeWidth={3}
+                  />
                 </div>
                 <div className="text-left min-w-0">
                   <div className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
@@ -487,13 +496,18 @@ export default function PricingPage() {
                     background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
                   }}
                 >
-                  <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={3} />
+                  <Check
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    strokeWidth={3}
+                  />
                 </div>
                 <div className="text-left min-w-0">
                   <div className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
                     Instalación gratuita
                   </div>
-                  <div className="text-[10px] sm:text-xs text-gray-400 whitespace-nowrap">En 24-48 horas</div>
+                  <div className="text-[10px] sm:text-xs text-gray-400 whitespace-nowrap">
+                    En 24-48 horas
+                  </div>
                 </div>
               </div>
 
@@ -504,7 +518,10 @@ export default function PricingPage() {
                     background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
                   }}
                 >
-                  <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={3} />
+                  <Check
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    strokeWidth={3}
+                  />
                 </div>
                 <div className="text-left min-w-0">
                   <div className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">

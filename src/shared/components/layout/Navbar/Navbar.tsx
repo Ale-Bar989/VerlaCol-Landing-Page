@@ -626,36 +626,26 @@ function Navbar() {
           <div className="hidden md:block ml-2">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white overflow-hidden"
+              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold overflow-hidden text-white!"
               style={{
                 background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
                 boxShadow: "0 4px 15px rgba(74, 92, 255, 0.3)",
-                transition: "all 400ms cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow =
-                  "0 8px 25px rgba(74, 92, 255, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0px)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 15px rgba(74, 92, 255, 0.3)";
+                color: "#FFFFFF !important",
               }}
             >
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Contactar</span>
+              <span className="relative text-white!" style={{ color: "#FFFFFF !important" }}>Contactar</span>
               <svg
-                className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                className="relative w-4 h-4"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  stroke="#FFFFFF"
+                  style={{ stroke: "#FFFFFF !important" }}
                 />
               </svg>
             </Link>

@@ -438,10 +438,11 @@ export const SpeedTestCard: React.FC = memo(() => {
         <button
           onClick={measureConnection}
           disabled={isMeasuring}
-          className="w-full py-4 rounded-2xl font-bold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group/btn relative overflow-hidden"
+          className="w-full py-4 rounded-2xl font-bold transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group/btn relative overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
             boxShadow: "0 10px 30px rgba(74, 92, 255, 0.4)",
+            color: "#FFFFFF",
           }}
         >
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
