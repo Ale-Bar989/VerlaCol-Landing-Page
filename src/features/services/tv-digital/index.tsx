@@ -194,21 +194,21 @@ export default function TVDigitalPage() {
               <h3 className="text-2xl font-bold mb-4 text-blue-500">¿Por qué elegir nuestra plataforma IPTV?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <Check className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" />
+                  <Check className="w-6 h-6 text-green-500 mr-3 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold">Plataforma White Label</h4>
                     <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Marca blanca personalizable con tu identidad corporativa</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <Check className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" />
+                  <Check className="w-6 h-6 text-green-500 mr-3 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold">Panel de Control Avanzado</h4>
                     <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Gestiona usuarios, paquetes y facturación en un solo lugar</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <Check className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" />
+                  <Check className="w-6 h-6 text-green-500 mr-3 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold">Contenido Premium</h4>
                     <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Acceso a miles de canales y contenido bajo demanda</p>
@@ -222,7 +222,7 @@ export default function TVDigitalPage() {
                 {technicalAdvantages.map((advantage, index) => (
                   <div 
                     key={index} 
-                    className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-500/50" : "bg-white/90 border-1 border-blue-400/50 hover:border-blue-500/50"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
+                    className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-500/50" : "bg-white/90 border border-blue-400/50 hover:border-blue-500/50"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
                   >
                     <div className="mb-3 text-blue-600 dark:text-blue-400 transition-colors">
                       {advantage.icon}
