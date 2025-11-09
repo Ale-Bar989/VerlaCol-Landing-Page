@@ -2,7 +2,7 @@
 // Ubicación: src/shared/components/NotFound/errorConfig.ts
 // Responsabilidad única: Definir configuración de errores
 
-import { WifiOff, AlertTriangle } from "lucide-react";
+import { WifiOff, AlertTriangle, ServerCrash } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface ErrorConfig {
@@ -14,7 +14,7 @@ export interface ErrorConfig {
   gradientTo: string;
 }
 
-export type ErrorCode = 400 | 404 | 500;
+export type ErrorCode = 400 | 404 | 500 | 503;
 
 export const ERROR_CONFIGS: Record<ErrorCode, ErrorConfig> = {
   400: {
@@ -40,5 +40,13 @@ export const ERROR_CONFIGS: Record<ErrorCode, ErrorConfig> = {
     iconColor: "text-red-500",
     gradientFrom: "from-red-500",
     gradientTo: "to-pink-500",
+  },
+  503: {
+    icon: ServerCrash,
+    defaultTitle: "Servicio temporalmente no disponible",
+    defaultDescription: "Nuestros servicios están temporalmente fuera de línea. Por favor, intenta nuevamente en unos minutos.",
+    iconColor: "text-yellow-500",
+    gradientFrom: "from-yellow-500",
+    gradientTo: "to-orange-500",
   },
 };

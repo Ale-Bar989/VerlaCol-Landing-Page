@@ -10,3 +10,5 @@ export { useAnimatedNumber, useAnimatedNumbers } from "./useAnimatedNumber";
 export type { AnimationConfig, EasingType } from "./useAnimatedNumber";
 export { useContactForm } from './useContactForm';
 export type { UseContactFormOptions, UseContactFormResult, SubmitStatus } from './useContactForm';
+export { useApiErrorHandler } from './useApiErrorHandler';
+export type { UseApiErrorHandlerOptions } from './useApiErrorHandler';

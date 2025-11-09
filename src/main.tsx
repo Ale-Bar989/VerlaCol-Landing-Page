@@ -4,6 +4,10 @@ import { RouterProvider } from "react-router-dom";
 import "@/shared/styles/index.css";
 import { router } from "@/core/router";
 import { ThemeProvider } from "@/core/contexts";
+import { setupApiInterceptor } from "@/core/utils/apiInterceptor";
+
+// Configurar interceptor de API para detectar errores automáticamente
+setupApiInterceptor();
 
 // Registrar Service Worker para PWA
 if ('serviceWorker' in navigator) {

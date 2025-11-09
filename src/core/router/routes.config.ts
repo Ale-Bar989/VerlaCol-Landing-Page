@@ -8,6 +8,7 @@ export const ROUTES = {
   PRICING: '/precios',
   NOTFOUND: '/not-found',
   NO_CONNECTION: '/no-connection',
+  SERVICE_UNAVAILABLE: '/service-unavailable',
 
   // Legal Routes
   LEGAL: {
