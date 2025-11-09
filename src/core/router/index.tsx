@@ -27,8 +27,9 @@ const ComparadorTarifas = lazy(
   () => import("@/features/legal/comparador-tarifas")
 );
 
-// 404 Page
+// Error Pages
 const NotFoundPage = lazy(() => import("@/features/not-found"));
+const NoConnectionPage = lazy(() => import("@/features/no-connection"));
 
 // Services Pages
 const FibraResidencial = lazy(
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.NOTFOUND,
     element: withSuspense(NotFoundPage),
+  },
+  {
+    path: ROUTES.NO_CONNECTION,
+    element: withSuspense(NoConnectionPage),
   },
   {
     path: "*",

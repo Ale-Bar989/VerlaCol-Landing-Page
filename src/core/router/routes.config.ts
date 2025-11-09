@@ -7,6 +7,7 @@ export const ROUTES = {
   CONTACT: '/contact',
   PRICING: '/precios',
   NOTFOUND: '/not-found',
+  NO_CONNECTION: '/no-connection',
 
   // Legal Routes
   LEGAL: {
