@@ -882,7 +882,7 @@ div[class*="border"] {
 }
 
 /* Partículas de la sección adaptadas */
-.light section[class*="py-28"] .bg-\[#4A5CFF\] {
+.light section[class*="py-28"] [class*="bg-[#4A5CFF]"] {
   background-color: rgba(74, 92, 255, 0.4) !important;
   box-shadow: 0 0 4px rgba(74, 92, 255, 0.4) !important;
 }
