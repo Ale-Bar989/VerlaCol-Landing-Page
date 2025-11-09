@@ -10,5 +10,3 @@ export { useAnimatedNumber, useAnimatedNumbers } from "./useAnimatedNumber";
 export type { AnimationConfig, EasingType } from "./useAnimatedNumber";
 export { useContactForm } from './useContactForm';
 export type { UseContactFormOptions, UseContactFormResult, SubmitStatus } from './useContactForm';
-export { useNavigateSmooth } from './useNavigateSmooth';
-export { useOnlineStatus } from './useOnlineStatus';
