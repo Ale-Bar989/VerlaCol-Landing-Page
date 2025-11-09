@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import type { ComponentType } from 'react';
 import { ROUTES } from './routes.config';
@@ -21,6 +21,9 @@ const Filtrado = lazy(() => import('@/features/legal/filtrado'));
 const Seguridad = lazy(() => import('@/features/legal/seguridad'));
 const ComparadorTarifas = lazy(() => import('@/features/legal/comparador-tarifas'));
 
+// 404 Page
+const NotFoundPage = lazy(() => import('@/features/not-found'));
+
 // Services Pages
 const FibraResidencial = lazy(() => import('@/features/services/fibra-residencial'));
 const PlanesEmpresariales = lazy(() => import('@/features/services/planes-empresariales'));
@@ -37,6 +40,14 @@ export const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
     element: withSuspense(Home),
+  },
+  {
+    path: ROUTES.NOTFOUND,
+    element: withSuspense(NotFoundPage),
+  },
+  {
+    path: '*',
+    element: <Navigate to={ROUTES.NOTFOUND} replace />,
   },
   {
     path: ROUTES.ABOUT,

@@ -20,3 +20,6 @@ export { Modal } from './Modal';
 export * from './Button';
 export * from './Form';
 export * from './SpeedGauge';
+
+//NotFound component
+export * from './NotFound';
