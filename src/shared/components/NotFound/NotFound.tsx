@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, WifiOff, AlertTriangle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ROUTES } from "@/core/router/routes.config";
 import { memo } from "react";
+import { ERROR_CONFIGS, type ErrorCode } from "./errorConfig";
 
 export type NotFoundProps = {
-  errorCode?: 400 | 404 | 500;
+  errorCode?: ErrorCode;
   title?: string;
   description?: string;
   showBackButton?: boolean;
@@ -22,35 +23,8 @@ const NotFound: React.FC<NotFoundProps> = memo(({
   onRetry,
   className = "",
 }: NotFoundProps) => {
-  // Configuración por defecto según el código de error
-  const errorConfig = {
-    400: {
-      icon: WifiOff,
-      defaultTitle: "Sin conexión a internet",
-      defaultDescription: "Parece que no tienes conexión a internet. Por favor, verifica tu conexión y vuelve a intentarlo.",
-      iconColor: "text-orange-500",
-      gradientFrom: "from-orange-500",
-      gradientTo: "to-red-500",
-    },
-    404: {
-      icon: AlertTriangle,
-      defaultTitle: "Oops, página no encontrada",
-      defaultDescription: "La página que buscas no existe o ha sido movida. Verifica la URL o regresa al inicio.",
-      iconColor: "text-blue-500",
-      gradientFrom: "from-blue-500",
-      gradientTo: "to-indigo-500",
-    },
-    500: {
-      icon: AlertTriangle,
-      defaultTitle: "Error del servidor",
-      defaultDescription: "Algo salió mal en nuestros servidores. Estamos trabajando para solucionarlo.",
-      iconColor: "text-red-500",
-      gradientFrom: "from-red-500",
-      gradientTo: "to-pink-500",
-    },
-  };
-
-  const config = errorConfig[errorCode];
+  // Obtener configuración del error
+  const config = ERROR_CONFIGS[errorCode];
   const Icon = config.icon;
   const finalTitle = title || config.defaultTitle;
   const finalDescription = description || config.defaultDescription;
@@ -103,7 +77,7 @@ const NotFound: React.FC<NotFoundProps> = memo(({
                 onClick={onRetry}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-base font-medium font-inter transition-all duration-200 bg-linear-to-br from-blue-500 to-purple-500 text-white hover:shadow-lg hover:scale-105"
               >
-                <WifiOff className="w-5 h-5" strokeWidth={2} />
+                <Icon className="w-5 h-5" strokeWidth={2} />
                 <span>Reintentar</span>
               </button>
             )}
