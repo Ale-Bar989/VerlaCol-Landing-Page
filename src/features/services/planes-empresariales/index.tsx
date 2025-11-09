@@ -144,7 +144,7 @@ export default function PlanesEmpresarialesPage() {
       </section>
 
       {/* Business Solutions - Modern Corporate Design */}
-      <section className={`relative py-24 overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-950 to-gray-900' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
+      <section className={`relative py-24 overflow-hidden ${isDark ? 'bg-linear-to-br from-gray-950 to-gray-900' : 'bg-linear-to-br from-gray-50 to-gray-100'}`}>
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] rounded-full opacity-10" 
@@ -159,13 +159,13 @@ export default function PlanesEmpresarialesPage() {
             <span className="inline-block text-sm font-semibold tracking-wider uppercase mb-4 text-blue-500">
               Soluciones a Medida
             </span>
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r ${
               isDark ? 'from-blue-400 to-cyan-300' : 'from-blue-600 to-cyan-500'
             }`}>
               Nuestras Soluciones Empresariales
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full mb-8 ${
-              isDark ? 'bg-gradient-to-r from-blue-500 to-cyan-400' : 'bg-gradient-to-r from-blue-600 to-cyan-500'
+              isDark ? 'bg-linear-to-r from-blue-500 to-cyan-400' : 'bg-linear-to-r from-blue-600 to-cyan-500'
             }`}></div>
             <p className={`text-lg md:text-xl leading-relaxed ${
               isDark ? 'text-gray-300' : 'text-gray-600'
@@ -182,25 +182,25 @@ export default function PlanesEmpresarialesPage() {
                   key={index}
                   className={`group relative p-0.5 rounded-2xl transition-all duration-500 overflow-hidden ${
                     isDark 
-                      ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30' 
-                      : 'bg-gradient-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100'
+                      ? 'bg-linear-to-br from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30' 
+                      : 'bg-linear-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100'
                   }`}
                 >
                   <div className={`h-full p-8 rounded-2xl transition-all duration-300 ${
                     isDark 
                       ? 'bg-gray-900/80 backdrop-blur-sm group-hover:bg-gray-900/70' 
-                      : 'bg-white/95 backdrop-blur-sm group-hover:bg-white/100 group-hover:shadow-lg'
+                      : 'bg-white/95 backdrop-blur-sm group-hover:bg-white group-hover:shadow-lg'
                   }`}>
                     <div className="flex items-start space-x-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 ${
                         isDark 
-                          ? 'bg-gradient-to-br from-blue-500/10 to-cyan-500/10 group-hover:from-blue-500/20 group-hover:to-cyan-500/20'
-                          : 'bg-gradient-to-br from-blue-50 to-cyan-50 group-hover:from-blue-100 group-hover:to-cyan-100 group-hover:shadow-md'
+                          ? 'bg-linear-to-br from-blue-500/10 to-cyan-500/10 group-hover:from-blue-500/20 group-hover:to-cyan-500/20'
+                          : 'bg-linear-to-br from-blue-50 to-cyan-50 group-hover:from-blue-100 group-hover:to-cyan-100 group-hover:shadow-md'
                       }`}>
                         <div className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 ${
                           isDark 
-                            ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 text-blue-400 group-hover:text-blue-300' 
-                            : 'bg-white text-blue-600 shadow-md group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-cyan-50 group-hover:shadow-lg group-hover:scale-105'
+                            ? 'bg-linear-to-br from-blue-500/20 to-cyan-500/20 text-blue-400 group-hover:text-blue-300' 
+                            : 'bg-white text-blue-600 shadow-md group-hover:bg-linear-to-br group-hover:from-blue-50 group-hover:to-cyan-50 group-hover:shadow-lg group-hover:scale-105'
                         }`}>
                           <Icon className="w-6 h-6" />
                         </div>
@@ -239,7 +239,7 @@ export default function PlanesEmpresarialesPage() {
                     isDark ? '' : 'mix-blend-multiply'
                   }`}>
                     <div 
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500"
+                      className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500"
                       style={{
                         mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                         maskComposite: 'exclude',

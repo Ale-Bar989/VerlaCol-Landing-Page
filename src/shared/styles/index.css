@@ -1670,3 +1670,20 @@ section[class*="min-h-screen"] {
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-in-out;
 }
+
+/* Animación de entrada tipo drawer desde arriba hacia abajo para HeroSection */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scaleY(0.5);
+    transform-origin: top center;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 1s ease-out;
+}

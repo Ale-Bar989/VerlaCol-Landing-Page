@@ -87,7 +87,12 @@ function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 flex items-center">
       {/* Contenedor del slider con bordes redondeados */}
-      <div className="relative w-full h-[92vh] sm:h-[88vh] md:h-[85vh] rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+      <div 
+        className="relative w-full h-[92vh] sm:h-[88vh] md:h-[85vh] rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl animate-slideDown"
+        style={{
+          animation: "slideDown 1s ease-out",
+        }}
+      >
         {/* Imagen de fondo con transición suave */}
         <div
           key={`bg-${currentSlide}`}
