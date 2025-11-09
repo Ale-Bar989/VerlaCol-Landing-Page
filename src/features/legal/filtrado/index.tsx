@@ -1,5 +1,20 @@
-import { Filter, Settings, Shield, CheckCircle2 } from "lucide-react";
+import { 
+  Filter, 
+  Settings, 
+  Shield, 
+  CheckCircle2, 
+  AlertOctagon,  
+  Banknote,
+  Sword, 
+  Pill, 
+  HeartPulse, 
+  Bomb, 
+  ShieldAlert, 
+  Bug, 
+  Ban 
+} from "lucide-react";
 import { PageLayout } from "@/shared//components";
+
 
 // Página de Mecanismos de Filtrado
 // Ubicación: src/ui/pages/legal/filtrado/index.tsx
@@ -43,7 +58,7 @@ export default function FiltradoPage() {
           </section>
 
           {/* Tipos de Filtrado */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <Settings className="w-6 h-6 text-red-400" />
               Tipos de Filtrado Implementados
@@ -131,21 +146,21 @@ export default function FiltradoPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                "🔞 Contenido pornográfico",
-                "⚔️ Violencia extrema",
-                "🎰 Apuestas y juegos de azar",
-                "💊 Drogas y narcóticos",
-                "🔪 Autolesión y suicidio",
-                "💣 Contenido terrorista",
-                "🎭 Fraudes y phishing",
-                "⚠️ Malware y virus",
-                "🚫 Discriminación y odio",
+                { icon: <AlertOctagon className="inline-block w-5 h-5 mr-2" />, text: "Contenido pornográfico" },
+                { icon: <Sword className="inline-block w-5 h-5 mr-2" />, text: "Violencia extrema" },
+                { icon: <Banknote className="inline-block w-5 h-5 mr-2" />, text: "Apuestas y juegos de azar" },
+                { icon: <Pill className="inline-block w-5 h-5 mr-2" />, text: "Drogas y narcóticos" },
+                { icon: <HeartPulse className="inline-block w-5 h-5 mr-2" />, text: "Autolesión y suicidio" },
+                { icon: <Bomb className="inline-block w-5 h-5 mr-2" />, text: "Contenido terrorista" },
+                { icon: <ShieldAlert className="inline-block w-5 h-5 mr-2" />, text: "Fraudes y phishing" },
+                { icon: <Bug className="inline-block w-5 h-5 mr-2" />, text: "Malware y virus" },
+                { icon: <Ban className="inline-block w-5 h-5 mr-5" />, text: "Discriminación y odio" },
               ].map((category, index) => (
                 <div
                   key={index}
                   className="bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 text-center"
                 >
-                  <span className="text-sm text-gray-300">{category}</span>
+                  <span className="text-sm text-gray-300">{category.icon} {category.text}</span>
                 </div>
               ))}
             </div>

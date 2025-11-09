@@ -17,6 +17,9 @@ export * from "./effects";
 export { Modal } from "./Modal";
 
 // Reusable components (SOLID)
-export * from "./Button";
-export * from "./Form";
-export * from "./SpeedGauge";
+export * from './Button';
+export * from './Form';
+export * from './SpeedGauge';
+
+//NotFound component
+export * from './NotFound';

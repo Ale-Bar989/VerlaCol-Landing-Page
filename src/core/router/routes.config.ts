@@ -6,7 +6,8 @@ export const ROUTES = {
   ABOUT: '/about',
   CONTACT: '/contact',
   PRICING: '/precios',
-  
+  NOTFOUND: '/not-found',
+
   // Legal Routes
   LEGAL: {
     PROTECCION_USUARIOS: '/legal/proteccion-usuarios',
