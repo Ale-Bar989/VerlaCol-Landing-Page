@@ -1,16 +1,9 @@
-import type { LucideIcon } from 'lucide-react';
 import { useLocalTheme } from '@/shared/hooks/useLocalTheme';
+import type { Feature } from '@/shared/types';
 import { DESIGN_SYSTEM } from '@/shared/styles/design-system';
 
 // Grid de features reutilizable para páginas de servicios
 // Ubicación: src/shared/components/FeaturesGrid.tsx
-
-export interface Feature {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  color: string;
-}
 
 interface FeaturesGridProps {
   features: Feature[];

@@ -2,7 +2,6 @@ import { Target, Heart, Sparkles, Tv, Globe, Zap, Radio, Shuffle, Link as LinkIc
 import { Navbar } from '@/shared//components';
 import FooterSection from '@/features/home/components/sections/FooterSection';
 import { BackgroundEffects } from '@/shared//components';
-import { DESIGN_SYSTEM } from '@/shared//styles/design-system';
 
 // Página About con diseño moderno
 // Ubicación: src/ui/pages/about/About.tsx
@@ -26,13 +25,7 @@ export default function About() {
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight">
               Sobre{' '}
-              <span 
-                className="text-transparent bg-clip-text animate-gradient inline-block"
-                style={{ 
-                  backgroundImage: 'linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF, #FFFFFF, #4A5CFF)',
-                  backgroundSize: '200% 100%'
-                }}
-              >
+              <span className="text-transparent bg-clip-text animate-gradient inline-block gradient-text-animated">
                 Verla
               </span>
             </h1>
@@ -46,16 +39,13 @@ export default function About() {
           {/* Card principal con diseño premium */}
           <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 md:mb-20 overflow-hidden group">
             {/* Fondo con gradiente */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))' }}></div>
+            <div className="absolute inset-0 gradient-section-bg"></div>
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl gradient-border-primary"></div>
             
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-6 sm:mb-8">
-                <div 
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500" 
-                  style={{ background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)', boxShadow: '0 8px 32px rgba(74, 92, 255, 0.4)' }}
-                >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 gradient-icon-box">
                   <Tv size={40} className="sm:w-12 sm:h-12 text-white" strokeWidth={2.5} />
                 </div>
               </div>
@@ -71,10 +61,10 @@ export default function About() {
 
           {/* Cards MVV modernas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
-            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)' }}>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
                   <Target size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Misión</h3>
@@ -84,10 +74,10 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: DESIGN_SYSTEM.gradients.primary }}>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
                   <Heart size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Valores</h3>
@@ -97,10 +87,10 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))' }}>
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))' }}></div>
+            <div className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(135deg, #7A8FFF, #4A5CFF)' }}>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
                   <Globe size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Visión</h3>
@@ -114,9 +104,9 @@ export default function About() {
           {/* Infraestructura Tecnológica */}
           <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center overflow-hidden">
             {/* Fondo con gradiente */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))' }}></div>
+            <div className="absolute inset-0 gradient-section-bg"></div>
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl" style={{ padding: '1px', background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl gradient-border-primary-soft"></div>
             
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full mb-4 sm:mb-6">
@@ -128,7 +118,7 @@ export default function About() {
               
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4">
                 Nuestra{' '}
-                <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)' }}>
+                <span className="text-transparent bg-clip-text gradient-text-primary">
                   Tecnología
                 </span>
               </h2>
@@ -149,10 +139,9 @@ export default function About() {
                 ].map((tech) => (
                   <div 
                     key={tech.name}
-                    className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 group/item transition-all duration-300 hover:scale-105"
-                    style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))', border: '1px solid rgba(74, 92, 255, 0.2)' }}
+                    className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 group/item transition-all duration-300 hover:scale-105 gradient-section-bg border border-[rgba(74,92,255,0.2)]"
                   >
-                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))' }}></div>
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity gradient-section-bg-alt"></div>
                     
                     <div className="relative z-10">
                       <div className="mb-2 sm:mb-3 group-hover/item:scale-110 transition-transform duration-300">
@@ -169,19 +158,19 @@ export default function About() {
               
               {/* Ventajas competitivas */}
               <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8 sm:mt-10 md:mt-12">
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2 advantage-badge">
                   <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   Velocidad Simétrica
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2 advantage-badge">
                   <Tv className="w-4 h-4" />
                   TV HD/4K
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2 advantage-badge">
                   <Lock className="w-4 h-4" />
                   Red Segura
                 </span>
-                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2" style={{ background: 'linear-gradient(135deg, rgba(74, 92, 255, 0.2), rgba(122, 143, 255, 0.1))', border: '1px solid rgba(74, 92, 255, 0.3)' }}>
+                <span className="px-5 py-2.5 rounded-lg text-sm text-white font-semibold flex items-center gap-2 advantage-badge">
                   <HeadphonesIcon className="w-4 h-4" />
                   Soporte 24/7
                 </span>

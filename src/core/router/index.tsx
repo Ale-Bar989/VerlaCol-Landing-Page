@@ -1,33 +1,43 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-import type { ComponentType } from 'react';
-import { ROUTES } from './routes.config';
-import { LoadingFallback } from '@/shared/components';
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import type { ComponentType } from "react";
+import { ROUTES } from "./routes.config";
+import { LoadingFallback } from "@/shared/components";
 
 // Lazy loading de páginas para optimizar tiempos de carga - Screaming Architecture
 // Ubicación: src/core/router/index.tsx
-const Home = lazy(() => import('@/features/home/Home'));
-const About = lazy(() => import('@/features/about/About'));
-const Contact = lazy(() => import('@/features/contact/Contact'));
-const Pricing = lazy(() => import('@/features/pricing'));
+const Home = lazy(() => import("@/features/home/Home"));
+const About = lazy(() => import("@/features/about/About"));
+const Contact = lazy(() => import("@/features/contact/Contact"));
+const Pricing = lazy(() => import("@/features/pricing"));
 
 // Legal Pages
-const ProteccionUsuarios = lazy(() => import('@/features/legal/proteccion-usuarios'));
-const ProteccionInfantil = lazy(() => import('@/features/legal/proteccion-infantil'));
-const Normatividad = lazy(() => import('@/features/legal/normatividad'));
-const ProteccionDatos = lazy(() => import('@/features/legal/proteccion-datos'));
-const InternetSano = lazy(() => import('@/features/legal/internet-sano'));
-const Filtrado = lazy(() => import('@/features/legal/filtrado'));
-const Seguridad = lazy(() => import('@/features/legal/seguridad'));
-const ComparadorTarifas = lazy(() => import('@/features/legal/comparador-tarifas'));
+const ProteccionUsuarios = lazy(
+  () => import("@/features/legal/proteccion-usuarios")
+);
+const ProteccionInfantil = lazy(
+  () => import("@/features/legal/proteccion-infantil")
+);
+const Normatividad = lazy(() => import("@/features/legal/normatividad"));
+const ProteccionDatos = lazy(() => import("@/features/legal/proteccion-datos"));
+const InternetSano = lazy(() => import("@/features/legal/internet-sano"));
+const Filtrado = lazy(() => import("@/features/legal/filtrado"));
+const Seguridad = lazy(() => import("@/features/legal/seguridad"));
+const ComparadorTarifas = lazy(
+  () => import("@/features/legal/comparador-tarifas")
+);
 
 // 404 Page
-const NotFoundPage = lazy(() => import('@/features/not-found'));
+const NotFoundPage = lazy(() => import("@/features/not-found"));
 
 // Services Pages
-const FibraResidencial = lazy(() => import('@/features/services/fibra-residencial'));
-const PlanesEmpresariales = lazy(() => import('@/features/services/planes-empresariales'));
-const TVDigital = lazy(() => import('@/features/services/tv-digital'));
+const FibraResidencial = lazy(
+  () => import("@/features/services/fibra-residencial")
+);
+const PlanesEmpresariales = lazy(
+  () => import("@/features/services/planes-empresariales")
+);
+const TVDigital = lazy(() => import("@/features/services/tv-digital"));
 
 // Wrapper para aplicar Suspense a las rutas lazy
 const withSuspense = (Component: ComponentType) => (
@@ -46,7 +56,7 @@ export const router = createBrowserRouter([
     element: withSuspense(NotFoundPage),
   },
   {
-    path: '*',
+    path: "*",
     element: <Navigate to={ROUTES.NOTFOUND} replace />,
   },
   {

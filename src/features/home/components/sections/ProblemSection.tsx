@@ -1,34 +1,11 @@
-import { useState, memo, useCallback, useMemo } from "react";
-import { useTheme } from '@/core/contexts';
-import { ArrowRight, X, Phone, Mail, MapPin, Clock } from "lucide-react";
-import { ROUTES } from '@/core/router/routes.config';
+import { useState, useCallback, useMemo, memo } from "react";
+import { useTheme } from "@/core/contexts";
+import { ArrowRight, Clock, Mail, MapPin, Phone, X } from "lucide-react";
+import { ROUTES } from "@/core/router/routes.config";
+import { PROCESS_STEPS } from "@/features/home/data";
 
 // Solutions section - Simple process showcase - Optimizado
 // Ubicación: src/ui/pages/home/components/ProblemSection.tsx
-
-// Datos estáticos fuera del componente
-const STEPS_DATA = [
-  {
-    number: 1,
-    title: "Contáctanos",
-    description: "Comunícate con nosotros para conocer tu necesidad",
-  },
-  {
-    number: 2,
-    title: "Consulta",
-    description: "Revisamos opciones para resolver tus dudas",
-  },
-  {
-    number: 3,
-    title: "Realiza el pedido",
-    description: "Elige el servicio ideal y procede",
-  },
-  {
-    number: 4,
-    title: "Pago",
-    description: "Completa el pago de forma segura en todos los bancos",
-  },
-];
 
 function ProblemSection() {
   const { theme } = useTheme();
@@ -36,7 +13,7 @@ function ProblemSection() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   // Memoizar steps
-  const steps = useMemo(() => STEPS_DATA, []);
+  const steps = useMemo(() => PROCESS_STEPS, []);
 
   // Memoizar handlers
   const handleDrawerOpen = useCallback(() => {
@@ -47,6 +24,10 @@ function ProblemSection() {
     setIsDrawerOpen(false);
   }, []);
 
+  const handleContactRedirect = useCallback(() => {
+    window.location.href = ROUTES.CONTACT;
+  }, []);
+
   return (
     <>
       <section
@@ -55,18 +36,9 @@ function ProblemSection() {
         }`}
       >
         {/* Decorative circles */}
-        <div
-          className="absolute top-20 right-10 w-12 h-12 rounded-full border-4"
-          style={{ borderColor: "rgba(91, 111, 255, 0.3)" }}
-        />
-        <div
-          className="absolute top-40 right-32 w-8 h-8 rounded-full"
-          style={{ backgroundColor: "rgba(122, 143, 255, 0.2)" }}
-        />
-        <div
-          className="absolute bottom-20 right-20 w-10 h-10 rounded-full border-4"
-          style={{ borderColor: "rgba(74, 92, 255, 0.3)" }}
-        />
+        <div className="absolute top-20 right-10 w-12 h-12 rounded-full border-4 border-[rgba(91,111,255,0.3)]" />
+        <div className="absolute top-40 right-32 w-8 h-8 rounded-full bg-[rgba(122,143,255,0.2)]" />
+        <div className="absolute bottom-20 right-20 w-10 h-10 rounded-full border-4 border-[rgba(74,92,255,0.3)]" />
 
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Main Content - Two Columns */}
@@ -101,7 +73,7 @@ function ProblemSection() {
                     isDark ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  Soluciones <span style={{ color: "#5B6FFF" }}>Simples!</span>
+                  Soluciones <span className="text-[#5B6FFF]">Simples!</span>
                 </h2>
                 <p
                   className={`text-base md:text-lg ${
@@ -118,13 +90,7 @@ function ProblemSection() {
                 {steps.map((step) => (
                   <div key={step.number} className="flex items-start gap-4">
                     {/* Number Circle */}
-                    <div
-                      className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg"
-                      style={{
-                        background: "linear-gradient(135deg, #5B6FFF, #7A8FFF)",
-                        color: "#FFFFFF",
-                      }}
-                    >
+                    <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg gradient-icon-box text-white">
                       {step.number}
                     </div>
                     {/* Content */}
@@ -158,7 +124,11 @@ function ProblemSection() {
                   }
                 >
                   Saber más
-                  <ArrowRight className="w-5 h-5" stroke="#FFFFFF" strokeWidth={2} />
+                  <ArrowRight
+                    className="w-5 h-5"
+                    stroke="#FFFFFF"
+                    strokeWidth={2}
+                  />
                 </button>
               </div>
             </div>
@@ -176,27 +146,31 @@ function ProblemSection() {
           />
 
           {/* Drawer Panel */}
-          <div className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl backdrop-blur-xl ${
-            isDark 
-              ? 'bg-gray-900/95' 
-              : 'bg-white/95'
-          }`}>
+          <div
+            className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl backdrop-blur-xl ${
+              isDark ? "bg-gray-900/95" : "bg-white/95"
+            }`}
+          >
             {/* Handle */}
             <div className="sticky top-0 flex justify-center pt-3 pb-2">
-              <div className={`w-12 h-1.5 rounded-full ${
-                isDark ? 'bg-gray-600' : 'bg-gray-300'
-              }`}></div>
+              <div
+                className={`w-12 h-1.5 rounded-full ${
+                  isDark ? "bg-gray-600" : "bg-gray-300"
+                }`}
+              ></div>
             </div>
 
             {/* Header */}
-            <div className={`px-6 pb-6 flex items-center justify-between border-b ${
-              isDark 
-                ? 'border-white/10' 
-                : 'border-gray-200'
-            }`}>
-              <h2 className={`text-2xl font-bold flex items-center gap-3 ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>
+            <div
+              className={`px-6 pb-6 flex items-center justify-between border-b ${
+                isDark ? "border-white/10" : "border-gray-200"
+              }`}
+            >
+              <h2
+                className={`text-2xl font-bold flex items-center gap-3 ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
                 <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
                   📋
                 </span>
@@ -205,12 +179,16 @@ function ProblemSection() {
               <button
                 onClick={handleDrawerClose}
                 className={`p-2 rounded-xl transition-all ${
-                  isDark 
-                    ? 'bg-white/5 hover:bg-white/10' 
-                    : 'bg-gray-100 hover:bg-gray-200'
+                  isDark
+                    ? "bg-white/5 hover:bg-white/10"
+                    : "bg-gray-100 hover:bg-gray-200"
                 }`}
               >
-                <X className={`w-5 h-5 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                <X
+                  className={`w-5 h-5 ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
+                />
               </button>
             </div>
 
@@ -218,27 +196,47 @@ function ProblemSection() {
             <div className="p-6 space-y-6">
               {/* Contacto */}
               <div className="space-y-4">
-                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>Contáctanos</h3>
+                <h3
+                  className={`text-lg font-bold ${
+                    isDark ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  Contáctanos
+                </h3>
 
                 {/* Teléfono */}
-                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
-                  isDark 
-                    ? 'bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20' 
-                    : 'bg-blue-50 border-blue-200 hover:bg-blue-100'
-                }`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-blue-500/20' : 'bg-blue-200'
-                  }`}>
-                    <Phone className={`w-6 h-6 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
+                <div
+                  className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                    isDark
+                      ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
+                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                      isDark ? "bg-blue-500/20" : "bg-blue-200"
+                    }`}
+                  >
+                    <Phone
+                      className={`w-6 h-6 ${
+                        isDark ? "text-blue-400" : "text-blue-600"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Teléfono</p>
+                    <p
+                      className={`text-sm mb-1 ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
+                      Teléfono
+                    </p>
                     <a
                       href="tel:+573001234567"
                       className={`font-semibold transition-all ${
-                        isDark 
-                          ? 'text-white hover:text-blue-400' 
-                          : 'text-gray-900 hover:text-blue-600'
+                        isDark
+                          ? "text-white hover:text-blue-400"
+                          : "text-gray-900 hover:text-blue-600"
                       }`}
                     >
                       +57 300 123 4567
@@ -247,24 +245,38 @@ function ProblemSection() {
                 </div>
 
                 {/* Email */}
-                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
-                  isDark 
-                    ? 'bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20' 
-                    : 'bg-purple-50 border-purple-200 hover:bg-purple-100'
-                }`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-purple-500/20' : 'bg-purple-200'
-                  }`}>
-                    <Mail className={`w-6 h-6 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />
+                <div
+                  className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                    isDark
+                      ? "bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20"
+                      : "bg-purple-50 border-purple-200 hover:bg-purple-100"
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                      isDark ? "bg-purple-500/20" : "bg-purple-200"
+                    }`}
+                  >
+                    <Mail
+                      className={`w-6 h-6 ${
+                        isDark ? "text-purple-400" : "text-purple-600"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Email</p>
+                    <p
+                      className={`text-sm mb-1 ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
+                      Email
+                    </p>
                     <a
                       href="mailto:info@verlapage.com"
                       className={`font-semibold transition-all ${
-                        isDark 
-                          ? 'text-white hover:text-purple-400' 
-                          : 'text-gray-900 hover:text-purple-600'
+                        isDark
+                          ? "text-white hover:text-purple-400"
+                          : "text-gray-900 hover:text-purple-600"
                       }`}
                     >
                       info@verlapage.com
@@ -273,19 +285,37 @@ function ProblemSection() {
                 </div>
 
                 {/* Dirección */}
-                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
-                  isDark 
-                    ? 'bg-green-500/10 border-green-500/20 hover:bg-green-500/20' 
-                    : 'bg-green-50 border-green-200 hover:bg-green-100'
-                }`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-green-500/20' : 'bg-green-200'
-                  }`}>
-                    <MapPin className={`w-6 h-6 ${isDark ? 'text-green-400' : 'text-green-600'}`} />
+                <div
+                  className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                    isDark
+                      ? "bg-green-500/10 border-green-500/20 hover:bg-green-500/20"
+                      : "bg-green-50 border-green-200 hover:bg-green-100"
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                      isDark ? "bg-green-500/20" : "bg-green-200"
+                    }`}
+                  >
+                    <MapPin
+                      className={`w-6 h-6 ${
+                        isDark ? "text-green-400" : "text-green-600"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Dirección</p>
-                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    <p
+                      className={`text-sm mb-1 ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
+                      Dirección
+                    </p>
+                    <p
+                      className={`font-semibold ${
+                        isDark ? "text-white" : "text-gray-900"
+                      }`}
+                    >
                       Calle 123 #45-67
                       <br />
                       Bogotá, Colombia
@@ -294,21 +324,37 @@ function ProblemSection() {
                 </div>
 
                 {/* Horario */}
-                <div className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
-                  isDark 
-                    ? 'bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20' 
-                    : 'bg-orange-50 border-orange-200 hover:bg-orange-100'
-                }`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                    isDark ? 'bg-orange-500/20' : 'bg-orange-200'
-                  }`}>
-                    <Clock className={`w-6 h-6 ${isDark ? 'text-orange-400' : 'text-orange-600'}`} />
+                <div
+                  className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                    isDark
+                      ? "bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20"
+                      : "bg-orange-50 border-orange-200 hover:bg-orange-100"
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                      isDark ? "bg-orange-500/20" : "bg-orange-200"
+                    }`}
+                  >
+                    <Clock
+                      className={`w-6 h-6 ${
+                        isDark ? "text-orange-400" : "text-orange-600"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <p
+                      className={`text-sm mb-1 ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
                       Horario de Atención
                     </p>
-                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    <p
+                      className={`font-semibold ${
+                        isDark ? "text-white" : "text-gray-900"
+                      }`}
+                    >
                       Lunes a Viernes: 8:00 AM - 6:00 PM
                       <br />
                       Sábados: 9:00 AM - 1:00 PM
@@ -319,24 +365,38 @@ function ProblemSection() {
 
               {/* Pasos */}
               <div className="space-y-4">
-                <h3 className={`text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>Proceso Simple</h3>
+                <h3
+                  className={`text-lg font-bold ${
+                    isDark ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  Proceso Simple
+                </h3>
                 {steps.map((step) => (
                   <div
                     key={step.number}
                     className={`flex items-start gap-3 p-4 rounded-xl border ${
-                      isDark 
-                        ? 'bg-white/5 border-white/10' 
-                        : 'bg-gray-50 border-gray-200'
+                      isDark
+                        ? "bg-white/5 border-white/10"
+                        : "bg-gray-50 border-gray-200"
                     }`}
                   >
                     <div className="w-8 h-8 rounded-full bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center text-white font-bold text-sm shrink-0">
                       {step.number}
                     </div>
                     <div>
-                      <h4 className={`font-semibold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      <h4
+                        className={`font-semibold mb-1 ${
+                          isDark ? "text-white" : "text-gray-900"
+                        }`}
+                      >
                         {step.title}
                       </h4>
-                      <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      <p
+                        className={`text-sm ${
+                          isDark ? "text-gray-400" : "text-gray-600"
+                        }`}
+                      >
                         {step.description}
                       </p>
                     </div>
@@ -346,8 +406,7 @@ function ProblemSection() {
 
               {/* CTA */}
               <button
-                // onClick={() => (window.location.href = "#contact")}
-                onClick={() => (window.location.href = ROUTES.CONTACT)}
+                onClick={handleContactRedirect}
                 className="w-full py-4 rounded-xl bg-linear-to-r from-blue-600 to-purple-600 text-white font-bold hover:from-blue-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/20"
               >
                 Iniciar Ahora
@@ -373,5 +432,7 @@ function ProblemSection() {
     </>
   );
 }
+
+ProblemSection.displayName = "ProblemSection";
 
 export default memo(ProblemSection);

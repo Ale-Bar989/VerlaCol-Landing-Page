@@ -394,4 +394,6 @@ function FeaturesSection() {
   );
 }
 
+FeaturesSection.displayName = 'FeaturesSection';
+
 export default memo(FeaturesSection);

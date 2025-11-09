@@ -183,11 +183,7 @@ const FooterSection = memo(() => {
                   }`}
                 />
                 <button 
-                  className="p-2 rounded transition-colors shrink-0"
-                  style={{
-                    background: "linear-gradient(135deg, #4A5CFF 0%, #FFFFFF 100%)",
-                    boxShadow: "0 4px 12px rgba(74, 92, 255, 0.3)"
-                  }}
+                  className="p-2 rounded transition-colors shrink-0 btn-cta-primary"
                   aria-label="Enviar"
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = 'linear-gradient(135deg, #7A8FFF 0%, #FFFFFF 100%)';
@@ -281,5 +277,7 @@ const FooterSection = memo(() => {
     </footer>
   );
 });
+
+FooterSection.displayName = 'FooterSection';
 
 export default FooterSection;

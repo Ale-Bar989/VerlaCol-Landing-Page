@@ -1,65 +1,27 @@
 import {
   Wifi,
-  Zap,
   RefreshCw,
   Gamepad2,
-  ShieldCheck,
-  TrendingUp,
-  Clock,
   Check,
+  Zap,
+  ShieldCheck,
 } from "lucide-react";
 import {
   PageLayout,
   ServiceHeroSection,
   FeaturesGrid,
   CTASection,
-  type Feature,
 } from "@/shared//components";
 import { useLocalTheme } from "@/shared//hooks/useLocalTheme";
 import { DESIGN_SYSTEM } from "@/shared//styles/design-system";
 import { ROUTES } from "@/core/router/routes.config";
+import { FIBRA_FEATURES, FIBRA_BENEFITS } from "./data/features.data";
 
 // Página de Fibra Óptica Residencial
 // Ubicación: src/ui/pages/services/fibra-residencial/index.tsx
 
 export default function FibraResidencialPage() {
   const { isDark } = useLocalTheme();
-
-  const features: Feature[] = [
-    {
-      icon: Zap,
-      title: "Velocidad Simétrica",
-      description: "Misma velocidad de subida y bajada hasta 1 Gbps",
-      color: DESIGN_SYSTEM.colors.primary,
-    },
-    {
-      icon: ShieldCheck,
-      title: "Máxima Estabilidad",
-      description: "99.9% uptime garantizado sin interferencias",
-      color: DESIGN_SYSTEM.colors.secondary,
-    },
-    {
-      icon: TrendingUp,
-      title: "Baja Latencia",
-      description: "Ideal para gaming, streaming 4K y videollamadas",
-      color: DESIGN_SYSTEM.colors.accent,
-    },
-    {
-      icon: Clock,
-      title: "Instalación Rápida",
-      description: "Técnicos certificados en 24-48 horas",
-      color: DESIGN_SYSTEM.colors.primary,
-    },
-  ];
-
-  const benefits = [
-    "Router WiFi 6 de última generación",
-    "IP pública estática disponible",
-    "Sin límite de descarga o consumo",
-    "Soporte técnico 24/7",
-    "Sin permanencia mínima",
-    "Instalación sin costo adicional",
-  ];
 
   return (
     <PageLayout>
@@ -85,59 +47,29 @@ export default function FibraResidencialPage() {
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute h-full w-px"
+              className="absolute h-full w-px opacity-30 fiber-line-gradient"
               style={{
                 left: `${5 + i * 5}%`,
-                background:
-                  "linear-gradient(to bottom, transparent, #4A5CFF, transparent)",
-                opacity: 0.1,
               }}
             >
               <div
-                className="absolute w-full h-10 bg-white rounded-full animate-pulse"
+                className="absolute w-full h-10 bg-white rounded-full animate-pulse opacity-60"
                 style={{
                   top: `${Math.random() * 100}%`,
                   animationDuration: `${3 + Math.random() * 5}s`,
                   animationDelay: `${Math.random() * 5}s`,
-                  boxShadow: "0 0 15px 2px rgba(74, 92, 255, 0.8)",
-                  opacity: 0,
-                  animationName: "pulse",
-                  animationIterationCount: "infinite",
                 }}
               />
             </div>
           ))}
 
           {/* Connection dots */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, rgba(74, 92, 255, 0.1) 1px, transparent 1px)",
-              backgroundSize: "30px 30px",
-            }}
-          />
+          <div className="absolute inset-0 opacity-30 connection-dots-pattern" />
 
           {/* Light effects */}
           <div className="absolute inset-0">
-            <div
-              className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(74, 92, 255, 0.15) 0%, rgba(0,0,0,0) 70%)",
-                transform: "translate(-50%, -50%)",
-                filter: "blur(60px)",
-              }}
-            />
-            <div
-              className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(122, 143, 255, 0.1) 0%, rgba(0,0,0,0) 70%)",
-                transform: "translate(50%, -50%)",
-                filter: "blur(40px)",
-              }}
-            />
+            <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full -translate-x-1/2 -translate-y-1/2 blur-[80px] radial-gradient-primary-dark" />
+            <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full translate-x-1/2 -translate-y-1/2 blur-[60px] radial-gradient-secondary" />
           </div>
         </div>
 
@@ -286,7 +218,7 @@ export default function FibraResidencialPage() {
             Características Principales
           </h2>
         </div>
-        <FeaturesGrid features={features} columns={4} />
+        <FeaturesGrid features={FIBRA_FEATURES} columns={4} />
       </section>
 
       {/* Benefits Section */}
@@ -297,14 +229,8 @@ export default function FibraResidencialPage() {
       >
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl"
-            style={{ backgroundColor: isDark ? "#5B6FFF0D" : "#5B6FFF05" }}
-          />
-          <div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl"
-            style={{ backgroundColor: isDark ? "#7A8FFF0D" : "#7A8FFF05" }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D]" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D]" />
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -324,23 +250,14 @@ export default function FibraResidencialPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => (
+            {FIBRA_BENEFITS.map((benefit, index) => (
               <div
                 key={index}
                 className={`group relative p-6 rounded-2xl transition-all duration-300 overflow-hidden ${
-                  isDark ? "bg-gray-900/50" : "bg-white/80 backdrop-blur-sm"
+                  isDark
+                    ? "bg-gray-900/50 service-feature-card-dark"
+                    : "bg-white/80 backdrop-blur-sm service-feature-card-light"
                 }`}
-                style={{
-                  border: `1px solid ${
-                    isDark
-                      ? DESIGN_SYSTEM.rgba.primary[20]
-                      : "rgba(0, 0, 0, 0.05)"
-                  }`,
-                  boxShadow: isDark
-                    ? "0 4px 20px rgba(0, 0, 0, 0.2)"
-                    : "0 4px 15px rgba(0, 0, 0, 0.03)",
-                  transform: "translateZ(0)",
-                }}
               >
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -348,21 +265,14 @@ export default function FibraResidencialPage() {
                 <div className="flex items-center gap-4 relative z-10">
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:-translate-y-1 ${
-                      isDark ? "bg-gray-800" : "bg-blue-50"
+                      isDark
+                        ? "bg-gray-800 service-icon-shadow-dark"
+                        : "bg-blue-50 service-icon-shadow-light"
                     }`}
-                    style={{
-                      boxShadow: isDark
-                        ? "0 4px 15px rgba(91, 111, 255, 0.15)"
-                        : "0 4px 12px rgba(0, 0, 0, 0.05)",
-                    }}
                   >
                     <Check
                       className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
-                      style={{
-                        color: isDark
-                          ? DESIGN_SYSTEM.colors.primary
-                          : DESIGN_SYSTEM.colors.primary,
-                      }}
+                      style={{ color: DESIGN_SYSTEM.colors.primary }}
                     />
                   </div>
                   <span
@@ -377,19 +287,7 @@ export default function FibraResidencialPage() {
                 </div>
 
                 {/* Animated border effect */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                      maskComposite: "exclude",
-                      padding: "1px",
-                      WebkitMask:
-                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                      WebkitMaskComposite: "xor",
-                    }}
-                  />
-                </div>
+                <div className="animated-border" />
               </div>
             ))}
           </div>

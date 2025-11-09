@@ -1,25 +1,18 @@
-import {
-  Building2,
-  Users,
-  Check,
-  Zap,
-  Clock,
-  TrendingUp,
-  Award,
-  Headset,
-  Server,
-  ShieldCheck
-} from "lucide-react";
+import { Briefcase, Check } from "lucide-react";
 import {
   PageLayout,
   ServiceHeroSection,
   FeaturesGrid,
   CTASection,
-  type Feature,
-} from '@/shared/components';
-import { useLocalTheme } from '@/shared/hooks/useLocalTheme';
-import { DESIGN_SYSTEM } from '@/shared/styles/design-system';
-import { ROUTES } from '@/core/router/routes.config';
+} from "@/shared/components";
+import { useLocalTheme } from "@/shared/hooks/useLocalTheme";
+import { DESIGN_SYSTEM } from "@/shared/styles/design-system";
+import { ROUTES } from "@/core/router/routes.config";
+import {
+  BUSINESS_FEATURES,
+  BUSINESS_BENEFITS,
+  ADDITIONAL_BENEFITS,
+} from "./data/business.data";
 
 // Página de Planes Empresariales
 // Ubicación: src/features/services/planes-empresariales/index.tsx
@@ -27,103 +20,11 @@ import { ROUTES } from '@/core/router/routes.config';
 export default function PlanesEmpresarialesPage() {
   const { isDark } = useLocalTheme();
 
-  const features: Feature[] = [
-    {
-      icon: Zap,
-      title: "Alta Velocidad Dedicada",
-      description:
-        "Conexión de hasta 10 Gbps con ancho de banda garantizado para operaciones críticas",
-      color: DESIGN_SYSTEM.colors.primary,
-    },
-    {
-      icon: ShieldCheck,
-      title: "Seguridad Avanzada",
-      description:
-        "Firewall empresarial, VPN dedicada y protección DDoS incluida",
-      color: DESIGN_SYSTEM.colors.secondary,
-    },
-    {
-      icon: Server,
-      title: "Infraestructura Escalable",
-      description:
-        "Soluciones personalizables que crecen con tu negocio",
-      color: DESIGN_SYSTEM.colors.accent,
-    },
-    {
-      icon: Headset,
-      title: "Soporte Priorizado",
-      description:
-        "Asistencia técnica especializada 24/7 con tiempo de respuesta garantizado",
-      color: DESIGN_SYSTEM.colors.primary,
-    },
-    {
-      icon: Clock,
-      title: "SLA 99.95%",
-      description:
-        "Acuerdo de nivel de servicio garantizado con compensación por downtime",
-      color: DESIGN_SYSTEM.colors.primary,
-    },
-    {
-      icon: Users,
-      title: "Soporte Prioritario",
-      description:
-        "Equipo técnico dedicado disponible 24/7/365 con tiempos de respuesta garantizados",
-      color: DESIGN_SYSTEM.colors.secondary,
-    },
-    {
-      icon: TrendingUp,
-      title: "Escalabilidad",
-      description:
-        "Planes flexibles que crecen con tu negocio sin interrupciones",
-      color: DESIGN_SYSTEM.colors.accent,
-    },
-  ];
-
-  const businessBenefits = [
-    {
-      icon: Award,
-      title: "Consultoría Especializada",
-      description:
-        "Asesoría técnica para optimizar tu infraestructura de red y comunicaciones",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Seguridad Integral",
-      description:
-        "Protección avanzada contra amenazas con firewall de próxima generación",
-    },
-    {
-      icon: Server,
-      title: "Infraestructura Dedicada",
-      description:
-        "Recursos exclusivos para garantizar el máximo rendimiento",
-    },
-    {
-      icon: Headset,
-      title: "Soporte VIP",
-      description:
-        "Gestor de cuenta dedicado y soporte técnico prioritario 24/7",
-    },
-  ];
-
-  const benefits = [
-    "Instalación profesional sin costo",
-    "Router empresarial de última generación incluido",
-    "Certificaciones de seguridad y cumplimiento",
-    "Monitoreo proactivo 24/7 de la red",
-    "Reportes detallados de rendimiento",
-    "Garantía de servicio con SLA 99.95%",
-    "Conexión de respaldo automática",
-    "IP fija incluida",
-    "Soporte técnico especializado",
-    "Migración asistida desde otros proveedores",
-  ];
-
   return (
     <PageLayout>
       {/* Hero Section */}
       <ServiceHeroSection
-        icon={Building2}
+        icon={Briefcase}
         title="Planes"
         highlight="Empresariales"
         subtitle="Conectividad de nivel empresarial con disponibilidad garantizada"
@@ -140,17 +41,15 @@ export default function PlanesEmpresarialesPage() {
             Características Empresariales
           </h2>
         </div>
-        <FeaturesGrid features={features} columns={4} />
+        <FeaturesGrid features={BUSINESS_FEATURES} columns={4} />
       </section>
 
       {/* Business Solutions - Modern Corporate Design */}
       <section className={`relative py-24 overflow-hidden ${isDark ? 'bg-linear-to-br from-gray-950 to-gray-900' : 'bg-linear-to-br from-gray-50 to-gray-100'}`}>
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] rounded-full opacity-10" 
-               style={{ background: 'radial-gradient(circle, #3b82f6, transparent 60%)' }}></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-[800px] h-[800px] rounded-full opacity-10" 
-               style={{ background: 'radial-gradient(circle, #06b6d4, transparent 60%)' }}></div>
+          <div className="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] rounded-full opacity-10 radial-gradient-blue"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-[800px] h-[800px] rounded-full opacity-10 radial-gradient-cyan"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2lpdHk9IjAuMDQiPjxwYXRoIGQ9Ik0zNiAzNGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0zNiA2YzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNNTAgN2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0xMCA1M2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek01MCA0M2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0xMCAxM2MwLTIuMjA5LTEuNkxzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTMwIDEzYzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTMwIDUzYzAtMi4yMDktMS42MXMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-5"></div>
         </div>
 
@@ -175,7 +74,7 @@ export default function PlanesEmpresarialesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {businessBenefits.map((benefit, index) => {
+            {BUSINESS_BENEFITS.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div
@@ -238,16 +137,7 @@ export default function PlanesEmpresarialesPage() {
                   <div className={`absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
                     isDark ? '' : 'mix-blend-multiply'
                   }`}>
-                    <div 
-                      className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500"
-                      style={{
-                        mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                        maskComposite: 'exclude',
-                        padding: '1px',
-                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                        WebkitMaskComposite: 'xor',
-                      }}
-                    />
+                    <div className="animated-border" />
                   </div>
                 </div>
               );
@@ -260,14 +150,8 @@ export default function PlanesEmpresarialesPage() {
       <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-linear-to-br from-gray-50 to-white"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" 
-            style={{ backgroundColor: isDark ? '#5B6FFF0D' : '#5B6FFF05' }}
-          />
-          <div 
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl" 
-            style={{ backgroundColor: isDark ? '#7A8FFF0D' : '#7A8FFF05' }}
-          />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D] dark:bg-[#5B6FFF0D]" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D] dark:bg-[#7A8FFF0D]" />
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -284,19 +168,12 @@ export default function PlanesEmpresarialesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => (
+            {ADDITIONAL_BENEFITS.map((benefit, index) => (
               <div
                 key={index}
                 className={`group relative p-6 rounded-2xl transition-all duration-300 overflow-hidden ${
-                  isDark ? 'bg-gray-900/50' : 'bg-white/80 backdrop-blur-sm'
+                  isDark ? 'bg-gray-900/50 service-feature-card-dark' : 'bg-white/80 backdrop-blur-sm service-feature-card-light'
                 }`}
-                style={{
-                  border: `1px solid ${isDark ? DESIGN_SYSTEM.rgba.primary[20] : 'rgba(0, 0, 0, 0.05)'}`,
-                  boxShadow: isDark 
-                    ? '0 4px 20px rgba(0, 0, 0, 0.2)'
-                    : '0 4px 15px rgba(0, 0, 0, 0.03)',
-                  transform: 'translateZ(0)'
-                }}
               >
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -304,19 +181,12 @@ export default function PlanesEmpresarialesPage() {
                 <div className="flex items-center gap-4 relative z-10">
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:-translate-y-1 ${
-                      isDark ? 'bg-gray-800' : 'bg-blue-50'
+                      isDark ? 'bg-gray-800 service-icon-shadow-dark' : 'bg-blue-50 service-icon-shadow-light'
                     }`}
-                    style={{
-                      boxShadow: isDark 
-                        ? '0 4px 15px rgba(91, 111, 255, 0.15)'
-                        : '0 4px 12px rgba(0, 0, 0, 0.05)'
-                    }}
                   >
                     <Check
                       className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
-                      style={{ 
-                        color: isDark ? DESIGN_SYSTEM.colors.primary : DESIGN_SYSTEM.colors.primary
-                      }}
+                      style={{ color: DESIGN_SYSTEM.colors.primary }}
                     />
                   </div>
                   <span className={`text-base font-medium transition-colors duration-300 ${
@@ -327,18 +197,7 @@ export default function PlanesEmpresarialesPage() {
                 </div>
 
                 {/* Animated border effect */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div 
-                    className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      maskComposite: 'exclude',
-                      padding: '1px',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                    }}
-                  />
-                </div>
+                <div className="animated-border" />
               </div>
             ))}
           </div>

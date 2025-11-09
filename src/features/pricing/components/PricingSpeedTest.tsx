@@ -111,9 +111,7 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({
             strokeLinecap="round"
             strokeDasharray={`${2 * Math.PI * 110}`}
             strokeDashoffset={`${2 * Math.PI * 110 * (1 - progress / 100)}`}
-            style={{
-              transition: "stroke-dashoffset 0.1s linear",
-            }}
+            className="transition-all duration-100"
           />
 
           <defs>
@@ -237,11 +235,7 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({
       <button
         onClick={startTest}
         disabled={isRunning}
-        className="w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-          boxShadow: "0 8px 24px rgba(74, 92, 255, 0.4)",
-        }}
+        className="w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden btn-cta-primary"
       >
         <span className="relative flex items-center justify-center gap-2">
           <Zap className="w-5 h-5" strokeWidth={2.5} />

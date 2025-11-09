@@ -8,16 +8,7 @@ import { Zap, Download, Wifi, Activity, Upload } from "lucide-react";
 import { useSpeedTest, useAnimatedNumber } from "@/shared/hooks";
 import { ModernCard } from "../ModernCard";
 import { SpeedGauge } from "@/shared/components";
-
-const CONNECTION_TIPS = [
-  "Cierra aplicaciones que no estés usando",
-  "Acerca tu dispositivo al router",
-  "Evita obstáculos entre el router y tu dispositivo",
-  "Reinicia tu router cada cierto tiempo",
-  "Usa cable ethernet para mejor velocidad",
-  "Actualiza el firmware de tu router",
-  "Cambia el canal WiFi si hay interferencias",
-];
+import { CONNECTION_TIPS } from "@/features/home/data";
 
 export const SpeedTestCard: React.FC = memo(() => {
   const { theme } = useTheme();

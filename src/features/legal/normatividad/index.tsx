@@ -1,5 +1,6 @@
 import { FileText, Scale, BookOpen, ExternalLink } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { MAIN_LAWS } from "./data/laws.data";
 
 // Página de Normatividad
 // Ubicación: src/ui/pages/legal/normatividad/index.tsx
@@ -49,43 +50,7 @@ export default function NormatividadPage() {
               Normativas Principales
             </h2>
             <div className="space-y-4">
-              {[
-                {
-                  title: "Ley 1480 de 2011",
-                  subtitle: "Estatuto del Consumidor",
-                  description:
-                    "Protección de los derechos de los consumidores y establecimiento de responsabilidades de proveedores.",
-                  link: "#",
-                },
-                {
-                  title: "Ley 1341 de 2009",
-                  subtitle: "TIC en Colombia",
-                  description:
-                    "Principios y conceptos sobre la sociedad de la información y organización de las TIC.",
-                  link: "#",
-                },
-                {
-                  title: "Ley 1581 de 2012",
-                  subtitle: "Protección de Datos Personales",
-                  description:
-                    "Régimen general de protección de datos personales y Habeas Data.",
-                  link: "#",
-                },
-                {
-                  title: "Ley 1098 de 2006",
-                  subtitle: "Código de Infancia y Adolescencia",
-                  description:
-                    "Protección integral de los niños, niñas y adolescentes.",
-                  link: "#",
-                },
-                {
-                  title: "Resolución CRC 5050 de 2016",
-                  subtitle: "Régimen de Protección al Usuario",
-                  description:
-                    "Obligaciones de los proveedores de servicios de telecomunicaciones.",
-                  link: "#",
-                },
-              ].map((law, index) => (
+              {MAIN_LAWS.map((law, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all group"

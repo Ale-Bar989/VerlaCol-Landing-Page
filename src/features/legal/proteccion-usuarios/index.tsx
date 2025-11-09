@@ -1,11 +1,6 @@
-import {
-  AlertCircle,
-  Shield,
-  FileText,
-  MapPin,
-  HelpCircle,
-} from "lucide-react";
+import { Shield, AlertCircle, FileText, MapPin, HelpCircle } from "lucide-react";
 import { PageLayout } from '@/shared//components';
+import { REGULATIONS_COLUMN_1, REGULATIONS_COLUMN_2, REGULATIONS_COLUMN_3 } from "./data/regulations.data";
 
 // Página de Protección al Usuario y Normativa
 // Ubicación: src/ui/pages/legal/proteccion-usuarios/index.tsx
@@ -45,14 +40,7 @@ export default function ProteccionUsuariosPage() {
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Columna 1 */}
                 <div className="space-y-4">
-                  {[
-                    { name: "Ley 679 de 2001", path: "/documents/pdf/ley_679_2001.pdf" },
-                    { name: "Acuerdo 011 de 2006", path: "/documents/pdf/acuerdo011-2006.pdf" },
-                    { name: "Ley 1480 de 2011", path: "/documents/pdf/ley1480.pdf" },
-                    { name: "Régimen de protección de usuarios. Resolución 5111 de 2017", path: "/documents/pdf/00005111.pdf" },
-                    { name: "Decreto 90 del 18 de Enero de 2018", path: "/documents/pdf/decreto_90_del_18_enero_de_2018.pdf" },
-                    { name: "Resolución CRC 6890 de 2022", path: "/documents/pdf/resolucion-crc-6890-de-2022.pdf" },
-                  ].map((item, index) => (
+                  {REGULATIONS_COLUMN_1.map((item, index) => (
                     <a
                       key={index}
                       href={item.path}
@@ -68,15 +56,7 @@ export default function ProteccionUsuariosPage() {
 
                 {/* Columna 2 */}
                 <div className="space-y-4">
-                  {[
-                    { name: "Resolución CRC 5299 de 2018", path: "/documents/pdf/resolucion_crc_5299_de_2018.pdf" },
-                    { name: "Resolución CRC 5300 de 2018", path: "/documents/pdf/resolucion_crc_5300_de_2018.pdf" },
-                    { name: "Resolución CRC 5321 de 2018", path: "/documents/pdf/resolucion_crc_5321_de_2018.pdf" },
-                    { name: "Resolución CRC 6242 de 2021", path: "/documents/pdf/resolucion-crc-6242-de-2021.pdf" },
-                    { name: "Resolución CRC 5337 de 2018", path: "/documents/pdf/resolucion_crc_5337_de_2018.pdf" },
-                    { name: "Resolución CRC 5344 de 2018", path: "/documents/pdf/resolucion_crc_5344_de_2018.pdf" },
-                    { name: "Resolución CRC 6333 de 2021", path: "/documents/pdf/resolucion-crc-6333-de--2021.pdf" },
-                  ].map((item, index) => (
+                  {REGULATIONS_COLUMN_2.map((item, index) => (
                     <a
                       key={index}
                       href={item.path}
@@ -92,14 +72,7 @@ export default function ProteccionUsuariosPage() {
 
                 {/* Columna 3 */}
                 <div className="space-y-4">
-                  {[
-                    { name: "Resolución CRC 5397 de 2018", path: "/documents/pdf/resolucion_crc_5397_de_2018.pdf" },
-                    { name: "Resolución CRC 5322 de 2018", path: "/documents/pdf/resolucion_crc_5321_de_2018.pdf" },
-                    { name: "Resolución 5930 de 2020", path: "/documents/pdf/resolucion-5930-de-2020.pdf" },
-                    { name: "Resolución 19012 2020", path: "/documents/pdf/resolucion19012-de2020.pdf" },
-                    { name: "Art. 6 Ley 1266 de 2008", path: "/documents/pdf/articulo-6-de-la-ley-1266-de-2008.pdf" },
-                    { name: "Art. 16 Ley 1266 de 2008", path: "/documents/pdf/articulo-16-de-la-ley-1266-de-2008.pdf" },
-                  ].map((item, index) => (
+                  {REGULATIONS_COLUMN_3.map((item, index) => (
                     <a
                       key={index}
                       href={item.path}

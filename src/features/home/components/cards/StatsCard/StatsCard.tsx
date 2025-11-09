@@ -4,49 +4,24 @@
 
 import { useState, memo, useCallback } from "react";
 import { useTheme } from "@/core/contexts";
-import { TrendingUp, Home, Users, Briefcase } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { useRealStats } from "@/shared/hooks/useRealStats";
 import { Modal } from "@/shared/components";
 import { PricingSpeedTest } from "@/features/pricing/components/PricingSpeedTest";
+import { STATS_CARD_PLANS } from "@/features/pricing/data";
 import { ModernCard } from "../ModernCard";
 
-interface Plan {
-  name: string;
-  speed: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  description: string;
-}
-
-const plans: Plan[] = [
-  {
-    name: "Plan Hogar",
-    speed: "300 Mbps",
-    icon: Home,
-    description: "1-2 personas",
-  },
-  {
-    name: "Plan Familia",
-    speed: "600 Mbps",
-    icon: Users,
-    description: "3-5 personas",
-  },
-  {
-    name: "Plan Empresarial",
-    speed: "1000 Mbps",
-    icon: Briefcase,
-    description: "Negocios",
-  },
-];
+type StatsCardPlan = typeof STATS_CARD_PLANS[number];
 
 export const StatsCard: React.FC = memo(() => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const realStats = useRealStats();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<StatsCardPlan | null>(null);
 
   // Handlers del modal - memoizados
-  const handleOpenModal = useCallback((plan: Plan) => {
+  const handleOpenModal = useCallback((plan: StatsCardPlan) => {
     setSelectedPlan(plan);
     setIsModalOpen(true);
   }, []);
@@ -108,7 +83,7 @@ export const StatsCard: React.FC = memo(() => {
 
           {/* Botones de Planes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
-            {plans.map((plan, index) => {
+            {STATS_CARD_PLANS.map((plan, index) => {
               const Icon = plan.icon;
               return (
                 <button

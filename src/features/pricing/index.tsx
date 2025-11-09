@@ -1,18 +1,4 @@
-import {
-  Check,
-  Home,
-  Users,
-  Zap,
-  ArrowRight,
-  Wifi,
-  DollarSign,
-  Smartphone,
-  Tv,
-  Gamepad2,
-  Briefcase,
-  Film,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Check, ArrowRight, Wifi } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BackgroundEffects, Modal } from "@/shared/components";
@@ -20,135 +6,15 @@ import { Navbar } from "@/shared/components";
 import { ROUTES } from "@/core/router/routes.config";
 import FooterSection from "@/features/home/components/sections/FooterSection";
 import { PricingSpeedTest } from "./components";
+import { PRICING_PLANS } from "./data";
+import type { Plan } from "./types";
 
 // Página de Precios de Verla
 // Ubicación: src/ui/pages/pricing/index.tsx
 
-interface PlanFeature {
-  icon: LucideIcon;
-  text: string;
-}
-
-interface Plan {
-  name: string;
-  subtitle: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  speed: string;
-  speedLabel: string;
-  price: string;
-  savings?: string;
-  features: string[];
-  extraInfo?: PlanFeature[];
-  buttonText: string;
-  highlighted: boolean;
-  gradient: string;
-  badge?: string;
-}
-
-const plans: Plan[] = [
-  {
-    name: "Plan Hogar",
-    subtitle: "1-2 personas",
-    icon: Home,
-    speed: "300 Mbps",
-    speedLabel: "de velocidad simétrica",
-    price: "79.900",
-    features: [
-      "Velocidad simétrica 300 Mbps",
-      "100+ canales en HD",
-      "1 decodificador incluido",
-      "Soporte técnico 24/7",
-      "Instalación gratuita",
-      "Router WiFi 6 incluido",
-    ],
-    extraInfo: [
-      { icon: Home, text: "Perfecto para hogar" },
-      {
-        icon: DollarSign,
-        text: "El plan más económico sin sacrificar calidad",
-      },
-      {
-        icon: Smartphone,
-        text: "Navega, ve series y haz videollamadas sin problemas",
-      },
-    ],
-    buttonText: "Contratar este Plan",
-    highlighted: false,
-    gradient: "from-[#4A5CFF] to-[#7A8FFF]",
-    badge: "Mejor Valor",
-  },
-  {
-    name: "Plan Familia",
-    subtitle: "Perfecto para 3-5 personas",
-    icon: Users,
-    speed: "600 Mbps",
-    speedLabel: "de velocidad simétrica",
-    price: "119.900",
-    savings: "Ahorra $40.000 vs contratar por separado",
-    features: [
-      "Velocidad simétrica 600 Mbps (descarga y subida)",
-      "200+ canales HD, 4K y contenido on-demand",
-      "2 decodificadores 4K incluidos",
-      "Soporte técnico prioritario 24/7",
-      "Instalación profesional gratuita",
-      "Router WiFi 6 Dual Band de alta gama",
-      "App móvil para ver TV en cualquier dispositivo",
-      "Control parental avanzado",
-      "Grabación en la nube (50 horas)",
-      "Netflix básico incluido por 3 meses",
-      "Garantía de velocidad mínima",
-      "Sin cargos ocultos ni costos de activación",
-    ],
-    extraInfo: [
-      { icon: Tv, text: "Streaming en múltiples dispositivos" },
-      { icon: Zap, text: "Ideal para trabajo remoto y estudio" },
-      { icon: Gamepad2, text: "Gaming online sin lag" },
-    ],
-    buttonText: "Contratar este Plan",
-    highlighted: true,
-    gradient: "from-[#5B6FFF] via-[#4A5CFF] to-[#7A8FFF]",
-    badge: "Recomendado",
-  },
-  {
-    name: "Plan Pro",
-    subtitle: "Gamers y pequeños negocios",
-    icon: Zap,
-    speed: "1000 Mbps",
-    speedLabel: "de velocidad simétrica",
-    price: "169.900",
-    features: [
-      "Velocidad simétrica 1000 Mbps",
-      "250+ canales HD, 4K y Premium",
-      "3 decodificadores incluidos",
-      "Soporte técnico VIP 24/7",
-      "Instalación gratuita express",
-      "Router WiFi 6E Mesh incluido",
-      "App móvil premium",
-      "IP estática disponible",
-      "Configuración para gaming/streaming",
-      "Amazon Prime Video por 6 meses",
-    ],
-    extraInfo: [
-      { icon: Zap, text: "Velocidad profesional para gaming competitivo" },
-      { icon: Briefcase, text: "Ideal para oficinas en casa y emprendedores" },
-      { icon: Film, text: "Streaming 4K simultáneo sin límites" },
-      { icon: Zap, text: "Latencia ultra baja para e-sports" },
-    ],
-    buttonText: "Contratar este Plan",
-    highlighted: false,
-    gradient: "from-[#7A8FFF] to-[#4A5CFF]",
-    badge: "Premium",
-  },
-];
-
 export default function PricingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
-
-  const handleOpenModal = (plan: Plan) => {
-    setSelectedPlan(plan);
-    setIsModalOpen(true);
-  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -176,17 +42,7 @@ export default function PricingPage() {
             {/* Título */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight px-2">
               Elige el plan{" "}
-              <span
-                className="text-transparent bg-clip-text inline-block"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #4A5CFF, #FFFFFF, #7A8FFF)",
-                  backgroundSize: "200% 100%",
-                  animation: "shimmer 3s linear infinite",
-                }}
-              >
-                perfecto
-              </span>
+              <span className="text-transparent bg-clip-text inline-block gradient-text-primary">perfecto</span>
               <br />
               para tu hogar
             </h1>
@@ -202,7 +58,7 @@ export default function PricingPage() {
 
           {/* Planes */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {plans.map((plan, index) => (
+            {PRICING_PLANS.map((plan, index) => (
               <div
                 key={index}
                 className={`relative group ${
@@ -213,15 +69,7 @@ export default function PricingPage() {
                 {plan.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
                     <div className="relative">
-                      <div
-                        className="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm border"
-                        style={{
-                          background:
-                            "linear-gradient(135deg, #4A5CFF15, #7A8FFF15)",
-                          borderColor: "#4A5CFF50",
-                          color: "#FFFFFF",
-                        }}
-                      >
+                      <div className="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm border gradient-badge-bg text-white">
                         <span className="flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#4A5CFF] animate-pulse"></span>
                           {plan.badge}
@@ -233,12 +81,7 @@ export default function PricingPage() {
 
                 {/* Resplandor exterior más sutil */}
                 {plan.highlighted && (
-                  <div
-                    className="absolute -inset-0.5 rounded-3xl opacity-20 group-hover:opacity-30 blur-lg transition-opacity duration-500"
-                    style={{
-                      background: `linear-gradient(135deg, #4A5CFF, #7A8FFF)`,
-                    }}
-                  ></div>
+                  <div className="absolute -inset-0.5 rounded-3xl opacity-20 group-hover:opacity-30 blur-lg transition-opacity duration-500 gradient-icon-box"></div>
                 )}
 
                 {/* Card principal */}
@@ -250,12 +93,7 @@ export default function PricingPage() {
                   }`}
                 >
                   {/* Gradiente animado de fondo */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                    style={{
-                      background: `linear-gradient(135deg, #4A5CFF08, #FFFFFF05, #7A8FFF08)`,
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 gradient-hover-overlay"></div>
 
                   {/* Contenido */}
                   <div className="relative p-6 sm:p-8">
@@ -335,14 +173,7 @@ export default function PricingPage() {
 
                       {/* Ahorro (solo para Plan Familia) */}
                       {plan.savings && (
-                        <div
-                          className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #4A5CFF10, #7A8FFF10)",
-                            border: "1px solid #4A5CFF30",
-                          }}
-                        >
+                        <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
                           <svg
                             className="w-4 h-4 text-green-400"
                             fill="none"
@@ -371,11 +202,7 @@ export default function PricingPage() {
                           return (
                             <div
                               key={i}
-                              className="flex items-center gap-2 px-3 py-2 rounded-lg"
-                              style={{
-                                background:
-                                  "linear-gradient(135deg, #4A5CFF08, #7A8FFF05)",
-                              }}
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg gradient-section-bg-alt"
                             >
                               <IconComponent className="w-4 h-4 text-[#4A5CFF]" />
                               <span className="text-xs text-gray-300 font-medium">
@@ -391,13 +218,7 @@ export default function PricingPage() {
                     <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
                       {plan.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <div
-                            className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
-                            style={{
-                              background:
-                                "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                            }}
-                          >
+                          <div className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 gradient-check-circle">
                             <Check
                               className="w-3 h-3 text-white"
                               strokeWidth={3}
@@ -468,12 +289,7 @@ export default function PricingPage() {
           <div className="text-center">
             <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8 py-4 sm:py-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm max-w-full">
               <div className="flex items-center gap-2 sm:gap-3">
-                <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"
-                  style={{
-                    background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                  }}
-                >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
                     className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     strokeWidth={3}
@@ -490,12 +306,7 @@ export default function PricingPage() {
               </div>
 
               <div className="flex items-center gap-2 sm:gap-3">
-                <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"
-                  style={{
-                    background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                  }}
-                >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
                     className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     strokeWidth={3}
@@ -512,12 +323,7 @@ export default function PricingPage() {
               </div>
 
               <div className="flex items-center gap-2 sm:gap-3">
-                <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0"
-                  style={{
-                    background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                  }}
-                >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
                     className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     strokeWidth={3}

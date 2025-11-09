@@ -1,5 +1,6 @@
-import { Shield, Heart, Lock, AlertTriangle } from "lucide-react";
+import { Shield, Heart, Lock } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { PROTECTION_MEASURES } from "./data/protection.data";
 
 // Página de Protección Infantil
 // Ubicación: src/ui/pages/legal/proteccion-infantil/index.tsx
@@ -48,32 +49,7 @@ export default function ProteccionInfantilPage() {
               Medidas de Protección Activa
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Filtrado de Contenido",
-                  description:
-                    "Sistema automatizado que bloquea contenido inapropiado para menores",
-                  icon: Shield,
-                },
-                {
-                  title: "Control Parental",
-                  description:
-                    "Herramientas para que padres supervisen y gestionen el acceso",
-                  icon: Lock,
-                },
-                {
-                  title: "Verificación de Edad",
-                  description:
-                    "Mecanismos robustos para validar la edad de los usuarios",
-                  icon: AlertTriangle,
-                },
-                {
-                  title: "Reporte Inmediato",
-                  description:
-                    "Sistema de denuncia rápida ante contenido inadecuado",
-                  icon: Heart,
-                },
-              ].map((item, index) => (
+              {PROTECTION_MEASURES.map((item, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"

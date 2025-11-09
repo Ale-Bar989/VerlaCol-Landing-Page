@@ -56,39 +56,15 @@ const HeroText = () => (
 
 const BackgroundEffects: React.FC = () => (
   <div className="absolute inset-0 pointer-events-none">
-    <div
-      className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl"
-      style={{ backgroundColor: "#5B6FFF0D" }}
-    />
-    <div
-      className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl"
-      style={{ backgroundColor: "#7A8FFF0D" }}
-    />
+    <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D]" />
+    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D]" />
   </div>
 );
 
 const ImpactBadge: React.FC = () => (
-  <div
-    className="inline-flex items-center gap-2 mb-10 px-6 py-3 rounded-full backdrop-blur-md"
-    style={{
-      background:
-        "linear-gradient(135deg, rgba(91, 111, 255, 0.1), rgba(122, 143, 255, 0.1))",
-      border: "1px solid rgba(91, 111, 255, 0.2)",
-      boxShadow: "0 0 30px rgba(91, 111, 255, 0.1)",
-    }}
-  >
-    <div
-      className="w-2 h-2 rounded-full animate-pulse"
-      style={{ background: "#5B6FFF" }}
-    />
-    <span
-      className="text-sm font-bold uppercase tracking-widest"
-      style={{
-        color: "#7A8FFF",
-        fontFamily:
-          "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      }}
-    >
+  <div className="inline-flex items-center gap-2 mb-10 px-6 py-3 rounded-full backdrop-blur-md cta-section-bg border border-[rgba(91,111,255,0.2)]">
+    <div className="w-2 h-2 rounded-full animate-pulse bg-[#5B6FFF]" />
+    <span className="text-sm font-bold uppercase tracking-widest text-[#7A8FFF] font-inter">
       Impacto Real
     </span>
   </div>
@@ -174,5 +150,7 @@ const StatsSection: React.FC = () => {
     </section>
   );
 };
+
+StatsSection.displayName = 'StatsSection';
 
 export default memo(StatsSection);

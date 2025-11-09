@@ -1,12 +1,6 @@
-import {
-  Shield,
-  Lock,
-  Eye,
-  Server,
-  AlertTriangle,
-  CheckCircle,
-} from "lucide-react";
+import { Lock, Server, CheckCircle, Shield } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { SECURITY_LAYERS } from "./data/security.data";
 
 // Página de Seguridad en la Red
 // Ubicación: src/ui/pages/legal/seguridad/index.tsx
@@ -55,60 +49,7 @@ export default function SeguridadPage() {
               Capas de Protección
             </h2>
             <div className="space-y-4">
-              {[
-                {
-                  layer: "Capa 1: Perímetro de Red",
-                  description:
-                    "Firewall de última generación con DPI (Deep Packet Inspection)",
-                  features: [
-                    "Firewall avanzado",
-                    "Anti-DDoS",
-                    "IPS/IDS",
-                    "Traffic shaping",
-                  ],
-                  icon: Shield,
-                  color: "emerald",
-                },
-                {
-                  layer: "Capa 2: Protección de Contenido",
-                  description:
-                    "Filtrado web y protección contra malware en tiempo real",
-                  features: [
-                    "Antivirus en red",
-                    "Anti-phishing",
-                    "Anti-malware",
-                    "Sandboxing",
-                  ],
-                  icon: Eye,
-                  color: "teal",
-                },
-                {
-                  layer: "Capa 3: Encriptación",
-                  description:
-                    "Cifrado de extremo a extremo de todas las comunicaciones",
-                  features: [
-                    "TLS 1.3",
-                    "VPN disponible",
-                    "DNS encriptado",
-                    "HTTPS forzado",
-                  ],
-                  icon: Lock,
-                  color: "green",
-                },
-                {
-                  layer: "Capa 4: Monitoreo 24/7",
-                  description:
-                    "Centro de operaciones de seguridad vigilando constantemente",
-                  features: [
-                    "SOC activo",
-                    "Análisis de amenazas",
-                    "Respuesta rápida",
-                    "Alertas automáticas",
-                  ],
-                  icon: AlertTriangle,
-                  color: "cyan",
-                },
-              ].map((level, index) => (
+              {SECURITY_LAYERS.map((level, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"

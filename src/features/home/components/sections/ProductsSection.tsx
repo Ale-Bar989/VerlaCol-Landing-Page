@@ -1,75 +1,16 @@
-import { memo, useMemo } from 'react';
+import { useMemo, memo } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useTheme } from '@/core/contexts';
-import { ROUTES } from '@/core/router/routes.config';
-
-// Datos de productos fuera del componente para evitar recreación
-const PRODUCTS_DATA = [
-  {
-    id: 1,
-    title: "Internet por Fibra Óptica",
-    description:
-      "Velocidades ultrarrápidas y conexión estable con nuestra red de fibra óptica de última generación. Ideal para streaming, juegos en línea y teletrabajo.",
-    image:
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    link: ROUTES.SERVICES.FIBRA_RESIDENCIAL,
-    glowColor: {
-      start: "rgba(91, 111, 255, 0.9)",
-      mid: "rgba(122, 143, 255, 0.7)",
-      end: "rgba(91, 111, 255, 0.4)",
-    },
-  },
-  {
-    id: 2,
-    title: "Televisión IP",
-    description:
-      "Más de 200 canales en alta definición, contenido bajo demanda y funciones avanzadas como pausar y retroceder en vivo. Disfruta del mejor entretenimiento en un solo lugar.",
-    image:
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    link: ROUTES.SERVICES.TV_DIGITAL,
-    glowColor: {
-      start: "rgba(236, 72, 153, 0.9)",
-      mid: "rgba(219, 39, 119, 0.7)",
-      end: "rgba(236, 72, 153, 0.4)",
-    },
-  },
-  {
-    id: 3,
-    title: "Planes Empresariales",
-    description:
-      "Soluciones de conectividad empresarial con ancho de banda dedicado, IP fija y soporte prioritario. Garantizamos la estabilidad que tu negocio necesita para operar sin interrupciones.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    link: ROUTES.SERVICES.PLANES_EMPRESARIALES,
-    glowColor: {
-      start: "rgba(168, 85, 247, 0.9)",
-      mid: "rgba(147, 51, 234, 0.7)",
-      end: "rgba(168, 85, 247, 0.4)",
-    },
-  },
-  {
-    id: 4,
-    title: "Soporte Técnico 24/7",
-    description:
-      "Asistencia técnica especializada disponible las 24 horas del día, los 7 días de la semana. Tu conexión siempre activa con nuestro soporte dedicado.",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    link: ROUTES.CONTACT,
-    glowColor: {
-      start: "rgba(34, 197, 94, 0.9)",
-      mid: "rgba(22, 163, 74, 0.7)",
-      end: "rgba(34, 197, 94, 0.4)",
-    },
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { ROUTES } from "@/core/router/routes.config";
+import { PRODUCTS } from "@/features/home/data";
 
 function ProductsSection() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   // Memoizar productos para evitar recreación en cada render
-  const products = useMemo(() => PRODUCTS_DATA, []);
+  const products = useMemo(() => PRODUCTS, []);
 
   return (
     <>
@@ -119,43 +60,21 @@ function ProductsSection() {
       >
         {/* Efectos de fondo */}
         <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl"
-            style={{ backgroundColor: isDark ? "#5B6FFF0D" : "#5B6FFF05" }}
-          ></div>
-          <div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl"
-            style={{ backgroundColor: isDark ? "#7A8FFF0D" : "#7A8FFF05" }}
-          ></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D]"></div>
         </div>
         <div className="container px-4 mx-auto">
           <div className="max-w-4xl mx-auto text-center mb-16 relative z-10">
             {/* Badge moderno */}
             <motion.div
-              className="inline-flex items-center gap-2 mb-6 px-6 py-3 rounded-full backdrop-blur-md"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(91, 111, 255, 0.15), rgba(122, 143, 255, 0.1))",
-                border: "1px solid rgba(91, 111, 255, 0.2)",
-                boxShadow: "0 0 30px rgba(91, 111, 255, 0.1)",
-              }}
+              className="inline-flex items-center gap-2 mb-6 px-6 py-3 rounded-full backdrop-blur-md cta-section-bg border border-[rgba(91,111,255,0.2)]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div
-                className="w-2 h-2 rounded-full animate-pulse"
-                style={{ background: "#5B6FFF" }}
-              ></div>
-              <span
-                className="text-sm font-black uppercase tracking-widest"
-                style={{
-                  color: "#5B6FFF",
-                  fontFamily:
-                    "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                }}
-              >
+              <div className="w-2 h-2 rounded-full animate-pulse bg-[#5B6FFF]"></div>
+              <span className="text-sm font-black uppercase tracking-widest text-[#5B6FFF] font-inter">
                 Nuestros Productos
               </span>
             </motion.div>
@@ -366,4 +285,6 @@ function ProductsSection() {
 }
 
 // Memoizar para evitar re-renders innecesarios
+ProductsSection.displayName = 'ProductsSection';
+
 export default memo(ProductsSection);

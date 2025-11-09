@@ -1,9 +1,11 @@
+import { memo } from 'react';
 import { useTheme } from '@/core/contexts';
 
-// Home Background effects component (gradient and particles)
+// Home Background effects component (gradient and particles) - OPTIMIZADO
 // Ubicación: src/ui/pages/home/components/layout/HomeBackgroundEffects.tsx
+// Optimizaciones: React.memo para evitar re-renders innecesarios
 
-export default function HomeBackgroundEffects() {
+const HomeBackgroundEffects = memo(() => {
   const { theme } = useTheme();
 
   return (
@@ -45,4 +47,8 @@ export default function HomeBackgroundEffects() {
       </div>
     </>
   );
-}
+});
+
+HomeBackgroundEffects.displayName = 'HomeBackgroundEffects';
+
+export default HomeBackgroundEffects;

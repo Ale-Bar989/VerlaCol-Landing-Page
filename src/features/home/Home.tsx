@@ -17,7 +17,7 @@ const FooterSection = lazy(() => import("./components/sections/FooterSection"));
 // Componente de carga simple - memoizado
 const SectionLoader = memo(() => (
   <div className="w-full h-32 flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-[#4A5CFF] border-t-transparent rounded-full animate-spin" style={{ willChange: 'transform' }} />
+    <div className="w-8 h-8 border-2 border-[#4A5CFF] border-t-transparent rounded-full animate-spin gpu-accelerated" />
   </div>
 ));
 

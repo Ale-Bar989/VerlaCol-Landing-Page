@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 // import { Link } from "react-router-dom";
 import { BackgroundEffects, Navbar } from "@/shared//components";
-import { DESIGN_SYSTEM } from "@/shared//styles/design-system";
 import { FooterSection } from "../home/components";
 
 // Página Contact con diseño moderno
@@ -54,14 +53,7 @@ export default function Contact() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              <span
-                className="text-transparent bg-clip-text animate-gradient inline-block"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF, #FFFFFF, #4A5CFF)",
-                  backgroundSize: "200% 100%",
-                }}
-              >
+              <span className="text-transparent bg-clip-text animate-gradient inline-block gradient-text-animated">
                 Contáctanos
               </span>
             </h1>
@@ -74,28 +66,10 @@ export default function Contact() {
 
           {/* Cards de contacto modernas */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <div
-              className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))",
-              }}
-            >
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))",
-                }}
-              ></div>
+            <div className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div
-                  className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{
-                    background: DESIGN_SYSTEM.gradients.primary,
-                    boxShadow: DESIGN_SYSTEM.shadows.large,
-                  }}
-                >
+                <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
                   <Mail size={28} className="text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Email</h3>
@@ -108,28 +82,10 @@ export default function Contact() {
               </div>
             </div>
 
-            <div
-              className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))",
-              }}
-            >
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))",
-                }}
-              ></div>
+            <div className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div
-                  className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{
-                    background: DESIGN_SYSTEM.gradients.primary,
-                    boxShadow: DESIGN_SYSTEM.shadows.large,
-                  }}
-                >
+                <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
                   <Phone size={28} className="text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Teléfono</h3>
@@ -142,28 +98,10 @@ export default function Contact() {
               </div>
             </div>
 
-            <div
-              className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))",
-              }}
-            >
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.08))",
-                }}
-              ></div>
+            <div className="relative rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300 gradient-section-bg-alt">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
-                <div
-                  className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{
-                    background: DESIGN_SYSTEM.gradients.primary,
-                    boxShadow: DESIGN_SYSTEM.shadows.large,
-                  }}
-                >
+                <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
                   <MapPin size={28} className="text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">
@@ -177,37 +115,14 @@ export default function Contact() {
           {/* Formulario de contacto moderno */}
           <div className="relative rounded-3xl p-12 overflow-hidden">
             {/* Fondo con gradiente */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))",
-              }}
-            ></div>
+            <div className="absolute inset-0 gradient-section-bg"></div>
             {/* Border glow */}
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                padding: "1px",
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))",
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-              }}
-            ></div>
+            <div className="absolute inset-0 rounded-3xl gradient-border-primary-soft"></div>
 
             <div className="relative z-10">
               <h2 className="text-3xl font-black mb-2 text-center">
                 Envíanos un{" "}
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                  }}
-                >
+                <span className="text-transparent bg-clip-text gradient-text-primary">
                   Mensaje
                 </span>
               </h2>
@@ -285,19 +200,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="group w-full inline-flex items-center justify-center gap-3 text-white px-8 py-5 rounded-xl text-lg font-bold transition-all duration-300 hover:scale-105"
-                  style={{
-                    background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                    boxShadow: "0 10px 40px rgba(74, 92, 255, 0.4)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 15px 50px rgba(74, 92, 255, 0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 40px rgba(74, 92, 255, 0.4)";
-                  }}
+                  className="group w-full inline-flex items-center justify-center gap-3 text-white px-8 py-5 rounded-xl text-lg font-bold transition-all duration-300 hover:scale-105 btn-cta-primary"
                 >
                   Enviar Mensaje
                   <Send

@@ -21,33 +21,15 @@ export default function ComparadorTarifasPage() {
         {/* Header con efectos modernos */}
         <div className="mb-16 text-center relative">
           {/* Glow effect */}
-          <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 blur-3xl opacity-20"
-            style={{
-              background: "radial-gradient(circle, #4A5CFF, transparent)",
-            }}
-          ></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 blur-3xl opacity-20 glow-primary"></div>
 
-          <div
-            className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8"
-            style={{
-              background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-              boxShadow: "0 8px 32px rgba(74, 92, 255, 0.3)",
-            }}
-          >
+          <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 gradient-icon-box">
             <DollarSign className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             Comparador de{" "}
             <div className="relative inline-block">
-              <span
-                className="text-transparent bg-clip-text animate-gradient"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF, #FFFFFF, #4A5CFF)",
-                  backgroundSize: "200% 100%",
-                }}
-              >
+              <span className="text-transparent bg-clip-text animate-gradient gradient-text-animated">
                 Tarifas
               </span>
               {/* Underline */}
@@ -65,25 +47,9 @@ export default function ComparadorTarifasPage() {
         {/* Content */}
         <div className="space-y-12">
           {/* Introducción con gradiente moderno */}
-          <section
-            className="relative rounded-3xl p-10 text-center overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))",
-            }}
-          >
+          <section className="relative rounded-3xl p-10 text-center overflow-hidden gradient-section-bg">
             {/* Border glow */}
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                padding: "1px",
-                background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-              }}
-            ></div>
+            <div className="absolute inset-0 rounded-3xl gradient-border-primary"></div>
 
             <div className="relative z-10">
               <div className="inline-flex items-center gap-3 px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
@@ -94,13 +60,7 @@ export default function ComparadorTarifasPage() {
               </div>
               <h2 className="text-3xl font-bold mb-4">
                 Precios{" "}
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                  }}
-                >
+                <span className="text-transparent bg-clip-text gradient-text-primary">
                   Claros y Honestos
                 </span>
               </h2>
@@ -119,13 +79,7 @@ export default function ComparadorTarifasPage() {
           <section>
             <h2 className="text-4xl font-black mb-4 text-center">
               Nuestros{" "}
-              <span
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                }}
-              >
+              <span className="text-transparent bg-clip-text gradient-text-primary">
                 Planes
               </span>
             </h2>
@@ -216,15 +170,7 @@ export default function ComparadorTarifasPage() {
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
                       <div className="relative">
-                        <div
-                          className="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm border"
-                          style={{
-                            background:
-                              "linear-gradient(135deg, #4A5CFF15, #7A8FFF15)",
-                            borderColor: "#4A5CFF50",
-                            color: "#FFFFFF",
-                          }}
-                        >
+                        <div className="px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm border gradient-badge-bg text-white">
                           <span className="flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#4A5CFF] animate-pulse"></span>
                             {plan.badge}
@@ -236,12 +182,7 @@ export default function ComparadorTarifasPage() {
 
                   {/* Resplandor exterior más sutil */}
                   {plan.highlighted && (
-                    <div
-                      className="absolute -inset-0.5 rounded-3xl opacity-20 group-hover:opacity-30 blur-lg transition-opacity duration-500"
-                      style={{
-                        background: `linear-gradient(135deg, #4A5CFF, #7A8FFF)`,
-                      }}
-                    ></div>
+                    <div className="absolute -inset-0.5 rounded-3xl opacity-20 group-hover:opacity-30 blur-lg transition-opacity duration-500 gradient-icon-box"></div>
                   )}
 
                   {/* Card principal */}
@@ -253,12 +194,7 @@ export default function ComparadorTarifasPage() {
                     }`}
                   >
                     {/* Gradiente animado de fondo */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                      style={{
-                        background: `linear-gradient(135deg, #4A5CFF08, #FFFFFF05, #7A8FFF08)`,
-                      }}
-                    ></div>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 gradient-hover-overlay"></div>
 
                     {/* Contenido */}
                     <div className="relative p-8">
@@ -333,14 +269,7 @@ export default function ComparadorTarifasPage() {
 
                         {/* Ahorro (solo para Plan Familia) */}
                         {plan.savings && (
-                          <div
-                            className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
-                            style={{
-                              background:
-                                "linear-gradient(135deg, #4A5CFF10, #7A8FFF10)",
-                              border: "1px solid #4A5CFF30",
-                            }}
-                          >
+                          <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
                             <svg
                               className="w-4 h-4 text-green-400"
                               fill="none"
@@ -365,13 +294,7 @@ export default function ComparadorTarifasPage() {
                       <div className="space-y-3 mb-8">
                         {plan.features.map((feature, i) => (
                           <div key={i} className="flex items-start gap-3">
-                            <div
-                              className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
-                              style={{
-                                background:
-                                  "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                              }}
-                            >
+                            <div className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 gradient-check-circle">
                               <Check
                                 className="w-3 h-3 text-white"
                                 strokeWidth={3}
@@ -439,64 +362,29 @@ export default function ComparadorTarifasPage() {
           </section>
 
           {/* Tabla Comparativa */}
-          <section
-            className="relative rounded-3xl p-8 overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))",
-            }}
-          >
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                padding: "1px",
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))",
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-              }}
-            ></div>
+          <section className="relative rounded-3xl p-8 overflow-hidden gradient-section-bg-alt">
+            <div className="absolute inset-0 rounded-3xl gradient-border-primary-soft"></div>
 
             <h2 className="text-3xl font-black mb-8 text-center">
               Comparación{" "}
-              <span
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                }}
-              >
+              <span className="text-transparent bg-clip-text gradient-text-primary">
                 Detallada
               </span>
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm relative">
                 <thead>
-                  <tr
-                    className="border-b"
-                    style={{ borderColor: "rgba(74, 92, 255, 0.3)" }}
-                  >
+                  <tr className="border-b border-[rgba(74,92,255,0.3)]">
                     <th className="text-left py-4 px-4 text-gray-400 font-bold">
                       Característica
                     </th>
-                    <th
-                      className="text-center py-4 px-4 font-bold"
-                      style={{ color: "#4A5CFF" }}
-                    >
+                    <th className="text-center py-4 px-4 font-bold text-[#4A5CFF]">
                       Plan Hogar
                     </th>
-                    <th
-                      className="text-center py-4 px-4 font-bold"
-                      style={{ color: "#5B6FFF" }}
-                    >
+                    <th className="text-center py-4 px-4 font-bold text-[#5B6FFF]">
                       Plan Familia
                     </th>
-                    <th
-                      className="text-center py-4 px-4 font-bold"
-                      style={{ color: "#7A8FFF" }}
-                    >
+                    <th className="text-center py-4 px-4 font-bold text-[#7A8FFF]">
                       Plan Pro
                     </th>
                   </tr>
@@ -560,8 +448,7 @@ export default function ComparadorTarifasPage() {
                   ].map((row, index) => (
                     <tr
                       key={index}
-                      className="border-b hover:bg-white/5 transition-colors"
-                      style={{ borderColor: "rgba(255, 255, 255, 0.05)" }}
+                      className="border-b border-white/5 hover:bg-white/5 transition-colors"
                     >
                       <td className="py-4 px-4 text-gray-300 font-medium">
                         {row.feature}
@@ -569,16 +456,10 @@ export default function ComparadorTarifasPage() {
                       <td className="py-4 px-4 text-center text-gray-400">
                         {row.hogar}
                       </td>
-                      <td
-                        className="py-4 px-4 text-center font-bold"
-                        style={{ color: "#4A5CFF" }}
-                      >
+                      <td className="py-4 px-4 text-center font-bold text-[#4A5CFF]">
                         {row.familia}
                       </td>
-                      <td
-                        className="py-4 px-4 text-center font-bold"
-                        style={{ color: "#7A8FFF" }}
-                      >
+                      <td className="py-4 px-4 text-center font-bold text-[#7A8FFF]">
                         {row.pro}
                       </td>
                     </tr>
@@ -589,35 +470,12 @@ export default function ComparadorTarifasPage() {
           </section>
 
           {/* Información Legal */}
-          <section
-            className="relative rounded-3xl p-8 overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(74, 92, 255, 0.08), rgba(122, 143, 255, 0.04))",
-            }}
-          >
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                padding: "1px",
-                background:
-                  "linear-gradient(135deg, rgba(74, 92, 255, 0.3), rgba(122, 143, 255, 0.2))",
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-              }}
-            ></div>
+          <section className="relative rounded-3xl p-8 overflow-hidden gradient-section-bg-alt">
+            <div className="absolute inset-0 rounded-3xl gradient-border-primary-soft"></div>
 
             <h2 className="text-3xl font-black mb-6">
               Información{" "}
-              <span
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                }}
-              >
+              <span className="text-transparent bg-clip-text gradient-text-primary">
                 Legal
               </span>
             </h2>
@@ -663,14 +521,8 @@ export default function ComparadorTarifasPage() {
           <section>
             <h2 className="text-4xl font-black mb-4 text-center">
               Lo que dicen{" "}
-              <span
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                }}
-              >
-                nuestros clientes
+              <span className="text-transparent bg-clip-text gradient-text-primary">
+                Nuestros Clientes
               </span>
             </h2>
             <p className="text-center text-gray-400 mb-12">
@@ -702,12 +554,7 @@ export default function ComparadorTarifasPage() {
               ].map((testimonial, index) => (
                 <div
                   key={index}
-                  className="relative rounded-2xl p-6 transition-all duration-300 hover:scale-105"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.05))",
-                    border: "1px solid rgba(74, 92, 255, 0.2)",
-                  }}
+                  className="relative rounded-2xl p-6 transition-all duration-300 hover:scale-105 gradient-section-bg border border-[rgba(74,92,255,0.2)]"
                 >
                   <div className="flex gap-1 mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -732,51 +579,18 @@ export default function ComparadorTarifasPage() {
           </section>
 
           {/* CTA Premium */}
-          <section
-            className="relative rounded-3xl p-12 text-center overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(74, 92, 255, 0.15), rgba(122, 143, 255, 0.1))",
-            }}
-          >
+          <section className="relative rounded-3xl p-12 text-center overflow-hidden cta-section-bg">
             {/* Glow effects */}
-            <div
-              className="absolute top-0 left-1/4 w-64 h-64 blur-3xl opacity-30"
-              style={{
-                background: "radial-gradient(circle, #4A5CFF, transparent)",
-              }}
-            ></div>
-            <div
-              className="absolute bottom-0 right-1/4 w-64 h-64 blur-3xl opacity-30"
-              style={{
-                background: "radial-gradient(circle, #7A8FFF, transparent)",
-              }}
-            ></div>
+            <div className="absolute top-0 left-1/4 w-64 h-64 blur-3xl opacity-30 glow-primary-left"></div>
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 blur-3xl opacity-30 glow-secondary-right"></div>
 
             {/* Border glow */}
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                padding: "2px",
-                background:
-                  "linear-gradient(135deg, #4A5CFF, #FFFFFF, #7A8FFF)",
-                WebkitMask:
-                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-              }}
-            ></div>
+            <div className="absolute inset-0 rounded-3xl gradient-border-cta"></div>
 
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-black mb-4">
                 ¿Listo para conectarte con{" "}
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, #4A5CFF, #FFFFFF, #7A8FFF)",
-                  }}
-                >
+                <span className="text-transparent bg-clip-text gradient-text-primary">
                   Verla?
                 </span>
               </h2>
@@ -786,51 +600,13 @@ export default function ComparadorTarifasPage() {
                 hogar
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  className="group px-10 py-4 rounded-xl font-bold text-white transition-all duration-300 shadow-lg"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #4A5CFF, #6B7FFF, #7A8FFF)",
-                    boxShadow: "0 8px 32px rgba(74, 92, 255, 0.35)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 12px 40px rgba(74, 92, 255, 0.45)";
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #5B6FFF, #7A8FFF, #8A9FFF)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 8px 32px rgba(74, 92, 255, 0.35)";
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #4A5CFF, #6B7FFF, #7A8FFF)";
-                  }}
-                >
+                <button className="group px-10 py-4 rounded-xl font-bold text-white btn-cta-primary">
                   <span className="flex items-center gap-2 justify-center">
                     Hablar con un Asesor
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </button>
-                <button
-                  className="px-10 py-4 rounded-xl font-bold transition-all duration-300"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.1)",
-                    border: "2px solid rgba(74, 92, 255, 0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(74, 92, 255, 0.2)";
-                    e.currentTarget.style.borderColor =
-                      "rgba(74, 92, 255, 0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background =
-                      "rgba(255, 255, 255, 0.1)";
-                    e.currentTarget.style.borderColor =
-                      "rgba(74, 92, 255, 0.3)";
-                  }}
-                >
+                <button className="px-10 py-4 rounded-xl font-bold btn-cta-secondary">
                   Verificar Cobertura
                 </button>
               </div>

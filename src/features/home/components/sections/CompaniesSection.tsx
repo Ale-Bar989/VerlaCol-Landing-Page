@@ -119,7 +119,7 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
                 <div className="absolute -inset-px bg-linear-to-r from-[#5B6FFF]/20 via-[#7A8FFF]/20 to-[#4A5CFF]/20 rounded-[24px] opacity-0 group-hover:opacity-100 blur-sm transition-all duration-700"></div>
 
                 {/* Main card */}
-                <div className="relative h-full bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[23px] overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-[#7A8FFF]/30">
+                <div className="relative h-full bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[23px] overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-white/30 group-hover:shadow-[0_20px_25px_-5px_rgba(122,143,255,0.3)]">
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-linear-to-br from-[#5B6FFF]/0 via-[#7A8FFF]/5 to-[#4A5CFF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -176,7 +176,7 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
                 <div className="absolute -inset-px bg-linear-to-r from-[#5B6FFF]/20 via-[#7A8FFF]/20 to-[#4A5CFF]/20 rounded-[24px] opacity-0 group-hover:opacity-100 blur-sm transition-all duration-700"></div>
 
                 {/* Main card */}
-                <div className="relative h-full bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[23px] overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-[#7A8FFF]/30">
+                <div className="relative h-full bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[23px] overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-white/30 group-hover:shadow-[0_20px_25px_-5px_rgba(122,143,255,0.3)]">
                   {/* Animated gradient background */}
                   <div className="absolute inset-0 bg-linear-to-br from-[#5B6FFF]/0 via-[#7A8FFF]/5 to-[#4A5CFF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
@@ -232,15 +232,7 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
             <div className="absolute inset-0 bg-linear-to-br from-[#4A5CFF]/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative p-8 rounded-2xl border border-[#5B6FFF]/20 bg-linear-to-br from-[#5B6FFF]/5 to-transparent backdrop-blur-sm hover:border-[#4A5CFF]/40 transition-all duration-300 text-center">
               {/* Número con gradiente azul claro + blanco */}
-              <div
-                className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, #4A5CFF, #FFFFFF, #7A8FFF)",
-                  backgroundSize: "200% 200%",
-                  animation: "hologram 6s ease infinite",
-                }}
-              >
+              <div className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text gradient-text-stats-1 animate-gradient">
                 200+
               </div>
               <div className="text-sm font-bold text-[#4A5CFF] uppercase tracking-wider mb-1">
@@ -255,15 +247,7 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
             <div className="absolute inset-0 bg-linear-to-br from-[#4A5CFF]/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative p-8 rounded-2xl border border-[#5B6FFF]/20 bg-linear-to-br from-[#5B6FFF]/5 to-transparent backdrop-blur-sm hover:border-[#4A5CFF]/40 transition-all duration-300 text-center">
               {/* Número con gradiente azul claro + blanco */}
-              <div
-                className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, #7A8FFF, #FFFFFF, #4A5CFF)",
-                  backgroundSize: "200% 200%",
-                  animation: "hologram 6s ease infinite",
-                }}
-              >
+              <div className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text gradient-text-stats-2 animate-gradient">
                 100%
               </div>
               <div className="text-sm font-bold text-[#4A5CFF] uppercase tracking-wider mb-1">
@@ -278,15 +262,7 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
             <div className="absolute inset-0 bg-linear-to-br from-[#4A5CFF]/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative p-8 rounded-2xl border border-[#5B6FFF]/20 bg-linear-to-br from-[#5B6FFF]/5 to-transparent backdrop-blur-sm hover:border-[#4A5CFF]/40 transition-all duration-300 text-center">
               {/* Número con gradiente azul claro + blanco */}
-              <div
-                className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, #4A5CFF, #FFFFFF, #5B6FFF)",
-                  backgroundSize: "200% 200%",
-                  animation: "hologram 6s ease infinite",
-                }}
-              >
+              <div className="text-5xl md:text-6xl font-black mb-3 text-transparent bg-clip-text gradient-text-stats-3 animate-gradient">
                 VOD
               </div>
               <div className="text-sm font-bold text-[#4A5CFF] uppercase tracking-wider mb-1">
@@ -302,4 +278,6 @@ function CompaniesSection({ companies }: CompaniesSectionProps) {
 }
 
 // Memoizar para evitar re-renders innecesarios
+CompaniesSection.displayName = 'CompaniesSection';
+
 export default memo(CompaniesSection);

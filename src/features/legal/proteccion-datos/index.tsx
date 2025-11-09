@@ -1,5 +1,6 @@
-import { Lock, Database, Eye, UserCheck, FileCheck } from "lucide-react";
+import { Lock, Database, FileCheck } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { DATA_PRINCIPLES } from "./data/privacy.data";
 
 // Página de Política de Tratamiento de Datos Personales
 // Ubicación: src/ui/pages/legal/proteccion-datos/index.tsx
@@ -48,32 +49,7 @@ export default function ProteccionDatosPage() {
               Principios de Tratamiento
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Legalidad",
-                  description:
-                    "Tratamiento conforme a la constitución y la ley colombiana",
-                  icon: FileCheck,
-                },
-                {
-                  title: "Finalidad",
-                  description:
-                    "Uso solo para propósitos legítimos e informados previamente",
-                  icon: Eye,
-                },
-                {
-                  title: "Libertad",
-                  description:
-                    "Recopilación con consentimiento previo, expreso e informado",
-                  icon: UserCheck,
-                },
-                {
-                  title: "Seguridad",
-                  description:
-                    "Medidas técnicas y administrativas para proteger tus datos",
-                  icon: Lock,
-                },
-              ].map((principle, index) => (
+              {DATA_PRINCIPLES.map((principle, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"

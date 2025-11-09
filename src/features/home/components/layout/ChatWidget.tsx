@@ -27,16 +27,9 @@ function ChatWidget({ isOpen, onToggle }: ChatWidgetProps) {
           )}
           
           {/* Círculo principal con gradiente azul moderno */}
-          <div 
-            className="relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #4A5CFF 0%, #FFFFFF 100%)',
-              boxShadow: '0 10px 30px rgba(74, 92, 255, 0.5), 0 0 20px rgba(74, 92, 255, 0.3)',
-              willChange: 'transform'
-            }}
-          >
+          <div className="relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 overflow-hidden btn-cta-primary gpu-accelerated">
             {/* Efecto ping de fondo azul */}
-            {!isOpen && <div className="absolute -inset-2 rounded-full animate-ping" style={{ background: 'rgba(74, 92, 255, 0.4)' }} />}
+            {!isOpen && <div className="absolute -inset-2 rounded-full animate-ping bg-[rgba(74,92,255,0.4)]" />}
             
             {/* Icono de chat o X con estilo mejorado */}
             {isOpen ? (
@@ -53,15 +46,9 @@ function ChatWidget({ isOpen, onToggle }: ChatWidgetProps) {
           {/* Tooltip en hover mejorado */}
           {!isOpen && (
             <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-              <div 
-                className="px-4 py-2 rounded-xl shadow-2xl text-sm font-bold whitespace-nowrap backdrop-blur-sm"
-                style={{
-                  background: 'linear-gradient(135deg, #4A5CFF, #7A8FFF)',
-                  boxShadow: '0 10px 30px rgba(74, 92, 255, 0.4)'
-                }}
-              >
+              <div className="px-4 py-2 rounded-xl shadow-2xl text-sm font-bold whitespace-nowrap backdrop-blur-sm gradient-icon-box">
                 <span className="text-white">¿Necesitas ayuda?</span>
-                <div className="absolute top-full right-4 -mt-1 border-4 border-transparent" style={{ borderTopColor: '#4A5CFF' }} />
+                <div className="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-[#4A5CFF]" />
               </div>
             </div>
           )}
@@ -70,16 +57,15 @@ function ChatWidget({ isOpen, onToggle }: ChatWidgetProps) {
 
       {/* Chat Widget con animación suave */}
       <div 
-        className={`fixed bottom-24 right-6 z-40 transition-all duration-500 ease-out ${
+        className={`fixed bottom-24 right-6 z-40 transition-all duration-500 ease-out gpu-accelerated ${
           isOpen 
             ? 'opacity-100 translate-y-0 scale-100' 
             : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
         }`}
-        style={{ willChange: 'transform, opacity' }}
       >
-        <div className="w-96 h-[500px] bg-black/95 backdrop-blur-xl border border-[#5B6FFF]/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(74, 92, 255, 0.3)' }}>
+        <div className="w-96 h-[500px] bg-black/95 backdrop-blur-xl border border-[#5B6FFF]/20 rounded-2xl flex flex-col overflow-hidden shadow-[0_20px_60px_rgba(74,92,255,0.3)]">
           {/* Chat Header con gradiente azul */}
-          <div className="p-4 flex items-center justify-between" style={{ background: 'linear-gradient(135deg, #5B6FFF, #7A8FFF, #4A5CFF)' }}>
+          <div className="p-4 flex items-center justify-between gradient-icon-box">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
@@ -132,7 +118,7 @@ function ChatWidget({ isOpen, onToggle }: ChatWidgetProps) {
                 placeholder="Escribe tu mensaje..."
                 className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#4A5CFF] focus:ring-1 focus:ring-[#4A5CFF] transition-all"
               />
-              <button className="rounded-xl px-4 py-2 hover:opacity-90 transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #4A5CFF, #FFFFFF)' }}>
+              <button className="rounded-xl px-4 py-2 hover:opacity-90 transition-all hover:scale-105 btn-cta-primary">
                 <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>

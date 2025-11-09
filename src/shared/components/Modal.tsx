@@ -40,29 +40,15 @@ export const Modal = memo(({ isOpen, onClose, children, title }: ModalProps) => 
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-9999 flex items-center justify-center p-2 sm:p-4"
-      style={{
-        animation: 'fadeIn 0.3s ease-out',
-      }}
-    >
+    <div className="fixed inset-0 z-9999 flex items-center justify-center p-2 sm:p-4 animate-fadeIn">
       {/* Backdrop con blur */}
       <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-md"
+        className="absolute inset-0 bg-black/80 backdrop-blur-md animate-fadeIn"
         onClick={onClose}
-        style={{
-          animation: 'fadeIn 0.3s ease-out',
-        }}
       />
 
       {/* Modal Container */}
-      <div
-        className="relative w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-linear-to-br from-gray-900 via-black to-gray-900 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl"
-        style={{
-          animation: 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-          boxShadow: '0 25px 50px -12px rgba(74, 92, 255, 0.25)',
-        }}
-      >
+      <div className="relative w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-linear-to-br from-gray-900 via-black to-gray-900 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl animate-slideUp modal-shadow">
         {/* Header */}
         {title && (
           <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-6 md:px-8 py-4 sm:py-6 bg-black/50 backdrop-blur-xl border-b border-white/10">

@@ -2,18 +2,10 @@ import {
   Filter, 
   Settings, 
   Shield, 
-  CheckCircle2, 
-  AlertOctagon,  
-  Banknote,
-  Sword, 
-  Pill, 
-  HeartPulse, 
-  Bomb, 
-  ShieldAlert, 
-  Bug, 
-  Ban 
+  CheckCircle2
 } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { FILTERING_TYPES, BLOCKED_CATEGORIES_ICONS, BLOCKED_CATEGORIES_TEXTS } from "./data/filtering.data";
 
 
 // Página de Mecanismos de Filtrado
@@ -64,55 +56,7 @@ export default function FiltradoPage() {
               Tipos de Filtrado Implementados
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Filtrado por Categorías",
-                  description:
-                    "Bloqueo automático de categorías completas de contenido dañino",
-                  features: [
-                    "Contenido adulto",
-                    "Violencia explícita",
-                    "Apuestas en línea",
-                    "Drogas y sustancias",
-                  ],
-                  color: "orange",
-                },
-                {
-                  title: "Filtrado por Palabras Clave",
-                  description:
-                    "Sistema que detecta términos específicos en URLs y contenido",
-                  features: [
-                    "Base de datos actualizada",
-                    "Múltiples idiomas",
-                    "Contexto semántico",
-                    "Machine learning",
-                  ],
-                  color: "red",
-                },
-                {
-                  title: "Filtrado DNS",
-                  description:
-                    "Bloqueo a nivel de sistema de nombres de dominio",
-                  features: [
-                    "Rapidez de bloqueo",
-                    "Sin software adicional",
-                    "Listas actualizadas",
-                    "Efectivo globalmente",
-                  ],
-                  color: "yellow",
-                },
-                {
-                  title: "Análisis en Tiempo Real",
-                  description: "Inspección automática de contenido mediante IA",
-                  features: [
-                    "Detección de imágenes",
-                    "Análisis de video",
-                    "Contenido generado",
-                    "Precisión del 98%",
-                  ],
-                  color: "pink",
-                },
-              ].map((type, index) => (
+              {FILTERING_TYPES.map((type, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
@@ -145,22 +89,15 @@ export default function FiltradoPage() {
               Categorías de Contenido Bloqueado
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { icon: <AlertOctagon className="inline-block w-5 h-5 mr-2" />, text: "Contenido pornográfico" },
-                { icon: <Sword className="inline-block w-5 h-5 mr-2" />, text: "Violencia extrema" },
-                { icon: <Banknote className="inline-block w-5 h-5 mr-2" />, text: "Apuestas y juegos de azar" },
-                { icon: <Pill className="inline-block w-5 h-5 mr-2" />, text: "Drogas y narcóticos" },
-                { icon: <HeartPulse className="inline-block w-5 h-5 mr-2" />, text: "Autolesión y suicidio" },
-                { icon: <Bomb className="inline-block w-5 h-5 mr-2" />, text: "Contenido terrorista" },
-                { icon: <ShieldAlert className="inline-block w-5 h-5 mr-2" />, text: "Fraudes y phishing" },
-                { icon: <Bug className="inline-block w-5 h-5 mr-2" />, text: "Malware y virus" },
-                { icon: <Ban className="inline-block w-5 h-5 mr-5" />, text: "Discriminación y odio" },
-              ].map((category, index) => (
+              {BLOCKED_CATEGORIES_ICONS.map((Icon, index) => (
                 <div
                   key={index}
                   className="bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 text-center"
                 >
-                  <span className="text-sm text-gray-300">{category.icon} {category.text}</span>
+                  <span className="text-sm text-gray-300 flex items-center justify-center gap-2">
+                    <Icon className="inline-block w-5 h-5" />
+                    {BLOCKED_CATEGORIES_TEXTS[index]}
+                  </span>
                 </div>
               ))}
             </div>

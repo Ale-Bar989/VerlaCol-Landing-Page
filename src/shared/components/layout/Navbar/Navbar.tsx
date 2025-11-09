@@ -52,7 +52,7 @@ function Navbar() {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="group flex items-center">
+          <Link to={ROUTES.HOME} className="group flex items-center">
             <img
               src={LogoVerla}
               alt="Verla"
@@ -69,7 +69,7 @@ function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             <Link
-              to="/"
+              to={ROUTES.HOME}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
                 isDark
                   ? "text-gray-300 hover:text-white hover:bg-white/10"
@@ -81,7 +81,7 @@ function Navbar() {
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
             <Link
-              to="/about"
+              to={ROUTES.ABOUT}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
                 isDark
                   ? "text-gray-300 hover:text-white hover:bg-white/10"
@@ -93,7 +93,7 @@ function Navbar() {
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
             <Link
-              to="/precios"
+              to={ROUTES.PRICING}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
                 isDark
                   ? "text-gray-300 hover:text-white hover:bg-white/10"
@@ -625,7 +625,7 @@ function Navbar() {
           {/* CTA Button moderno */}
           <div className="hidden md:block ml-2">
             <Link
-              to="/contact"
+              to={ROUTES.CONTACT}
               className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold overflow-hidden text-white!"
               style={{
                 background: "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
@@ -722,7 +722,7 @@ function Navbar() {
           >
             {/* Enlaces principales */}
             <Link
-              to="/"
+              to={ROUTES.HOME}
               onClick={handleMenuClose}
               className={`group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
                 isDark
@@ -735,7 +735,7 @@ function Navbar() {
             </Link>
 
             <Link
-              to="/about"
+              to={ROUTES.ABOUT}
               onClick={handleMenuClose}
               className={`group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
                 isDark
@@ -748,7 +748,7 @@ function Navbar() {
             </Link>
 
             <Link
-              to="/precios"
+              to={ROUTES.PRICING}
               onClick={handleMenuClose}
               className={`group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
                 isDark
@@ -762,7 +762,7 @@ function Navbar() {
 
             {/* Botón CTA en móvil */}
             <Link
-              to="/contact"
+              to={ROUTES.CONTACT}
               onClick={() => setIsMenuOpen(false)}
               className="group flex items-center justify-center gap-2 px-4 py-3.5 text-white rounded-xl mt-2 font-medium text-sm"
               style={{
@@ -952,7 +952,7 @@ function Navbar() {
 
             {/* CTA Button */}
             <Link
-              to="/contact"
+              to={ROUTES.CONTACT}
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center justify-center gap-2 bg-linear-to-r from-[#5B6FFF] to-[#4A5CFF] text-white px-6 py-4 rounded-xl text-sm font-semibold hover:from-[#7A8FFF] hover:to-[#4A5CFF] transition-all duration-300 shadow-lg shadow-[#5B6FFF]/30"
             >
