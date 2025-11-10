@@ -1,5 +1,7 @@
 import { FileText, Scale, BookOpen, ExternalLink } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 import { MAIN_LAWS } from "./data/laws.data";
 
 // Página de Normatividad
@@ -8,7 +10,7 @@ import { MAIN_LAWS } from "./data/laws.data";
 export default function NormatividadPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/10 rounded-2xl mb-6">
@@ -16,7 +18,7 @@ export default function NormatividadPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Marco{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-cyan-600">
               Normativo
             </span>
           </h1>
@@ -44,9 +46,9 @@ export default function NormatividadPage() {
           </section>
 
           {/* Leyes Principales */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <BookOpen className="w-6 h-6 text-cyan-400" />
+              <BookOpen className="w-6 h-6 text-blue-400" />
               Normativas Principales
             </h2>
             <div className="space-y-4">
@@ -128,9 +130,12 @@ export default function NormatividadPage() {
               Nuestro departamento legal está disponible para aclarar cualquier
               duda sobre normativas
             </p>
-            <button className="bg-linear-to-r from-blue-600 to-cyan-600 px-8 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all">
+            <Link 
+              to={ROUTES.CONTACT}
+              className="inline-block bg-linear-to-r from-blue-600 to-cyan-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-blue-500 hover:to-cyan-500 hover:scale-105 transition-all duration-700 ease-in-out"
+            >
               Contactar Área Legal
-            </button>
+            </Link>
           </section>
         </div>
       </div>

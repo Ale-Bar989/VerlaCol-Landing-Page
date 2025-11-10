@@ -1,4 +1,4 @@
-import { Lock, Database, FileCheck } from "lucide-react";
+import { Lock, Database, FileCheck, FileText, Phone, CreditCard, Globe } from "lucide-react";
 import { PageLayout } from "@/shared//components";
 import { DATA_PRINCIPLES } from "./data/privacy.data";
 
@@ -8,7 +8,7 @@ import { DATA_PRINCIPLES } from "./data/privacy.data";
 export default function ProteccionDatosPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/10 rounded-2xl mb-6">
@@ -43,7 +43,7 @@ export default function ProteccionDatosPage() {
           </section>
 
           {/* Principios */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <FileCheck className="w-6 h-6 text-emerald-400" />
               Principios de Tratamiento
@@ -70,40 +70,52 @@ export default function ProteccionDatosPage() {
 
           {/* Datos Recopilados */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-6">Datos que Recopilamos</h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  📋 Datos de Identificación
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Nombre completo, documento de identidad, fecha de nacimiento.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  📞 Datos de Contacto
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Dirección, teléfono, correo electrónico.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  💳 Datos Financieros
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Información de facturación y medios de pago (encriptada).
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  🌐 Datos de Uso
-                </h3>
-                <p className="text-gray-300 text-sm">
-                  Información sobre navegación y uso del servicio (anónima).
-                </p>
-              </div>
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <Database className="w-6 h-6 text-emerald-400" />
+              Datos que Recopilamos
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: FileText,
+                  title: "Datos de Identificación",
+                  description: "Nombre completo, documento de identidad, fecha de nacimiento.",
+                  color: "emerald"
+                },
+                {
+                  icon: Phone,
+                  title: "Datos de Contacto",
+                  description: "Dirección, teléfono, correo electrónico.",
+                  color: "blue"
+                },
+                {
+                  icon: CreditCard,
+                  title: "Datos Financieros",
+                  description: "Información de facturación y medios de pago (encriptada).",
+                  color: "purple"
+                },
+                {
+                  icon: Globe,
+                  title: "Datos de Uso",
+                  description: "Información sobre navegación y uso del servicio (anónima).",
+                  color: "cyan"
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
+                >
+                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-${item.color}-500/10 rounded-lg mb-4`}>
+                    <item.icon className={`w-6 h-6 text-${item.color}-400`} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -173,10 +185,10 @@ export default function ProteccionDatosPage() {
               solicitudes
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold hover:from-green-500 hover:to-emerald-500 transition-all">
+              <button className="bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-700 ease-in-out">
                 Solicitar Información
               </button>
-              <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all">
+              <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
                 Descargar Política Completa
               </button>
             </div>

@@ -1,5 +1,7 @@
 import { Shield, AlertCircle, FileText, MapPin, HelpCircle } from "lucide-react";
-import { PageLayout } from '@/shared//components';
+import { PageLayout } from "@/shared/components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 import { REGULATIONS_COLUMN_1, REGULATIONS_COLUMN_2, REGULATIONS_COLUMN_3 } from "./data/regulations.data";
 
 // Página de Protección al Usuario y Normativa
@@ -8,7 +10,7 @@ import { REGULATIONS_COLUMN_1, REGULATIONS_COLUMN_2, REGULATIONS_COLUMN_3 } from
 export default function ProteccionUsuariosPage() {
   return (
     <PageLayout>
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className=" mb-16 mt-16 container mx-auto px-6 max-w-7xl">
           {/* Header */}
           <div className="mb-16 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-2xl mb-6">
@@ -158,10 +160,13 @@ export default function ProteccionUsuariosPage() {
                 sobre nuestro cumplimiento normativo
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold hover:from-orange-500 hover:to-red-500 transition-all">
+                <Link 
+                  to={ROUTES.CONTACT}
+                  className="bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-orange-500 hover:to-red-500 hover:scale-105 transition-all duration-700 ease-in-out text-center"
+                >
                   Contactar Soporte
-                </button>
-                <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all">
+                </Link>
+                <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
                   Ver PQR's
                 </button>
               </div>
