@@ -1847,9 +1847,10 @@ section[class*="min-h-screen"] {
   backface-visibility: hidden;
 }
 
-/* NotFound Page Styles */
+/* NotFound Page Styles - Responsive */
 .notfound-404-text {
-  font-size: 35rem;
+  /* Mobile first: 2.5rem (40px) */
+  font-size: 9rem;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   font-weight: 900;
@@ -1862,11 +1863,62 @@ section[class*="min-h-screen"] {
   filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.3));
 }
 
+/* Tablets pequeños (640px) */
+@media (min-width: 640px) {
+  .notfound-404-text {
+    font-size: 4rem; /* 64px */
+  }
+}
+
+/* Tablets (768px) */
+@media (min-width: 768px) {
+  .notfound-404-text {
+    font-size: 20rem; /* 160px */
+  }
+}
+
+/* Desktop pequeño (1024px) */
+@media (min-width: 1024px) {
+  .notfound-404-text {
+    font-size: 30rem; /* 240px */
+  }
+}
+
+/* Desktop (1280px) */
+@media (min-width: 1280px) {
+  .notfound-404-text {
+    font-size: 35rem; /* 400px */
+  }
+}
+
+/* Desktop XL (1536px) */
+@media (min-width: 1536px) {
+  .notfound-404-text {
+    font-size: 35rem; /* 560px */
+  }
+}
+
 .notfound-card {
-  border-radius: 2rem;
-  padding: 5rem;
+  border-radius: 1.5rem;
+  /* Mobile: padding reducido */
+  padding: 2rem 1.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Tablets (640px) */
+@media (min-width: 640px) {
+  .notfound-card {
+    border-radius: 2rem;
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+  .notfound-card {
+    padding: 5rem;
+  }
 }
 
 @keyframes float {
