@@ -484,7 +484,7 @@ div[class*="border"] {
 }
 
 .light [class*="fixed"][class*="bottom-"] [class*="text-gray"] {
-  color: #555555 !important;
+  color: #ffffff !important;
 }
 
 /* Input del chat en tema claro */
