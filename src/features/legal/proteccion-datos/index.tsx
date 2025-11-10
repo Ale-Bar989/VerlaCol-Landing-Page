@@ -1,5 +1,7 @@
 import { Lock, Database, FileCheck, FileText, Phone, CreditCard, Globe } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 import { DATA_PRINCIPLES } from "./data/privacy.data";
 
 // Página de Política de Tratamiento de Datos Personales
@@ -185,9 +187,12 @@ export default function ProteccionDatosPage() {
               solicitudes
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-700 ease-in-out">
+              <Link 
+                to={ROUTES.CONTACT}
+                className="inline-block bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-700 ease-in-out"
+              >
                 Solicitar Información
-              </button>
+              </Link>
               <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
                 Descargar Política Completa
               </button>
