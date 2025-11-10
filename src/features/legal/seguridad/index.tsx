@@ -1,5 +1,7 @@
-import { Lock, Server, CheckCircle, Shield } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import { Lock, Server, CheckCircle, Shield, Key, RefreshCw, ShieldAlert, Smartphone, Globe, HardDrive } from "lucide-react";
+import { PageLayout } from "@/shared/components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 import { SECURITY_LAYERS } from "./data/security.data";
 
 // Página de Seguridad en la Red
@@ -8,7 +10,7 @@ import { SECURITY_LAYERS } from "./data/security.data";
 export default function SeguridadPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/10 rounded-2xl mb-6">
@@ -43,7 +45,7 @@ export default function SeguridadPage() {
           </section>
 
           {/* Capas de Seguridad */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <Server className="w-6 h-6 text-teal-400" />
               Capas de Protección
@@ -129,34 +131,40 @@ export default function SeguridadPage() {
           </section>
 
           {/* Mejores Prácticas */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6">
               Recomendaciones de Seguridad para Usuarios
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 {
-                  title: "🔐 Contraseñas Fuertes",
+                  icon: <Key className="w-5 h-5 text-emerald-400 inline-block mr-2" />,
+                  title: "Contraseñas Fuertes",
                   tip: "Usa contraseñas únicas y largas, habilita autenticación de dos factores",
                 },
                 {
-                  title: "🔄 Actualiza Regularmente",
+                  icon: <RefreshCw className="w-5 h-5 text-emerald-400 inline-block mr-2" />,
+                  title: "Actualiza Regularmente",
                   tip: "Mantén tu sistema operativo y aplicaciones siempre actualizados",
                 },
                 {
-                  title: "⚠️ Cuidado con Phishing",
+                  icon: <ShieldAlert className="w-5 h-5 text-amber-400 inline-block mr-2" />,
+                  title: "Cuidado con Phishing",
                   tip: "No hagas clic en enlaces sospechosos ni descargues archivos desconocidos",
                 },
                 {
-                  title: "📱 Protege tus Dispositivos",
+                  icon: <Smartphone className="w-5 h-5 text-blue-400 inline-block mr-2" />,
+                  title: "Protege tus Dispositivos",
                   tip: "Instala software de seguridad y mantén activo el firewall",
                 },
                 {
-                  title: "🌐 Navega Seguro",
+                  icon: <Globe className="w-5 h-5 text-sky-400 inline-block mr-2" />,
+                  title: "Navega Seguro",
                   tip: "Usa HTTPS siempre, evita redes WiFi públicas sin VPN",
                 },
                 {
-                  title: "💾 Respalda tus Datos",
+                  icon: <HardDrive className="w-5 h-5 text-purple-400 inline-block mr-2" />,
+                  title: "Respalda tus Datos",
                   tip: "Haz copias de seguridad periódicas de información importante",
                 },
               ].map((practice, index) => (
@@ -164,7 +172,8 @@ export default function SeguridadPage() {
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-lg p-5"
                 >
-                  <h3 className="font-semibold text-white mb-2">
+                  <h3 className="font-semibold text-white mb-2 flex items-center">
+                    {practice.icon}
                     {practice.title}
                   </h3>
                   <p className="text-sm text-gray-400">{practice.tip}</p>
@@ -202,9 +211,12 @@ export default function SeguridadPage() {
               Nuestro equipo de expertos en seguridad está disponible para
               asesorarte
             </p>
-            <button className="bg-linear-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-xl font-semibold hover:from-emerald-500 hover:to-teal-500 transition-all">
+            <Link 
+              to={ROUTES.CONTACT}
+              className="inline-block bg-linear-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-emerald-500 hover:to-teal-500 hover:scale-105 transition-all duration-700 ease-in-out"
+            >
               Contactar Experto en Seguridad
-            </button>
+            </Link>
           </section>
         </div>
       </div>

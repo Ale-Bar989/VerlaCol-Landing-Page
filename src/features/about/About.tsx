@@ -46,7 +46,7 @@ export default function About() {
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-6 sm:mb-8">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 gradient-icon-box">
-                  <Tv size={40} className="sm:w-12 sm:h-12 text-white" strokeWidth={2.5} />
+                  <Tv size={40} className="sm:w-12 sm:h-12 dark:text-white" strokeWidth={2.5} />
                 </div>
               </div>
               <p className="text-lg sm:text-xl md:text-2xl text-white text-center leading-relaxed mb-4 sm:mb-6 font-semibold">
@@ -65,7 +65,7 @@ export default function About() {
               <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <Target size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
+                  <Target size={24} className="sm:w-7 sm:h-7 dark:text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Misión</h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -78,7 +78,7 @@ export default function About() {
               <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <Heart size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
+                  <Heart size={24} className="sm:w-7 sm:h-7 dark:text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Valores</h3>
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
@@ -91,7 +91,7 @@ export default function About() {
               <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <Globe size={24} className="sm:w-7 sm:h-7 text-white" strokeWidth={2.5} />
+                  <Globe size={24} className="sm:w-7 sm:h-7 dark:text-white" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4 text-white">Visión</h3>
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed">

@@ -7,7 +7,7 @@ import { PageLayout } from '@/shared//components';
 export default function InternetSanoPage() {
   return (
     <PageLayout>
-        <div className="container mx-auto px-6 max-w-5xl">
+        <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
           {/* Header */}
           <div className="mb-16 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/10 rounded-2xl mb-6">
@@ -74,7 +74,7 @@ export default function InternetSanoPage() {
                   href="https://www.teprotejo.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-xl font-semibold transition-all"
+                  className="inline-flex items-center gap-2 bg-orange-500 dark:text-white hover:bg-orange-600 hover:scale-105 px-6 py-3 rounded-xl font-semibold transition-all duration-700 ease-in-out"
                 >
                   Ir a Te Protejo
                   <ExternalLink className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function InternetSanoPage() {
                   href="https://www.teprotejo.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold hover:from-orange-500 hover:to-red-500 transition-all"
+                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-orange-500 hover:to-red-500 hover:scale-105 transition-all duration-700 ease-in-out"
                 >
                   Reportar Contenido Ilegal
                   <ExternalLink className="w-4 h-4" />
@@ -187,7 +187,7 @@ export default function InternetSanoPage() {
                   href="https://www.weprotect.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out"
                 >
                   Más Información
                   <ExternalLink className="w-4 h-4" />

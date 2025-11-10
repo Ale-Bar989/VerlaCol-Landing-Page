@@ -17,7 +17,7 @@ import { PageLayout } from "@/shared//components";
 export default function ComparadorTarifasPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-6xl">
+      <div className="container mx-auto mt-16 mb-16 px-6 max-w-6xl">
         {/* Header con efectos modernos */}
         <div className="mb-16 text-center relative">
           {/* Glow effect */}
@@ -221,7 +221,7 @@ export default function ComparadorTarifasPage() {
                               strokeWidth={2.5}
                             />
                             <div
-                              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                              className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500"
                               style={{
                                 background: `linear-gradient(135deg, ${plan.gradient
                                   .replace("from-", "")

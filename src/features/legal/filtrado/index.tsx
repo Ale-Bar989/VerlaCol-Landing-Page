@@ -4,7 +4,9 @@ import {
   Shield, 
   CheckCircle2
 } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import { PageLayout } from "@/shared/components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 import { FILTERING_TYPES, BLOCKED_CATEGORIES_ICONS, BLOCKED_CATEGORIES_TEXTS } from "./data/filtering.data";
 
 
@@ -14,7 +16,7 @@ import { FILTERING_TYPES, BLOCKED_CATEGORIES_ICONS, BLOCKED_CATEGORIES_TEXTS } f
 export default function FiltradoPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto mb-16 mt-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-2xl mb-6">
@@ -104,7 +106,7 @@ export default function FiltradoPage() {
           </section>
 
           {/* Configuración Personalizada */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6">
               Configuración Personalizada
             </h2>
@@ -180,9 +182,12 @@ export default function FiltradoPage() {
               Nuestro equipo técnico puede ayudarte a configurar el nivel de
               filtrado adecuado
             </p>
-            <button className="bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold hover:from-orange-500 hover:to-red-500 transition-all">
+            <Link 
+              to={ROUTES.CONTACT}
+              className="inline-block bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-orange-500 hover:to-red-500 hover:scale-105 transition-all duration-700 ease-in-out"
+            >
               Solicitar Asistencia Técnica
-            </button>
+            </Link>
           </section>
         </div>
       </div>

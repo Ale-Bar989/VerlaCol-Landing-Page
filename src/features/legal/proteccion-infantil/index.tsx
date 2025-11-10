@@ -1,4 +1,4 @@
-import { Shield, Heart, Lock } from "lucide-react";
+import { Shield, Heart, Lock, Eye, Settings, AlertCircle, BookOpen } from "lucide-react";
 import { PageLayout } from "@/shared//components";
 import { PROTECTION_MEASURES } from "./data/protection.data";
 
@@ -8,7 +8,7 @@ import { PROTECTION_MEASURES } from "./data/protection.data";
 export default function ProteccionInfantilPage() {
   return (
     <PageLayout>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/10 rounded-2xl mb-6">
@@ -43,7 +43,7 @@ export default function ProteccionInfantilPage() {
           </section>
 
           {/* Medidas de Protección */}
-          <section>
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <Lock className="w-6 h-6 text-purple-400" />
               Medidas de Protección Activa
@@ -66,46 +66,48 @@ export default function ProteccionInfantilPage() {
 
           {/* Guía para Padres */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <BookOpen className="w-6 h-6 text-purple-400" />
               Guía para Padres y Tutores
             </h2>
-            <div className="space-y-4 text-gray-300">
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  🔍 Supervisión Activa
-                </h3>
-                <p>
-                  Mantén comunicación abierta con tus hijos sobre su actividad
-                  en línea y revisa periódicamente su uso.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  ⚙️ Configura Controles
-                </h3>
-                <p>
-                  Utiliza las herramientas de control parental disponibles para
-                  establecer límites apropiados.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  🚨 Reporta Incidentes
-                </h3>
-                <p>
-                  Si detectas contenido inapropiado, repórtalo inmediatamente a
-                  través de nuestros canales oficiales.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2">
-                  📚 Educa sobre Seguridad
-                </h3>
-                <p>
-                  Enseña a los menores sobre los riesgos en línea y cómo navegar
-                  de forma segura.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: Eye,
+                  title: "Supervisión Activa",
+                  description: "Mantén comunicación abierta con tus hijos sobre su actividad en línea y revisa periódicamente su uso.",
+                  color: "purple"
+                },
+                {
+                  icon: Settings,
+                  title: "Configura Controles",
+                  description: "Utiliza las herramientas de control parental disponibles para establecer límites apropiados.",
+                  color: "blue"
+                },
+                {
+                  icon: AlertCircle,
+                  title: "Reporta Incidentes",
+                  description: "Si detectas contenido inapropiado, repórtalo inmediatamente a través de nuestros canales oficiales.",
+                  color: "red"
+                },
+                {
+                  icon: BookOpen,
+                  title: "Educa sobre Seguridad",
+                  description: "Enseña a los menores sobre los riesgos en línea y cómo navegar de forma segura.",
+                  color: "green"
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
+                >
+                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-${item.color}-500/10 rounded-lg mb-4`}>
+                    <item.icon className={`w-6 h-6 text-${item.color}-400`} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-400">{item.description}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -119,10 +121,10 @@ export default function ProteccionInfantilPage() {
               casos de protección infantil
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-linear-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-xl font-semibold hover:from-purple-500 hover:to-pink-500 transition-all">
+              <button className="bg-linear-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-purple-500 hover:to-pink-500 hover:scale-105 transition-all duration-700 ease-in-out">
                 Reportar Incidente
               </button>
-              <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all">
+              <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
                 Guía de Controles Parentales
               </button>
             </div>

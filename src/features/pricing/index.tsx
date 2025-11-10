@@ -93,7 +93,7 @@ export default function PricingPage() {
                   }`}
                 >
                   {/* Gradiente animado de fondo */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 gradient-hover-overlay"></div>
+                  <div className={`absolute inset-0 opacity-0 transition-opacity duration-700 `}></div>
 
                   {/* Contenido */}
                   <div className="relative p-6 sm:p-8">
@@ -121,7 +121,7 @@ export default function PricingPage() {
                           />
                           {/* Efecto de pulso sutil */}
                           <div
-                            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                            className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500`}
                             style={{
                               background: `linear-gradient(135deg, ${plan.gradient
                                 .replace("from-", "")
@@ -291,7 +291,7 @@ export default function PricingPage() {
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
-                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffffff]"
                     strokeWidth={3}
                   />
                 </div>
@@ -308,7 +308,7 @@ export default function PricingPage() {
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
-                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffffff]"
                     strokeWidth={3}
                   />
                 </div>
@@ -325,7 +325,7 @@ export default function PricingPage() {
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 gradient-icon-box">
                   <Check
-                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffffff]"
                     strokeWidth={3}
                   />
                 </div>
