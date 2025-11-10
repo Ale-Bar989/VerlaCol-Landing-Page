@@ -465,8 +465,10 @@ div[class*="border"] {
   background: rgba(74, 92, 255, 0.5) !important;
 }
 
-/* Panel del chat en tema claro */
-.light [class*="fixed"][class*="bottom-"] > div[class*="bg-"] {
+/* Panel del chat en tema claro - Excluir contact-drawer */
+.light
+  [class*="fixed"][class*="bottom-"]:not(#contact-drawer)
+  > div[class*="bg-"] {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.98),
@@ -483,8 +485,24 @@ div[class*="border"] {
   color: #1a1a1a !important;
 }
 
-.light [class*="fixed"][class*="bottom-"] [class*="text-gray"] {
+/* Excluir contact drawer de esta regla */
+.light
+  [class*="fixed"][class*="bottom-"]:not(#contact-drawer)
+  [class*="text-gray"] {
   color: #ffffff !important;
+}
+
+/* Contact drawer - textos oscuros en tema claro */
+.light #contact-drawer [class*="text-gray"] {
+  color: inherit !important;
+}
+
+.light #contact-drawer a {
+  color: inherit !important;
+}
+
+.light #contact-drawer p {
+  color: inherit !important;
 }
 
 /* Input del chat en tema claro */
@@ -604,13 +622,25 @@ div[class*="border"] {
   border-bottom-color: rgba(74, 92, 255, 0.15) !important;
 }
 
+/* Contact Drawer - Fondo blanco puro en tema claro */
+.light #contact-drawer#contact-drawer {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+}
+
 /* Contact Drawer Handle - Sobrescribir estilos globales */
 .light #contact-drawer .contact-drawer-handle {
-  background: white !important;
+  background: #ffffff !important;
 }
 
 .light #contact-drawer .contact-drawer-handle > div {
   background: #4a5cff !important;
+}
+
+/* Contact Drawer - Header con fondo blanco */
+.light #contact-drawer .contact-drawer-header {
+  border-bottom-color: transparent !important;
+  background: #ffffff !important;
 }
 
 /* Efectos de glow en tema claro - más sutiles */

@@ -1,6 +1,14 @@
 import { useState, useCallback, useMemo, memo } from "react";
 import { useTheme } from "@/core/contexts";
-import { ArrowRight, Clock, Mail, MapPin, Phone, X } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  Mail,
+  MapPin,
+  Phone,
+  X,
+  Folder,
+} from "lucide-react";
 import { ROUTES } from "@/core/router/routes.config";
 import { PROCESS_STEPS } from "@/features/home/data";
 
@@ -148,8 +156,8 @@ function ProblemSection() {
           {/* Drawer Panel */}
           <div
             id="contact-drawer"
-            className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl backdrop-blur-xl ${
-              isDark ? "bg-gray-900/95" : "bg-white/95"
+            className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl ${
+              isDark ? "bg-gray-900/95 backdrop-blur-xl" : "bg-white"
             }`}
           >
             {/* Handle */}
@@ -163,8 +171,8 @@ function ProblemSection() {
 
             {/* Header */}
             <div
-              className={`px-6 pb-6 flex items-center justify-between border-b ${
-                isDark ? "border-white/10" : "border-gray-200"
+              className={`px-6 pb-6 flex items-center justify-between border-b contact-drawer-header ${
+                isDark ? "border-white/10" : "border-transparent"
               }`}
             >
               <h2
@@ -172,9 +180,9 @@ function ProblemSection() {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                {/* <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
-                  📋
-                </span> */}
+                <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-white flex items-center justify-center">
+                  <Folder />
+                </span>
                 Información de Contacto
               </h2>
               <button
@@ -250,13 +258,13 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
-                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                      : "bg-white border-blue-200 hover:border-blue-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
                       // isDark ? "bg-purple-500/20" : "bg-purple-200"
-                      isDark ? "bg-blue-500/20" : "bg-blue-200"
+                      isDark ? "bg-blue-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <Mail
@@ -291,13 +299,13 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
-                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                      : "bg-white border-blue-200 hover:border-blue-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
                       // isDark ? "bg-green-500/20" : "bg-green-200"
-                      isDark ? "bg-blue-500/20" : "bg-blue-200"
+                      isDark ? "bg-blue-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <MapPin
@@ -331,13 +339,13 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
-                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                      : "bg-white border-blue-200 hover:border-blue-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
                       // isDark ? "bg-orange-500/20" : "bg-orange-200"
-                      isDark ? "bg-blue-500/20" : "bg-blue-200"
+                      isDark ? "bg-blue-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <Clock
