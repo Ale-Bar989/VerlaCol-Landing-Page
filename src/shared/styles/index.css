@@ -2129,7 +2129,7 @@ section[class*="min-h-screen"] {
 }
 
 .gradient-text-primary {
-  background-image: linear-gradient(to right, #4a5cff, #ffffff, #7a8fff);
+  background-image: linear-gradient(to right, #4a5cff, #7a8fff);
 }
 
 .gradient-badge-bg {

@@ -61,7 +61,7 @@ export default function ComparadorTarifasPage() {
               <h2 className="text-3xl font-bold mb-4">
                 Precios{" "}
                 <span className="text-transparent bg-clip-text gradient-text-primary">
-                  Claros y Honestos
+                  Justos y Honestos
                 </span>
               </h2>
               <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto">
@@ -601,7 +601,7 @@ export default function ComparadorTarifasPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group px-10 py-4 rounded-xl font-bold text-white btn-cta-primary">
-                  <span className="flex items-center gap-2 justify-center">
+                  <span className="flex items-center gap-2 justify-center dark:text-white">
                     Hablar con un Asesor
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
