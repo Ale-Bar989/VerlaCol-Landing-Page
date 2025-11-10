@@ -170,10 +170,7 @@ function ProblemSection() {
                 className={`text-2xl font-bold flex items-center gap-3 ${
                   isDark ? "text-white" : "text-gray-900"
                 }`}
-              >
-                <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
-                  📋
-                </span>
+              >     
                 Información de Contacto
               </h2>
               <button
@@ -186,7 +183,7 @@ function ProblemSection() {
               >
                 <X
                   className={`w-5 h-5 ${
-                    isDark ? "text-gray-400" : "text-gray-600"
+                    isDark ? "text-white" : "text-gray-900"
                   }`}
                 />
               </button>
@@ -248,13 +245,14 @@ function ProblemSection() {
                 <div
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
-                      ? "bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20"
-                      : "bg-purple-50 border-purple-200 hover:bg-purple-100"
+                      ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
+                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-purple-500/20" : "bg-purple-200"
+                      // isDark ? "bg-purple-500/20" : "bg-purple-200"
+                      isDark ? "bg-blue-500/20" : "bg-blue-200"
                     }`}
                   >
                     <Mail
@@ -288,13 +286,14 @@ function ProblemSection() {
                 <div
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
-                      ? "bg-green-500/10 border-green-500/20 hover:bg-green-500/20"
-                      : "bg-green-50 border-green-200 hover:bg-green-100"
+                      ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
+                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-green-500/20" : "bg-green-200"
+                      // isDark ? "bg-green-500/20" : "bg-green-200"
+                      isDark ? "bg-blue-500/20" : "bg-blue-200"
                     }`}
                   >
                     <MapPin
@@ -327,13 +326,14 @@ function ProblemSection() {
                 <div
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
-                      ? "bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20"
-                      : "bg-orange-50 border-orange-200 hover:bg-orange-100"
+                      ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
+                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-orange-500/20" : "bg-orange-200"
+                      // isDark ? "bg-orange-500/20" : "bg-orange-200"
+                      isDark ? "bg-blue-500/20" : "bg-blue-200"
                     }`}
                   >
                     <Clock
