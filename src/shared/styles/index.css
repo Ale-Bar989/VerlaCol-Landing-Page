@@ -81,8 +81,8 @@ select {
 /* Cards y contenedores */
 div[class*="rounded"],
 div[class*="border"] {
-  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ===== TEMA CLARO - Estilos Mejorados ===== */
@@ -598,10 +598,19 @@ div[class*="border"] {
 .light [class*="fixed"][class*="bottom-"] > div > div:first-child {
   background: linear-gradient(
     135deg,
-    rgba(74, 92, 255, 0.08),
-    rgba(122, 143, 255, 0.06)
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
   ) !important;
   border-bottom-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+/* Contact Drawer Handle - Sobrescribir estilos globales */
+.light #contact-drawer .contact-drawer-handle {
+  background: white !important;
+}
+
+.light #contact-drawer .contact-drawer-handle > div {
+  background: #4a5cff !important;
 }
 
 /* Efectos de glow en tema claro - más sutiles */

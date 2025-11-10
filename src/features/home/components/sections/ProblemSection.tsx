@@ -147,15 +147,16 @@ function ProblemSection() {
 
           {/* Drawer Panel */}
           <div
+            id="contact-drawer"
             className={`fixed bottom-0 left-0 right-0 w-full max-h-[85vh] z-50 animate-slideInUp overflow-y-auto rounded-t-3xl backdrop-blur-xl ${
               isDark ? "bg-gray-900/95" : "bg-white/95"
             }`}
           >
             {/* Handle */}
-            <div className="sticky top-0 flex justify-center pt-3 pb-2">
+            <div className="sticky top-0 flex justify-center pt-3 pb-2 contact-drawer-handle">
               <div
                 className={`w-12 h-1.5 rounded-full ${
-                  isDark ? "bg-gray-600" : "bg-gray-300"
+                  isDark ? "bg-gray-600" : "bg-[#4A5CFF]"
                 }`}
               ></div>
             </div>
@@ -171,9 +172,9 @@ function ProblemSection() {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
+                {/* <span className="w-10 h-10 rounded-xl bg-linear-to-br from-[#4A5CFF] to-[#7A8FFF] flex items-center justify-center">
                   📋
-                </span>
+                </span> */}
                 Información de Contacto
               </h2>
               <button
@@ -193,12 +194,12 @@ function ProblemSection() {
             </div>
 
             {/* Content */}
-            <div className="p-6 space-y-6">
+            <div className="p-6 space-y-6 light:bg-white">
               {/* Contacto */}
-              <div className="space-y-4">
+              <div className="space-y-4 light:bg-white">
                 <h3
                   className={`text-lg font-bold ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-[#4A5CFF]"
                   }`}
                 >
                   Contáctanos
@@ -209,17 +210,17 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-blue-500/10 border-blue-500/20 hover:bg-blue-500/20"
-                      : "bg-blue-50 border-blue-200 hover:bg-blue-100"
+                      : "bg-white border-blue-200 hover:border-blue-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-blue-500/20" : "bg-blue-200"
+                      isDark ? "bg-blue-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <Phone
                       className={`w-6 h-6 ${
-                        isDark ? "text-blue-400" : "text-blue-600"
+                        isDark ? "text-blue-400" : "text-[#4A5CFF]"
                       }`}
                     />
                   </div>
@@ -249,17 +250,17 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-purple-500/10 border-purple-500/20 hover:bg-purple-500/20"
-                      : "bg-purple-50 border-purple-200 hover:bg-purple-100"
+                      : "bg-white border-purple-200 hover:border-purple-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-purple-500/20" : "bg-purple-200"
+                      isDark ? "bg-purple-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <Mail
                       className={`w-6 h-6 ${
-                        isDark ? "text-purple-400" : "text-purple-600"
+                        isDark ? "text-purple-400" : "text-[#4A5CFF]"
                       }`}
                     />
                   </div>
@@ -289,17 +290,17 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-green-500/10 border-green-500/20 hover:bg-green-500/20"
-                      : "bg-green-50 border-green-200 hover:bg-green-100"
+                      : "bg-white border-green-200 hover:border-green-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-green-500/20" : "bg-green-200"
+                      isDark ? "bg-green-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <MapPin
                       className={`w-6 h-6 ${
-                        isDark ? "text-green-400" : "text-green-600"
+                        isDark ? "text-green-400" : "text-[#4A5CFF]"
                       }`}
                     />
                   </div>
@@ -328,17 +329,17 @@ function ProblemSection() {
                   className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
                     isDark
                       ? "bg-orange-500/10 border-orange-500/20 hover:bg-orange-500/20"
-                      : "bg-orange-50 border-orange-200 hover:bg-orange-100"
+                      : "bg-white border-orange-200 hover:border-orange-300"
                   }`}
                 >
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                      isDark ? "bg-orange-500/20" : "bg-orange-200"
+                      isDark ? "bg-orange-500/20" : "bg-[#4A5CFF]/10"
                     }`}
                   >
                     <Clock
                       className={`w-6 h-6 ${
-                        isDark ? "text-orange-400" : "text-orange-600"
+                        isDark ? "text-orange-400" : "text-[#4A5CFF]"
                       }`}
                     />
                   </div>

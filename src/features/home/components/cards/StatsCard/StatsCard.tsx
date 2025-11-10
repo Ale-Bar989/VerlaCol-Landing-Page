@@ -11,7 +11,7 @@ import { PricingSpeedTest } from "@/features/pricing/components/PricingSpeedTest
 import { STATS_CARD_PLANS } from "@/features/pricing/data";
 import { ModernCard } from "../ModernCard";
 
-type StatsCardPlan = typeof STATS_CARD_PLANS[number];
+type StatsCardPlan = (typeof STATS_CARD_PLANS)[number];
 
 export const StatsCard: React.FC = memo(() => {
   const { theme } = useTheme();
