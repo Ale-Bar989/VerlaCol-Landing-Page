@@ -83,7 +83,7 @@ export default defineConfig({
         ],
         // Página offline personalizada
         navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/api/],
+        navigateFallbackDenylist: [/^\/api/, /^\/documents/, /^\/assets/, /\.pdf$/],
       }
     }),
   ],

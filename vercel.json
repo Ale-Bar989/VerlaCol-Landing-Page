@@ -2,6 +2,12 @@
   "github": {
     "silent": true
   },
+  "rewrites": [
+    {
+      "source": "/((?!documents|assets|images|icon-verla.png|vite.svg|manifest.webmanifest|sw.js|registerSW.js|workbox-.*).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
