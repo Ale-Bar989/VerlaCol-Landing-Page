@@ -10,6 +10,8 @@ import {
   Zap,
 } from "lucide-react";
 import { PageLayout } from "@/shared//components";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/core/router/routes.config";
 
 // Página de Comparador de Tarifas
 // Ubicación: src/ui/pages/legal/comparador-tarifas/index.tsx
@@ -600,15 +602,21 @@ export default function ComparadorTarifasPage() {
                 hogar
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="group px-10 py-4 rounded-xl font-bold text-white btn-cta-primary">
+                <Link 
+                  to={ROUTES.CONTACT}
+                  className="group px-10 py-4 rounded-xl font-bold text-white btn-cta-primary"
+                >
                   <span className="flex items-center gap-2 justify-center dark:text-white">
                     Hablar con un Asesor
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </button>
-                <button className="px-10 py-4 rounded-xl font-bold btn-cta-secondary">
+                </Link>
+                <Link 
+                  to={ROUTES.CONTACT}
+                  className="px-10 py-4 rounded-xl font-bold btn-cta-secondary inline-flex items-center justify-center"
+                >
                   Verificar Cobertura
-                </button>
+                </Link>
               </div>
             </div>
           </section>
