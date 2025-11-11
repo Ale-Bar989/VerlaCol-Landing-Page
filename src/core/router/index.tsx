@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import type { ComponentType } from "react";
 import { ROUTES } from "./routes.config";
@@ -68,10 +68,6 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.SERVICE_UNAVAILABLE,
         element: withSuspense(ServiceUnavailablePage),
-      },
-      {
-        path: "*",
-        element: <Navigate to={ROUTES.NOTFOUND} replace />,
       },
       {
         path: ROUTES.ABOUT,
