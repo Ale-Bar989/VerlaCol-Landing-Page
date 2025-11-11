@@ -121,7 +121,7 @@ export default function ProteccionInfantilPage() {
               casos de protección infantil
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-linear-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-purple-500 hover:to-pink-500 hover:scale-105 transition-all duration-700 ease-in-out">
+              <button className="bg-linear-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-xl font-semibold hover:from-purple-500 hover:to-pink-500 hover:scale-105 transition-all duration-700 ease-in-out">
                 Reportar Incidente
               </button>
               <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">

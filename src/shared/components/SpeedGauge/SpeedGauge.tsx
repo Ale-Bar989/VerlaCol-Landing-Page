@@ -168,6 +168,7 @@ export const SpeedGauge: React.FC<SpeedGaugeProps> = memo(
               <stop offset="50%" stopColor="#7A8FFF" stopOpacity="1" />
               <stop offset="100%" stopColor="#4A5CFF" stopOpacity="0.3" />
             </linearGradient>
+            {/* Gradiente de la aguja - Condicional por tema */}
             <linearGradient
               id="needleGradient"
               x1="0%"
@@ -175,9 +176,18 @@ export const SpeedGauge: React.FC<SpeedGaugeProps> = memo(
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="50%" stopColor="#7A8FFF" />
-              <stop offset="100%" stopColor="#4A5CFF" />
+              {isDark ? (
+                <>
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="100%" stopColor="#4A5CFF" />
+                </>
+              ) : (
+                <>
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="50%" stopColor="#7A8FFF" />
+                  <stop offset="100%" stopColor="#4A5CFF" />
+                </>
+              )}
             </linearGradient>
           </defs>
 
@@ -299,13 +309,13 @@ export const SpeedGauge: React.FC<SpeedGaugeProps> = memo(
                 : "transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
             }}
           >
-            {/* Sombra de la aguja */}
+            {/* Sombra de la aguja - Condicional por tema */}
             <line
               x1={center}
               y1={center}
               x2={center + needleLength}
               y2={center}
-              stroke="rgba(0, 0, 0, 0.3)"
+              stroke={isDark ? "rgba(0, 0, 0, 0.3)" : "rgba(74, 92, 255, 0.2)"}
               strokeWidth="4"
               strokeLinecap="round"
               transform={`translate(3, 3)`}

@@ -70,7 +70,7 @@ export default function Contact() {
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <Mail size={28} className="dark:text-white" strokeWidth={2.5} />
+                  <Mail size={28} strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Email</h3>
                 <a
@@ -86,7 +86,7 @@ export default function Contact() {
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <Phone size={28} className="dark:text-white" strokeWidth={2.5} />
+                  <Phone size={28} strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Teléfono</h3>
                 <a
@@ -102,7 +102,7 @@ export default function Contact() {
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 mx-auto rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform gradient-icon-box">
-                  <MapPin size={28} className="dark:text-white" strokeWidth={2.5} />
+                  <MapPin size={28} strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">
                   Ubicación
@@ -200,7 +200,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="group w-full inline-flex items-center justify-center gap-3 dark:text-white px-8 py-5 rounded-xl text-lg font-bold transition-all duration-300 hover:scale-105 btn-cta-primary"
+                  className="group w-full inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl text-lg font-bold transition-all duration-300 hover:scale-105 btn-cta-primary"
                 >
                   Enviar Mensaje
                   <Send

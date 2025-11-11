@@ -72,10 +72,10 @@ export default function CTASection({
 
           <div className="relative z-10 text-center">
             <h2
-              className={`text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent mx-auto ${
+              className={`text-3xl md:text-5xl font-bold mb-6 mx-auto ${
                 isDark
-                  ? "bg-linear-to-r from-white to-blue-100"
-                  : "bg-linear-to-br from-gray-50 to-white"
+                  ? "bg-clip-text text-transparent bg-linear-to-r from-white to-blue-100"
+                  : "text-gray-900"
               }`}
             >
               {title}

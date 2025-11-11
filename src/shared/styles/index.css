@@ -1659,6 +1659,55 @@ section[class*="min-h-screen"][class*="overflow-hidden"]
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Botones con gradientes de colores - Texto blanco en ambos temas */
+.light a[class*="from-orange-"][class*="to-red-"],
+.light button[class*="from-orange-"][class*="to-red-"],
+.light a[class*="from-blue-"][class*="to-cyan-"],
+.light button[class*="from-blue-"][class*="to-cyan-"],
+.light a[class*="from-green-"][class*="to-emerald-"],
+.light button[class*="from-green-"][class*="to-emerald-"],
+.light a[class*="from-emerald-"][class*="to-teal-"],
+.light button[class*="from-emerald-"][class*="to-teal-"],
+.light a[class*="from-purple-"][class*="to-pink-"],
+.light button[class*="from-purple-"][class*="to-pink-"],
+a[class*="from-orange-"][class*="to-red-"],
+button[class*="from-orange-"][class*="to-red-"],
+a[class*="from-blue-"][class*="to-cyan-"],
+button[class*="from-blue-"][class*="to-cyan-"],
+a[class*="from-green-"][class*="to-emerald-"],
+button[class*="from-green-"][class*="to-emerald-"],
+a[class*="from-emerald-"][class*="to-teal-"],
+button[class*="from-emerald-"][class*="to-teal-"],
+a[class*="from-purple-"][class*="to-pink-"],
+button[class*="from-purple-"][class*="to-pink-"] {
+  color: #ffffff !important;
+}
+
+/* Botones CTA con clase btn-cta-primary - Texto e iconos blancos */
+.light .btn-cta-primary,
+.light .btn-cta-primary svg,
+.btn-cta-primary,
+.btn-cta-primary svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Iconos y texto en gradient-icon-box - Blancos en tema claro */
+.light .gradient-icon-box svg,
+.light .gradient-icon-box {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Hero badges - Iconos blancos en ambos temas */
+.hero-badge-light svg,
+.hero-badge-dark svg,
+.light .hero-badge-light svg,
+.light .hero-badge-dark svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 /* Glassmorphism para navegación */
 section button[class*="bg-white/5"] {
   backdrop-filter: blur(12px);

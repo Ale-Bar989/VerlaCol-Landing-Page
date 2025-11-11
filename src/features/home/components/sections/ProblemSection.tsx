@@ -98,15 +98,19 @@ function ProblemSection() {
                 {steps.map((step) => (
                   <div key={step.number} className="flex items-start gap-4">
                     {/* Number Circle */}
-                    <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg gradient-icon-box text-white">
+                    <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shadow-lg gradient-icon-box">
                       {step.number}
                     </div>
                     {/* Content */}
                     <div className="pt-1">
-                      <h3 className="font-bold text-lg mb-1 text-white">
+                      <h3 className={`font-bold text-lg mb-1 ${
+                        isDark ? "text-white" : "text-gray-900"
+                      }`}>
                         {step.title}
                       </h3>
-                      <p className="text-sm text-white/80">
+                      <p className={`text-sm ${
+                        isDark ? "text-white/80" : "text-gray-600"
+                      }`}>
                         {step.description}
                       </p>
                     </div>

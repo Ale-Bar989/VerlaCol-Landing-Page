@@ -213,7 +213,7 @@ export default function SeguridadPage() {
             </p>
             <Link 
               to={ROUTES.CONTACT}
-              className="inline-block bg-linear-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-emerald-500 hover:to-teal-500 hover:scale-105 transition-all duration-700 ease-in-out"
+              className="inline-block bg-linear-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-xl font-semibold hover:from-emerald-500 hover:to-teal-500 hover:scale-105 transition-all duration-700 ease-in-out"
             >
               Contactar Experto en Seguridad
             </Link>

@@ -189,7 +189,7 @@ export default function ProteccionDatosPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to={ROUTES.CONTACT}
-                className="inline-block bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-700 ease-in-out"
+                className="inline-block bg-linear-to-r from-green-600 to-emerald-600 px-8 py-3 rounded-xl font-semibold hover:from-green-500 hover:to-emerald-500 hover:scale-105 transition-all duration-700 ease-in-out"
               >
                 Solicitar Información
               </Link>

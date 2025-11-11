@@ -132,7 +132,7 @@ export default function NormatividadPage() {
             </p>
             <Link 
               to={ROUTES.CONTACT}
-              className="inline-block bg-linear-to-r from-blue-600 to-cyan-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-blue-500 hover:to-cyan-500 hover:scale-105 transition-all duration-700 ease-in-out"
+              className="inline-block bg-linear-to-r from-blue-600 to-cyan-600 px-8 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-cyan-500 hover:scale-105 transition-all duration-700 ease-in-out"
             >
               Contactar Área Legal
             </Link>

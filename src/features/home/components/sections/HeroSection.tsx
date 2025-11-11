@@ -66,7 +66,7 @@ function HeroSection() {
               <div className={`inline-flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-5 md:mb-6 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full backdrop-blur-md ${
                 isDark ? 'hero-badge-dark' : 'hero-badge-light'
               }`}>
-                <BadgeIcon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                <BadgeIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className={`text-xs md:text-sm font-bold text-white uppercase tracking-[0.2em] letter-spacing-wide ${
                   isDark ? 'text-shadow-hero-dark' : 'text-shadow-hero-light'
                 }`}>
