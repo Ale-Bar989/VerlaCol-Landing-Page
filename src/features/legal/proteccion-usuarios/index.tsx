@@ -58,6 +58,10 @@ export default function ProteccionUsuariosPage() {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(item.path, '_blank', 'noopener,noreferrer');
+                    }}
                     className="flex items-start gap-3 bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 hover:bg-orange-500/10 transition-all cursor-pointer"
                   >
                     <AlertCircle className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
@@ -74,6 +78,10 @@ export default function ProteccionUsuariosPage() {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(item.path, '_blank', 'noopener,noreferrer');
+                    }}
                     className="flex items-start gap-3 bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 hover:bg-orange-500/10 transition-all cursor-pointer"
                   >
                     <AlertCircle className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
@@ -90,6 +98,10 @@ export default function ProteccionUsuariosPage() {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(item.path, '_blank', 'noopener,noreferrer');
+                    }}
                     className="flex items-start gap-3 bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 hover:bg-orange-500/10 transition-all cursor-pointer"
                   >
                     <AlertCircle className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
