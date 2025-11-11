@@ -2,10 +2,27 @@
   "github": {
     "silent": true
   },
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
     {
-      "source": "/((?!api|_next|documents|assets|favicon.ico|robots.txt|sitemap.xml).*)",
-      "destination": "/index.html"
+      "src": "/documents/pdf/(.+\\.pdf)",
+      "dest": "/documents/pdf/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Type": "application/pdf"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
