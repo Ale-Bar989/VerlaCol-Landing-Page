@@ -72,10 +72,6 @@ export const router = createBrowserRouter([
         element: withSuspense(ServiceUnavailablePage),
       },
       {
-        path: "*",
-        element: <Navigate to={ROUTES.NOTFOUND} replace />,
-      },
-      {
         path: ROUTES.ABOUT,
         element: withSuspense(About),
       },
@@ -132,6 +128,11 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.SERVICES.TV_DIGITAL,
         element: withSuspense(TVDigital),
+      },
+      // Wildcard DEBE estar AL FINAL para no interceptar archivos estáticos
+      {
+        path: "*",
+        element: <Navigate to={ROUTES.NOTFOUND} replace />,
       },
     ],
   },
