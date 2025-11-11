@@ -115,6 +115,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     // Optimizar assets
     assetsInlineLimit: 4096, // Inline assets < 4kb
+    // Copiar archivos públicos explícitamente
+    copyPublicDir: true,
   },
   // Optimizaciones de desarrollo
   server: {
