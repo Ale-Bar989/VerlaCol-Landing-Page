@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 VerlaCol Landing Page
+# 🚀 Verla Landing Page
 
 ### Proyecto web moderno con Screaming Arquitectura SOLID
 

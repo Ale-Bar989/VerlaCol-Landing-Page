@@ -46,7 +46,7 @@ export default function ProteccionDatosPage() {
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
               En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013,
-              VERLACOL garantiza la protección integral de tus datos personales.
+              VERLA garantiza la protección integral de tus datos personales.
               Tu privacidad es nuestra prioridad y tratamos tu información con
               la máxima responsabilidad y transparencia.
             </p>
