@@ -132,7 +132,7 @@ const About = memo(() => {
             )}
             {/* Border simple en tema blanco */}
             {!isDark && (
-              <div className="absolute inset-0 rounded-3xl border-primary-light"></div>
+              <div className="absolute inset-0 rounded-3xl border-primary-light bg-white/50"></div>
             )}
 
             <div className="relative z-10">
@@ -207,7 +207,7 @@ const About = memo(() => {
               )}
               {/* Border simple en tema blanco */}
               {!isDark && (
-                <div className="absolute inset-0 rounded-2xl border-primary-light"></div>
+                <div className="absolute inset-0 rounded-2xl border-primary-light bg-white/40"></div>
               )}
               {/* Efecto de gradiente en hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg-alt"></div>
@@ -270,7 +270,7 @@ const About = memo(() => {
               )}
               {/* Border simple en tema blanco */}
               {!isDark && (
-                <div className="absolute inset-0 rounded-2xl border-primary-light"></div>
+                <div className="absolute inset-0 rounded-2xl border-primary-light bg-white/40"></div>
               )}
               {/* Efecto de gradiente en hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg-alt"></div>
@@ -333,7 +333,7 @@ const About = memo(() => {
               )}
               {/* Border simple en tema blanco */}
               {!isDark && (
-                <div className="absolute inset-0 rounded-2xl border-primary-light"></div>
+                <div className="absolute inset-0 rounded-2xl border-primary-light bg-white/40"></div>
               )}
               {/* Efecto de gradiente en hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity gradient-section-bg-alt"></div>
