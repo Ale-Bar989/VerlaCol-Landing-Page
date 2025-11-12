@@ -1,11 +1,10 @@
 import {
-  Shield,
   AlertCircle,
   FileText,
   MapPin,
   HelpCircle,
 } from "lucide-react";
-import { PageLayout } from "@/shared/components";
+import { PageLayout, ParallaxBackground } from "@/shared/components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
 import {
@@ -20,25 +19,28 @@ import {
 export default function ProteccionUsuariosPage() {
   return (
     <PageLayout>
-      <div className=" mb-16 mt-16 container mx-auto px-6 max-w-7xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-(--accent-primary)/10 rounded-2xl mb-6">
-            <Shield className="w-8 h-8 text-(--accent-primary)" />
+      <div className="pt-16 pb-16 container mx-auto px-6 max-w-7xl">
+        {/* Header with Parallax Background */}
+        <ParallaxBackground 
+          imageUrl="/images/backgrounds/1.jpg" 
+          className="mb-16 rounded-2xl overflow-hidden"
+          height="400px"
+        >
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Protección al Usuario{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
+                y Normativa
+              </span>
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Marco regulatorio del sector TIC en cumplimiento de la normatividad
+              colombiana
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Protección al Usuario{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-              y Normativa
-            </span>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Marco regulatorio del sector TIC en cumplimiento de la normatividad
-            colombiana
-          </p>
-        </div>
+        </ParallaxBackground>
 
-        {/* Content */}
+        {/* Content - Outside of parallax background */}
         <div className="space-y-12">
           {/* Título Principal de Regulación */}
           <div className="bg-linear-to-r from-(--accent-primary)/20 to-(--accent-secondary)/20 border-2 border-(--accent-primary)/50 rounded-2xl p-6 text-center">

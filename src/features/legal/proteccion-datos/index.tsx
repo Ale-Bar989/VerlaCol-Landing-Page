@@ -7,7 +7,7 @@ import {
   CreditCard,
   Globe,
 } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import { PageLayout, ParallaxBackground } from "@/shared//components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
 import { DATA_PRINCIPLES } from "./data/privacy.data";
@@ -19,22 +19,26 @@ export default function ProteccionDatosPage() {
   return (
     <PageLayout>
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-(--accent-primary)/10 rounded-2xl mb-6">
-            <Lock className="w-8 h-8 text-(--accent-primary)" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Política de Tratamiento de{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-              Datos Personales
-            </span>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Transparencia total sobre cómo recopilamos, usamos y protegemos tu
-            información
-          </p>
-        </div>
+        {/* Header with Parallax Effect */}
+                <div className="mb-16">
+                  <ParallaxBackground 
+                  imageUrl="/images/backgrounds/10.jpg" 
+                  className="mb-16 rounded-2xl overflow-hidden"
+                  height="400px"
+                >
+                  <div className="text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                      Política de Tratamiento de{" "}
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
+                          Datos Personales
+                        </span>
+                    </h1>
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                      Transparencia total sobre cómo recopilamos, usamos y protegemos tu información
+                    </p>
+                  </div>
+                </ParallaxBackground>
+                </div>
 
         {/* Content */}
         <div className="space-y-12">
