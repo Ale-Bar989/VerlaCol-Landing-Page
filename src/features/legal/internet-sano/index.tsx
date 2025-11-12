@@ -34,7 +34,7 @@ export default function InternetSanoPage() {
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  <strong className="text-white">HV Televisión S.A.S</strong> en virtud de la legislación vigente da cumplimiento 
+                  <strong className="text-white">VERLA</strong> en virtud de la legislación vigente da cumplimiento 
                   con la <strong className="text-[var(--accent-primary)]">Ley 679 del 3 de agosto de 2001</strong>, expedida por el Congreso de la República, 
                   para prevenir y contrarrestar la explotación, la pornografía y el turismo sexual con menores de edad.
                 </p>
@@ -170,7 +170,7 @@ export default function InternetSanoPage() {
             <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-4">Comprometidos con la Protección Infantil</h2>
               <p className="text-gray-300 mb-6">
-                HV Televisión S.A.S cumple estrictamente con la legislación colombiana para prevenir y combatir 
+                VERLA cumple estrictamente con la legislación colombiana para prevenir y combatir 
                 la explotación sexual de menores en internet.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

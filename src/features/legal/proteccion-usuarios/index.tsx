@@ -155,7 +155,7 @@ export default function ProteccionUsuariosPage() {
             </h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                <strong className="text-[var(--accent-primary)]">HV Televisión S.A.S</strong>{" "}
+                <strong className="text-[var(--accent-primary)]">VERLA</strong>{" "}
                 cumple estrictamente con toda la regulación del sector TIC
                 establecida por la{" "}
                 <strong className="text-[var(--accent-primary)]">
@@ -164,10 +164,10 @@ export default function ProteccionUsuariosPage() {
                 y demás entidades competentes.
               </p>
               <p>
-                Este marco normativo garantiza los derechos de los usuarios de
-                servicios de telecomunicaciones, estableciendo estándares de
-                calidad, procedimientos de atención y mecanismos de protección
-                para todos nuestros clientes.
+                Este conjunto de normas vela por la protección de los derechos 
+                de los usuarios de servicios de telecomunicaciones, fijando 
+                parámetros de calidad, canales de atención y sistemas de 
+                resguardo para garantizar la satisfacción de nuestros clientes.
               </p>
             </div>
           </section>
