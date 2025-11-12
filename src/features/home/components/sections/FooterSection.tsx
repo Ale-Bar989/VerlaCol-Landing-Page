@@ -1,39 +1,53 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, Send } from "lucide-react";
-import { ROUTES } from '@/core/router/routes.config';
-import { useTheme } from '@/core/contexts';
+import { Mail, Phone } from "lucide-react";
+import { ROUTES } from "@/core/router/routes.config";
+import { useTheme } from "@/core/contexts";
 
 // Footer section adaptado al diseño moderno horizontal
 // Ubicación: src/ui/pages/home/components/FooterSection.tsx
 
 const FooterSection = memo(() => {
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  const isDark = theme === "dark";
 
   return (
-    <footer className={`relative py-12 px-6 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <footer
+      className={`relative py-12 px-6 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           {/* Brand Column */}
           <div className="md:col-span-1">
-            <h2 className={`text-2xl font-black mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h2
+              className={`text-2xl font-black mb-2 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+            >
               VERLA
             </h2>
             <p className="text-sm text-[#4A5CFF] font-medium mb-6">
               Conectividad sin límites
             </p>
-            
+
             <div className="space-y-4">
               <div>
-                <h3 className={`text-sm font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                <h3
+                  className={`text-sm font-bold mb-2 ${
+                    isDark ? "text-white" : "text-gray-900"
+                  }`}
+                >
                   Acerca de Nosotros
                 </h3>
-                <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Somos un proveedor confiable de servicios de telecomunicaciones, 
-                  ofreciendo soluciones de fibra óptica y TV digital de última generación 
-                  para hogares y empresas.
+                <p
+                  className={`text-xs leading-relaxed ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
+                >
+                  Somos un proveedor confiable de servicios de
+                  telecomunicaciones, ofreciendo soluciones de fibra óptica y TV
+                  digital de última generación para hogares y empresas.
                 </p>
               </div>
             </div>
@@ -41,14 +55,20 @@ const FooterSection = memo(() => {
 
           {/* Services Column */}
           <div>
-            <h4 className={`text-sm font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h4
+              className={`text-sm font-bold mb-4 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+            >
               Servicios
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to={ROUTES.PRICING}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Planes
                 </Link>
@@ -56,7 +76,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.SERVICES.FIBRA_RESIDENCIAL}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Internet
                 </Link>
@@ -64,7 +86,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.SERVICES.TV_DIGITAL}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • TV Digital
                 </Link>
@@ -72,7 +96,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.SERVICES.PLANES_EMPRESARIALES}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Empresas
                 </Link>
@@ -82,14 +108,20 @@ const FooterSection = memo(() => {
 
           {/* Company Column */}
           <div>
-            <h4 className={`text-sm font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h4
+              className={`text-sm font-bold mb-4 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+            >
               Compañía
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to={ROUTES.ABOUT}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Quiénes Somos
                 </Link>
@@ -97,7 +129,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.CONTACT}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Nuestros Servicios
                 </Link>
@@ -105,7 +139,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.LEGAL.NORMATIVIDAD}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Clientes
                 </Link>
@@ -113,7 +149,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.PRICING}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Precios
                 </Link>
@@ -121,7 +159,9 @@ const FooterSection = memo(() => {
               <li>
                 <Link
                   to={ROUTES.CONTACT}
-                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                    isDark ? "text-gray-400" : "text-gray-600"
+                  }`}
                 >
                   • Contáctanos
                 </Link>
@@ -131,19 +171,29 @@ const FooterSection = memo(() => {
 
           {/* Contact Us Column */}
           <div>
-            <h4 className={`text-sm font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h4
+              className={`text-sm font-bold mb-4 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+            >
               Contáctanos
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-[#4A5CFF] mt-0.5 shrink-0" />
                 <div>
-                  <p className={`text-xs font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <p
+                    className={`text-xs font-medium ${
+                      isDark ? "text-gray-300" : "text-gray-700"
+                    }`}
+                  >
                     Llámanos:
                   </p>
-                  <a 
-                    href="tel:+573214567890" 
-                    className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  <a
+                    href="tel:+573214567890"
+                    className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                      isDark ? "text-gray-400" : "text-gray-600"
+                    }`}
                   >
                     +57 321 456 7890
                   </a>
@@ -152,12 +202,18 @@ const FooterSection = memo(() => {
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-[#4A5CFF] mt-0.5 shrink-0" />
                 <div>
-                  <p className={`text-xs font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <p
+                    className={`text-xs font-medium ${
+                      isDark ? "text-gray-300" : "text-gray-700"
+                    }`}
+                  >
                     Email:
                   </p>
-                  <a 
-                    href="mailto:name@example.com" 
-                    className={`text-sm hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                  <a
+                    href="mailto:name@example.com"
+                    className={`text-sm hover:text-[#4A5CFF] transition-colors ${
+                      isDark ? "text-gray-400" : "text-gray-600"
+                    }`}
                   >
                     name@example.com
                   </a>
@@ -168,7 +224,12 @@ const FooterSection = memo(() => {
 
           {/* Newsletter & Social Column */}
           <div>
-            <h4 className={`text-sm font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            {/* Newsletter - COMENTADO TEMPORALMENTE
+            <h4
+              className={`text-sm font-bold mb-4 ${
+                isDark ? "text-white" : "text-gray-900"
+              }`}
+            >
               Newsletter
             </h4>
             <div className="mb-6">
@@ -177,30 +238,39 @@ const FooterSection = memo(() => {
                   type="email"
                   placeholder="Your Email"
                   className={`flex-1 text-sm px-3 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-[#4A5CFF] ${
-                    isDark 
-                      ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-500' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                    isDark
+                      ? "bg-gray-800 border-gray-700 text-white placeholder-gray-500"
+                      : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
                   }`}
                 />
-                <button 
+                <button
                   className="p-2 rounded transition-colors shrink-0 btn-cta-primary"
                   aria-label="Enviar"
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #7A8FFF 0%, #FFFFFF 100%)';
-                    e.currentTarget.style.boxShadow = "0 6px 16px rgba(122, 143, 255, 0.4)";
+                    e.currentTarget.style.background =
+                      "linear-gradient(135deg, #7A8FFF 0%, #FFFFFF 100%)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 16px rgba(122, 143, 255, 0.4)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(135deg, #4A5CFF 0%, #FFFFFF 100%)';
-                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(74, 92, 255, 0.3)";
+                    e.currentTarget.style.background =
+                      "linear-gradient(135deg, #4A5CFF 0%, #FFFFFF 100%)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 12px rgba(74, 92, 255, 0.3)";
                   }}
                 >
                   <Send className="w-5 h-5" stroke="#FFFFFF" strokeWidth={2} />
                 </button>
               </div>
             </div>
+            */}
 
             <div>
-              <h4 className={`text-sm font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              <h4
+                className={`text-sm font-bold mb-3 ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
                 Síguenos
               </h4>
               <div className="flex gap-2">
@@ -246,29 +316,43 @@ const FooterSection = memo(() => {
         </div>
 
         {/* Footer Bottom */}
-        <div className={`pt-6 border-t ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
+        <div
+          className={`pt-6 border-t ${
+            isDark ? "border-gray-800" : "border-gray-200"
+          }`}
+        >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex gap-6 text-xs">
-              <Link 
-                to={ROUTES.LEGAL.PROTECCION_DATOS} 
-                className={`hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+              <Link
+                to={ROUTES.LEGAL.PROTECCION_DATOS}
+                className={`hover:text-[#4A5CFF] transition-colors ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
               >
                 Política de Privacidad
               </Link>
-              <Link 
-                to={ROUTES.ABOUT} 
-                className={`hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+              <Link
+                to={ROUTES.ABOUT}
+                className={`hover:text-[#4A5CFF] transition-colors ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
               >
                 Nuestra Historia
               </Link>
-              <Link 
-                to={ROUTES.CONTACT} 
-                className={`hover:text-[#4A5CFF] transition-colors ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+              <Link
+                to={ROUTES.CONTACT}
+                className={`hover:text-[#4A5CFF] transition-colors ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
               >
                 Qué Hacemos
               </Link>
             </div>
-            <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            <p
+              className={`text-xs ${
+                isDark ? "text-gray-500" : "text-gray-500"
+              }`}
+            >
               © 2025 Verla. Todos los derechos reservados.
             </p>
           </div>
@@ -278,6 +362,6 @@ const FooterSection = memo(() => {
   );
 });
 
-FooterSection.displayName = 'FooterSection';
+FooterSection.displayName = "FooterSection";
 
 export default FooterSection;

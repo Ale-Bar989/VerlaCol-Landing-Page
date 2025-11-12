@@ -42,12 +42,12 @@ export default function TVDigitalPage() {
             <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               Conviértete en proveedor de IPTV con nuestra plataforma todo en uno
             </p>
-            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-[var(--accent-primary)]"></div>
+            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-(--accent-primary)"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-[var(--accent-primary)]">¿Por qué elegir nuestra plataforma IPTV?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-(--accent-primary)">¿Por qué elegir nuestra plataforma IPTV?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Check className="w-6 h-6 text-green-500 mr-3 shrink-0 mt-1" />
@@ -80,9 +80,9 @@ export default function TVDigitalPage() {
                   return (
                     <div 
                       key={index} 
-                      className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-[var(--accent-primary)]" : "bg-white/90 border border-blue-400/50 hover:border-blue-[var(--accent-primary)]"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
+                      className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-(--accent-primary)" : "bg-white/90 border border-blue-400/50 hover:border-blue-(--accent-primary)"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
                     >
-                      <div className="mb-3 text-[var(--accent-primary)] dark:text-blue-400 transition-colors">
+                      <div className="mb-3 text-(--accent-primary) dark:text-blue-400 transition-colors">
                         <Icon className="w-8 h-8" />
                       </div>
                       <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`} style={{ color: 'var(--accent-primary)' }}>
@@ -129,7 +129,7 @@ export default function TVDigitalPage() {
             <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               Descubre nuestra amplia variedad de canales organizados por categorías
             </p>
-            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-[var(--accent-primary)]"></div>
+            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-(--accent-primary)"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -153,7 +153,7 @@ export default function TVDigitalPage() {
                         isDark ? 'service-icon-gradient-dark' : 'service-icon-gradient-light shadow-md'
                       }`}>
                         <Icon
-                          className="w-8 h-8 text-[var(--accent-primary)] transition-transform duration-300 group-hover:scale-110"
+                          className="w-8 h-8 text-(--accent-primary) transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
                       <h3 className="text-2xl font-bold bg-clip-text text-transparent text-gradient-animated">
@@ -193,7 +193,7 @@ export default function TVDigitalPage() {
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Soluciones de IPTV Mayoristas
             </h2>
-            <div className="w-20 h-1 mx-auto rounded-full bg-[var(--accent-primary)]"></div>
+            <div className="w-20 h-1 mx-auto rounded-full bg-(--accent-primary)"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">

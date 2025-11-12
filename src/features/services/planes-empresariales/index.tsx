@@ -59,12 +59,12 @@ export default function PlanesEmpresarialesPage() {
               Soluciones a Medida
             </span>
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r ${
-              isDark ? 'from-[var(--accent-primary)] to-[var(--accent-secondary)]' : 'from-[var(--accent-primary)] to-[var(--accent-secondary)]'
+              isDark ? 'from-(--accent-primary) to-(--accent-secondary)' : 'from-(--accent-primary) to-(--accent-secondary)'
             }`}>
               Nuestras Soluciones Empresariales
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full mb-8 ${
-              isDark ? 'bg-[var(--accent-primary)]' : 'bg-[var(--accent-primary)]'
+              isDark ? 'bg-(--accent-primary)' : 'bg-(--accent-primary)'
             }`}></div>
             <p className={`text-lg md:text-xl leading-relaxed ${
               isDark ? 'text-gray-300' : 'text-gray-600'
@@ -81,8 +81,8 @@ export default function PlanesEmpresarialesPage() {
                   key={index}
                   className={`group relative p-0.5 rounded-2xl transition-all duration-500 overflow-hidden ${
                     isDark 
-                      ? 'bg-linear-to-br from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 hover:from-[var(--accent-primary)]/30 hover:to-[var(--accent-secondary)]/30' 
-                      : 'bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 hover:from-[var(--accent-primary)]/20 hover:to-[var(--accent-secondary)]/20'
+                      ? 'bg-linear-to-br from-(--accent-primary)/20 to-(--accent-secondary)/20 hover:from-(--accent-primary)/30 hover:to-(--accent-secondary)/30' 
+                      : 'bg-linear-to-br from-(--accent-primary)/10 to-(--accent-secondary)/10 hover:from-(--accent-primary)/20 hover:to-(--accent-secondary)/20'
                   }`}
                 >
                   <div className={`h-full p-8 rounded-2xl transition-all duration-300 ${
@@ -93,13 +93,13 @@ export default function PlanesEmpresarialesPage() {
                     <div className="flex items-start space-x-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 ${
                         isDark 
-                          ? 'bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 group-hover:from-[var(--accent-primary)]/20 group-hover:to-[var(--accent-secondary)]/20'
-                          : 'bg-linear-to-br from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 group-hover:from-[var(--accent-primary)]/10 group-hover:to-[var(--accent-secondary)]/10 group-hover:shadow-md'
+                          ? 'bg-linear-to-br from-(--accent-primary)/10 to-(--accent-secondary)/10 group-hover:from-(--accent-primary)/20 group-hover:to-(--accent-secondary)/20'
+                          : 'bg-linear-to-br from-(--accent-primary)/5 to-(--accent-secondary)/5 group-hover:from-(--accent-primary)/10 group-hover:to-(--accent-secondary)/10 group-hover:shadow-md'
                       }`}>
                         <div className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 ${
                           isDark 
-                            ? 'bg-linear-to-br from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 text-[var(--accent-primary)] group-hover:text-[var(--accent-secondary)]' 
-                            : 'bg-white text-[var(--accent-primary)] shadow-md group-hover:bg-linear-to-br group-hover:from-[var(--accent-primary)]/5 group-hover:to-[var(--accent-secondary)]/5 group-hover:shadow-lg group-hover:scale-105'
+                            ? 'bg-linear-to-br from-(--accent-primary)/20 to-(--accent-secondary)/20 text-(--accent-primary) group-hover:text-(--accent-secondary)' 
+                            : 'bg-white text-(--accent-primary) shadow-md group-hover:bg-linear-to-br group-hover:from-(--accent-primary)/5 group-hover:to-(--accent-secondary)/5 group-hover:shadow-lg group-hover:scale-105'
                         }`}>
                           <Icon className="w-6 h-6" />
                         </div>
@@ -107,8 +107,8 @@ export default function PlanesEmpresarialesPage() {
                       <div className="flex-1">
                         <h3 className={`text-xl font-bold mb-3 transition-colors duration-300 ${
                           isDark 
-                            ? 'text-white group-hover:text-[var(--accent-primary)]' 
-                            : 'text-gray-800 group-hover:text-[var(--accent-primary)] group-hover:drop-shadow-sm'
+                            ? 'text-white group-hover:text-(--accent-primary)' 
+                            : 'text-gray-800 group-hover:text-(--accent-primary) group-hover:drop-shadow-sm'
                         }`}>
                           {benefit.title}
                         </h3>
@@ -121,8 +121,8 @@ export default function PlanesEmpresarialesPage() {
                         </p>
                         <div className={`mt-4 inline-flex items-center text-sm font-medium ${
                           isDark 
-                            ? 'text-[var(--accent-primary)] group-hover:text-[var(--accent-secondary)]' 
-                            : 'text-[var(--accent-primary)] group-hover:text-[var(--accent-primary)]/90 group-hover:font-semibold'
+                            ? 'text-(--accent-primary) group-hover:text-(--accent-secondary)' 
+                            : 'text-(--accent-primary) group-hover:text-(--accent-primary)/90 group-hover:font-semibold'
                         } transition-all duration-300 group-hover:translate-x-1`}>
                           <span>Más información</span>
                           <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -150,8 +150,8 @@ export default function PlanesEmpresarialesPage() {
       <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-linear-to-br from-gray-50 to-white"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-primary)]/10" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-secondary)]/10" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-(--accent-primary)/10" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-(--accent-secondary)/10" />
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -159,7 +159,7 @@ export default function PlanesEmpresarialesPage() {
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Beneficios Incluidos
             </h2>
-            <div className="w-24 h-1 mx-auto rounded-full bg-[var(--accent-primary)]"></div>
+            <div className="w-24 h-1 mx-auto rounded-full bg-(--accent-primary)"></div>
             <p className={`text-lg max-w-2xl mx-auto mt-4 ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>
@@ -176,12 +176,12 @@ export default function PlanesEmpresarialesPage() {
                 }`}
               >
                 {/* Hover effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-(--accent-primary)/5 to-(--accent-secondary)/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="flex items-center gap-4 relative z-10">
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:-translate-y-1 ${
-                      isDark ? 'bg-gray-800 service-icon-shadow-dark' : 'bg-[var(--accent-primary)]/10 service-icon-shadow-light'
+                      isDark ? 'bg-gray-800 service-icon-shadow-dark' : 'bg-(--accent-primary)/10 service-icon-shadow-light'
                     }`}
                   >
                     <Check
