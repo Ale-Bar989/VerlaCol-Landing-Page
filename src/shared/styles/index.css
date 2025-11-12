@@ -2229,12 +2229,12 @@ section[class*="min-h-screen"] {
     rgba(255, 255, 255, 0.6)
   );
 }
-
-.gradient-section-bg-alt {
+/* Gradient cards para tema oscuro */
+.gradient-section-bg-dark {
   background: linear-gradient(
     135deg,
-    rgba(74, 92, 255, 0.08),
-    rgba(122, 143, 255, 0.04)
+    rgba(15, 23, 42, 0.5),
+    rgba(30, 41, 59, 0.5)
   );
 }
 

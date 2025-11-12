@@ -124,7 +124,7 @@ const About = memo(() => {
           >
             {/* Fondo con gradiente - solo en tema oscuro */}
             {isDark && (
-              <div className="absolute inset-0 gradient-section-bg"></div>
+              <div className="absolute inset-0 gradient-section-bg-dark"></div>
             )}
             {/* Border glow - solo en tema oscuro */}
             {isDark && (
@@ -132,7 +132,7 @@ const About = memo(() => {
             )}
             {/* Border simple en tema blanco */}
             {!isDark && (
-              <div className="absolute inset-0 rounded-3xl border-primary-light bg-white/50"></div>
+              <div className="absolute inset-0 rounded-3xl border-primary-light bg-white/40"></div>
             )}
 
             <div className="relative z-10">
@@ -199,7 +199,7 @@ const About = memo(() => {
             >
               {/* Fondo con gradiente - solo en tema oscuro */}
               {isDark && (
-                <div className="absolute inset-0 gradient-section-bg"></div>
+                <div className="absolute inset-0 gradient-section-bg-dark"></div>
               )}
               {/* Border glow - solo en tema oscuro */}
               {isDark && (
@@ -262,7 +262,7 @@ const About = memo(() => {
             >
               {/* Fondo con gradiente - solo en tema oscuro */}
               {isDark && (
-                <div className="absolute inset-0 gradient-section-bg"></div>
+                <div className="absolute inset-0 gradient-section-bg-dark"></div>
               )}
               {/* Border glow - solo en tema oscuro */}
               {isDark && (
@@ -325,7 +325,7 @@ const About = memo(() => {
             >
               {/* Fondo con gradiente - solo en tema oscuro */}
               {isDark && (
-                <div className="absolute inset-0 gradient-section-bg"></div>
+                <div className="absolute inset-0 gradient-section-bg-dark"></div>
               )}
               {/* Border glow - solo en tema oscuro */}
               {isDark && (
@@ -384,10 +384,18 @@ const About = memo(() => {
 
           {/* Infraestructura Tecnológica */}
           <div className="relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center overflow-hidden">
-            {/* Fondo con gradiente */}
-            <div className="absolute inset-0 gradient-section-bg"></div>
-            {/* Border glow */}
-            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl gradient-border-primary-soft"></div>
+            {/* Fondo con gradiente - solo en tema oscuro */}
+            {isDark && (
+              <div className="absolute inset-0 gradient-section-bg-dark"></div>
+            )}
+            {/* Border glow - solo en tema oscuro */}
+            {isDark && (
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl gradient-border-primary-soft"></div>
+            )}
+            {/* Border simple en tema blanco */}
+            {!isDark && (
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-primary-light bg-white/40"></div>
+            )}
 
             <div className="relative z-10">
               <div
@@ -395,9 +403,15 @@ const About = memo(() => {
                   isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
                 }`}
               >
-                <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full animate-pulse">
+                <div className={`inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 backdrop-blur-sm rounded-full animate-pulse ${
+                  isDark 
+                    ? "bg-white/10 border border-white/10" 
+                    : "bg-[#4A5CFF]/10 border border-[#4A5CFF]/30"
+                }`}>
                   <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4A5CFF]" />
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
+                  <span className={`text-xs font-bold uppercase tracking-wider ${
+                    isDark ? "text-white" : "text-[#4A5CFF]"
+                  }`}>
                     Nuestra Historia
                   </span>
                 </div>
@@ -443,8 +457,22 @@ const About = memo(() => {
                 ].map((tech) => (
                   <div
                     key={tech.name}
-                    className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 group/item transition-all duration-300 hover:scale-105 gradient-section-bg border border-[rgba(74,92,255,0.2)]"
+                    className={`relative rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 group/item transition-all duration-300 hover:scale-105 overflow-hidden ${
+                      isDark ? "" : "bg-transparent"
+                    }`}
                   >
+                    {/* Fondo - tema oscuro */}
+                    {isDark && (
+                      <div className="absolute inset-0 gradient-section-bg-dark"></div>
+                    )}
+                    {/* Border glow - tema oscuro */}
+                    {isDark && (
+                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl border border-[rgba(74,92,255,0.2)]"></div>
+                    )}
+                    {/* Border - tema blanco */}
+                    {!isDark && (
+                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-primary-light bg-white/40"></div>
+                    )}
                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover/item:opacity-100 transition-opacity gradient-section-bg-alt"></div>
 
                     <div className="relative z-10 text-center">
@@ -454,10 +482,14 @@ const About = memo(() => {
                           strokeWidth={1.5}
                         />
                       </div>
-                      <h4 className="text-sm sm:text-base font-bold text-white mb-1">
+                      <h4 className={`text-sm sm:text-base font-bold mb-1 ${
+                        isDark ? "text-white" : "text-gray-900"
+                      }`}>
                         {tech.name}
                       </h4>
-                      <p className="text-[10px] sm:text-xs text-gray-400">
+                      <p className={`text-[10px] sm:text-xs ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}>
                         {tech.desc}
                       </p>
                     </div>
