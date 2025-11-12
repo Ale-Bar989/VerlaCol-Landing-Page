@@ -2,7 +2,7 @@ import { FileText, Scale, BookOpen, ExternalLink } from "lucide-react";
 import { PageLayout } from "@/shared//components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
-import { MAIN_LAWS } from "./data/laws.data";
+import { MAIN_LAWS, AGENCIES } from "./data/laws.data";
 
 // Página de Normatividad
 // Ubicación: src/ui/pages/legal/normatividad/index.tsx
@@ -69,6 +69,7 @@ export default function NormatividadPage() {
                     </div>
                     <a
                       href={law.link}
+                      target="_blank"
                       className="shrink-0 p-2 bg-(--accent-primary)/10 rounded-lg hover:bg-(--accent-primary)/20 transition-colors"
                     >
                       <ExternalLink className="w-5 h-5 text-(--accent-primary)" />
@@ -83,39 +84,18 @@ export default function NormatividadPage() {
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6">Entidades Reguladoras</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  name: "CRC",
-                  fullName: "Comisión de Regulación de Comunicaciones",
-                  role: "Regulación del sector de las telecomunicaciones",
-                },
-                {
-                  name: "SIC",
-                  fullName: "Superintendencia de Industria y Comercio",
-                  role: "Protección de datos personales y derechos del consumidor",
-                },
-                {
-                  name: "MinTIC",
-                  fullName: "Ministerio de Tecnologías de la Información",
-                  role: "Política pública del sector TIC en Colombia",
-                },
-                {
-                  name: "ANE",
-                  fullName: "Agencia Nacional del Espectro",
-                  role: "Administración y vigilancia del espectro radioeléctrico",
-                },
-              ].map((entity, index) => (
+              {AGENCIES.map((agency, index) => (
                 <div
                   key={index}
                   className="bg-(--accent-primary)/5 border border-(--accent-primary)/20 rounded-xl p-5"
                 >
                   <h3 className="text-lg font-bold text-(--accent-primary) mb-1">
-                    {entity.name}
+                    {agency.name}
                   </h3>
                   <p className="text-sm font-semibold text-white mb-2">
-                    {entity.fullName}
+                    {agency.title}
                   </p>
-                  <p className="text-sm text-gray-400">{entity.role}</p>
+                  <p className="text-sm text-gray-400">{agency.description}</p>
                 </div>
               ))}
             </div>
