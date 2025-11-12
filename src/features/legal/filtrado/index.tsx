@@ -19,12 +19,12 @@ export default function FiltradoPage() {
       <div className="container mx-auto mb-16 mt-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500/10 rounded-2xl mb-6">
-            <Filter className="w-8 h-8 text-orange-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--accent-primary)]/10 rounded-2xl mb-6">
+            <Filter className="w-8 h-8 text-[var(--accent-primary)]" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Mecanismos de{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Filtrado
             </span>
           </h1>
@@ -39,7 +39,7 @@ export default function FiltradoPage() {
           {/* Introducción */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-              <Shield className="w-6 h-6 text-orange-400" />
+              <Shield className="w-6 h-6 text-[var(--accent-primary)]" />
               Tecnología de Filtrado Avanzada
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
@@ -54,7 +54,7 @@ export default function FiltradoPage() {
           {/* Tipos de Filtrado */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Settings className="w-6 h-6 text-red-400" />
+              <Settings className="w-6 h-6 text-[var(--accent-secondary)]" />
               Tipos de Filtrado Implementados
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -63,7 +63,7 @@ export default function FiltradoPage() {
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
                 >
-                  <h3 className="text-lg font-semibold mb-2 text-orange-400">
+                  <h3 className="text-lg font-semibold mb-2 text-[var(--accent-primary)]">
                     {type.title}
                   </h3>
                   <p className="text-sm text-gray-400 mb-4">
@@ -94,7 +94,7 @@ export default function FiltradoPage() {
               {BLOCKED_CATEGORIES_ICONS.map((Icon, index) => (
                 <div
                   key={index}
-                  className="bg-orange-500/5 border border-orange-500/20 rounded-lg p-4 text-center"
+                  className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-lg p-4 text-center"
                 >
                   <span className="text-sm text-gray-300 flex items-center justify-center gap-2">
                     <Icon className="inline-block w-5 h-5" />
@@ -136,7 +136,7 @@ export default function FiltradoPage() {
                   className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start justify-between gap-4"
                 >
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-orange-400 mb-1">
+                    <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-1">
                       {config.level}
                     </h3>
                     <p className="text-sm text-gray-300 mb-2">
@@ -146,7 +146,7 @@ export default function FiltradoPage() {
                       Recomendado: {config.recommended}
                     </span>
                   </div>
-                  <button className="bg-orange-500/10 border border-orange-500/20 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-orange-500/20 transition-all">
+                  <button className="bg-[var(--accent-primary)]/10 border border-[var(--accent-primary)]/20 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[var(--accent-primary)]/20 transition-all">
                     Configurar
                   </button>
                 </div>
@@ -163,9 +163,9 @@ export default function FiltradoPage() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-linear-to-br from-orange-600/10 to-red-600/10 border border-orange-500/20 rounded-xl p-6 text-center"
+                className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-xl p-6 text-center"
               >
-                <div className="text-4xl font-bold text-orange-400 mb-2">
+                <div className="text-4xl font-bold text-[var(--accent-primary)] mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
@@ -174,7 +174,7 @@ export default function FiltradoPage() {
           </section>
 
           {/* CTA */}
-          <section className="bg-linear-to-br from-orange-600/10 to-red-600/10 border border-orange-500/20 rounded-2xl p-8 text-center">
+          <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
               ¿Necesitas ayuda con la configuración?
             </h2>
@@ -184,7 +184,7 @@ export default function FiltradoPage() {
             </p>
             <Link 
               to={ROUTES.CONTACT}
-              className="inline-block bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-orange-500 hover:to-red-500 hover:scale-105 transition-all duration-700 ease-in-out"
+              className="inline-block bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-[var(--accent-secondary)] hover:to-[var(--accent-primary)] hover:scale-105 transition-all duration-700 ease-in-out"
             >
               Solicitar Asistencia Técnica
             </Link>

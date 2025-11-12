@@ -11,12 +11,12 @@ export default function ProteccionInfantilPage() {
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500/10 rounded-2xl mb-6">
-            <Shield className="w-8 h-8 text-purple-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--accent-primary)]/10 rounded-2xl mb-6">
+            <Shield className="w-8 h-8 text-[var(--accent-primary)]" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Protección{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Infantil
             </span>
           </h1>
@@ -31,7 +31,7 @@ export default function ProteccionInfantilPage() {
           {/* Introducción */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-              <Heart className="w-6 h-6 text-purple-400" />
+              <Heart className="w-6 h-6 text-[var(--accent-primary)]" />
               Nuestro Compromiso
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
@@ -45,7 +45,7 @@ export default function ProteccionInfantilPage() {
           {/* Medidas de Protección */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Lock className="w-6 h-6 text-purple-400" />
+              <Lock className="w-6 h-6 text-[var(--accent-primary)]" />
               Medidas de Protección Activa
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -54,8 +54,8 @@ export default function ProteccionInfantilPage() {
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-500/10 rounded-lg mb-4">
-                    <item.icon className="w-6 h-6 text-purple-400" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-[var(--accent-primary)]/10 rounded-lg mb-4">
+                    <item.icon className="w-6 h-6 text-[var(--accent-primary)]" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-400">{item.description}</p>
@@ -67,7 +67,7 @@ export default function ProteccionInfantilPage() {
           {/* Guía para Padres */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <BookOpen className="w-6 h-6 text-purple-400" />
+              <BookOpen className="w-6 h-6 text-[var(--accent-primary)]" />
               Guía para Padres y Tutores
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -76,33 +76,33 @@ export default function ProteccionInfantilPage() {
                   icon: Eye,
                   title: "Supervisión Activa",
                   description: "Mantén comunicación abierta con tus hijos sobre su actividad en línea y revisa periódicamente su uso.",
-                  color: "purple"
+                  color: "primary"
                 },
                 {
                   icon: Settings,
                   title: "Configura Controles",
                   description: "Utiliza las herramientas de control parental disponibles para establecer límites apropiados.",
-                  color: "blue"
+                  color: "secondary"
                 },
                 {
                   icon: AlertCircle,
                   title: "Reporta Incidentes",
                   description: "Si detectas contenido inapropiado, repórtalo inmediatamente a través de nuestros canales oficiales.",
-                  color: "red"
+                  color: "primary"
                 },
                 {
                   icon: BookOpen,
                   title: "Educa sobre Seguridad",
                   description: "Enseña a los menores sobre los riesgos en línea y cómo navegar de forma segura.",
-                  color: "green"
+                  color: "secondary"
                 }
               ].map((item, index) => (
                 <div
                   key={index}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all"
                 >
-                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-${item.color}-500/10 rounded-lg mb-4`}>
-                    <item.icon className={`w-6 h-6 text-${item.color}-400`} />
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-[var(--accent-primary)]/10 rounded-lg mb-4">
+                    <item.icon className="w-6 h-6 text-[var(--accent-primary)]" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-400">{item.description}</p>
@@ -112,7 +112,7 @@ export default function ProteccionInfantilPage() {
           </section>
 
           {/* CTA */}
-          <section className="bg-linear-to-br from-purple-600/10 to-pink-600/10 border border-purple-500/20 rounded-2xl p-8 text-center">
+          <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
               ¿Necesitas ayuda o tienes alguna denuncia?
             </h2>
@@ -121,7 +121,7 @@ export default function ProteccionInfantilPage() {
               casos de protección infantil
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-linear-to-r from-purple-600 to-pink-600 px-8 py-3 rounded-xl font-semibold hover:from-purple-500 hover:to-pink-500 hover:scale-105 transition-all duration-700 ease-in-out">
+              <button className="bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-[var(--accent-secondary)] hover:to-[var(--accent-primary)] hover:scale-105 transition-all duration-700 ease-in-out">
                 Reportar Incidente
               </button>
               <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">

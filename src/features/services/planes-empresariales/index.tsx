@@ -48,8 +48,8 @@ export default function PlanesEmpresarialesPage() {
       <section className={`relative py-24 overflow-hidden ${isDark ? 'bg-linear-to-br from-gray-950 to-gray-900' : 'bg-linear-to-br from-gray-50 to-gray-100'}`}>
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] rounded-full opacity-10 radial-gradient-blue"></div>
-          <div className="absolute -bottom-1/2 -right-1/2 w-[800px] h-[800px] rounded-full opacity-10 radial-gradient-cyan"></div>
+          <div className="absolute -top-1/2 -left-1/2 w-[800px] h-[800px] rounded-full opacity-10 bg-[radial-gradient(circle_at_center,var(--accent-primary),transparent_70%)]"></div>
+          <div className="absolute -bottom-1/2 -right-1/2 w-[800px] h-[800px] rounded-full opacity-10 bg-[radial-gradient(circle_at_center,var(--accent-secondary),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2lpdHk9IjAuMDQiPjxwYXRoIGQ9Ik0zNiAzNGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0zNiA2YzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNNTAgN2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0xMCA1M2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek01MCA0M2MwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTIgMGMwIDEuMTA0LS44OTYgMi0yIDJzLTItLjg5Ni0yLTIgLjg5Ni0yIDItMiAyIC44OTYgMiAyek0xMCAxM2MwLTIuMjA5LTEuNkxzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTMwIDEzYzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0tMiAwYzAgMS4xMDQtLjg5NiAyLTIgMnMtMi0uODk2LTItMiAuODk2LTIgMi0yIDIgLjg5NiAyIDJ6TTMwIDUzYzAtMi4yMDktMS42MXMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnpNMzAgMTNjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0yIDBjMCAxLjEwNC0uODk2IDItMiAycy0yLS44OTYtMi0yIC44OTYtMiAyLTIgMiAuODk2IDIgMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-5"></div>
         </div>
 
@@ -59,12 +59,12 @@ export default function PlanesEmpresarialesPage() {
               Soluciones a Medida
             </span>
             <h2 className={`text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r ${
-              isDark ? 'from-blue-400 to-cyan-300' : 'from-blue-600 to-cyan-500'
+              isDark ? 'from-[var(--accent-primary)] to-[var(--accent-secondary)]' : 'from-[var(--accent-primary)] to-[var(--accent-secondary)]'
             }`}>
               Nuestras Soluciones Empresariales
             </h2>
             <div className={`w-24 h-1 mx-auto rounded-full mb-8 ${
-              isDark ? 'bg-linear-to-r from-blue-500 to-cyan-400' : 'bg-linear-to-r from-blue-600 to-cyan-500'
+              isDark ? 'bg-[var(--accent-primary)]' : 'bg-[var(--accent-primary)]'
             }`}></div>
             <p className={`text-lg md:text-xl leading-relaxed ${
               isDark ? 'text-gray-300' : 'text-gray-600'
@@ -81,8 +81,8 @@ export default function PlanesEmpresarialesPage() {
                   key={index}
                   className={`group relative p-0.5 rounded-2xl transition-all duration-500 overflow-hidden ${
                     isDark 
-                      ? 'bg-linear-to-br from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30' 
-                      : 'bg-linear-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100'
+                      ? 'bg-linear-to-br from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 hover:from-[var(--accent-primary)]/30 hover:to-[var(--accent-secondary)]/30' 
+                      : 'bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 hover:from-[var(--accent-primary)]/20 hover:to-[var(--accent-secondary)]/20'
                   }`}
                 >
                   <div className={`h-full p-8 rounded-2xl transition-all duration-300 ${
@@ -93,13 +93,13 @@ export default function PlanesEmpresarialesPage() {
                     <div className="flex items-start space-x-6">
                       <div className={`p-3 rounded-xl transition-all duration-300 ${
                         isDark 
-                          ? 'bg-linear-to-br from-blue-500/10 to-cyan-500/10 group-hover:from-blue-500/20 group-hover:to-cyan-500/20'
-                          : 'bg-linear-to-br from-blue-50 to-cyan-50 group-hover:from-blue-100 group-hover:to-cyan-100 group-hover:shadow-md'
+                          ? 'bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 group-hover:from-[var(--accent-primary)]/20 group-hover:to-[var(--accent-secondary)]/20'
+                          : 'bg-linear-to-br from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 group-hover:from-[var(--accent-primary)]/10 group-hover:to-[var(--accent-secondary)]/10 group-hover:shadow-md'
                       }`}>
                         <div className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 ${
                           isDark 
-                            ? 'bg-linear-to-br from-blue-500/20 to-cyan-500/20 text-blue-400 group-hover:text-blue-300' 
-                            : 'bg-white text-blue-600 shadow-md group-hover:bg-linear-to-br group-hover:from-blue-50 group-hover:to-cyan-50 group-hover:shadow-lg group-hover:scale-105'
+                            ? 'bg-linear-to-br from-[var(--accent-primary)]/20 to-[var(--accent-secondary)]/20 text-[var(--accent-primary)] group-hover:text-[var(--accent-secondary)]' 
+                            : 'bg-white text-[var(--accent-primary)] shadow-md group-hover:bg-linear-to-br group-hover:from-[var(--accent-primary)]/5 group-hover:to-[var(--accent-secondary)]/5 group-hover:shadow-lg group-hover:scale-105'
                         }`}>
                           <Icon className="w-6 h-6" />
                         </div>
@@ -107,8 +107,8 @@ export default function PlanesEmpresarialesPage() {
                       <div className="flex-1">
                         <h3 className={`text-xl font-bold mb-3 transition-colors duration-300 ${
                           isDark 
-                            ? 'text-white group-hover:text-blue-400' 
-                            : 'text-gray-800 group-hover:text-blue-700 group-hover:drop-shadow-sm'
+                            ? 'text-white group-hover:text-[var(--accent-primary)]' 
+                            : 'text-gray-800 group-hover:text-[var(--accent-primary)] group-hover:drop-shadow-sm'
                         }`}>
                           {benefit.title}
                         </h3>
@@ -121,8 +121,8 @@ export default function PlanesEmpresarialesPage() {
                         </p>
                         <div className={`mt-4 inline-flex items-center text-sm font-medium ${
                           isDark 
-                            ? 'text-blue-400 group-hover:text-blue-300' 
-                            : 'text-blue-600 group-hover:text-blue-700 group-hover:font-semibold'
+                            ? 'text-[var(--accent-primary)] group-hover:text-[var(--accent-secondary)]' 
+                            : 'text-[var(--accent-primary)] group-hover:text-[var(--accent-primary)]/90 group-hover:font-semibold'
                         } transition-all duration-300 group-hover:translate-x-1`}>
                           <span>Más información</span>
                           <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -150,8 +150,8 @@ export default function PlanesEmpresarialesPage() {
       <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-gray-950" : "bg-linear-to-br from-gray-50 to-white"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D] dark:bg-[#5B6FFF0D]" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D] dark:bg-[#7A8FFF0D]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-primary)]/10" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-secondary)]/10" />
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -159,7 +159,7 @@ export default function PlanesEmpresarialesPage() {
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Beneficios Incluidos
             </h2>
-            <div className={`w-20 h-1 mx-auto rounded-full ${isDark ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
+            <div className="w-24 h-1 mx-auto rounded-full bg-[var(--accent-primary)]"></div>
             <p className={`text-lg max-w-2xl mx-auto mt-4 ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>
@@ -176,17 +176,17 @@ export default function PlanesEmpresarialesPage() {
                 }`}
               >
                 {/* Hover effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="flex items-center gap-4 relative z-10">
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:-translate-y-1 ${
-                      isDark ? 'bg-gray-800 service-icon-shadow-dark' : 'bg-blue-50 service-icon-shadow-light'
+                      isDark ? 'bg-gray-800 service-icon-shadow-dark' : 'bg-[var(--accent-primary)]/10 service-icon-shadow-light'
                     }`}
                   >
                     <Check
                       className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
-                      style={{ color: DESIGN_SYSTEM.colors.primary }}
+                      style={{ color: 'var(--accent-primary)' }}
                     />
                   </div>
                   <span className={`text-base font-medium transition-colors duration-300 ${

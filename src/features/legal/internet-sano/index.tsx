@@ -10,12 +10,12 @@ export default function InternetSanoPage() {
         <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
           {/* Header */}
           <div className="mb-16 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/10 rounded-2xl mb-6">
-              <Globe className="w-8 h-8 text-cyan-400" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--accent-primary)]/10 rounded-2xl mb-6">
+              <Globe className="w-8 h-8 text-[var(--accent-primary)]" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Internet{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
                 Sano
               </span>
             </h1>
@@ -27,15 +27,15 @@ export default function InternetSanoPage() {
           {/* Content */}
           <div className="space-y-12">
             {/* Marco Legal */}
-            <section className="bg-linear-to-br from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-2xl p-8">
+            <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/30 rounded-2xl p-8">
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-red-400" />
+                <Shield className="w-6 h-6 text-[var(--accent-primary)]" />
                 Marco Legal - Ley 679 de 2001
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   <strong className="text-white">HV Televisión S.A.S</strong> en virtud de la legislación vigente da cumplimiento 
-                  con la <strong className="text-cyan-400">Ley 679 del 3 de agosto de 2001</strong>, expedida por el Congreso de la República, 
+                  con la <strong className="text-[var(--accent-primary)]">Ley 679 del 3 de agosto de 2001</strong>, expedida por el Congreso de la República, 
                   para prevenir y contrarrestar la explotación, la pornografía y el turismo sexual con menores de edad.
                 </p>
                 <p>
@@ -48,7 +48,7 @@ export default function InternetSanoPage() {
 
             {/* Cómo Denunciar */}
             <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-orange-400">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-[var(--accent-secondary)]">
                 <AlertTriangle className="w-6 h-6" />
                 ¿Cómo denunciar la pornografía infantil?
               </h2>
@@ -56,14 +56,14 @@ export default function InternetSanoPage() {
                 <p>
                   Para formular denuncias contra contenidos de pornografía infantil o páginas electrónicas en las que 
                   se ofrezcan servicios sexuales con menores de edad, existe una <strong className="text-white">iniciativa TIC</strong> dedicada 
-                  al <strong className="text-cyan-400">Control de la Campaña del Ministerio de Comunicaciones</strong> para que todos los 
+                  al <strong className="text-[var(--accent-primary)]">Control de la Campaña del Ministerio de Comunicaciones</strong> para que todos los 
                   colombianos comprendamos el significado de la prevención de la pornografía infantil y juvenil en Internet.
                 </p>
               </div>
               
               {/* Canal de Denuncias */}
-              <div className="mt-6 bg-linear-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30 rounded-xl p-6">
-                <h3 className="text-lg font-bold text-orange-400 mb-4 flex items-center gap-2">
+              <div className="mt-6 bg-linear-to-r from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/30 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-[var(--accent-primary)] mb-4 flex items-center gap-2">
                   <Phone className="w-5 h-5" />
                   Canal de Denuncias Te Protejo
                 </h3>
@@ -74,7 +74,7 @@ export default function InternetSanoPage() {
                   href="https://www.teprotejo.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-orange-500 dark:text-white hover:bg-orange-600 hover:scale-105 px-6 py-3 rounded-xl font-semibold transition-all duration-700 ease-in-out"
+                  className="inline-flex items-center gap-2 bg-[var(--accent-primary)] dark:text-white hover:bg-[var(--accent-secondary)] hover:scale-105 px-6 py-3 rounded-xl font-semibold transition-all duration-700 ease-in-out"
                 >
                   Ir a Te Protejo
                   <ExternalLink className="w-4 h-4" />
@@ -85,33 +85,33 @@ export default function InternetSanoPage() {
             {/* Proceso del Ministerio */}
             <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FileText className="w-6 h-6 text-blue-400" />
+                <FileText className="w-6 h-6 text-[var(--accent-primary)]" />
                 ¿Qué hace el Ministerio de Comunicaciones con estas denuncias?
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   Las denuncias recibidas por el <strong className="text-white">Ministerio de Comunicaciones</strong> sobre páginas de 
-                  pornografía con menores de edad en Internet, son enviadas a la <strong className="text-cyan-400">Policía Nacional</strong>.
+                  pornografía con menores de edad en Internet, son enviadas a la <strong className="text-[var(--accent-primary)]">Policía Nacional</strong>.
                 </p>
                 <p>
                   Esta entidad adelanta el proceso de:
                 </p>
                 <ul className="space-y-3 ml-4">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[var(--accent-primary)] mt-0.5 shrink-0" />
                     <span><strong className="text-white">Verificación:</strong> Análisis de las URL reportadas</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[var(--accent-primary)] mt-0.5 shrink-0" />
                     <span><strong className="text-white">Investigación:</strong> Rastreo y seguimiento de contenidos ilegales</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[var(--accent-primary)] mt-0.5 shrink-0" />
                     <span><strong className="text-white">Clasificación:</strong> Listado de URLs con pornografía infantil</span>
                   </li>
                 </ul>
                 <p className="pt-4">
-                  El Ministerio, con este listado, expide un <strong className="text-cyan-400">acto administrativo</strong> exigiendo 
+                  El Ministerio, con este listado, expide un <strong className="text-[var(--accent-primary)]">acto administrativo</strong> exigiendo 
                   a los <strong className="text-white">ISP (Proveedores de acceso a Internet)</strong> el bloqueo de estas páginas en Colombia.
                 </p>
               </div>
@@ -120,33 +120,33 @@ export default function InternetSanoPage() {
             {/* Marco Legal y Referencias */}
             <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <BookCheck className="w-6 h-6 text-purple-400" />
+                <BookCheck className="w-6 h-6 text-[var(--accent-primary)]" />
                 Marco Legal y Referencias
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-5">
-                  <h3 className="text-lg font-semibold text-purple-400 mb-2">Ley 1336 de 2009</h3>
+                <div className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-xl p-5">
+                  <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-2">Ley 1336 de 2009</h3>
                   <p className="text-sm text-gray-400">
                     Adiciona y robustece la Ley 679 de 2001, de lucha contra la explotación, la pornografía y el turismo sexual con niños, niñas y adolescentes.
                   </p>
                 </div>
                 
-                <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-5">
-                  <h3 className="text-lg font-semibold text-cyan-400 mb-2">Ley 679 de 2001</h3>
+                <div className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-xl p-5">
+                  <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-2">Ley 679 de 2001</h3>
                   <p className="text-sm text-gray-400">
                     Estatuto para prevenir y contrarrestar la explotación, la pornografía y el turismo sexual con menores.
                   </p>
                 </div>
                 
-                <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-5">
-                  <h3 className="text-lg font-semibold text-blue-400 mb-2">Decreto 1524 de 2002</h3>
+                <div className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-xl p-5">
+                  <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-2">Decreto 1524 de 2002</h3>
                   <p className="text-sm text-gray-400">
                     Reglamenta el artículo 5° de la Ley 679 de 2001 sobre prevención de pornografía infantil en internet.
                   </p>
                 </div>
                 
-                <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-5">
-                  <h3 className="text-lg font-semibold text-green-400 mb-2 flex items-center gap-2">
+                <div className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-xl p-5">
+                  <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-2 flex items-center gap-2">
                     www.weprotect.org
                     <ExternalLink className="w-4 h-4" />
                   </h3>
@@ -157,7 +157,7 @@ export default function InternetSanoPage() {
                     href="https://www.weprotect.org" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-green-400 hover:text-green-300 text-sm mt-2 transition-colors"
+                    className="inline-flex items-center gap-1 text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] text-sm mt-2 transition-colors"
                   >
                     Visitar sitio web
                     <ExternalLink className="w-3 h-3" />
@@ -167,7 +167,7 @@ export default function InternetSanoPage() {
             </section>
 
             {/* CTA */}
-            <section className="bg-linear-to-br from-red-600/10 to-orange-600/10 border border-red-500/20 rounded-2xl p-8 text-center">
+            <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-2xl p-8 text-center">
               <h2 className="text-2xl font-bold mb-4">Comprometidos con la Protección Infantil</h2>
               <p className="text-gray-300 mb-6">
                 HV Televisión S.A.S cumple estrictamente con la legislación colombiana para prevenir y combatir 
@@ -178,7 +178,7 @@ export default function InternetSanoPage() {
                   href="https://www.teprotejo.org" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-orange-600 to-red-600 px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-orange-500 hover:to-red-500 hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-[var(--accent-secondary)] hover:to-[var(--accent-primary)] hover:scale-105 transition-all duration-700 ease-in-out"
                 >
                   Reportar Contenido Ilegal
                   <ExternalLink className="w-4 h-4" />

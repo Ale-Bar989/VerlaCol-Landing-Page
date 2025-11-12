@@ -31,7 +31,7 @@ export const SECURITY_LAYERS: SecurityLayer[] = [
       "Traffic shaping",
     ],
     icon: Shield,
-    color: "emerald",
+    color: "blue",
   },
   {
     layer: "Capa 2: Protección de Contenido",
@@ -44,7 +44,7 @@ export const SECURITY_LAYERS: SecurityLayer[] = [
       "Sandboxing",
     ],
     icon: Eye,
-    color: "teal",
+    color: "blue",
   },
   {
     layer: "Capa 3: Encriptación",
@@ -57,7 +57,7 @@ export const SECURITY_LAYERS: SecurityLayer[] = [
       "HTTPS forzado",
     ],
     icon: Lock,
-    color: "green",
+    color: "blue",
   },
   {
     layer: "Capa 4: Monitoreo 24/7",
@@ -70,6 +70,6 @@ export const SECURITY_LAYERS: SecurityLayer[] = [
       "Alertas automáticas",
     ],
     icon: AlertTriangle,
-    color: "cyan",
+    color: "blue",
   },
 ];
