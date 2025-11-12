@@ -42,12 +42,12 @@ export default function TVDigitalPage() {
             <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               Conviértete en proveedor de IPTV con nuestra plataforma todo en uno
             </p>
-            <div className={`w-24 h-1 rounded-full mx-auto mt-6 ${isDark ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
+            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-[var(--accent-primary)]"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-blue-500">¿Por qué elegir nuestra plataforma IPTV?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[var(--accent-primary)]">¿Por qué elegir nuestra plataforma IPTV?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Check className="w-6 h-6 text-green-500 mr-3 shrink-0 mt-1" />
@@ -72,7 +72,7 @@ export default function TVDigitalPage() {
                 </li>
               </ul>
             </div>
-            <div className={`${isDark ? "bg-gray-800/90 border-gray-700" : "bg-gray-200/80 border-gray-200"} p-6 sm:p-8 rounded-2xl shadow-xl border transition-colors duration-300`}>
+            <div className={`${isDark ? "bg-gray-800/90 border-gray-700" : "bg-white/90 border-gray-200"} p-6 sm:p-8 rounded-2xl shadow-xl border transition-colors duration-300`}>
               <h3 className={`text-2xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>Ventajas Técnicas</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {TECHNICAL_ADVANTAGES_DATA.map((advantage, index) => {
@@ -80,12 +80,12 @@ export default function TVDigitalPage() {
                   return (
                     <div 
                       key={index} 
-                      className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-500/50" : "bg-white/90 border border-blue-400/50 hover:border-blue-500/50"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
+                      className={`${isDark ? "bg-gray-700/80 border-2 border-gray-500 hover:border-blue-[var(--accent-primary)]" : "bg-white/90 border border-blue-400/50 hover:border-blue-[var(--accent-primary)]"} group p-6 rounded-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg ${isDark ? 'hover:shadow-blue-900/30' : 'hover:shadow-blue-100'}`}
                     >
-                      <div className="mb-3 text-blue-600 dark:text-blue-400 transition-colors">
+                      <div className="mb-3 text-[var(--accent-primary)] dark:text-blue-400 transition-colors">
                         <Icon className="w-8 h-8" />
                       </div>
-                      <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                      <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`} style={{ color: 'var(--accent-primary)' }}>
                         {advantage.title}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -118,9 +118,7 @@ export default function TVDigitalPage() {
       <section className={`relative py-20 px-6 overflow-hidden ${isDark ? "bg-linear-to-br from-gray-950 to-gray-900" : "bg-linear-to-br from-gray-50 to-gray-100"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-20 ${
-            isDark ? 'radial-gradient-primary-dark' : 'radial-gradient-primary-light'
-          }`} />
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-20 bg-[radial-gradient(circle_at_center,var(--accent-primary),transparent_70%)]" />
         </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -131,7 +129,7 @@ export default function TVDigitalPage() {
             <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               Descubre nuestra amplia variedad de canales organizados por categorías
             </p>
-            <div className={`w-24 h-1 rounded-full mx-auto mt-6 ${isDark ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
+            <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-[var(--accent-primary)]"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -155,8 +153,7 @@ export default function TVDigitalPage() {
                         isDark ? 'service-icon-gradient-dark' : 'service-icon-gradient-light shadow-md'
                       }`}>
                         <Icon
-                          className="w-7 h-7 transition-transform duration-300 group-hover:scale-110"
-                          style={{ color: category.color }}
+                          className="w-8 h-8 text-[var(--accent-primary)] transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
                       <h3 className="text-2xl font-bold bg-clip-text text-transparent text-gradient-animated">
@@ -196,7 +193,7 @@ export default function TVDigitalPage() {
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Soluciones de IPTV Mayoristas
             </h2>
-            <div className={`w-20 h-1 mx-auto rounded-full ${isDark ? 'bg-blue-400' : 'bg-blue-600'}`}></div>
+            <div className="w-20 h-1 mx-auto rounded-full bg-[var(--accent-primary)]"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">

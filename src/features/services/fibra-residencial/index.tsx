@@ -68,8 +68,8 @@ export default function FibraResidencialPage() {
 
           {/* Light effects */}
           <div className="absolute inset-0">
-            <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full -translate-x-1/2 -translate-y-1/2 blur-[80px] radial-gradient-primary-dark" />
-            <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full translate-x-1/2 -translate-y-1/2 blur-[60px] radial-gradient-secondary" />
+            <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full -translate-x-1/2 -translate-y-1/2 blur-[80px] bg-[radial-gradient(circle_at_center,var(--accent-primary),transparent_70%)]" />
+            <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full translate-x-1/2 -translate-y-1/2 blur-[60px] bg-[radial-gradient(circle_at_center,var(--accent-secondary),transparent_70%)]" />
           </div>
         </div>
 
@@ -87,8 +87,8 @@ export default function FibraResidencialPage() {
                 <h2
                   className={`text-3xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r ${
                     isDark
-                      ? "from-blue-400 to-cyan-400"
-                      : "from-blue-600 to-cyan-600"
+                      ? "from-[var(--accent-primary)] to-[var(--accent-secondary)]"
+                      : "from-[var(--accent-primary)] to-[var(--accent-secondary)]"
                   }`}
                 >
                   Conexión de Próxima Generación
@@ -109,19 +109,19 @@ export default function FibraResidencialPage() {
                 <ul className="space-y-3">
                   {[
                     {
-                      icon: <Zap className="w-5 h-5 text-blue-400" />,
+                      icon: <Zap className="w-5 h-5 text-[var(--accent-primary)]" />,
                       text: "Velocidad simétrica garantizada",
                     },
                     {
-                      icon: <RefreshCw className="w-5 h-5 text-blue-400" />,
+                      icon: <RefreshCw className="w-5 h-5 text-[var(--accent-primary)]" />,
                       text: "Conexión directa FTTH",
                     },
                     {
-                      icon: <Gamepad2 className="w-5 h-5 text-blue-400" />,
+                      icon: <Gamepad2 className="w-5 h-5 text-[var(--accent-primary)]" />,
                       text: "Ideal para gaming y streaming",
                     },
                     {
-                      icon: <ShieldCheck className="w-5 h-5 text-blue-400" />,
+                      icon: <ShieldCheck className="w-5 h-5 text-[var(--accent-primary)]" />,
                       text: "Conexión segura y estable",
                     },
                   ].map((item, index) => (
@@ -140,8 +140,8 @@ export default function FibraResidencialPage() {
               </div>
 
               {/* Floating elements */}
-              <div className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-blue-500/20 blur-xl" />
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-cyan-500/20 blur-2xl" />
+              <div className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-[var(--accent-primary)]/20 blur-xl" />
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-[var(--accent-secondary)]/20 blur-2xl" />
             </div>
 
             {/* Image */}
@@ -162,10 +162,10 @@ export default function FibraResidencialPage() {
               />
               <div className="absolute inset-0 flex items-end p-8">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                  <div className="absolute -inset-1 bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
                   <button
                     onClick={() => (window.location.href = ROUTES.PRICING)}
-                    className="relative px-6 py-3 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-medium rounded-lg flex items-center space-x-2 transition-colors duration-200"
+                    className="relative px-6 py-3 bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] dark:text-white hover:from-[var(--accent-secondary)] hover:to-[var(--accent-primary)] font-medium rounded-lg flex items-center space-x-2 transition-colors duration-200"
                   >
                     <span>Ver planes disponibles</span>
                     <svg
@@ -229,8 +229,8 @@ export default function FibraResidencialPage() {
       >
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[#5B6FFF0D]" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[#7A8FFF0D]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-primary)]/10" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl bg-[var(--accent-secondary)]/10" />
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
@@ -244,7 +244,7 @@ export default function FibraResidencialPage() {
             </h2>
             <div
               className={`w-20 h-1 mx-auto rounded-full ${
-                isDark ? "bg-blue-400" : "bg-blue-600"
+                isDark ? "bg-[var(--accent-primary)]" : "bg-[var(--accent-primary)]"
               }`}
             ></div>
           </div>
@@ -260,14 +260,14 @@ export default function FibraResidencialPage() {
                 }`}
               >
                 {/* Hover effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-r from-[var(--accent-primary)]/5 to-[var(--accent-secondary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="flex items-center gap-4 relative z-10">
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:-translate-y-1 ${
                       isDark
                         ? "bg-gray-800 service-icon-shadow-dark"
-                        : "bg-blue-50 service-icon-shadow-light"
+                        : "bg-[var(--accent-primary)]/10 service-icon-shadow-light"
                     }`}
                   >
                     <Check

@@ -13,12 +13,12 @@ export default function SeguridadPage() {
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/10 rounded-2xl mb-6">
-            <Shield className="w-8 h-8 text-emerald-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--accent-primary)]/10 rounded-2xl mb-6">
+            <Shield className="w-8 h-8 text-[var(--accent-primary)]" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Seguridad en la{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)]">
               Red
             </span>
           </h1>
@@ -33,7 +33,7 @@ export default function SeguridadPage() {
           {/* Introducción */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-              <Lock className="w-6 h-6 text-emerald-400" />
+              <Lock className="w-6 h-6 text-[var(--accent-primary)]" />
               Seguridad Multicapa
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
@@ -47,7 +47,7 @@ export default function SeguridadPage() {
           {/* Capas de Seguridad */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="w-6 h-6 text-teal-400" />
+              <Server className="w-6 h-6 text-[var(--accent-secondary)]" />
               Capas de Protección
             </h2>
             <div className="space-y-4">
@@ -65,7 +65,7 @@ export default function SeguridadPage() {
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-emerald-400 mb-1">
+                      <h3 className="text-lg font-semibold text-[var(--accent-primary)] mb-1">
                         {level.layer}
                       </h3>
                       <p className="text-sm text-gray-300 mb-3">
@@ -114,10 +114,10 @@ export default function SeguridadPage() {
               ].map((cert, index) => (
                 <div
                   key={index}
-                  className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-5"
+                  className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-lg p-5"
                 >
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-400 mt-1 shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[var(--accent-primary)] mt-1 shrink-0" />
                     <div>
                       <h3 className="font-semibold text-white mb-1">
                         {cert.name}
@@ -138,32 +138,32 @@ export default function SeguridadPage() {
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 {
-                  icon: <Key className="w-5 h-5 text-emerald-400 inline-block mr-2" />,
+                  icon: <Key className="w-5 h-5 text-[var(--accent-primary)] inline-block mr-2" />,
                   title: "Contraseñas Fuertes",
                   tip: "Usa contraseñas únicas y largas, habilita autenticación de dos factores",
                 },
                 {
-                  icon: <RefreshCw className="w-5 h-5 text-emerald-400 inline-block mr-2" />,
+                  icon: <RefreshCw className="w-5 h-5 text-[var(--accent-primary)] inline-block mr-2" />,
                   title: "Actualiza Regularmente",
                   tip: "Mantén tu sistema operativo y aplicaciones siempre actualizados",
                 },
                 {
-                  icon: <ShieldAlert className="w-5 h-5 text-amber-400 inline-block mr-2" />,
+                  icon: <ShieldAlert className="w-5 h-5 text-[var(--accent-secondary)] inline-block mr-2" />,
                   title: "Cuidado con Phishing",
                   tip: "No hagas clic en enlaces sospechosos ni descargues archivos desconocidos",
                 },
                 {
-                  icon: <Smartphone className="w-5 h-5 text-blue-400 inline-block mr-2" />,
+                  icon: <Smartphone className="w-5 h-5 text-[var(--accent-primary)] inline-block mr-2" />,
                   title: "Protege tus Dispositivos",
                   tip: "Instala software de seguridad y mantén activo el firewall",
                 },
                 {
-                  icon: <Globe className="w-5 h-5 text-sky-400 inline-block mr-2" />,
+                  icon: <Globe className="w-5 h-5 text-[var(--accent-secondary)] inline-block mr-2" />,
                   title: "Navega Seguro",
                   tip: "Usa HTTPS siempre, evita redes WiFi públicas sin VPN",
                 },
                 {
-                  icon: <HardDrive className="w-5 h-5 text-purple-400 inline-block mr-2" />,
+                  icon: <HardDrive className="w-5 h-5 text-[var(--accent-primary)] inline-block mr-2" />,
                   title: "Respalda tus Datos",
                   tip: "Haz copias de seguridad periódicas de información importante",
                 },
@@ -192,9 +192,9 @@ export default function SeguridadPage() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-5 text-center"
+                className="bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20 rounded-xl p-5 text-center"
               >
-                <div className="text-3xl font-bold text-emerald-400 mb-1">
+                <div className="text-3xl font-bold text-[var(--accent-primary)] mb-1">
                   {stat.value}
                 </div>
                 <div className="text-xs text-gray-400">{stat.label}</div>
@@ -203,7 +203,7 @@ export default function SeguridadPage() {
           </section>
 
           {/* CTA */}
-          <section className="bg-linear-to-br from-emerald-600/10 to-teal-600/10 border border-emerald-500/20 rounded-2xl p-8 text-center">
+          <section className="bg-linear-to-br from-[var(--accent-primary)]/10 to-[var(--accent-secondary)]/10 border border-[var(--accent-primary)]/20 rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">
               ¿Preocupado por tu seguridad?
             </h2>
@@ -213,7 +213,7 @@ export default function SeguridadPage() {
             </p>
             <Link 
               to={ROUTES.CONTACT}
-              className="inline-block bg-linear-to-r from-emerald-600 to-teal-600 px-8 py-3 rounded-xl font-semibold hover:from-emerald-500 hover:to-teal-500 hover:scale-105 transition-all duration-700 ease-in-out"
+              className="inline-block bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-[var(--accent-secondary)] hover:to-[var(--accent-primary)] hover:scale-105 transition-all duration-700 ease-in-out"
             >
               Contactar Experto en Seguridad
             </Link>

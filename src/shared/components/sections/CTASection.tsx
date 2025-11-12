@@ -52,7 +52,7 @@ export default function CTASection({
           className="relative p-8 md:p-12 lg:p-16 rounded-3xl overflow-hidden mx-auto"
           style={{
             background: isDark
-              ? "linear-gradient(135deg, rgba(91, 111, 255, 0.1), rgba(74, 92, 255, 0.15))"
+              ? "linear-gradient(135deg, rgba(74, 92, 255, 0.1), rgba(122, 143, 255, 0.15))"
               : "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98))",
             border: `1px solid ${
               isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)"
@@ -67,8 +67,8 @@ export default function CTASection({
           }}
         >
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 -ml-32 -mb-32 bg-cyan-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 bg-[var(--accent-primary)]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 -ml-32 -mb-32 bg-[var(--accent-secondary)]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
 
           <div className="relative z-10 text-center">
             <h2
@@ -95,30 +95,30 @@ export default function CTASection({
                   onClick={handleClick}
                   className={`group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full transition-all duration-500 overflow-hidden ${
                     isDark
-                      ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-                      : "bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1"
+                      ? "bg-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/90 text-white border border-[var(--accent-primary)]/30"
+                      : "bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-primary)]/90 hover:to-[var(--accent-secondary)]/90 text-white shadow-lg hover:shadow-xl hover:-translate-y-1"
                   }`}
                 >
                   <span className={`relative z-10 flex items-center`}>
                     {buttonText}
                     <ArrowRight className="ml-3 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </span>
-                  <span className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
                 </button>
               ) : (
                 <Link
                   to={buttonLink}
                   className={`group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-full transition-all duration-500 overflow-hidden ${
                     isDark
-                      ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-                      : "bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-1"
+                      ? "bg-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/90 text-white border border-[var(--accent-primary)]/30"
+                      : "bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-primary)]/90 hover:to-[var(--accent-secondary)]/90 dark:text-white shadow-lg hover:shadow-xl hover:-translate-y-1"
                   }`}
                 >
                   <span className={`relative z-10 flex items-center`}>
                     {buttonText}
                     <ArrowRight className="ml-3 w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
                   </span>
-                  <span className="absolute inset-0 bg-linear-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-linear-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] opacity-0 group-hover:opacity-20 transition-opacity duration-500"></span>
                 </Link>
               )}
             </div>
