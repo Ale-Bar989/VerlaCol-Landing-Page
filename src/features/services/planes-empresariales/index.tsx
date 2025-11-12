@@ -6,7 +6,6 @@ import {
   CTASection,
 } from "@/shared/components";
 import { useLocalTheme } from "@/shared/hooks/useLocalTheme";
-import { DESIGN_SYSTEM } from "@/shared/styles/design-system";
 import { ROUTES } from "@/core/router/routes.config";
 import {
   BUSINESS_FEATURES,
