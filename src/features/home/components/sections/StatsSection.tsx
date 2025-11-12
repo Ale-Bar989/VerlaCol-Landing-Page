@@ -151,6 +151,6 @@ const StatsSection: React.FC = () => {
   );
 };
 
-StatsSection.displayName = 'StatsSection';
+StatsSection.displayName = "StatsSection";
 
 export default memo(StatsSection);
