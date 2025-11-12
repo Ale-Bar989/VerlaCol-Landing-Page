@@ -334,6 +334,43 @@ div[class*="border"] {
   filter: brightness(1) contrast(1.05);
 }
 
+/* Botones CTA con gradiente - texto blanco en AMBOS temas */
+.light [class*="bg-linear-to-r"][class*="from-(--accent-primary)"][class*="to-(--accent-secondary)"],
+.light a[class*="bg-linear-to-r"][class*="from-(--accent-primary)"],
+.light button[class*="bg-linear-to-r"][class*="from-(--accent-primary)"] {
+  color: #ffffff !important;
+}
+
+/* Asegurar que el texto sea blanco en hover también */
+.light [class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover,
+.light a[class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover,
+.light button[class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover {
+  color: #ffffff !important;
+}
+
+/* Botones con inline gradient styles - texto blanco en tema claro */
+.light a[style*="linear-gradient"][style*="74, 92, 255"],
+.light button[style*="linear-gradient"][style*="74, 92, 255"],
+.light a[style*="linear-gradient"][style*="122, 143, 255"],
+.light button[style*="linear-gradient"][style*="122, 143, 255"] {
+  color: #ffffff !important;
+}
+
+/* Texto dentro de spans en botones con gradiente */
+.light a[style*="linear-gradient"] span,
+.light button[style*="linear-gradient"] span,
+.light a[style*="linear-gradient"] .text-white,
+.light button[style*="linear-gradient"] .text-white {
+  color: #ffffff !important;
+}
+
+/* SVG icons en botones con gradiente - mantener blanco */
+.light a[style*="linear-gradient"] svg,
+.light button[style*="linear-gradient"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 /* Shadows en tema claro - más sutiles */
 .light [class*="shadow"] {
   filter: brightness(1.1);
