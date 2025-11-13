@@ -1,5 +1,5 @@
 import { FileText, Scale, BookOpen, ExternalLink } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import { PageLayout, ParallaxBackground } from "@/shared//components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
 import { MAIN_LAWS, AGENCIES } from "./data/laws.data";
@@ -11,21 +11,26 @@ export default function NormatividadPage() {
   return (
     <PageLayout>
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-(--accent-primary)/10 rounded-2xl mb-6">
-            <FileText className="w-8 h-8 text-(--accent-primary)" />
+        {/* Header with Parallax Effect */}
+        <div className="mb-16">
+          <ParallaxBackground 
+          imageUrl="/images/backgrounds/9.jpg" 
+          className="mb-16 rounded-2xl overflow-hidden"
+          height="400px"
+        >
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Marco{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
+                  Normativo
+                </span>
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Legislación y regulaciones que rigen nuestras operaciones en
+                Colombia
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Marco{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-              Normativo
-            </span>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Legislación y regulaciones que rigen nuestras operaciones en
-            Colombia
-          </p>
+        </ParallaxBackground>
         </div>
 
         {/* Content */}

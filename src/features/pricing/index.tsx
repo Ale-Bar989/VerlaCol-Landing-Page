@@ -1,7 +1,7 @@
 import { Check, ArrowRight, Wifi } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BackgroundEffects, Modal } from "@/shared/components";
+import { BackgroundEffects, Modal, PlanBanner } from "@/shared/components";
 import { Navbar } from "@/shared/components";
 import { ROUTES } from "@/core/router/routes.config";
 import FooterSection from "@/features/home/components/sections/FooterSection";
@@ -96,49 +96,23 @@ export default function PricingPage() {
                   <div className={`absolute inset-0 opacity-0 transition-opacity duration-700 `}></div>
 
                   {/* Contenido */}
-                  <div className="relative p-6 sm:p-8">
-                    {/* Header del plan */}
-                    <div className="text-center mb-6 sm:mb-8">
-                      {/* Icono del plan */}
-                      <div className="flex justify-center mb-4">
-                        <div
-                          className="relative w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500"
-                          style={{
-                            background: `linear-gradient(135deg, ${plan.gradient
-                              .replace("from-", "")
-                              .replace("to-", ", ")
-                              .replace("via-", ", ")})`,
-                            boxShadow: `0 8px 25px ${
-                              plan.highlighted
-                                ? "rgba(74, 92, 255, 0.4)"
-                                : "rgba(74, 92, 255, 0.2)"
-                            }`,
-                          }}
-                        >
-                          <plan.icon
-                            className="w-8 h-8 text-white"
-                            strokeWidth={2.5}
-                          />
-                          {/* Efecto de pulso sutil */}
-                          <div
-                            className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500`}
-                            style={{
-                              background: `linear-gradient(135deg, ${plan.gradient
-                                .replace("from-", "")
-                                .replace("to-", ", ")
-                                .replace("via-", ", ")})`,
-                              filter: "blur(8px)",
-                            }}
-                          ></div>
-                        </div>
-                      </div>
+                  <div className="relative">
+                    {/* Header del plan con banner */}
+                    <PlanBanner
+                      imageUrl={
+                        plan.name === "Plan Hogar" ? "/images/backgrounds/5.jpg" :
+                        plan.name === "Plan Familia" ? "/images/backgrounds/6.jpg" :
+                        "/images/backgrounds/12.jpg"
+                      }
+                      title={plan.name}
+                      subtitle={plan.subtitle}
+                      className="rounded-t-3xl h-32"
+                      opacity={0.6}
+                    />
 
-                      <h3 className="text-xl sm:text-2xl font-black mb-1 text-white">
-                        {plan.name}
-                      </h3>
-                      <p className="text-sm text-gray-400 mb-6">
-                        {plan.subtitle}
-                      </p>
+                    {/* Resto del contenido */}
+                    <div className="p-6 sm:p-8">
+                      <div className="text-center mb-6 sm:mb-8">
 
                       {/* Velocidad */}
                       <div className="mb-4 sm:mb-6">
@@ -267,6 +241,7 @@ export default function PricingPage() {
                       />
                     </Link>
                   </div>
+                </div>
 
                   {/* Línea decorativa inferior */}
                   <div
