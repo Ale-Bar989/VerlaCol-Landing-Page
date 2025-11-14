@@ -1,4 +1,4 @@
-import { Filter, Settings, Shield, CheckCircle2 } from "lucide-react";
+import { Settings, Shield, CheckCircle2 } from "lucide-react";
 import { PageLayout, ParallaxBackground } from "@/shared/components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
@@ -16,26 +16,26 @@ export default function FiltradoPage() {
     <PageLayout>
       <div className="container mx-auto mb-16 mt-16 px-6 max-w-5xl">
         {/* Header with Parallax Effect */}
-                                  <div className="mb-16">
-                                    <ParallaxBackground 
-                                    imageUrl="/images/backgrounds/7.jpg" 
-                                    className="mb-16 rounded-2xl overflow-hidden"
-                                    height="400px"
-                                  >
-                                    <div className="text-center">
-                                      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                                        Mecanismos de{" "}
-                                          <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-                                            Filtrado
-                                          </span>
-                                      </h1>
-                                      <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                                        Sistemas avanzados de control de contenido para un internet más
-            seguro
-                                      </p>
-                                    </div>
-                                  </ParallaxBackground>
-                                  </div>
+        <div className="mb-16">
+          <ParallaxBackground
+            imageUrl="/images/backgrounds/7.jpg"
+            className="mb-16 rounded-2xl overflow-hidden"
+            height="400px"
+          >
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Mecanismos de{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
+                  Filtrado
+                </span>
+              </h1>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Sistemas avanzados de control de contenido para un internet más
+                seguro
+              </p>
+            </div>
+          </ParallaxBackground>
+        </div>
 
         {/* Content */}
         <div className="space-y-12">

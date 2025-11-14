@@ -1,4 +1,4 @@
-import { FileText, Scale, BookOpen, ExternalLink } from "lucide-react";
+import { Scale, BookOpen, ExternalLink } from "lucide-react";
 import { PageLayout, ParallaxBackground } from "@/shared//components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
@@ -13,24 +13,24 @@ export default function NormatividadPage() {
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header with Parallax Effect */}
         <div className="mb-16">
-          <ParallaxBackground 
-          imageUrl="/images/backgrounds/9.jpg" 
-          className="mb-16 rounded-2xl overflow-hidden"
-          height="400px"
-        >
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Marco{" "}
+          <ParallaxBackground
+            imageUrl="/images/backgrounds/9.jpg"
+            className="mb-16 rounded-2xl overflow-hidden"
+            height="400px"
+          >
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Marco{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
                   Normativo
                 </span>
-            </h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Legislación y regulaciones que rigen nuestras operaciones en
+              </h1>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Legislación y regulaciones que rigen nuestras operaciones en
                 Colombia
-            </p>
-          </div>
-        </ParallaxBackground>
+              </p>
+            </div>
+          </ParallaxBackground>
         </div>
 
         {/* Content */}
@@ -42,11 +42,10 @@ export default function NormatividadPage() {
               Marco Legal Vigente
             </h2>
             <p className="text-gray-300 leading-relaxed">
-              VERLA opera bajo estricto cumplimiento de la normativa
-              colombiana en materia de telecomunicaciones, protección de datos y
-              servicios digitales. Nuestro compromiso es mantener la
-              transparencia total con nuestros usuarios respecto a las leyes que
-              nos rigen.
+              VERLA opera bajo estricto cumplimiento de la normativa colombiana
+              en materia de telecomunicaciones, protección de datos y servicios
+              digitales. Nuestro compromiso es mantener la transparencia total
+              con nuestros usuarios respecto a las leyes que nos rigen.
             </p>
           </section>
 
@@ -115,7 +114,7 @@ export default function NormatividadPage() {
               Nuestro departamento legal está disponible para aclarar cualquier
               duda sobre normativas
             </p>
-            <Link 
+            <Link
               to={ROUTES.CONTACT}
               className="inline-block bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-(--accent-secondary) hover:to-(--accent-primary) hover:scale-105 transition-all duration-700 ease-in-out"
             >

@@ -1,4 +1,14 @@
-import { Lock, Server, CheckCircle, Shield, Key, RefreshCw, ShieldAlert, Smartphone, Globe, HardDrive } from "lucide-react";
+import {
+  Lock,
+  Server,
+  CheckCircle,
+  Key,
+  RefreshCw,
+  ShieldAlert,
+  Smartphone,
+  Globe,
+  HardDrive,
+} from "lucide-react";
 import { PageLayout, ParallaxBackground } from "@/shared/components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
@@ -12,26 +22,26 @@ export default function SeguridadPage() {
     <PageLayout>
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
         {/* Header with Parallax Effect */}
-                                  <div className="mb-16">
-                                    <ParallaxBackground 
-                                    imageUrl="/images/backgrounds/7.jpg" 
-                                    className="mb-16 rounded-2xl overflow-hidden"
-                                    height="400px"
-                                  >
-                                    <div className="text-center">
-                                      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                                        Seguridad en la{" "}
-                                          <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-                                            Red
-                                          </span>
-                                      </h1>
-                                      <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                                        rotocolos y medidas de seguridad de clase mundial para proteger tu
-            conexión
-                                      </p>
-                                    </div>
-                                  </ParallaxBackground>
-                                  </div>
+        <div className="mb-16">
+          <ParallaxBackground
+            imageUrl="/images/backgrounds/7.jpg"
+            className="mb-16 rounded-2xl overflow-hidden"
+            height="400px"
+          >
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Seguridad en la{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
+                  Red
+                </span>
+              </h1>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                rotocolos y medidas de seguridad de clase mundial para proteger
+                tu conexión
+              </p>
+            </div>
+          </ParallaxBackground>
+        </div>
 
         {/* Content */}
         <div className="space-y-12">
@@ -143,32 +153,44 @@ export default function SeguridadPage() {
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 {
-                  icon: <Key className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />,
+                  icon: (
+                    <Key className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />
+                  ),
                   title: "Contraseñas Fuertes",
                   tip: "Usa contraseñas únicas y largas, habilita autenticación de dos factores",
                 },
                 {
-                  icon: <RefreshCw className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />,
+                  icon: (
+                    <RefreshCw className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />
+                  ),
                   title: "Actualiza Regularmente",
                   tip: "Mantén tu sistema operativo y aplicaciones siempre actualizados",
                 },
                 {
-                  icon: <ShieldAlert className="w-5 h-5 text-(--accent-secondary) inline-block mr-2" />,
+                  icon: (
+                    <ShieldAlert className="w-5 h-5 text-(--accent-secondary) inline-block mr-2" />
+                  ),
                   title: "Cuidado con Phishing",
                   tip: "No hagas clic en enlaces sospechosos ni descargues archivos desconocidos",
                 },
                 {
-                  icon: <Smartphone className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />,
+                  icon: (
+                    <Smartphone className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />
+                  ),
                   title: "Protege tus Dispositivos",
                   tip: "Instala software de seguridad y mantén activo el firewall",
                 },
                 {
-                  icon: <Globe className="w-5 h-5 text-(--accent-secondary) inline-block mr-2" />,
+                  icon: (
+                    <Globe className="w-5 h-5 text-(--accent-secondary) inline-block mr-2" />
+                  ),
                   title: "Navega Seguro",
                   tip: "Usa HTTPS siempre, evita redes WiFi públicas sin VPN",
                 },
                 {
-                  icon: <HardDrive className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />,
+                  icon: (
+                    <HardDrive className="w-5 h-5 text-(--accent-primary) inline-block mr-2" />
+                  ),
                   title: "Respalda tus Datos",
                   tip: "Haz copias de seguridad periódicas de información importante",
                 },
@@ -216,7 +238,7 @@ export default function SeguridadPage() {
               Nuestro equipo de expertos en seguridad está disponible para
               asesorarte
             </p>
-            <Link 
+            <Link
               to={ROUTES.CONTACT}
               className="inline-block bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) px-8 py-3 rounded-xl font-semibold dark:text-white hover:from-(--accent-secondary) hover:to-(--accent-primary) hover:scale-105 transition-all duration-700 ease-in-out"
             >
