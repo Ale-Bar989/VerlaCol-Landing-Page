@@ -1738,11 +1738,19 @@ button[class*="from-purple-"][class*="to-pink-"] {
 
 /* Botones CTA con clase btn-cta-primary - Texto e iconos blancos */
 .light .btn-cta-primary,
+.light .btn-cta-primary *,
 .light .btn-cta-primary svg,
 .btn-cta-primary,
+.btn-cta-primary *,
 .btn-cta-primary svg {
   color: #ffffff !important;
   stroke: #ffffff !important;
+}
+
+/* Asegurar que span y elementos internos también sean blancos */
+.btn-cta-primary span,
+.light .btn-cta-primary span {
+  color: #ffffff !important;
 }
 
 /* Iconos y texto en gradient-icon-box - Blancos en tema claro */

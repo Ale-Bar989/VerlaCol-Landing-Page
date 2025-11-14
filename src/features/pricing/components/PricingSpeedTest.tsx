@@ -235,7 +235,7 @@ export const PricingSpeedTest: React.FC<PricingSpeedTestProps> = ({
       <button
         onClick={startTest}
         disabled={isRunning}
-        className="w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden btn-cta-primary"
+        className="w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden btn-cta-primary"
       >
         <span className="relative flex items-center justify-center gap-2">
           <Zap className="w-5 h-5" strokeWidth={2.5} />
