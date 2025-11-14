@@ -42,7 +42,9 @@ export default function PricingPage() {
             {/* Título */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight px-2">
               Elige el plan{" "}
-              <span className="text-transparent bg-clip-text inline-block gradient-text-primary">perfecto</span>
+              <span className="text-transparent bg-clip-text inline-block gradient-text-primary">
+                perfecto
+              </span>
               <br />
               para tu hogar
             </h1>
@@ -93,16 +95,20 @@ export default function PricingPage() {
                   }`}
                 >
                   {/* Gradiente animado de fondo */}
-                  <div className={`absolute inset-0 opacity-0 transition-opacity duration-700 `}></div>
+                  <div
+                    className={`absolute inset-0 opacity-0 transition-opacity duration-700 `}
+                  ></div>
 
                   {/* Contenido */}
                   <div className="relative">
                     {/* Header del plan con banner */}
                     <PlanBanner
                       imageUrl={
-                        plan.name === "Plan Hogar" ? "/images/backgrounds/5.jpg" :
-                        plan.name === "Plan Familia" ? "/images/backgrounds/6.jpg" :
-                        "/images/backgrounds/12.jpg"
+                        plan.name === "Plan Hogar"
+                          ? "/images/backgrounds/5.jpg"
+                          : plan.name === "Plan Familia"
+                          ? "/images/backgrounds/6.jpg"
+                          : "/images/backgrounds/12.jpg"
                       }
                       title={plan.name}
                       subtitle={plan.subtitle}
@@ -113,135 +119,138 @@ export default function PricingPage() {
                     {/* Resto del contenido */}
                     <div className="p-6 sm:p-8">
                       <div className="text-center mb-6 sm:mb-8">
-
-                      {/* Velocidad */}
-                      <div className="mb-4 sm:mb-6">
-                        <div
-                          className="text-4xl sm:text-5xl font-black mb-2 text-transparent bg-clip-text"
-                          style={{
-                            backgroundImage: `linear-gradient(135deg, ${plan.gradient
-                              .replace("from-", "")
-                              .replace("to-", ", ")
-                              .replace("via-", ", ")})`,
-                          }}
-                        >
-                          {plan.speed}
+                        {/* Velocidad */}
+                        <div className="mb-4 sm:mb-6">
+                          <div className="text-4xl sm:text-5xl font-black mb-2">
+                            <span
+                              className="text-transparent bg-clip-text"
+                              style={{
+                                backgroundImage:
+                                  plan.name === "Plan Hogar"
+                                    ? "linear-gradient(135deg, #4A5CFF, #7A8FFF)"
+                                    : plan.name === "Plan Familia"
+                                    ? "linear-gradient(135deg, #5B6FFF, #4A5CFF, #7A8FFF)"
+                                    : "linear-gradient(135deg, #7A8FFF, #4A5CFF)",
+                              }}
+                            >
+                              {plan.speed}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-500">
+                            {plan.speedLabel}
+                          </p>
                         </div>
-                        <p className="text-sm text-gray-500">
-                          {plan.speedLabel}
-                        </p>
-                      </div>
 
-                      {/* Precio */}
-                      <div className="flex items-baseline justify-center gap-0.5 sm:gap-1 mb-2">
-                        <span className="text-2xl sm:text-3xl text-gray-400">
-                          $
-                        </span>
-                        <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
-                          {plan.price}
-                        </span>
-                        <span className="text-base sm:text-xl text-gray-400">
-                          /mes
-                        </span>
-                      </div>
-
-                      {/* Ahorro (solo para Plan Familia) */}
-                      {plan.savings && (
-                        <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
-                          <svg
-                            className="w-4 h-4 text-green-400"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                          <span className="text-xs font-semibold text-green-400">
-                            {plan.savings}
+                        {/* Precio */}
+                        <div className="flex items-baseline justify-center gap-0.5 sm:gap-1 mb-2">
+                          <span className="text-2xl sm:text-3xl text-gray-400">
+                            $
                           </span>
+                          <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
+                            {plan.price}
+                          </span>
+                          <span className="text-base sm:text-xl text-gray-400">
+                            /mes
+                          </span>
+                        </div>
+
+                        {/* Ahorro (solo para Plan Familia) */}
+                        {plan.savings && (
+                          <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
+                            <svg
+                              className="w-4 h-4 text-green-400"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            <span className="text-xs font-semibold text-green-400">
+                              {plan.savings}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Extra Info (solo para Plan Familia) */}
+                      {plan.extraInfo && (
+                        <div className="mb-4 sm:mb-6 grid grid-cols-1 gap-2">
+                          {plan.extraInfo.map((info, i) => {
+                            const IconComponent = info.icon;
+                            return (
+                              <div
+                                key={i}
+                                className="flex items-center gap-2 px-3 py-2 rounded-lg gradient-section-bg-alt"
+                              >
+                                <IconComponent className="w-4 h-4 text-[#4A5CFF]" />
+                                <span className="text-xs text-gray-300 font-medium">
+                                  {info.text}
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
                       )}
-                    </div>
 
-                    {/* Extra Info (solo para Plan Familia) */}
-                    {plan.extraInfo && (
-                      <div className="mb-4 sm:mb-6 grid grid-cols-1 gap-2">
-                        {plan.extraInfo.map((info, i) => {
-                          const IconComponent = info.icon;
-                          return (
-                            <div
-                              key={i}
-                              className="flex items-center gap-2 px-3 py-2 rounded-lg gradient-section-bg-alt"
-                            >
-                              <IconComponent className="w-4 h-4 text-[#4A5CFF]" />
-                              <span className="text-xs text-gray-300 font-medium">
-                                {info.text}
-                              </span>
+                      {/* Features */}
+                      <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
+                        {plan.features.map((feature, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 gradient-check-circle">
+                              <Check
+                                className="w-3 h-3 text-white"
+                                strokeWidth={3}
+                              />
                             </div>
-                          );
-                        })}
-                      </div>
-                    )}
-
-                    {/* Features */}
-                    <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
-                      {plan.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 gradient-check-circle">
-                            <Check
-                              className="w-3 h-3 text-white"
-                              strokeWidth={3}
-                            />
+                            <span className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                              {feature}
+                            </span>
                           </div>
-                          <span className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
+
+                      {/* Botón CTA moderno con icono */}
+                      <Link
+                        to={ROUTES.CONTACT}
+                        className={`group/btn relative flex items-center justify-center gap-1.5 sm:gap-2 w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden ${
+                          plan.highlighted
+                            ? "text-white shadow-lg hover:shadow-xl hover:scale-105"
+                            : "bg-white/10 text-white border border-white/20 hover:bg-white/15 hover:border-white/30"
+                        }`}
+                        style={
+                          plan.highlighted
+                            ? {
+                                background:
+                                  "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
+                                boxShadow: "0 10px 30px rgba(74, 92, 255, 0.4)",
+                              }
+                            : undefined
+                        }
+                      >
+                        {/* Efecto de brillo en hover */}
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
+
+                        {/* Icono WiFi */}
+                        <Wifi
+                          className="w-5 h-5 group-hover/btn:scale-110 transition-transform"
+                          strokeWidth={2.5}
+                        />
+
+                        <span className="relative">{plan.buttonText}</span>
+
+                        {/* Icono de flecha */}
+                        <ArrowRight
+                          className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform"
+                          strokeWidth={2.5}
+                        />
+                      </Link>
                     </div>
-
-                    {/* Botón CTA moderno con icono */}
-                    <Link
-                      to={ROUTES.CONTACT}
-                      className={`group/btn relative flex items-center justify-center gap-1.5 sm:gap-2 w-full py-3 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden ${
-                        plan.highlighted
-                          ? "text-white shadow-lg hover:shadow-xl hover:scale-105"
-                          : "bg-white/10 text-white border border-white/20 hover:bg-white/15 hover:border-white/30"
-                      }`}
-                      style={
-                        plan.highlighted
-                          ? {
-                              background:
-                                "linear-gradient(135deg, #4A5CFF, #7A8FFF)",
-                              boxShadow: "0 10px 30px rgba(74, 92, 255, 0.4)",
-                            }
-                          : undefined
-                      }
-                    >
-                      {/* Efecto de brillo en hover */}
-                      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out"></div>
-
-                      {/* Icono WiFi */}
-                      <Wifi
-                        className="w-5 h-5 group-hover/btn:scale-110 transition-transform"
-                        strokeWidth={2.5}
-                      />
-
-                      <span className="relative">{plan.buttonText}</span>
-
-                      {/* Icono de flecha */}
-                      <ArrowRight
-                        className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform"
-                        strokeWidth={2.5}
-                      />
-                    </Link>
                   </div>
-                </div>
 
                   {/* Línea decorativa inferior */}
                   <div
