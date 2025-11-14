@@ -49,14 +49,14 @@ function Navbar() {
           : "bg-white/90 border-gray-300/60 shadow-md"
       }`}
     >
-      <div className="container mx-auto px-6 py-3">
+      <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to={ROUTES.HOME} className="group flex items-center">
             <img
               src={LogoVerla}
               alt="Verla"
-              className="h-14 w-auto max-w-[200px]"
+              className="h-20 w-auto max-w-[220px]"
               style={{
                 transition: "all 300ms ease",
                 filter: isDark
@@ -195,7 +195,7 @@ function Navbar() {
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
                             ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
-                            : "bg-linear-to-br from-blue-100/80 to-blue-50/40 hover:from-blue-200 hover:to-indigo-100 border-blue-200 hover:border-blue-400 hover:shadow-lg"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
                         <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
@@ -260,12 +260,12 @@ function Navbar() {
                         to={ROUTES.LEGAL.PROTECCION_DATOS}
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
-                            ? "bg-linear-to-br from-blue-500/5 to-transparent hover:from-blue-500/15 hover:to-blue-500/5 border-transparent hover:border-blue-500/30"
-                            : "bg-linear-to-br from-sky-100/80 to-sky-50/40 hover:from-sky-200 hover:to-blue-100 border-sky-200 hover:border-sky-400 hover:shadow-lg"
+                            ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-blue-500/20 to-blue-600/10 group-hover/item:from-blue-500/30 group-hover/item:to-blue-600/20 transition-all duration-300 shadow-lg shadow-blue-500/10">
-                          <Lock className="w-4 h-4 text-blue-400 group-hover/item:scale-110 transition-transform" />
+                        <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
+                          <Lock className="w-4 h-4 text-[#4A5CFF] group-hover/item:scale-110 transition-transform" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
@@ -293,12 +293,12 @@ function Navbar() {
                         to={ROUTES.LEGAL.INTERNET_SANO}
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
-                            ? "bg-linear-to-br from-cyan-500/5 to-transparent hover:from-cyan-500/15 hover:to-cyan-500/5 border-transparent hover:border-cyan-500/30"
-                            : "bg-linear-to-br from-cyan-100/80 to-cyan-50/40 hover:from-cyan-200 hover:to-teal-100 border-cyan-200 hover:border-cyan-400 hover:shadow-lg"
+                            ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-cyan-500/20 to-cyan-600/10 group-hover/item:from-cyan-500/30 group-hover/item:to-cyan-600/20 transition-all duration-300 shadow-lg shadow-cyan-500/10">
-                          <Globe className="w-4 h-4 text-cyan-400 group-hover/item:scale-110 transition-transform" />
+                        <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
+                          <Globe className="w-4 h-4 text-[#4A5CFF] group-hover/item:scale-110 transition-transform" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
@@ -329,12 +329,12 @@ function Navbar() {
                         to={ROUTES.LEGAL.FILTRADO}
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
-                            ? "bg-linear-to-br from-orange-500/5 to-transparent hover:from-orange-500/15 hover:to-orange-500/5 border-transparent hover:border-orange-500/30"
-                            : "bg-linear-to-br from-orange-100/80 to-orange-50/40 hover:from-orange-200 hover:to-amber-100 border-orange-200 hover:border-orange-400 hover:shadow-lg"
+                            ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-orange-500/20 to-orange-600/10 group-hover/item:from-orange-500/30 group-hover/item:to-orange-600/20 transition-all duration-300 shadow-lg shadow-orange-500/10">
-                          <Filter className="w-4 h-4 text-orange-400 group-hover/item:scale-110 transition-transform" />
+                        <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
+                          <Filter className="w-4 h-4 text-[#4A5CFF] group-hover/item:scale-110 transition-transform" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
@@ -362,12 +362,12 @@ function Navbar() {
                         to={ROUTES.LEGAL.SEGURIDAD}
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
-                            ? "bg-linear-to-br from-green-500/5 to-transparent hover:from-green-500/15 hover:to-green-500/5 border-transparent hover:border-green-500/30"
-                            : "bg-linear-to-br from-emerald-100/80 to-emerald-50/40 hover:from-emerald-200 hover:to-green-100 border-emerald-200 hover:border-emerald-400 hover:shadow-lg"
+                            ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-green-500/20 to-green-600/10 group-hover/item:from-green-500/30 group-hover/item:to-green-600/20 transition-all duration-300 shadow-lg shadow-green-500/10">
-                          <Shield className="w-4 h-4 text-green-400 group-hover/item:scale-110 transition-transform" />
+                        <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
+                          <Shield className="w-4 h-4 text-[#4A5CFF] group-hover/item:scale-110 transition-transform" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div
@@ -396,7 +396,7 @@ function Navbar() {
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
                             ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
-                            : "bg-linear-to-br from-violet-100/80 to-violet-50/40 hover:from-violet-200 hover:to-purple-100 border-violet-200 hover:border-violet-400 hover:shadow-lg"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
                         <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
@@ -429,7 +429,7 @@ function Navbar() {
                         className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
                           isDark
                             ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
-                            : "bg-linear-to-br from-pink-100/80 to-pink-50/40 hover:from-pink-200 hover:to-rose-100 border-pink-200 hover:border-pink-400 hover:shadow-lg"
+                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
                         }`}
                       >
                         <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
