@@ -1,5 +1,13 @@
-import { Shield, Heart, Lock, Eye, Settings, AlertCircle, BookOpen } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import {
+  Shield,
+  Heart,
+  Lock,
+  Eye,
+  Settings,
+  AlertCircle,
+  BookOpen,
+} from "lucide-react";
+import { PageLayout, ParallaxBackground } from "@/shared//components";
 import { PROTECTION_MEASURES } from "./data/protection.data";
 
 // Página de Protección Infantil
@@ -9,22 +17,34 @@ export default function ProteccionInfantilPage() {
   return (
     <PageLayout>
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-5xl">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-(--accent-primary)/10 rounded-2xl mb-6">
-            <Shield className="w-8 h-8 text-(--accent-primary)" />
+        {/* Header con ParallaxBackground */}
+        <ParallaxBackground
+          imageUrl="/images/backgrounds/5.jpg"
+          className="mb-16 rounded-2xl overflow-hidden"
+          height="400px"
+        >
+          <div className="relative z-10 text-center h-full flex flex-col items-center justify-center px-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 gradient-icon-box">
+              <Shield className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight text-white">
+              Protección{" "}
+              <div className="relative inline-block">
+                <span className="text-transparent bg-clip-text animate-gradient gradient-text-animated">
+                  Infantil
+                </span>
+                {/* Underline */}
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#4A5CFF] to-transparent"></div>
+              </div>
+            </h1>
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+              Medidas y protocolos para garantizar un entorno digital{" "}
+              <span className="text-white font-semibold">
+                seguro para menores de edad
+              </span>
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Protección{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-(--accent-primary) to-(--accent-secondary)">
-              Infantil
-            </span>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Medidas y protocolos para garantizar un entorno digital seguro para
-            menores de edad
-          </p>
-        </div>
+        </ParallaxBackground>
 
         {/* Content */}
         <div className="space-y-12">
@@ -75,27 +95,31 @@ export default function ProteccionInfantilPage() {
                 {
                   icon: Eye,
                   title: "Supervisión Activa",
-                  description: "Mantén comunicación abierta con tus hijos sobre su actividad en línea y revisa periódicamente su uso.",
-                  color: "primary"
+                  description:
+                    "Mantén comunicación abierta con tus hijos sobre su actividad en línea y revisa periódicamente su uso.",
+                  color: "primary",
                 },
                 {
                   icon: Settings,
                   title: "Configura Controles",
-                  description: "Utiliza las herramientas de control parental disponibles para establecer límites apropiados.",
-                  color: "secondary"
+                  description:
+                    "Utiliza las herramientas de control parental disponibles para establecer límites apropiados.",
+                  color: "secondary",
                 },
                 {
                   icon: AlertCircle,
                   title: "Reporta Incidentes",
-                  description: "Si detectas contenido inapropiado, repórtalo inmediatamente a través de nuestros canales oficiales.",
-                  color: "primary"
+                  description:
+                    "Si detectas contenido inapropiado, repórtalo inmediatamente a través de nuestros canales oficiales.",
+                  color: "primary",
                 },
                 {
                   icon: BookOpen,
                   title: "Educa sobre Seguridad",
-                  description: "Enseña a los menores sobre los riesgos en línea y cómo navegar de forma segura.",
-                  color: "secondary"
-                }
+                  description:
+                    "Enseña a los menores sobre los riesgos en línea y cómo navegar de forma segura.",
+                  color: "secondary",
+                },
               ].map((item, index) => (
                 <div
                   key={index}

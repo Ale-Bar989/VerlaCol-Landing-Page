@@ -9,7 +9,7 @@ import {
   Wifi,
   Zap,
 } from "lucide-react";
-import { PageLayout } from "@/shared//components";
+import { PageLayout, ParallaxBackground } from "@/shared//components";
 import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
 
@@ -20,31 +20,34 @@ export default function ComparadorTarifasPage() {
   return (
     <PageLayout>
       <div className="container mx-auto mt-16 mb-16 px-6 max-w-6xl">
-        {/* Header con efectos modernos */}
-        <div className="mb-16 text-center relative">
-          {/* Glow effect */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 blur-3xl opacity-20 glow-primary"></div>
-
-          <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 gradient-icon-box">
-            <DollarSign className="w-10 h-10 text-white" />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            Comparador de{" "}
-            <div className="relative inline-block">
-              <span className="text-transparent bg-clip-text animate-gradient gradient-text-animated">
-                Tarifas
-              </span>
-              {/* Underline */}
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#4A5CFF] to-transparent"></div>
+        {/* Header con ParallaxBackground */}
+        <ParallaxBackground
+          imageUrl="/images/backgrounds/9.jpg"
+          className="mb-16 rounded-2xl overflow-hidden"
+          height="400px"
+        >
+          <div className="relative z-10 text-center h-full flex flex-col items-center justify-center px-6">
+            <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 gradient-icon-box">
+              <DollarSign className="w-10 h-10 text-white" />
             </div>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Encuentra el plan perfecto para tu hogar con{" "}
-            <span className="text-white font-semibold">
-              total transparencia
-            </span>
-          </p>
-        </div>
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight text-white">
+              Comparador de{" "}
+              <div className="relative inline-block">
+                <span className="text-transparent bg-clip-text animate-gradient gradient-text-animated">
+                  Tarifas
+                </span>
+                {/* Underline */}
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#4A5CFF] to-transparent"></div>
+              </div>
+            </h1>
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+              Encuentra el plan perfecto para tu hogar con{" "}
+              <span className="text-white font-semibold">
+                total transparencia
+              </span>
+            </p>
+          </div>
+        </ParallaxBackground>
 
         {/* Content */}
         <div className="space-y-12">
@@ -602,7 +605,7 @@ export default function ComparadorTarifasPage() {
                 hogar
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
+                <Link
                   to={ROUTES.CONTACT}
                   className="group px-10 py-4 rounded-xl font-bold text-white btn-cta-primary"
                 >
@@ -611,7 +614,7 @@ export default function ComparadorTarifasPage() {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
-                <Link 
+                <Link
                   to={ROUTES.CONTACT}
                   className="px-10 py-4 rounded-xl font-bold btn-cta-secondary inline-flex items-center justify-center"
                 >
