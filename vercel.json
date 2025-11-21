@@ -1,6 +1,12 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm ci",
+  "framework": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "github": {
-    "silent": true
+    "silent": false
   },
   "rewrites": [
     {
