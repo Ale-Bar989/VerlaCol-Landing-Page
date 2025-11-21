@@ -99,7 +99,8 @@ export default function ComparadorTarifasPage() {
                   icon: Home,
                   speed: "300 Mbps",
                   speedLabel: "de velocidad simétrica",
-                  price: "79.900",
+                  // price: "79.900",
+                  price: "Te Sorprenderás",
                   features: [
                     "Velocidad simétrica 300 Mbps",
                     "100+ canales en HD",
@@ -119,7 +120,8 @@ export default function ComparadorTarifasPage() {
                   icon: Users,
                   speed: "600 Mbps",
                   speedLabel: "de velocidad simétrica",
-                  price: "119.900",
+                  // price: "119.900",
+                  price: "Te Sorprenderás",
                   savings: "Ahorra $40.000 vs contratar por separado",
                   features: [
                     "Velocidad simétrica 600 Mbps (descarga y subida)",
@@ -146,7 +148,8 @@ export default function ComparadorTarifasPage() {
                   icon: Zap,
                   speed: "1000 Mbps",
                   speedLabel: "de velocidad simétrica",
-                  price: "169.900",
+                  // price: "169.900",
+                  price: "Te Sorprenderás",
                   features: [
                     "Velocidad simétrica 1000 Mbps",
                     "250+ canales HD, 4K y Premium",
@@ -265,15 +268,15 @@ export default function ComparadorTarifasPage() {
 
                         {/* Precio */}
                         <div className="flex items-baseline justify-center gap-1 mb-2">
-                          <span className="text-3xl text-gray-400">$</span>
-                          <span className="text-6xl font-black text-white">
+                          {/* <span className="text-3xl text-gray-400">$</span> */}
+                          <span className="text-4xl font-black text-white">
                             {plan.price}
                           </span>
-                          <span className="text-xl text-gray-400">/mes</span>
+                          {/* <span className="text-xl text-gray-400">/mes</span> */}
                         </div>
 
                         {/* Ahorro (solo para Plan Familia) */}
-                        {plan.savings && (
+                        {/* {plan.savings && (
                           <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
                             <svg
                               className="w-4 h-4 text-green-400"
@@ -292,7 +295,7 @@ export default function ComparadorTarifasPage() {
                               {plan.savings}
                             </span>
                           </div>
-                        )}
+                        )} */}
                       </div>
 
                       {/* Features */}
