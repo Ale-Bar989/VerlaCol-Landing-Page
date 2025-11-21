@@ -30,7 +30,7 @@ export const HERO_SLIDES: SlideData[] = [
     description: "Disfruta del mejor contenido en calidad 4K",
     ctaText: "Ver Canales",
     ctaLink: ROUTES.LEGAL.COMPARADOR_TARIFAS,
-    image: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=2340&auto=format&fit=crop",
+    image: "/images/backgrounds/tv_premium.jpg",
   },
   {
     id: 3,

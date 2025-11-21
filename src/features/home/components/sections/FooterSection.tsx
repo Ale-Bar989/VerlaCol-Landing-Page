@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { ROUTES } from "@/core/router/routes.config";
 import { useTheme } from "@/core/contexts";
 
@@ -190,13 +190,24 @@ const FooterSection = memo(() => {
                     Llámanos:
                   </p>
                   <a
-                    href="tel:+573214567890"
+                    href="tel:+573115761963"
                     className={`text-sm hover:text-[#4A5CFF] transition-colors ${
                       isDark ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    +57 321 456 7890
+                    311-576-1963
                   </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-2 mt-3">
+                <MapPin className="w-4 h-4 text-[#4A5CFF] mt-0.5 shrink-0" />
+                <div>
+                  <p className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                    Dirección:
+                  </p>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    Av. El Dorado #6913-35, Bogotá, Colombia
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
