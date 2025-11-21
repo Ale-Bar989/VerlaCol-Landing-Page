@@ -25,7 +25,8 @@ export const PRICING_PLANS: Plan[] = [
     icon: Home,
     speed: "300 Mbps",
     speedLabel: "de velocidad simétrica",
-    price: "79.900",
+    // price: "79.900",
+    price: "Te Sorprenderás",
     features: [
       "Velocidad simétrica 300 Mbps",
       "100+ canales en HD",
@@ -56,7 +57,8 @@ export const PRICING_PLANS: Plan[] = [
     icon: Users,
     speed: "600 Mbps",
     speedLabel: "de velocidad simétrica",
-    price: "119.900",
+    // price: "119.900",
+    price: "Te Sorprenderás",
     savings: "Ahorra $40.000 vs contratar por separado",
     features: [
       "Velocidad simétrica 600 Mbps (descarga y subida)",
@@ -88,7 +90,8 @@ export const PRICING_PLANS: Plan[] = [
     icon: Zap,
     speed: "1000 Mbps",
     speedLabel: "de velocidad simétrica",
-    price: "169.900",
+    // price: "169.900",
+    price: "Te Sorprenderás",
     features: [
       "Velocidad simétrica 1000 Mbps",
       "250+ canales HD, 4K y Premium",
@@ -121,17 +124,20 @@ export const SIMPLE_PLANS: SimplePlan[] = [
   {
     name: "Plan Hogar",
     speed: "300 Mbps",
-    price: "$79.900/mes",
+    // price: "$79.900/mes",
+    price: "Te Sorprenderás",
   },
   {
     name: "Plan Familia",
     speed: "600 Mbps",
-    price: "$119.900/mes",
+    // price: "$119.900/mes",
+    price: "Te Sorprenderás", 
   },
   {
     name: "Plan Pro",
     speed: "1000 Mbps",
-    price: "$169.900/mes",
+    // price: "$169.900/mes",
+    price: "Te Sorprenderás",
   },
 ];
 

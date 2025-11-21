@@ -143,19 +143,19 @@ export default function PricingPage() {
 
                         {/* Precio */}
                         <div className="flex items-baseline justify-center gap-0.5 sm:gap-1 mb-2">
-                          <span className="text-2xl sm:text-3xl text-gray-400">
+                          {/* <span className="text-2xl sm:text-3xl text-gray-400">
                             $
-                          </span>
-                          <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
+                          </span> */}
+                          <span className="text-4xl sm:text-4xl md:text-5xl font-black text-white">
                             {plan.price}
                           </span>
-                          <span className="text-base sm:text-xl text-gray-400">
+                          {/* <span className="text-base sm:text-xl text-gray-400">
                             /mes
-                          </span>
+                          </span> */}
                         </div>
 
                         {/* Ahorro (solo para Plan Familia) */}
-                        {plan.savings && (
+                        {/* {plan.savings && (
                           <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg gradient-savings-badge">
                             <svg
                               className="w-4 h-4 text-green-400"
@@ -174,7 +174,7 @@ export default function PricingPage() {
                               {plan.savings}
                             </span>
                           </div>
-                        )}
+                        )} */}
                       </div>
 
                       {/* Extra Info (solo para Plan Familia) */}
