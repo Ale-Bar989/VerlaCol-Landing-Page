@@ -249,17 +249,21 @@ export default function ComparadorTarifasPage() {
                         </p>
 
                         {/* Velocidad */}
-                        <div className="mb-6">
-                          <div
-                            className="text-5xl font-black mb-2 text-transparent bg-clip-text"
-                            style={{
-                              backgroundImage: `linear-gradient(135deg, ${plan.gradient
-                                .replace("from-", "")
-                                .replace("to-", ", ")
-                                .replace("via-", ", ")})`,
-                            }}
-                          >
-                            {plan.speed}
+                        <div className="mb-4 sm:mb-6">
+                          <div className="text-4xl sm:text-5xl font-black mb-2">
+                            <span
+                              className="text-transparent bg-clip-text"
+                              style={{
+                                backgroundImage:
+                                  plan.name === "Plan Hogar"
+                                    ? "linear-gradient(135deg, #4A5CFF, #7A8FFF)"
+                                    : plan.name === "Plan Familia"
+                                    ? "linear-gradient(135deg, #5B6FFF, #4A5CFF, #7A8FFF)"
+                                    : "linear-gradient(135deg, #7A8FFF, #4A5CFF)",
+                              }}
+                            >
+                              {plan.speed}
+                            </span>
                           </div>
                           <p className="text-sm text-gray-500">
                             {plan.speedLabel}
@@ -269,9 +273,24 @@ export default function ComparadorTarifasPage() {
                         {/* Precio */}
                         <div className="flex items-baseline justify-center gap-1 mb-2">
                           {/* <span className="text-3xl text-gray-400">$</span> */}
-                          <span className="text-4xl font-black text-white">
+                          <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#5B6FFF] typewriter">
                             {plan.price}
                           </span>
+                          <style>{`
+                            @keyframes typing {
+                              from { width: 0 }
+                              to { width: 100% }
+                            }
+                            @keyframes blink {
+                              50% { border-color: transparent }
+                            }
+                            .typewriter {
+                              overflow: hidden;
+                              border-right: 3px solid white;
+                              white-space: nowrap;
+                              animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+                            }
+                          `}</style>
                           {/* <span className="text-xl text-gray-400">/mes</span> */}
                         </div>
 

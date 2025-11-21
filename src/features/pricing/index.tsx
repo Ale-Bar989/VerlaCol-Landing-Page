@@ -146,9 +146,24 @@ export default function PricingPage() {
                           {/* <span className="text-2xl sm:text-3xl text-gray-400">
                             $
                           </span> */}
-                          <span className="text-4xl sm:text-4xl md:text-5xl font-black text-white">
+                          <span className="text-2xl sm:text-3xl md:text-4xl font-black text-[#5B6FFF] typewriter">
                             {plan.price}
                           </span>
+                          <style>{`
+                            @keyframes typing {
+                              from { width: 0 }
+                              to { width: 100% }
+                            }
+                            @keyframes blink {
+                              50% { border-color: transparent }
+                            }
+                            .typewriter {
+                              overflow: hidden;
+                              border-right: 3px solid #5B6FFF;
+                              white-space: nowrap;
+                              animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+                            }
+                          `}</style>
                           {/* <span className="text-base sm:text-xl text-gray-400">
                             /mes
                           </span> */}
