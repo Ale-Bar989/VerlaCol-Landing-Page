@@ -50,7 +50,8 @@
     "workbox-window": "^7.3.0"
   },
   "overrides": {
-    "glob": "^10.4.5",
-    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15"
+    "glob": "^9.3.5",
+    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15",
+    "source-map": "^0.7.4"
   }
 }
