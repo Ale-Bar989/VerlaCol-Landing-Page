@@ -221,12 +221,12 @@ const FooterSection = memo(() => {
                     Email:
                   </p>
                   <a
-                    href="mailto:name@example.com"
+                    href="mailto:info@verla.com.ve"
                     className={`text-sm hover:text-[#4A5CFF] transition-colors ${
                       isDark ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    name@example.com
+                    info@verla.com.ve
                   </a>
                 </div>
               </li>
