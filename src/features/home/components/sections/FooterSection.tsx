@@ -226,7 +226,7 @@ const FooterSection = memo(() => {
                       isDark ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    info@verla.com.ve
+                    info@verla.com.co
                   </a>
                 </div>
               </li>
