@@ -1,5 +1,1254 @@
 @import "tailwindcss";
 
+/* Scroll suave en toda la aplicación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimización de fuentes - font-display: swap para evitar FOIT */
+* {
+  font-display: swap;
+}
+
+/* ===== TEMA OSCURO (Default) ===== */
+:root,
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-tertiary: #666666;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --accent-primary: #4a5cff;
+  --accent-secondary: #7a8fff;
+}
+
+/* ===== TEMA CLARO ===== */
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #888888;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --accent-primary: #4a5cff;
+  --accent-secondary: #7a8fff;
+}
+
+/* Aplicar colores de tema globalmente */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transiciones suaves solo para elementos clave al cambiar tema */
+body,
+nav,
+section,
+header,
+footer,
+main,
+aside {
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transiciones para textos y elementos interactivos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select {
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cards y contenedores */
+div[class*="rounded"],
+div[class*="border"] {
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== TEMA CLARO - Estilos Mejorados ===== */
+.light {
+  background-color: #f5f7fa;
+}
+
+/* Navbar en tema claro */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-bottom-color: rgba(74, 92, 255, 0.15) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Logo en navbar tema claro */
+.light nav > div > div > a > span {
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+}
+
+.light nav a span,
+.light nav button span,
+.light nav .text-sm,
+.light nav .text-xs {
+  color: #1a1a1a !important;
+}
+
+.light nav [class*="font-bold"] {
+  color: #1a1a1a !important;
+}
+
+/* Links del navbar en tema claro - mejorar contraste */
+.light nav a[class*="text-gray"] {
+  color: #333333 !important;
+}
+
+.light nav a:hover[class*="text-gray"],
+.light nav button:hover[class*="text-gray"] {
+  color: #000000 !important;
+}
+
+/* Textos en tema claro */
+.light .text-white {
+  color: #1a1a1a !important;
+}
+
+.light .text-gray-400 {
+  color: #555555 !important;
+}
+
+.light .text-gray-300 {
+  color: #333333 !important;
+}
+
+.light .text-gray-500 {
+  color: #777777 !important;
+}
+
+.light .text-gray-600 {
+  color: #999999 !important;
+}
+
+/* Fondos en tema claro */
+.light .bg-black {
+  background-color: #f5f7fa !important;
+}
+
+.light .bg-white\/5 {
+  background-color: rgba(74, 92, 255, 0.03) !important;
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(74, 92, 255, 0.05) !important;
+}
+
+/* Bordes en tema claro */
+.light .border-white\/5 {
+  border-color: rgba(74, 92, 255, 0.08) !important;
+}
+
+.light .border-white\/10 {
+  border-color: rgba(74, 92, 255, 0.12) !important;
+}
+
+.light .border-white\/20 {
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+/* Efectos de blur en tema claro - reducidos para rendimiento */
+.light [style*="blur-[150px]"],
+.light [style*="blur-[140px]"],
+.light [style*="blur-[120px]"],
+.light [style*="blur-[100px]"] {
+  opacity: 0.15 !important;
+  will-change: auto !important;
+}
+
+/* Desactivar animaciones pesadas en tema claro para mejor rendimiento */
+.light .animate-pulse-slow {
+  animation: none !important;
+  opacity: 0.1 !important;
+}
+
+/* Cards y contenedores en tema claro */
+.light [class*="bg-linear-to"],
+.light [class*="bg-gradient"] {
+  background-blend-mode: normal;
+}
+
+/* Secciones específicas */
+.light section {
+  background-color: #ffffff;
+}
+
+/* Hero section en tema claro - fondo mejorado */
+.light section[class*="pt-40"] {
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(74, 92, 255, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(122, 143, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(91, 111, 255, 0.06) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f5f7fa 0%, #ffffff 50%, #f5f7fa 100%);
+}
+
+/* Efectos de blur en hero section - MÁS SATURADOS Y OSCUROS */
+.light section[class*="pt-40"] [class*="blur-"] {
+  opacity: 0.75 !important;
+  filter: brightness(0.9) saturate(1.8) contrast(1.1) !important;
+}
+
+.light section[class*="pt-40"] [style*="background-color: rgba(91, 111, 255"] {
+  background-color: rgba(74, 92, 255, 0.25) !important;
+}
+
+.light section[class*="pt-40"] [style*="background-color: rgba(122, 143, 255"] {
+  background-color: rgba(91, 111, 255, 0.22) !important;
+}
+
+/* Patrón de puntos decorativos en HeroSection tema claro - SUAVES Y ANIMADOS */
+.light section[class*="pt-40"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      circle,
+      rgba(74, 92, 255, 0.25) 2px,
+      transparent 2px
+    ),
+    radial-gradient(circle, rgba(91, 111, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 60px 60px, 120px 120px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  animation: float-pattern 40s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes float-pattern {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(12px, -8px) scale(1.03) rotate(2deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(18px, 12px) scale(0.98) rotate(-1deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(6px, 18px) scale(1.02) rotate(1deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+}
+
+/* Gradientes de texto en HeroSection tema claro - más visibles */
+.light
+  section[class*="pt-40"]
+  [class*="text-transparent"][class*="bg-clip-text"] {
+  background-image: linear-gradient(
+    to right,
+    #4a5cff,
+    #5b6fff,
+    #7a8fff,
+    #4a5cff
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  filter: brightness(0.9) !important;
+  font-weight: 900 !important;
+}
+
+/* Asegurar que el contenido del hero esté sobre los efectos */
+.light section[class*="pt-40"] > .container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Líneas decorativas sutiles en hero - ELIMINADAS para tema claro */
+.light section[class*="pt-40"]::after {
+  display: none;
+}
+
+/* Partículas/estrellas en tema claro - MÁS OSCURAS Y BRILLANTES */
+.light [class*="animate-twinkle"],
+.light .animate-twinkle {
+  opacity: 0.6 !important;
+  background-color: rgba(74, 92, 255, 0.6) !important;
+  animation-duration: 3s !important;
+  will-change: opacity;
+  transform: translateZ(0);
+  box-shadow: 0 0 6px rgba(74, 92, 255, 0.5), 0 0 3px rgba(91, 111, 255, 0.4) !important;
+  width: 3px !important;
+  height: 3px !important;
+}
+
+/* Efectos de fondo en tema claro */
+.light [class*="absolute"][class*="rounded-full"][class*="blur-"] {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+  opacity: 0.5 !important;
+}
+
+/* Cards con glassmorphism en tema claro */
+.light [class*="backdrop-blur"] {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+/* Botones y elementos interactivos mantienen sus gradientes */
+.light button[style*="gradient"],
+.light a[style*="gradient"] {
+  /* Mantener gradientes originales en botones */
+  filter: brightness(1) contrast(1.05);
+}
+
+/* Botones CTA con gradiente - texto blanco en AMBOS temas */
+.light
+  [class*="bg-linear-to-r"][class*="from-(--accent-primary)"][class*="to-(--accent-secondary)"],
+.light a[class*="bg-linear-to-r"][class*="from-(--accent-primary)"],
+.light button[class*="bg-linear-to-r"][class*="from-(--accent-primary)"] {
+  color: #ffffff !important;
+}
+
+/* Asegurar que el texto sea blanco en hover también */
+.light [class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover,
+.light a[class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover,
+.light button[class*="bg-linear-to-r"][class*="from-(--accent-primary)"]:hover {
+  color: #ffffff !important;
+}
+
+/* Botones con inline gradient styles - texto blanco en tema claro */
+.light a[style*="linear-gradient"][style*="74, 92, 255"],
+.light button[style*="linear-gradient"][style*="74, 92, 255"],
+.light a[style*="linear-gradient"][style*="122, 143, 255"],
+.light button[style*="linear-gradient"][style*="122, 143, 255"] {
+  color: #ffffff !important;
+}
+
+/* Texto dentro de spans en botones con gradiente */
+.light a[style*="linear-gradient"] span,
+.light button[style*="linear-gradient"] span,
+.light a[style*="linear-gradient"] .text-white,
+.light button[style*="linear-gradient"] .text-white {
+  color: #ffffff !important;
+}
+
+/* EXCEPCIÓN: Iconos con color específico (text-[#4A5CFF]) mantienen su color - MÁXIMA PRIORIDAD */
+.light svg.text-\[\#4A5CFF\],
+.light button svg.text-\[\#4A5CFF\],
+.light a svg.text-\[\#4A5CFF\],
+.light div svg.text-\[\#4A5CFF\],
+.light button[style*="linear-gradient"] svg.text-\[\#4A5CFF\],
+.light a[style*="linear-gradient"] svg.text-\[\#4A5CFF\] {
+  color: #4a5cff !important;
+  stroke: #4a5cff !important;
+}
+
+/* SVG icons blancos (text-white) en contenedores con gradiente - mantener blanco */
+.light div[style*="linear-gradient"] svg.text-white,
+.light a[style*="linear-gradient"] svg.text-white,
+.light button[style*="linear-gradient"] svg.text-white,
+.light a[style*="linear-gradient"] svg:not(.text-\[\#4A5CFF\]),
+.light button[style*="linear-gradient"] svg:not(.text-\[\#4A5CFF\]) {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Shadows en tema claro - más sutiles */
+.light [class*="shadow"] {
+  filter: brightness(1.1);
+}
+
+/* Efectos de partículas en tema claro */
+.light .animate-twinkle {
+  opacity: 0.2 !important;
+}
+
+/* Stats y números - mantener visibilidad */
+.light [class*="text-transparent"] {
+  /* Mantener gradientes en textos especiales */
+  opacity: 1;
+}
+
+/* Inputs y forms en tema claro */
+.light input,
+.light textarea,
+.light select {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(74, 92, 255, 0.15) !important;
+  color: #1a1a1a !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #888888 !important;
+}
+
+.light input:focus,
+.light textarea:focus {
+  border-color: rgba(74, 92, 255, 0.4) !important;
+  background-color: #ffffff !important;
+}
+
+/* Dropdown menus en tema claro */
+.light [class*="absolute"][class*="opacity-0"] {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+/* Badges y pills en tema claro */
+.light [class*="rounded-full"][class*="px-"] {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+}
+
+/* Scrollbar en tema claro */
+.light ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Mega menu dropdown en tema claro */
+.light [class*="from-gray-900"],
+.light [class*="via-black"],
+.light [class*="to-gray-900"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(248, 249, 250, 0.98)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Textos del mega menu en tema claro */
+.light [class*="from-gray-900"] h3,
+.light [class*="from-gray-900"] span,
+.light [class*="from-gray-900"] p,
+.light [class*="from-gray-900"] .text-white,
+.light [class*="from-gray-900"] .text-gray-200,
+.light [class*="from-gray-900"] .text-gray-400 {
+  color: #1a1a1a !important;
+}
+
+.light [class*="from-gray-900"] .text-gray-500 {
+  color: #666666 !important;
+}
+
+/* Items del mega menu hover */
+.light [class*="from-gray-900"] a:hover {
+  background: rgba(74, 92, 255, 0.08) !important;
+}
+
+/* Header del mega menu en tema claro */
+.light [class*="from-gray-900"] [class*="from-[#5B6FFF]"] {
+  background: linear-gradient(
+    to right,
+    rgba(74, 92, 255, 0.08),
+    rgba(122, 143, 255, 0.06),
+    rgba(74, 92, 255, 0.08)
+  ) !important;
+  border-bottom-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+/* Links y botones hover en tema claro */
+.light a:hover,
+.light button:hover {
+  text-decoration: none;
+}
+
+/* ChatWidget en tema claro - Colores mejorados */
+.light [class*="fixed"][class*="bottom-"] {
+  filter: drop-shadow(0 4px 16px rgba(74, 92, 255, 0.3));
+}
+
+/* Botón principal del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] button[class*="w-16"],
+.light [class*="fixed"][class*="bottom-"] button[class*="w-14"] {
+  background: linear-gradient(135deg, #4a5cff 0%, #7a8fff 100%) !important;
+  box-shadow: 0 8px 24px rgba(74, 92, 255, 0.4),
+    0 4px 12px rgba(74, 92, 255, 0.3) !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] button:hover {
+  box-shadow: 0 12px 32px rgba(74, 92, 255, 0.5),
+    0 6px 16px rgba(74, 92, 255, 0.4) !important;
+}
+
+/* Efecto ping del chat en tema claro */
+.light [class*="animate-ping"][style*="background"] {
+  background: rgba(74, 92, 255, 0.5) !important;
+}
+
+/* Panel del chat en tema claro - Excluir contact-drawer */
+.light
+  [class*="fixed"][class*="bottom-"]:not(#contact-drawer)
+  > div[class*="bg-"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(248, 249, 252, 0.95)
+  ) !important;
+  border: 1px solid rgba(74, 92, 255, 0.2) !important;
+  box-shadow: 0 20px 60px rgba(74, 92, 255, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Textos del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] h3,
+.light [class*="fixed"][class*="bottom-"] p,
+.light [class*="fixed"][class*="bottom-"] span {
+  color: #1a1a1a !important;
+}
+
+/* Excluir contact drawer de esta regla */
+.light
+  [class*="fixed"][class*="bottom-"]:not(#contact-drawer)
+  [class*="text-gray"] {
+  color: #ffffff !important;
+}
+
+/* Contact drawer - textos oscuros en tema claro */
+.light #contact-drawer [class*="text-gray"] {
+  color: inherit !important;
+}
+
+.light #contact-drawer a {
+  color: inherit !important;
+}
+
+.light #contact-drawer p {
+  color: inherit !important;
+}
+
+/* Input del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] input {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+  color: #1a1a1a !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] input::placeholder {
+  color: #888888 !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] input:focus {
+  background-color: #ffffff !important;
+  border-color: rgba(74, 92, 255, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(74, 92, 255, 0.1) !important;
+}
+
+/* Botones del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] button[class*="bg-"] {
+  background: linear-gradient(135deg, #4a5cff, #7a8fff) !important;
+  color: #ffffff !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] button:hover {
+  transform: scale(1.02);
+}
+
+/* Burbujas de mensajes en tema claro */
+.light [class*="fixed"][class*="bottom-"] [class*="bg-white/5"] {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] [class*="bg-white/5"]:hover {
+  background-color: rgba(74, 92, 255, 0.12) !important;
+  border-color: rgba(74, 92, 255, 0.3) !important;
+}
+
+/* Textos de los mensajes en tema claro */
+.light [class*="fixed"][class*="bottom-"] [class*="text-gray-300"] {
+  color: #333333 !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] [class*="text-gray-300"]:hover {
+  color: #1a1a1a !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] [class*="text-gray-500"] {
+  color: #777777 !important;
+}
+
+/* Avatar/Icono del bot en tema claro */
+.light [class*="fixed"][class*="bottom-"] [class*="bg-[#5B6FFF]/20"] {
+  background-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] [class*="text-[#4A5CFF]"] {
+  color: #4a5cff !important;
+}
+
+/* Botones de respuestas rápidas en tema claro */
+.light [class*="fixed"][class*="bottom-"] button[class*="w-full"] {
+  background-color: rgba(74, 92, 255, 0.06) !important;
+  border-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+.light [class*="fixed"][class*="bottom-"] button[class*="w-full"]:hover {
+  background-color: rgba(74, 92, 255, 0.1) !important;
+  border-color: rgba(74, 92, 255, 0.25) !important;
+}
+
+/* Área de scroll en tema claro */
+.light [class*="fixed"][class*="bottom-"] [class*="overflow-y-auto"] {
+  scrollbar-color: rgba(74, 92, 255, 0.3) rgba(0, 0, 0, 0.05);
+}
+
+.light
+  [class*="fixed"][class*="bottom-"]
+  [class*="overflow-y-auto"]::-webkit-scrollbar {
+  width: 6px;
+}
+
+.light
+  [class*="fixed"][class*="bottom-"]
+  [class*="overflow-y-auto"]::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.light
+  [class*="fixed"][class*="bottom-"]
+  [class*="overflow-y-auto"]::-webkit-scrollbar-thumb {
+  background: rgba(74, 92, 255, 0.3);
+  border-radius: 10px;
+}
+
+.light
+  [class*="fixed"][class*="bottom-"]
+  [class*="overflow-y-auto"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 92, 255, 0.5);
+}
+
+/* Iconos SVG del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] svg {
+  color: #4a5cff !important;
+}
+
+/* Header del chat en tema claro */
+.light [class*="fixed"][class*="bottom-"] > div > div:first-child {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  ) !important;
+  border-bottom-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+/* Contact Drawer - Fondo blanco puro en tema claro */
+.light #contact-drawer#contact-drawer {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+}
+
+/* Contact Drawer Handle - Sobrescribir estilos globales */
+.light #contact-drawer .contact-drawer-handle {
+  background: #ffffff !important;
+}
+
+.light #contact-drawer .contact-drawer-handle > div {
+  background: #4a5cff !important;
+}
+
+/* Contact Drawer - Header con fondo blanco */
+.light #contact-drawer .contact-drawer-header {
+  border-bottom-color: transparent !important;
+  background: #ffffff !important;
+}
+
+/* Efectos de glow en tema claro - más sutiles */
+.light [class*="shadow-["] {
+  opacity: 0.6;
+}
+
+/* Avatars y círculos en tema claro */
+.light [class*="rounded-full"][class*="border-"] {
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+.light [class*="border-black/50"] {
+  border-color: rgba(74, 92, 255, 0.3) !important;
+}
+
+/* Botón auto-play en tema claro */
+.light button[class*="text-gray-400"] {
+  color: #555555 !important;
+}
+
+.light button[class*="text-gray-400"]:hover {
+  color: #1a1a1a !important;
+}
+
+/* Footer en tema claro */
+.light footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid rgba(74, 92, 255, 0.1);
+}
+
+/* Pricing cards en tema claro - DESACTIVADO para permitir transparencia en About */
+/* .light [class*="rounded-3xl"][class*="p-"] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 4px 20px rgba(74, 92, 255, 0.08) !important;
+} */
+
+/* Slider navigation en tema claro */
+.light [aria-label*="slide"],
+.light [aria-label*="Slide"] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+/* Tooltips - fondo sólido oscuro en ambos temas */
+[class*="absolute"][class*="bottom-full"][class*="text-xs"] {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: rgba(74, 92, 255, 0.5) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  z-index: 100 !important;
+}
+
+/* Companies section cards en tema claro - optimizadas y bonitas */
+.light [class*="min-w-[240px]"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 249, 252, 0.9)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+  box-shadow: 0 8px 24px rgba(74, 92, 255, 0.12),
+    0 2px 8px rgba(74, 92, 255, 0.08) !important;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.light [class*="min-w-[240px]"]:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    rgba(74, 92, 255, 0.04)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.35) !important;
+  box-shadow: 0 12px 32px rgba(74, 92, 255, 0.18),
+    0 4px 12px rgba(74, 92, 255, 0.12) !important;
+}
+
+/* Optimizar scroll infinito en tema claro */
+.light .animate-scroll {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* CompaniesSection - Adaptación completa para tema claro */
+
+/* Fondo único y moderno con mesh gradient */
+.light section[class*="py-28"][class*="overflow-hidden"] {
+  position: relative;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(74, 92, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(122, 143, 255, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(91, 111, 255, 0.04) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f9fc 0%,
+      #ffffff 25%,
+      #f5f7fa 50%,
+      #ffffff 75%,
+      #f8f9fc 100%
+    ) !important;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+}
+
+/* Patrón de puntos moderno */
+.light section[class*="py-28"][class*="overflow-hidden"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(74, 92, 255, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Líneas diagonales sutiles */
+.light section[class*="py-28"][class*="overflow-hidden"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(74, 92, 255, 0.03) 60px,
+    rgba(74, 92, 255, 0.03) 62px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Asegurar que el contenido esté sobre el fondo */
+.light section[class*="py-28"][class*="overflow-hidden"] > .container,
+.light
+  section[class*="py-28"][class*="overflow-hidden"]
+  > div[class*="container"] {
+  position: relative;
+  z-index: 10;
+}
+
+/* Efectos de blur con z-index bajo */
+.light section[class*="py-28"] > div[class*="absolute"][class*="inset-0"] {
+  z-index: 1;
+}
+
+/* Orbes luminosos flotantes - solo en tema claro */
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-20px, 10px) scale(0.9);
+    opacity: 0.3;
+  }
+}
+
+.light section[class*="py-28"][class*="overflow-hidden"] .container::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(74, 92, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float-orb 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.light section[class*="py-28"][class*="overflow-hidden"] .container::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(
+    circle,
+    rgba(122, 143, 255, 0.12),
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: float-orb 25s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid pattern adaptado - ocultar el original */
+.light section[class*="py-28"] [style*="backgroundImage"] {
+  opacity: 0 !important;
+}
+
+/* Efecto shimmer sutil animado */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.light
+  section[class*="py-28"][class*="overflow-hidden"]
+  > div:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 92, 255, 0.05) 25%,
+    rgba(122, 143, 255, 0.08) 50%,
+    rgba(74, 92, 255, 0.05) 75%,
+    transparent 100%
+  );
+  animation: shimmer 15s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Efectos de blur adaptados a tema claro */
+.light section[class*="py-28"] .bg-purple-600\/20,
+.light section[class*="py-28"] .bg-purple-600\/15 {
+  background-color: rgba(74, 92, 255, 0.04) !important;
+  opacity: 0.8 !important;
+}
+
+.light section[class*="py-28"] .bg-blue-600\/12 {
+  background-color: rgba(122, 143, 255, 0.05) !important;
+  opacity: 0.7 !important;
+}
+
+.light section[class*="py-28"] .bg-orange-600\/10 {
+  background-color: rgba(74, 92, 255, 0.03) !important;
+  opacity: 0.5 !important;
+}
+
+/* Líneas decorativas adaptadas */
+.light section[class*="py-28"] [class*="bg-linear-to-r"][class*="h-[2px]"] {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(74, 92, 255, 0.3) 50%,
+    transparent
+  ) !important;
+  box-shadow: 0 0 10px rgba(74, 92, 255, 0.2) !important;
+}
+
+/* Partículas de la sección adaptadas */
+.light section[class*="py-28"] [class*="bg-[#4A5CFF]"] {
+  background-color: rgba(74, 92, 255, 0.4) !important;
+  box-shadow: 0 0 4px rgba(74, 92, 255, 0.4) !important;
+}
+
+/* Header de CompaniesSection en tema claro */
+.light section[class*="py-28"] h2 {
+  color: #1a1a1a !important;
+}
+
+.light section[class*="py-28"] [class*="text-transparent"] {
+  background-image: linear-gradient(
+    135deg,
+    #4a5cff,
+    #7a8fff,
+    #5b6fff
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.light section[class*="py-28"] p {
+  color: #555555 !important;
+}
+
+/* Badges de CompaniesSection en tema claro */
+.light section[class*="py-28"] [class*="bg-white/5"] {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+.light section[class*="py-28"] .text-\[\#4A5CFF\] {
+  color: #4a5cff !important;
+}
+
+/* Status badge - mantener verde visible */
+.light section[class*="py-28"] .bg-green-400 {
+  background-color: #22c55e !important;
+}
+
+/* Nombres de canales en cards */
+.light section[class*="py-28"] h3 {
+  color: #1a1a1a !important;
+  font-weight: 800 !important;
+}
+
+/* Stats de CompaniesSection en tema claro */
+.light section[class*="py-28"] [class*="rounded-2xl"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(248, 249, 252, 0.8)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+.light section[class*="py-28"] [class*="rounded-2xl"]:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    rgba(74, 92, 255, 0.05)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.3) !important;
+}
+
+/* Números de stats con gradientes bonitos */
+.light section[class*="py-28"] [class*="text-5xl"],
+.light section[class*="py-28"] [class*="text-6xl"] {
+  background-image: linear-gradient(
+    135deg,
+    #4a5cff 0%,
+    #7a8fff 50%,
+    #5b6fff 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Líneas decorativas de stats */
+.light section[class*="py-28"] [class*="bg-linear-to-r"][class*="w-16"] {
+  background: linear-gradient(
+    to right,
+    transparent,
+    #4a5cff 50%,
+    transparent
+  ) !important;
+  box-shadow: 0 0 8px rgba(74, 92, 255, 0.3) !important;
+}
+
+/* Efecto de glow en bottom accent de cards */
+.light section[class*="py-28"] [class*="h-[3px]"] {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(74, 92, 255, 0.4) 50%,
+    transparent 100%
+  ) !important;
+}
+
+/* Corner decorations en tema claro */
+.light
+  section[class*="py-28"]
+  [class*="w-2"][class*="h-2"][class*="rounded-full"] {
+  background-color: rgba(74, 92, 255, 0.3) !important;
+}
+
+.light section[class*="py-28"] [class*="w-2"][class*="h-2"]:hover,
+.light section[class*="py-28"] [class*="w-1.5"][class*="h-1.5"]:hover {
+  background-color: #4a5cff !important;
+  box-shadow: 0 0 8px rgba(74, 92, 255, 0.6) !important;
+}
+
+/* Fade gradients en scroll - adaptados */
+.light section[class*="py-28"] [class*="bg-linear-to-r"][class*="from-black"] {
+  background: linear-gradient(
+    to right,
+    #f5f7fa 0%,
+    rgba(245, 247, 250, 0.9) 20%,
+    transparent 40%
+  ) !important;
+}
+
+.light section[class*="py-28"] [class*="bg-linear-to-l"][class*="from-black"] {
+  background: linear-gradient(
+    to left,
+    #f5f7fa 0%,
+    rgba(245, 247, 250, 0.9) 20%,
+    transparent 40%
+  ) !important;
+}
+
+/* Asegurar que los textos del badge superior sean visibles */
+.light
+  section[class*="py-28"]
+  [class*="inline-flex"][class*="rounded-full"]
+  span {
+  color: #4a5cff !important;
+  font-weight: 700 !important;
+}
+
+/* Punto animado del badge */
+.light section[class*="py-28"] [class*="w-2"][class*="bg-[#4A5CFF]"] {
+  background-color: #4a5cff !important;
+  box-shadow: 0 0 6px rgba(74, 92, 255, 0.6) !important;
+}
+
+/* Mobile menu en tema claro */
+.light nav [class*="md:hidden"] {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+.light nav [class*="md:hidden"] a,
+.light nav [class*="md:hidden"] button,
+.light nav [class*="md:hidden"] span {
+  color: #1a1a1a !important;
+}
+
+.light nav [class*="md:hidden"] .text-gray-400,
+.light nav [class*="md:hidden"] .text-gray-500 {
+  color: #666666 !important;
+}
+
+/* Iconos del navbar en tema claro */
+.light nav svg {
+  color: #1a1a1a !important;
+  stroke: #1a1a1a !important;
+}
+
+.light nav .text-gray-400 svg,
+.light nav .text-gray-500 svg {
+  color: #555555 !important;
+  stroke: #555555 !important;
+}
+
+/* Badges en navbar tema claro */
+.light nav [class*="rounded-full"] {
+  background-color: rgba(74, 92, 255, 0.1) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+/* Logo V en tema claro - mantener visible */
+.light nav [class*="w-8"][class*="h-8"] span {
+  color: #ffffff !important;
+}
+
+/* Badges con animación */
+.light .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Asegurar contraste en elementos críticos */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  color: #1a1a1a !important;
+}
+
+.light p {
+  color: #333333;
+}
+
+/* Stats section en tema claro */
+.light [class*="text-5xl"],
+.light [class*="text-6xl"] {
+  font-weight: 900;
+}
+
+/* Links en tema claro */
+.light a[class*="text-"] {
+  transition: color 200ms ease;
+}
+
+/* Dividers en tema claro */
+.light hr,
+.light [class*="h-px"] {
+  background-color: rgba(74, 92, 255, 0.1) !important;
+}
+
+/* Asegurar contraste en contenido principal */
+.light main,
+.light section,
+.light article {
+  color: #1a1a1a;
+}
+
+/* Subtítulos y descripciones en tema claro */
+.light [class*="text-gray"] {
+  color: #555555 !important;
+}
+
+/* Mejorar visibilidad de badges */
+.light .bg-green-400 {
+  background-color: #22c55e !important;
+}
+
+.light .bg-blue-400 {
+  background-color: #3b82f6 !important;
+}
+
+.light .bg-yellow-400,
+.light .text-yellow-400 {
+  color: #eab308 !important;
+  fill: #eab308 !important;
+}
+
+.light .text-blue-400 {
+  color: #3b82f6 !important;
+}
+
+/* Asegurar que los iconos del slider sean visibles */
+.light [aria-label*="slide"] svg,
+.light [aria-label*="Slide"] svg {
+  color: #1a1a1a !important;
+  stroke: #1a1a1a !important;
+}
+
+/* Mejorar contraste del botón de auto-play */
+.light button[class*="bg-white/5"] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #1a1a1a !important;
+}
+
+.light button[class*="bg-white/5"]:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Grid pattern en tema claro - hacerlo visible */
+.light [style*="backgroundImage"][style*="linear-gradient"] {
+  opacity: 0.3 !important;
+}
+
 /* Animación para scroll infinito de logos */
 @keyframes scroll {
   0% {
@@ -93,6 +1342,168 @@
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.08);
 }
 
+/* Texto TEAM en tema claro - visible con stroke azul */
+.light .text-team-outline {
+  -webkit-text-stroke: 2px rgba(74, 92, 255, 0.08);
+}
+
+/* StatsSection en tema claro - fondo y efectos */
+.light section[class*="py-40"] {
+  background: linear-gradient(
+    180deg,
+    #f5f7fa 0%,
+    #ffffff 50%,
+    #f8f9fc 100%
+  ) !important;
+}
+
+/* Efectos de blur en StatsSection tema claro */
+.light section[class*="py-40"] [class*="blur-3xl"] {
+  opacity: 0.6 !important;
+}
+
+.light section[class*="py-40"] .top-1\/4 {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+}
+
+.light section[class*="py-40"] .bottom-1\/4 {
+  background-color: rgba(122, 143, 255, 0.08) !important;
+}
+
+/* Textos de StatsSection en tema claro */
+.light section[class*="py-40"] h2 {
+  color: #1a1a1a !important;
+}
+
+.light section[class*="py-40"] p {
+  color: #555555 !important;
+}
+
+/* Badge superior en StatsSection */
+.light section[class*="py-40"] [class*="bg-white/5"] {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+}
+
+.light section[class*="py-40"] [class*="bg-white/5"] span {
+  color: #4a5cff !important;
+}
+
+/* Cards de stats en tema claro */
+.light section[class*="py-40"] [class*="bg-white/5"][class*="border"] {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(248, 249, 252, 0.85)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.15) !important;
+}
+
+.light section[class*="py-40"] [class*="bg-white/5"]:hover {
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    rgba(74, 92, 255, 0.05)
+  ) !important;
+  border-color: rgba(74, 92, 255, 0.3) !important;
+}
+
+/* ProblemSection - Fade gradients en tema claro (esquinas blancas) */
+.light [class*="bg-linear-to-r"][class*="from-black"] {
+  background: linear-gradient(
+    to right,
+    #f5f7fa 0%,
+    rgba(245, 247, 250, 0.8) 50%,
+    transparent 100%
+  ) !important;
+}
+
+.light [class*="bg-linear-to-l"][class*="from-black"] {
+  background: linear-gradient(
+    to left,
+    #f5f7fa 0%,
+    rgba(245, 247, 250, 0.8) 50%,
+    transparent 100%
+  ) !important;
+}
+
+/* ProblemSection - Pills/badges en tema claro */
+.light section [class*="animate-scroll"] span {
+  background-color: rgba(74, 92, 255, 0.08) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+  color: #333333 !important;
+}
+
+.light section [class*="animate-scroll"] span:hover {
+  background-color: rgba(74, 92, 255, 0.12) !important;
+  border-color: rgba(74, 92, 255, 0.35) !important;
+  color: #1a1a1a !important;
+}
+
+/* FooterSection - Botón suscribirse en tema claro */
+.light footer button span[class*="text-transparent"],
+.light footer button span[class*="bg-clip-text"] {
+  /* Eliminar el efecto de texto transparente y usar color sólido */
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Footer en tema claro - fondo */
+.light footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid rgba(74, 92, 255, 0.1);
+}
+
+/* Textos del footer */
+.light footer h3,
+.light footer h4,
+.light footer p,
+.light footer a,
+.light footer span:not([class*="text-transparent"]) {
+  color: #1a1a1a !important;
+}
+
+.light footer [class*="text-gray"] {
+  color: #555555 !important;
+}
+
+.light footer a:hover {
+  color: #4a5cff !important;
+}
+
+/* Input de newsletter en footer tema claro */
+.light footer input {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(74, 92, 255, 0.2) !important;
+  color: #1a1a1a !important;
+}
+
+.light footer input::placeholder {
+  color: #888888 !important;
+}
+
+.light footer input:focus {
+  background-color: #ffffff !important;
+  border-color: rgba(74, 92, 255, 0.4) !important;
+  box-shadow: 0 0 0 3px rgba(74, 92, 255, 0.1) !important;
+}
+
+/* Botón del footer - ajustar gradiente de fondo */
+.light footer button {
+  background: linear-gradient(135deg, #4a5cff 0%, #7a8fff 100%) !important;
+  box-shadow: 0 8px 24px rgba(74, 92, 255, 0.3) !important;
+}
+
+.light footer button:hover {
+  box-shadow: 0 12px 32px rgba(74, 92, 255, 0.4) !important;
+  transform: scale(1.05);
+}
+
 /* Mask fade sutil para logos sin gradientes oscuros visibles */
 .mask-fade {
   -webkit-mask-image: linear-gradient(
@@ -129,7 +1540,8 @@
 
 /* Animación pulse lenta para efectos de fondo */
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.15;
     transform: scale(1);
   }
@@ -141,4 +1553,1103 @@
 
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Animación de scroll lento para tarjetas grandes */
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-slow {
+  animation: scroll-slow 60s linear infinite;
+}
+
+.animate-scroll-slow:hover {
+  animation-play-state: paused;
+}
+
+/* Animación de scroll reverso para segunda fila */
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse 60s linear infinite;
+}
+
+.animate-scroll-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Animación de fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section con imagen de fondo - Estilo Arquitectónico Premium con tarjeta */
+
+/* Contenedor del slider con bordes redondeados */
+section[class*="min-h-screen"] > div[class*="rounded-3xl"] {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light section[class*="min-h-screen"] > div[class*="rounded-3xl"] {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Overlay oscuro en tema oscuro */
+.dark section[class*="min-h-screen"] [class*="bg-linear-to-r"] {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 100%
+  ) !important;
+}
+
+/* Overlay claro en tema claro */
+.light section[class*="min-h-screen"] [class*="bg-linear-to-r"] {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.85) 40%,
+    rgba(255, 255, 255, 0.65) 70%,
+    transparent 100%
+  ) !important;
+}
+
+/* Forzar texto blanco en HeroSection (con imágenes de fondo) para ambos temas */
+section[class*="min-h-screen"][class*="overflow-hidden"] h1,
+section[class*="min-h-screen"][class*="overflow-hidden"] p,
+section[class*="min-h-screen"][class*="overflow-hidden"]
+  span[class*="text-white"] {
+  color: #ffffff !important;
+}
+
+/* Tema claro - texto blanco en HeroSection */
+.light section[class*="min-h-screen"][class*="overflow-hidden"] h1,
+.light section[class*="min-h-screen"][class*="overflow-hidden"] p,
+.light
+  section[class*="min-h-screen"][class*="overflow-hidden"]
+  span[class*="text-white"] {
+  color: #ffffff !important;
+}
+
+/* Tema oscuro - texto blanco en HeroSection */
+.dark section[class*="min-h-screen"][class*="overflow-hidden"] h1,
+.dark section[class*="min-h-screen"][class*="overflow-hidden"] p,
+.dark
+  section[class*="min-h-screen"][class*="overflow-hidden"]
+  span[class*="text-white"] {
+  color: #ffffff !important;
+}
+
+/* Wrapper del botón con fondo negro/blanco */
+.dark section div[class*="bg-white"][class*="rounded-3xl"] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-top-color: rgb(75, 85, 99) !important;
+  border-right-color: rgb(75, 85, 99) !important;
+}
+
+/* DESACTIVADO - Causaba fondo blanco forzado en About */
+/* .light section div[class*="rounded-3xl"][class*="px-7"] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-top-color: #000000 !important;
+  border-right-color: #000000 !important;
+} */
+
+.light section .self-start > div {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Forzar color del wrapper del botón en tema claro */
+.light .button-wrapper-custom {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+.dark .button-wrapper-custom {
+  background: #000000 !important;
+  background-color: #000000 !important;
+}
+
+/* Botón CTA - Tema oscuro */
+.dark section a[class*="bg-black/95"] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #000000 !important;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Botón CTA - Tema claro */
+.light section a[class*="bg-white/95"] {
+  background: rgba(0, 0, 0, 0.95) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones con gradientes de colores - Texto blanco en ambos temas */
+.light a[class*="from-orange-"][class*="to-red-"],
+.light button[class*="from-orange-"][class*="to-red-"],
+.light a[class*="from-blue-"][class*="to-cyan-"],
+.light button[class*="from-blue-"][class*="to-cyan-"],
+.light a[class*="from-green-"][class*="to-emerald-"],
+.light button[class*="from-green-"][class*="to-emerald-"],
+.light a[class*="from-emerald-"][class*="to-teal-"],
+.light button[class*="from-emerald-"][class*="to-teal-"],
+.light a[class*="from-purple-"][class*="to-pink-"],
+.light button[class*="from-purple-"][class*="to-pink-"],
+a[class*="from-orange-"][class*="to-red-"],
+button[class*="from-orange-"][class*="to-red-"],
+a[class*="from-blue-"][class*="to-cyan-"],
+button[class*="from-blue-"][class*="to-cyan-"],
+a[class*="from-green-"][class*="to-emerald-"],
+button[class*="from-green-"][class*="to-emerald-"],
+a[class*="from-emerald-"][class*="to-teal-"],
+button[class*="from-emerald-"][class*="to-teal-"],
+a[class*="from-purple-"][class*="to-pink-"],
+button[class*="from-purple-"][class*="to-pink-"] {
+  color: #ffffff !important;
+}
+
+/* Botones CTA con clase btn-cta-primary - Texto e iconos blancos */
+.light .btn-cta-primary,
+.light .btn-cta-primary *,
+.light .btn-cta-primary svg,
+.btn-cta-primary,
+.btn-cta-primary *,
+.btn-cta-primary svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Asegurar que span y elementos internos también sean blancos */
+.btn-cta-primary span,
+.light .btn-cta-primary span {
+  color: #ffffff !important;
+}
+
+/* Iconos y texto en gradient-icon-box - Blancos en tema claro */
+.light .gradient-icon-box svg,
+.light .gradient-icon-box {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Hero badges - Iconos blancos en ambos temas */
+.hero-badge-light svg,
+.hero-badge-dark svg,
+.light .hero-badge-light svg,
+.light .hero-badge-dark svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Glassmorphism para navegación */
+section button[class*="bg-white/5"] {
+  backdrop-filter: blur(12px);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light section button[class*="bg-white/5"] {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(26, 26, 26, 0.15) !important;
+}
+
+.light section button[class*="bg-white/5"]:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(26, 26, 26, 0.25) !important;
+}
+
+.light section button [class*="text-gray-400"] {
+  color: #1a1a1a !important;
+}
+
+/* Dots de navegación en tema claro */
+.light section button [class*="rounded-full"][style*="background"] {
+  opacity: 0.8;
+}
+
+/* Transición suave de imagen de fondo */
+@keyframes slideImageFade {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animación de entrada para contenido */
+section [class*="animate-fadeIn"] {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Efecto parallax sutil en scroll */
+section[class*="min-h-screen"] {
+  will-change: transform;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Animación de entrada tipo drawer desde arriba hacia abajo para HeroSection */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scaleY(0.5);
+    transform-origin: top center;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 1s ease-out;
+}
+
+/* ===== CLASES CUSTOM PARA ELIMINAR INLINE STYLES ===== */
+
+/* Glassmorphism Cards */
+.glassmorphism-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.glassmorphism-card-light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Radial Gradients para backgrounds */
+.radial-gradient-blue {
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.2) 0%,
+    transparent 70%
+  );
+}
+
+.radial-gradient-cyan {
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.2) 0%,
+    transparent 70%
+  );
+}
+
+.radial-gradient-purple {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.7) 0%,
+    rgba(139, 92, 246, 0.3) 50%,
+    transparent 70%
+  );
+}
+
+.radial-gradient-pink {
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.6) 0%,
+    rgba(236, 72, 153, 0.2) 50%,
+    transparent 70%
+  );
+}
+
+.radial-gradient-yellow {
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.6) 0%,
+    rgba(251, 191, 36, 0.2) 50%,
+    transparent 70%
+  );
+}
+
+/* Animated borders */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animated-border:hover::after {
+  opacity: 1;
+}
+
+/* Hover gradient overlay */
+.hover-gradient-overlay {
+  position: relative;
+}
+
+.hover-gradient-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.05) 0%,
+    rgba(6, 182, 212, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.hover-gradient-overlay:hover::before {
+  opacity: 1;
+}
+
+/* Icon containers con gradientes */
+.icon-gradient-blue {
+  background: linear-gradient(
+    135deg,
+    rgba(91, 111, 255, 0.2),
+    rgba(91, 111, 255, 0.1)
+  );
+}
+
+.icon-gradient-blue-light {
+  background: linear-gradient(135deg, rgba(91, 111, 255, 0.1), #fff);
+}
+
+/* Text gradient animado */
+.text-gradient-animated {
+  background-image: linear-gradient(135deg, #3b82f6, #06b6d4);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 300ms ease;
+}
+
+.text-gradient-animated:hover {
+  background-position: 100% 100%;
+}
+
+/* Shadows personalizadas */
+.shadow-card-dark {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-card-light {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-icon-dark {
+  box-shadow: 0 4px 15px rgba(91, 111, 255, 0.15);
+}
+
+.shadow-icon-light {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* GPU Acceleration para animaciones */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* NotFound Page Styles - Responsive */
+.notfound-404-text {
+  /* Mobile first: 2.5rem (40px) */
+  font-size: 9rem;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.05em;
+  filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.3));
+}
+
+/* Tablets pequeños (640px) */
+@media (min-width: 640px) {
+  .notfound-404-text {
+    font-size: 4rem; /* 64px */
+  }
+}
+
+/* Tablets (768px) */
+@media (min-width: 768px) {
+  .notfound-404-text {
+    font-size: 20rem; /* 160px */
+  }
+}
+
+/* Desktop pequeño (1024px) */
+@media (min-width: 1024px) {
+  .notfound-404-text {
+    font-size: 30rem; /* 240px */
+  }
+}
+
+/* Desktop (1280px) */
+@media (min-width: 1280px) {
+  .notfound-404-text {
+    font-size: 35rem; /* 400px */
+  }
+}
+
+/* Desktop XL (1536px) */
+@media (min-width: 1536px) {
+  .notfound-404-text {
+    font-size: 35rem; /* 560px */
+  }
+}
+
+.notfound-card {
+  border-radius: 1.5rem;
+  /* Mobile: padding reducido */
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Tablets (640px) */
+@media (min-width: 640px) {
+  .notfound-card {
+    border-radius: 2rem;
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+  .notfound-card {
+    padding: 5rem;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Font Inter utility */
+.font-inter {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* HeroSection Badge Styles */
+.hero-badge-dark {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-badge-light {
+  background: linear-gradient(135deg, #4a5cff, #7a8fff);
+  border: 1px solid rgba(74, 92, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(74, 92, 255, 0.4);
+}
+
+/* Text shadows para HeroSection */
+.text-shadow-hero-dark {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.text-shadow-hero-light {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-hero-title {
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 8px 40px rgba(0, 0, 0, 0.8),
+    0 12px 60px rgba(0, 0, 0, 0.7);
+}
+
+.text-shadow-hero-description {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* Services Pages - Dynamic Styles */
+.service-card-dark {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.service-card-light {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.service-feature-card-dark {
+  border: 1px solid rgba(91, 111, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-feature-card-light {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon-shadow-dark {
+  box-shadow: 0 4px 15px rgba(91, 111, 255, 0.15);
+}
+
+.service-icon-shadow-light {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon-gradient-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(91, 111, 255, 0.2),
+    rgba(91, 111, 255, 0.1)
+  );
+}
+
+.service-icon-gradient-light {
+  background: linear-gradient(135deg, rgba(91, 111, 255, 0.1), #fff);
+}
+
+.service-channel-badge-dark {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-channel-badge-light {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Radial gradients dinámicos para servicios */
+.radial-gradient-primary-dark {
+  background: radial-gradient(
+    circle,
+    rgba(91, 111, 255, 0.2) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+.radial-gradient-primary-light {
+  background: radial-gradient(
+    circle,
+    rgba(91, 111, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+/* Radial gradient secundario */
+.radial-gradient-secondary {
+  background: radial-gradient(
+    circle,
+    rgba(122, 143, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+/* Fiber optic line gradient */
+.fiber-line-gradient {
+  background: linear-gradient(to bottom, transparent, #4a5cff, transparent);
+}
+
+/* Connection dots pattern */
+.connection-dots-pattern {
+  background-image: radial-gradient(
+    circle,
+    rgba(74, 92, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+}
+
+/* Comparador Tarifas - Gradientes específicos */
+.glow-primary {
+  background: radial-gradient(circle, #4a5cff, transparent);
+}
+
+.gradient-icon-box {
+  background: linear-gradient(135deg, #4a5cff, #7a8fff);
+  box-shadow: 0 8px 32px rgba(74, 92, 255, 0.3);
+}
+
+.gradient-text-animated {
+  background-image: linear-gradient(
+    to right,
+    #4a5cff,
+    #ffffff,
+    #7a8fff,
+    #ffffff,
+    #4a5cff
+  );
+  background-size: 200% 100%;
+}
+
+.gradient-section-bg {
+  /* background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)
+  ); */
+}
+/* Gradient cards para tema oscuro */
+.gradient-section-bg-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.5),
+    rgba(30, 41, 59, 0.5)
+  );
+}
+
+.gradient-border-primary {
+  padding: 1px;
+  background: linear-gradient(135deg, #4a5cff, #7a8fff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.gradient-border-primary-soft {
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 92, 255, 0.3),
+    rgba(122, 143, 255, 0.2)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Border simple para tema blanco */
+.border-primary-light {
+  border: 2px solid rgba(74, 92, 255, 0.2);
+}
+
+.gradient-text-primary {
+  background-image: linear-gradient(to right, #4a5cff, #7a8fff);
+}
+
+.gradient-badge-bg {
+  background: linear-gradient(135deg, #4a5cff15, #7a8fff15);
+  border-color: #4a5cff50;
+}
+
+.gradient-hover-overlay {
+  background: linear-gradient(135deg, #4a5cff08, #ffffff05, #7a8fff08);
+}
+
+.gradient-savings-badge {
+  background: linear-gradient(135deg, #4a5cff10, #7a8fff10);
+  border: 1px solid #4a5cff30;
+}
+
+.gradient-check-circle {
+  background: linear-gradient(135deg, #4a5cff, #7a8fff);
+}
+
+/* CTA Section específica */
+.cta-section-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 92, 255, 0.15),
+    rgba(122, 143, 255, 0.1)
+  );
+}
+
+.glow-primary-left {
+  background: radial-gradient(circle, #4a5cff, transparent);
+}
+
+.glow-secondary-right {
+  background: radial-gradient(circle, #7a8fff, transparent);
+}
+
+/* Animaciones modernas para About */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animación de escritura (typewriter) */
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: #4a5cff;
+  }
+}
+
+.animate-typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #4a5cff;
+  animation: typewriter 6s ease-in-out infinite,
+    blinkCursor 0.75s step-end infinite;
+}
+
+/* Animación de texto VERLA emergiendo con partículas */
+@keyframes verla-emerge {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+    filter: blur(30px);
+  }
+}
+
+@keyframes particle-burst {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-verla-emerge {
+  animation: verla-emerge 20s ease-in-out infinite;
+}
+
+.animate-particle-burst {
+  animation: particle-burst 3s ease-out infinite;
+}
+
+.gradient-border-cta {
+  padding: 2px;
+  background: linear-gradient(135deg, #4a5cff, #ffffff, #7a8fff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Botones CTA con hover */
+.btn-cta-primary {
+  background: linear-gradient(135deg, #4a5cff, #6b7fff, #7a8fff);
+  box-shadow: 0 8px 32px rgba(74, 92, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(74, 92, 255, 0.45);
+  background: linear-gradient(135deg, #5b6fff, #7a8fff, #8a9fff);
+}
+
+.btn-cta-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(74, 92, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-cta-secondary:hover {
+  background: rgba(74, 92, 255, 0.2);
+  border-color: rgba(74, 92, 255, 0.5);
+}
+
+/* Gradientes de texto para stats */
+.gradient-text-stats-1 {
+  background-image: linear-gradient(135deg, #4a5cff, #ffffff, #7a8fff);
+  background-size: 200% 200%;
+}
+
+.gradient-text-stats-2 {
+  background-image: linear-gradient(135deg, #7a8fff, #ffffff, #4a5cff);
+  background-size: 200% 200%;
+}
+
+.gradient-text-stats-3 {
+  background-image: linear-gradient(135deg, #4a5cff, #ffffff, #5b6fff);
+  background-size: 200% 200%;
+}
+
+/* Animaciones de Modal */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-shadow {
+  box-shadow: 0 25px 50px -12px rgba(74, 92, 255, 0.25);
+}
+
+/* Badge de ventajas competitivas */
+.advantage-badge {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 92, 255, 0.2),
+    rgba(122, 143, 255, 0.1)
+  );
+  border: 1px solid rgba(74, 92, 255, 0.3);
+}
+
+/* ===== UTILIDADES DE GRADIENTE DE TEXTO ===== */
+/* Soporte completo para bg-clip-text con todos los prefijos de vendor */
+.bg-clip-text {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.text-transparent {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ===== ANIMACIONES VIBRANTES Y MODERNAS PARA ABOUT ===== */
+
+/* Animación de entrada explosiva */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Animación de partículas vibrantes */
+@keyframes floatVibrant {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-20px, -60px) scale(0.8);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(-40px, -30px) scale(1.1);
+    opacity: 0.95;
+  }
+}
+
+.animate-floatVibrant {
+  animation: floatVibrant 15s ease-in-out infinite;
+}
+
+/* Animación de glow neon intenso */
+@keyframes neonGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(74, 92, 255, 0.8), 0 0 60px rgba(74, 92, 255, 0.5),
+      0 0 90px rgba(74, 92, 255, 0.3), inset 0 0 20px rgba(74, 92, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(74, 92, 255, 1), 0 0 100px rgba(74, 92, 255, 0.8),
+      0 0 150px rgba(74, 92, 255, 0.5), inset 0 0 30px rgba(74, 92, 255, 0.4);
+  }
+}
+
+.animate-neonGlow {
+  animation: neonGlow 2s ease-in-out infinite;
+}
+
+/* Animación de gradiente vibrante */
+@keyframes gradientVibrant {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientVibrant {
+  background-size: 400% 400%;
+  animation: gradientVibrant 6s ease infinite;
+}
+
+/* Animación de pulso brillante */
+@keyframes pulseBright {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.3);
+  }
+}
+
+.animate-pulseBright {
+  animation: pulseBright 2s ease-in-out infinite;
 }

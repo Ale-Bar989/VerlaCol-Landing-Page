@@ -1,0 +1,3 @@
+# No ignorar PDFs en el build
+!public/documents/pdf/*.pdf
+!dist/documents/pdf/*.pdf
