@@ -28,6 +28,11 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
+  // MODO EXPECTATIVA: feature flag para mostrar/ocultar el mega-menú Legal en el header.
+  // En false, las páginas legales quedan accesibles vía footer y URL directa.
+  // Reactivar cambiando a true cuando se definan los productos definitivos.
+  const MOSTRAR_LEGAL_NAV = false;
+
   // Memoizar handlers para evitar recreación
   const handleMenuToggle = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
@@ -80,6 +85,10 @@ function Navbar() {
               Inicio
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
+            {/*
+              MODO EXPECTATIVA: "Nosotros" queda oculto del header.
+              Su contenido (Quiénes Somos / Qué Hacemos) sigue accesible vía footer y URL /about.
+              Reactivar cuando se levante el modo expectativa.
             <Link
               to={ROUTES.ABOUT}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
@@ -92,8 +101,10 @@ function Navbar() {
               Nosotros
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
+            */}
+            {/* Apartado 2: Planes y Contacto — enlace "Planes" al lead magnet */}
             <Link
-              to={ROUTES.PRICING}
+              to={`${ROUTES.PRICING}#registro`}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
                 isDark
                   ? "text-gray-300 hover:text-white hover:bg-white/10"
@@ -101,10 +112,13 @@ function Navbar() {
               }`}
               style={{ transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)" }}
             >
-              Precios
+              Planes
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
-            {/* Modern Legal Mega Menu */}
+            {/* MODO EXPECTATIVA: Mega-menú "Legal" oculto del header.
+                Las páginas legales siguen accesibles vía footer (Política de Privacidad) y URL directa.
+                Reactivar cambiando MOSTRAR_LEGAL_NAV a true cuando se levante el modo expectativa. */}
+            {MOSTRAR_LEGAL_NAV && (
             <div className="relative group">
               <button
                 className={`group/navitem flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg font-medium ${
@@ -464,6 +478,7 @@ function Navbar() {
                 </div>
               </div>
             </div>
+            )}
           </div>
 
           {/* Theme Toggle Button - Oculto en móvil */}
@@ -734,6 +749,10 @@ function Navbar() {
               <span className="text-sm font-semibold">Inicio</span>
             </Link>
 
+            {/*
+              MODO EXPECTATIVA: "Nosotros" y "Precios" ocultos en el menú móvil.
+              Apartado 2 se presenta como "Planes" (redirige al lead magnet).
+              Reactivar cuando se levante el modo expectativa.
             <Link
               to={ROUTES.ABOUT}
               onClick={handleMenuClose}
@@ -758,6 +777,21 @@ function Navbar() {
             >
               <div className="w-2 h-2 rounded-full bg-[#4A5CFF] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
               <span className="text-sm font-semibold">Precios</span>
+            </Link>
+            */}
+
+            {/* Apartado 2: Planes (modo expectativa, lleva al lead magnet) */}
+            <Link
+              to={`${ROUTES.PRICING}#registro`}
+              onClick={handleMenuClose}
+              className={`group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
+                isDark
+                  ? "text-gray-300 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-blue-50"
+              }`}
+            >
+              <div className="w-2 h-2 rounded-full bg-[#4A5CFF] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
+              <span className="text-sm font-semibold">Planes</span>
             </Link>
 
             {/* Botón CTA en móvil */}
@@ -797,7 +831,9 @@ function Navbar() {
               className={`h-px my-3 ${isDark ? "bg-white/10" : "bg-gray-200"}`}
             ></div>
 
-            {/* Legal y Regulatorio - Expandible */}
+            {/* MODO EXPECTATIVA: bloque "Legal y Regulatorio" expandible oculto en móvil.
+                Reactivar cambiando MOSTRAR_LEGAL_NAV a true cuando se levante el modo expectativa. */}
+            {MOSTRAR_LEGAL_NAV && (
             <div className="space-y-2">
               <button
                 onClick={handleLegalToggle}
@@ -906,6 +942,7 @@ function Navbar() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* Theme Toggle Mobile */}
             <button
