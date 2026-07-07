@@ -331,7 +331,9 @@ function ProblemSection() {
                         isDark ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      Av. El Dorado #6913-35
+                      Carrera 69 # 25B - 44
+                      <br />
+                      Edificio World Business Port, Oficina 613
                       <br />
                       Bogotá, Colombia
                     </p>

@@ -220,7 +220,7 @@ const FooterSection = memo(() => {
                     Dirección:
                   </p>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    Av. El Dorado #6913-35, Bogotá, Colombia
+                    Carrera 69 # 25B - 44. Edificio World Business Port, Oficina 613, Bogotá, Colombia
                   </p>
                 </div>
               </li>

@@ -107,7 +107,7 @@ export default function Contact() {
                 <h3 className="text-xl font-black mb-2 text-white">
                   Ubicación
                 </h3>
-                <p className="text-gray-300 font-medium">Av. El Dorado #6913-35, Bogotá, Colombia</p>
+                <p className="text-gray-300 font-medium">Carrera 69 # 25B - 44. Edificio World Business Port, Oficina 613, Bogotá, Colombia</p>
               </div>
             </div>
           </div>
