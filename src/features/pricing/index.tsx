@@ -1,11 +1,11 @@
 import { Check, ArrowRight, Wifi } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BackgroundEffects, Modal, PlanBanner } from "@/shared/components";
+import { BackgroundEffects, Modal, PlanBanner, LazySection } from "@/shared/components";
 import { Navbar } from "@/shared/components";
 import { ROUTES } from "@/core/router/routes.config";
 import FooterSection from "@/features/home/components/sections/FooterSection";
-import { PricingSpeedTest } from "./components";
+import { PricingSpeedTest, LeadMagnetForm } from "./components";
 import { PRICING_PLANS } from "./data";
 import type { Plan } from "./types";
 
@@ -20,6 +20,17 @@ export default function PricingPage() {
     setIsModalOpen(false);
     setTimeout(() => setSelectedPlan(null), 300);
   };
+
+  // Scroll automático a #registro cuando se navega con ese hash (ej. desde el botón "Ver producto")
+  useEffect(() => {
+    if (window.location.hash === "#registro") {
+      const el = document.getElementById("registro");
+      if (el) {
+        // Pequeño retardo para asegurar que el layout ya está renderizado
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+      }
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -339,6 +350,41 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
+
+          {/* Lead Magnet — Lista de espera de preventa (Modo Expectativa) */}
+          <section id="registro" className="mt-16 sm:mt-20 md:mt-24 scroll-mt-28">
+            <LazySection>
+              <div className="relative rounded-3xl p-8 sm:p-10 md:p-12 overflow-hidden">
+                {/* Fondo con gradiente */}
+                <div className="absolute inset-0 gradient-section-bg"></div>
+                {/* Border glow */}
+                <div className="absolute inset-0 rounded-3xl gradient-border-primary-soft"></div>
+
+                <div className="relative z-10">
+                  <div className="text-center mb-8 sm:mb-10">
+                    <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 border border-white/10 rounded-full mb-6">
+                      <div className="w-2 h-2 bg-[#4A5CFF] rounded-full animate-pulse"></div>
+                      <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider">
+                        Lanzamiento exclusivo
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight">
+                      Sé parte del lanzamiento exclusivo de{" "}
+                      <span className="text-transparent bg-clip-text gradient-text-primary">
+                        Verla
+                      </span>
+                    </h2>
+                    <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
+                      Regístrate para recibir beneficios únicos de preventa y ser de los
+                      primeros en conocer nuestras alternativas de navegación.
+                    </p>
+                  </div>
+
+                  <LeadMagnetForm />
+                </div>
+              </div>
+            </LazySection>
+          </section>
         </div>
       </div>
 
