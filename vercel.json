@@ -10,7 +10,7 @@
   },
   "rewrites": [
     {
-      "source": "/((?!documents|assets|images|icon-verla.png|vite.svg|manifest.webmanifest|sw.js|registerSW.js|workbox-.*).*)",
+      "source": "/((?!api|documents|assets|images|icon-verla.png|vite.svg|manifest.webmanifest|sw.js|registerSW.js|workbox-.*).*)",
       "destination": "/index.html"
     }
   ],
