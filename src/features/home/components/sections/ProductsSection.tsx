@@ -222,9 +222,9 @@ function ProductsSection() {
                     {product.description}
                   </p>
 
-                  {/* Link */}
+                  {/* Link — MODO EXPECTATIVA: redirige al formulario de la lista de espera en lugar de la página del producto */}
                   <a
-                    href={product.link}
+                    href={`${ROUTES.PRICING}#registro`}
                     className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group/link"
                     style={{
                       color: "#5B6FFF",
@@ -261,7 +261,8 @@ function ProductsSection() {
 
               <a
                 // href="#contacto"
-                href={ROUTES.CONTACT}
+                // MODO EXPECTATIVA: scroll al formulario de la lista de espera (#registro en /precios)
+                href={`${ROUTES.PRICING}#registro`}
                 className="relative inline-flex items-center justify-center gap-3 px-12 py-4 text-base font-bold rounded-full transition-all duration-500 group-hover:scale-[1.03] transform"
                 style={{
                   background: "linear-gradient(135deg, #5B6FFF, #7A8FFF)",

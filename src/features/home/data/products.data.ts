@@ -28,7 +28,7 @@ export const PRODUCTS: ProductWithGlow[] = [
     id: 1,
     title: "Internet por Fibra Óptica",
     description:
-      "Velocidades ultrarrápidas y conexión estable con nuestra red de fibra óptica de última generación. Ideal para streaming, juegos en línea y teletrabajo.",
+      "Conectividad de última generación para tu hogar y empresa. Muy pronto conocerás nuestras alternativas de navegación asimétrica.",
     image:
       "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     link: ROUTES.SERVICES.FIBRA_RESIDENCIAL,
@@ -42,7 +42,7 @@ export const PRODUCTS: ProductWithGlow[] = [
     id: 2,
     title: "Televisión IP",
     description:
-      "Más de 200 canales en alta definición, contenido bajo demanda y funciones avanzadas como pausar y retroceder en vivo. Disfruta del mejor entretenimiento en un solo lugar.",
+      "El mejor entretenimiento y contenido en un solo lugar. Estamos preparando una parrilla optimizada para tu hogar.",
     image:
       "https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     link: ROUTES.SERVICES.TV_DIGITAL,
@@ -56,7 +56,7 @@ export const PRODUCTS: ProductWithGlow[] = [
     id: 3,
     title: "Planes Empresariales",
     description:
-      "Soluciones de conectividad empresarial con ancho de banda dedicado, IP fija y soporte prioritario. Garantizamos la estabilidad que tu negocio necesita para operar sin interrupciones.",
+      "Soluciones corporativas diseñadas para la estabilidad y continuidad de tu negocio. Déjanos tus datos para brindarte una consultoría preferencial.",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     link: ROUTES.SERVICES.PLANES_EMPRESARIALES,
@@ -70,7 +70,7 @@ export const PRODUCTS: ProductWithGlow[] = [
     id: 4,
     title: "Soporte Técnico 24/7",
     description:
-      "Asistencia técnica especializada disponible las 24 horas del día, los 7 días de la semana. Tu conexión siempre activa con nuestro soporte dedicado.",
+      "Nuestro compromiso permanente: respaldo técnico y acompañamiento especializado en cada una de tus conexiones.",
     image:
       "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
     link: ROUTES.CONTACT,
