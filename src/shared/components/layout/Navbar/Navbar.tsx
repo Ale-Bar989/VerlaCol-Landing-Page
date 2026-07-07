@@ -28,10 +28,14 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === "dark";
 
-  // MODO EXPECTATIVA: feature flag para mostrar/ocultar el mega-menú Legal en el header.
-  // En false, las páginas legales quedan accesibles vía footer y URL directa.
-  // Reactivar cambiando a true cuando se definan los productos definitivos.
-  const MOSTRAR_LEGAL_NAV = false;
+  // Menú Legal: VISIBLE — los temas legales son obligatorios para un ISP en Colombia
+  // (Protección de Datos, Comparador de Tarifas, etc.) y NO pueden ocultarse.
+  const MOSTRAR_LEGAL_NAV = true;
+
+  // MODO EXPECTATIVA: enlaces "Nosotros" y "Precios" ocultos del header.
+  // Su contenido sigue accesible vía footer y URL directa.
+  // Reactivar cambiando a true cuando se levante el modo expectativa.
+  const MOSTRAR_NAV_SECUNDARIOS = false;
 
   // Memoizar handlers para evitar recreación
   const handleMenuToggle = useCallback(() => {
@@ -85,10 +89,9 @@ function Navbar() {
               Inicio
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
-            {/*
-              MODO EXPECTATIVA: "Nosotros" queda oculto del header.
-              Su contenido (Quiénes Somos / Qué Hacemos) sigue accesible vía footer y URL /about.
-              Reactivar cuando se levante el modo expectativa.
+            {/* MODO EXPECTATIVA: "Nosotros" oculto del header (accesible vía footer y /about).
+                Reactivar cambiando MOSTRAR_NAV_SECUNDARIOS a true cuando se levante el modo expectativa. */}
+            {MOSTRAR_NAV_SECUNDARIOS && (
             <Link
               to={ROUTES.ABOUT}
               className={`group relative px-4 py-2 text-sm rounded-lg font-medium ${
@@ -101,7 +104,7 @@ function Navbar() {
               Nosotros
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-[#4A5CFF] to-[#7A8FFF] group-hover:w-8 transition-all duration-300 rounded-full"></div>
             </Link>
-            */}
+            )}
             {/* Apartado 2: Planes y Contacto — enlace "Planes" al lead magnet */}
             <Link
               to={`${ROUTES.PRICING}#registro`}
@@ -749,10 +752,10 @@ function Navbar() {
               <span className="text-sm font-semibold">Inicio</span>
             </Link>
 
-            {/*
-              MODO EXPECTATIVA: "Nosotros" y "Precios" ocultos en el menú móvil.
-              Apartado 2 se presenta como "Planes" (redirige al lead magnet).
-              Reactivar cuando se levante el modo expectativa.
+            {/* MODO EXPECTATIVA: "Nosotros" y "Precios" ocultos en el menú móvil.
+                Apartado 2 se presenta como "Planes" (redirige al lead magnet).
+                Reactivar cambiando MOSTRAR_NAV_SECUNDARIOS a true cuando se levante el modo expectativa. */}
+            {MOSTRAR_NAV_SECUNDARIOS && (<>
             <Link
               to={ROUTES.ABOUT}
               onClick={handleMenuClose}
@@ -778,7 +781,7 @@ function Navbar() {
               <div className="w-2 h-2 rounded-full bg-[#4A5CFF] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"></div>
               <span className="text-sm font-semibold">Precios</span>
             </Link>
-            */}
+            </>)}
 
             {/* Apartado 2: Planes (modo expectativa, lleva al lead magnet) */}
             <Link

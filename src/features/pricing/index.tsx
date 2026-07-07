@@ -16,6 +16,11 @@ export default function PricingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
 
+  // MODO EXPECTATIVA: las tarjetas de planes (300/600/1000 Mbps) están ocultas
+  // hasta que marketing valide las velocidades y precios definitivos.
+  // Reactivar cambiando a true cuando se definan los planes.
+  const MOSTRAR_PLANES = false;
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedPlan(null), 300);
@@ -40,36 +45,39 @@ export default function PricingPage() {
       {/* Contenido principal */}
       <div className="relative z-10 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          {/* Header */}
+          {/* Header — MODO EXPECTATIVA */}
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 bg-white/5 border border-white/10 rounded-full mb-6 sm:mb-8">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-[#4A5CFF] rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-gray-300 uppercase tracking-wider">
-                Planes de Internet y TV
+                Próximamente
               </span>
             </div>
 
             {/* Título */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-tight px-2">
-              Elige el plan{" "}
+              Sé de los{" "}
               <span className="text-transparent bg-clip-text inline-block gradient-text-primary">
-                perfecto
+                primeros
               </span>
               <br />
-              para tu hogar
+              en conectarse con Verla
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Fibra óptica de última generación con TV IP en alta definición.
+              Estamos preparando la mejor conectividad de fibra óptica y TV IP para tu hogar.
               <br />
               <span className="text-gray-500">
-                Sin contratos, sin permanencia, sin sorpresas.
+                Regístrate y recibe beneficios exclusivos de preventa.
               </span>
             </p>
           </div>
 
-          {/* Planes */}
+          {/* Planes — MODO EXPECTATIVA: tarjetas ocultas hasta definir precios definitivos.
+              Reactivar cambiando MOSTRAR_PLANES a true. */}
+          {MOSTRAR_PLANES && (
+          <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {PRICING_PLANS.map((plan, index) => (
               <div
@@ -350,6 +358,8 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
+          </>
+          )}
 
           {/* Lead Magnet — Lista de espera de preventa (Modo Expectativa) */}
           <section id="registro" className="mt-16 sm:mt-20 md:mt-24 scroll-mt-28">
