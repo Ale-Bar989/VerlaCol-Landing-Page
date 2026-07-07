@@ -11,6 +11,11 @@ const FooterSection = memo(() => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  // MODO EXPECTATIVA: feature flag para mostrar/ocultar enlaces secundarios del footer.
+  // En false, solo quedan visibles: Planes, Quiénes Somos, Contáctanos y Política de Privacidad.
+  // Reactivar cambiando a true cuando se levante el modo expectativa.
+  const MOSTRAR_LINKS_SECUNDARIOS = false;
+
   return (
     <footer
       className={`relative py-12 px-6 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
@@ -73,6 +78,9 @@ const FooterSection = memo(() => {
                   • Planes
                 </Link>
               </li>
+              {/* MODO EXPECTATIVA: enlaces de productos ocultos.
+                  Reactivar cambiando MOSTRAR_LINKS_SECUNDARIOS a true cuando se definan los productos. */}
+              {MOSTRAR_LINKS_SECUNDARIOS && (<>
               <li>
                 <Link
                   to={ROUTES.SERVICES.FIBRA_RESIDENCIAL}
@@ -103,6 +111,7 @@ const FooterSection = memo(() => {
                   • Empresas
                 </Link>
               </li>
+              </>)}
             </ul>
           </div>
 
@@ -126,6 +135,10 @@ const FooterSection = memo(() => {
                   • Quiénes Somos
                 </Link>
               </li>
+              {/* MODO EXPECTATIVA: enlaces de Compañía ocultos.
+                  Mantener solo Quiénes Somos y Contáctanos.
+                  Reactivar cambiando MOSTRAR_LINKS_SECUNDARIOS a true cuando se levante el modo expectativa. */}
+              {MOSTRAR_LINKS_SECUNDARIOS && (<>
               <li>
                 <Link
                   to={ROUTES.CONTACT}
@@ -156,6 +169,7 @@ const FooterSection = memo(() => {
                   • Precios
                 </Link>
               </li>
+              </>)}
               <li>
                 <Link
                   to={ROUTES.CONTACT}
@@ -221,7 +235,7 @@ const FooterSection = memo(() => {
                     Email:
                   </p>
                   <a
-                    href="mailto:info@verla.com.ve"
+                    href="mailto:info@verla.com.co"
                     className={`text-sm hover:text-[#4A5CFF] transition-colors ${
                       isDark ? "text-gray-400" : "text-gray-600"
                     }`}
@@ -342,6 +356,9 @@ const FooterSection = memo(() => {
               >
                 Política de Privacidad
               </Link>
+              {/* MODO EXPECTATIVA: "Nuestra Historia" y "Qué Hacemos" ocultos (se canalizan en la landing).
+                  Reactivar cambiando MOSTRAR_LINKS_SECUNDARIOS a true cuando se levante el modo expectativa. */}
+              {MOSTRAR_LINKS_SECUNDARIOS && (<>
               <Link
                 to={ROUTES.ABOUT}
                 className={`hover:text-[#4A5CFF] transition-colors ${
@@ -358,6 +375,7 @@ const FooterSection = memo(() => {
               >
                 Qué Hacemos
               </Link>
+              </>)}
             </div>
             <p
               className={`text-xs ${
