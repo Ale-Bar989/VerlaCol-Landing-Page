@@ -74,10 +74,10 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Email</h3>
                 <a
-                  href="mailto:info@verla.com"
+                  href="mailto:info@verla.com.co"
                   className="text-gray-300 hover:text-white transition-colors font-medium"
                 >
-                  info@verla.com
+                  info@verla.com.co
                 </a>
               </div>
             </div>
@@ -90,10 +90,10 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-black mb-2 text-white">Teléfono</h3>
                 <a
-                  href="tel:+573001234567"
+                  href="tel:+573115761963"
                   className="text-gray-300 hover:text-white transition-colors font-medium"
                 >
-                  +57 300-123-4567
+                  311-576-1963
                 </a>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function Contact() {
                 <h3 className="text-xl font-black mb-2 text-white">
                   Ubicación
                 </h3>
-                <p className="text-gray-300 font-medium">Bogotá, Colombia</p>
+                <p className="text-gray-300 font-medium">Av. El Dorado #6913-35, Bogotá, Colombia</p>
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                       type="tel"
                       id="phone"
                       className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#4A5CFF] focus:bg-white/10 transition-all"
-                      placeholder="+57 300 123 4567"
+                      placeholder="+57 311 576 1963"
                     />
                   </div>
                 </div>

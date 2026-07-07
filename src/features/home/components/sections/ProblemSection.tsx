@@ -245,14 +245,14 @@ function ProblemSection() {
                       Teléfono
                     </p>
                     <a
-                      href="tel:+573001234567"
+                      href="tel:+573115761963"
                       className={`font-semibold transition-all ${
                         isDark
                           ? "text-white hover:text-blue-400"
                           : "text-gray-900 hover:text-blue-600"
                       }`}
                     >
-                      +57 300 123 4567
+                      311-576-1963
                     </a>
                   </div>
                 </div>
@@ -286,14 +286,14 @@ function ProblemSection() {
                       Email
                     </p>
                     <a
-                      href="mailto:info@verlapage.com"
+                      href="mailto:info@verla.com.co"
                       className={`font-semibold transition-all ${
                         isDark
                           ? "text-white hover:text-purple-400"
                           : "text-gray-900 hover:text-purple-600"
                       }`}
                     >
-                      info@verlapage.com
+                      info@verla.com.co
                     </a>
                   </div>
                 </div>
@@ -331,7 +331,7 @@ function ProblemSection() {
                         isDark ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      Calle 123 #45-67
+                      Av. El Dorado #6913-35
                       <br />
                       Bogotá, Colombia
                     </p>
