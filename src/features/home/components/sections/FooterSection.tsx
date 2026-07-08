@@ -33,7 +33,7 @@ const FooterSection = memo(() => {
               VERLA
             </h2>
             <p className="text-sm text-[#4A5CFF] font-medium mb-6">
-              Conectividad sin límites
+              Conectividad sin límites 
             </p>
 
             <div className="space-y-4">
