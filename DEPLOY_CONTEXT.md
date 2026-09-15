@@ -47,6 +47,8 @@ Fecha de configuración: 03-04/Sep/2026
     sudo systemctl status treenet
     ```
 - **Nginx Config:** `/etc/nginx/sites-available/treenet.com.co`
+  - Redirección 301 Permanente: `treenet.com.co` ➜ `https://www.treenet.com.co$request_uri` (cumplimiento SEO y canónico).
+  - Servidor principal: `www.treenet.com.co` (proxy a Next.js puerto 3000).
 - **Efectos de sonido:** `src/lib/sounds.ts` (Web Audio API)
 
 ---

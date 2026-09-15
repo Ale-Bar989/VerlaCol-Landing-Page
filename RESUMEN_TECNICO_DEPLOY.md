@@ -82,9 +82,16 @@ El servidor opera como un entorno de producción multitenant utilizando **Nginx*
 - **Archivo:** `/etc/nginx/sites-available/treenet.com.co` (enlace en `sites-enabled`)
 - **SSL de origen:** `/etc/ssl/certs/treenet.crt` y `/etc/ssl/private/treenet.key`
 - **Características:**
+  - Redirección 301 Permanente: `treenet.com.co` ➜ `https://www.treenet.com.co$request_uri` (cumplimiento canónico SEO).
+  - Servidor canónico: `www.treenet.com.co` escuchando en puertos 80 y 443.
   - Caché optimizada para `/_next/static/` (1 año, immutable).
   - Proxy pass a `http://127.0.0.1:3000` con soporte para WebSockets (`Upgrade`).
   - Reenvío de encabezados de cliente real: `X-Real-IP`, `X-Forwarded-For`, `CF-Connecting-IP`, `CF-Ray`.
+
+### Optimizaciones SEO y Metadatos
+- **Meta Description:** `Internet de fibra óptica en Cúcuta. Rápido, estable y al precio que ves, sin letras pequeñas ni sorpresas en tu factura.`
+- **Sitemap XML:** Generado en `https://www.treenet.com.co/sitemap.xml` con 21 URLs, prioridades (1.0 home, 0.8 FAQ, 0.7 PQR, 0.6 legales) y frecuencias de cambio.
+- **WhatsApp Directo:** Mensaje predeterminado de contacto: `"Hola TreeNet, necesito información"`.
 
 ### Módulo de Efectos de Sonido
 - **Archivo:** `src/lib/sounds.ts`
