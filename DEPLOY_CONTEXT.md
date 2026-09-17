@@ -35,9 +35,14 @@ Fecha de configuración: 03-04/Sep/2026
 - **Integraciones:**
   - NextCore FTTH (`NEXTCORE_BASE_URL=https://staging.nextcorenow.com`): verificación de viabilidad, distancia y puertos libres en cajas de fibra.
   - Webhook de Leads (`LEAD_WEBHOOK_URL=https://n8njh.verla.cloud/webhook/verlina-web-treenet`): arquitectura resiliente con persistencia local en `data/leads.jsonl` y reenvío con header de autenticación `x-api-key`.
-  - Proxy Seguro Verlina (`/api/verlina`): el navegador se comunica en el mismo dominio (cero problemas de CORS). El servidor inyecta privadamente la cabecera `x-api-key` hacia n8n, manteniendo la API key oculta y protegida en `.env.local`.
-  - Flujo Cobertura ➜ Verlina: traspaso automático de datos del lead (nombre, teléfono, dirección, tipo de inmueble) y confirmación de cobertura disponible al pulsar "Hablar con Verlina", incluyendo cláusula de consentimiento y metadatos de WhatsApp/Habeas Data.
-  - UX Chat Verlina: scroll automático al inicio de respuestas extensas y botón flotante "Continuar leyendo ↓".
+  - Proxy Seguro Verlina (`/api/verlina`): el navegador se comunica en el mismo dominio (cero problemas de CORS). El servidor inyecta privadamente la cabecera `x-api-key` hacia n8n, bloqueando peticiones vacías o \n\n.
+  - Flujo Cobertura ➜ Verlina: traspaso automático de datos del lead y confirmación de cobertura disponible con cláusula de consentimiento de WhatsApp.
+  - Sistema de Blog Autogestionable:
+    - Índice público: `/blog`
+    - Páginas de artículo: `/blog/[slug]` con OpenGraph y Schema.org BlogPosting.
+    - Panel de administración: `/admin` con autenticación por cookie firmada HMAC-SHA256 y editor WYSIWYG.
+    - Subida de imágenes: `/api/admin/upload` hacia `/blog-uploads/` (servido directo por Nginx).
+    - Sitemap dinámico: `src/app/sitemap.ts` incluye automáticamente cada artículo nuevo en `sitemap.xml`.
 - **Servicio Systemd:** `/etc/systemd/system/treenet.service`
   - Ejecuta: `npm start -- -p 3000` bajo usuario `tecnologia`
   - Puerto interno: `127.0.0.1:3000`
@@ -87,13 +92,11 @@ Fecha de configuración: 03-04/Sep/2026
 
 ---
 
-## 6. Notificaciones por Telegram
-- **Comando global:** `telegram-send` (enlace en `/home/tecnologia/telegram-send.sh`)
+## 6. Notificaciones y Reportes por Telegram
+- **Comando de mensajes y archivos:** `telegram-send` (enlace en `/home/tecnologia/telegram-send.sh`)
+- **Comando de informe de visitas:** `reporte-visitas` (enlace en `/home/tecnologia/reporte-visitas`)
+  - Uso en terminal: `reporte-visitas`
+  - Solo el día de hoy: `reporte-visitas --today`
+  - Enviar informe a Telegram: `reporte-visitas --telegram` (o `reporte-visitas -t -tg` para el de hoy)
 - **Bot:** `@RtsJh_bot`
 - **Chat ID:** `958871570`
-- **Uso:**
-  ```bash
-  telegram-send "Mensaje de prueba"
-  telegram-send -f /ruta/archivo.pdf -m "Reporte"
-  echo "Servidor OK" | telegram-send
-  ```
