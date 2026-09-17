@@ -43,6 +43,7 @@ Fecha de configuración: 03-04/Sep/2026
     - Panel de administración: `/admin` con autenticación por cookie firmada HMAC-SHA256 y editor WYSIWYG.
     - Subida de imágenes: `/api/admin/upload` hacia `/blog-uploads/` (servido directo por Nginx).
     - Sitemap dinámico: `src/app/sitemap.ts` incluye automáticamente cada artículo nuevo en `sitemap.xml`.
+  - API de Analítica Web (`/api/analytics`): protegido con cabecera `x-api-key`, entrega métricas de visitas reales (sesiones humanas de 30 min), visitantes únicos, visitas de hoy, páginas más vistas, desglose de dispositivos y balance de leads en JSON para consultas de n8n.
 - **Servicio Systemd:** `/etc/systemd/system/treenet.service`
   - Ejecuta: `npm start -- -p 3000` bajo usuario `tecnologia`
   - Puerto interno: `127.0.0.1:3000`

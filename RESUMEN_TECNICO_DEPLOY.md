@@ -90,8 +90,14 @@ El servidor opera como un entorno de producción multitenant utilizando **Nginx*
 
 ### Optimizaciones SEO y Metadatos
 - **Meta Description:** `Internet de fibra óptica en Cúcuta. Rápido, estable y al precio que ves, sin letras pequeñas ni sorpresas en tu factura.`
-- **Sitemap XML:** Generado en `https://www.treenet.com.co/sitemap.xml` con 21 URLs, prioridades (1.0 home, 0.8 FAQ, 0.7 PQR, 0.6 legales) y frecuencias de cambio.
+- **Sitemap XML:** Generado en `https://www.treenet.com.co/sitemap.xml` con prioridades dinámicas (1.0 home, 0.9 blog, 0.8 artículos del blog, 0.8 FAQ, 0.7 PQR, 0.6 legales) y actualización automática al publicar.
 - **WhatsApp Directo:** Mensaje predeterminado de contacto: `"Hola TreeNet, necesito información"`.
+
+### API de Analítica Web (/api/analytics)
+- **Endpoint:** `GET` o `POST /api/analytics`
+- **Autenticación:** Cabecera `x-api-key`
+- **Funcionalidad:** Procesa los logs de Nginx y el registro de leads (`data/leads.jsonl`), entregando en JSON métricas de visitas reales (sesiones humanas de 30 minutos), visitantes únicos, visitas de hoy, distribución móvil vs escritorio, páginas más vistas y desglose diario para automatizaciones en n8n.
+- **Herramienta CLI:** `reporte-visitas` en terminal (admite `--today` y `--telegram`).
 
 ### Módulo de Efectos de Sonido
 - **Archivo:** `src/lib/sounds.ts`
