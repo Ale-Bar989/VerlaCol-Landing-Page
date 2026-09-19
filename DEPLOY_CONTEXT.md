@@ -44,6 +44,14 @@ Fecha de configuración: 03-04/Sep/2026
     - Subida de imágenes: `/api/admin/upload` hacia `/blog-uploads/` (servido directo por Nginx).
     - Sitemap dinámico: `src/app/sitemap.ts` incluye automáticamente cada artículo nuevo en `sitemap.xml`.
   - API de Analítica Web (`/api/analytics`): protegido con cabecera `x-api-key`, entrega métricas de visitas reales (sesiones humanas de 30 min), visitantes únicos, visitas de hoy, páginas más vistas, desglose de dispositivos y balance de leads en JSON para consultas de n8n.
+  - Módulo PQR integrado con NextCore producción:
+    - Base URL: `NEXTCORE_PQR_BASE_URL=https://app.nextcorenow.com` (workspace VERLA `85754df3-d8d0-4720-87ec-eaca667daff6`).
+    - API key de producción guardada en `.env.local` como `NEXTCORE_PQR_API_KEY` (viaja solo del lado del servidor, header `X-Api-Key`).
+    - Radicación: `POST /api/pqr` (multipart) → proxy a `https://app.nextcorenow.com/api/v1/public/pqr/submit`. NextCore genera el CUN oficial de 16 dígitos + ticket_code + sla_due_at (15 días hábiles). Respaldo local en `data/pqr.jsonl` y reenvío a n8n tolerante a fallos.
+    - Consulta: `GET /api/pqr?cun=...&doc=...` → proxy a `/api/v1/public/pqr/status` (autenticación ligera CUN + documento, datos enmascarados según spec sección 7).
+    - Constancia PDF: `POST /api/pqr/receipt` → URL firmada S3 con expiración de 10 minutos.
+    - Formulario `/radicar-pqr` con bloques spec CRC: solicitante (CC/CE), contacto + autorización notificación electrónica (Ley 1437), contrato, tipificación 5 tipos (petición, solicitud información, queja, reclamo, recurso con CUN original), hechos ≤4000 / pretensiones ≤2000, adjuntos PDF/JPG/PNG ≤5MB, habeas data que bloquea el botón hasta aceptarse.
+    - Consulta `/consultar-pqr` con CUN + número de documento, aviso de apelación (10 días hábiles) y descarga de constancia.
 - **Servicio Systemd:** `/etc/systemd/system/treenet.service`
   - Ejecuta: `npm start -- -p 3000` bajo usuario `tecnologia`
   - Puerto interno: `127.0.0.1:3000`
