@@ -52,6 +52,7 @@ Fecha de configuración: 03-04/Sep/2026
     - Constancia PDF: `POST /api/pqr/receipt` → URL firmada S3 con expiración de 10 minutos.
     - Formulario `/radicar-pqr` con bloques spec CRC: solicitante (CC/CE), contacto + autorización notificación electrónica (Ley 1437), contrato, tipificación 5 tipos (petición, solicitud información, queja, reclamo, recurso con CUN original), hechos ≤4000 / pretensiones ≤2000, adjuntos PDF/JPG/PNG ≤5MB, habeas data que bloquea el botón hasta aceptarse.
     - Consulta `/consultar-pqr` con CUN + número de documento, aviso de apelación (10 días hábiles) y descarga de constancia.
+    - Fixes UI (sep/2026): selects con `color-scheme: dark` global (opciones visibles sin hover, flecha menta personalizada) y selector de anexos 100% en español ("📎 Seleccionar archivos", lista con tamaño y botón Quitar). Commits `dcfc76f` y `7ffb851`.
 - **Servicio Systemd:** `/etc/systemd/system/treenet.service`
   - Ejecuta: `npm start -- -p 3000` bajo usuario `tecnologia`
   - Puerto interno: `127.0.0.1:3000`
