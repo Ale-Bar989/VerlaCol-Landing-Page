@@ -29,7 +29,7 @@ export const HERO_SLIDES: SlideData[] = [
     subtitle: "200+ canales en alta definición",
     description: "Disfruta del mejor contenido en calidad 4K",
     ctaText: "Ver Canales",
-    ctaLink: ROUTES.LEGAL.COMPARADOR_TARIFAS,
+    ctaLink: ROUTES.SERVICES.TV_DIGITAL,
     image: "/images/backgrounds/tv_premium.jpg",
   },
   {

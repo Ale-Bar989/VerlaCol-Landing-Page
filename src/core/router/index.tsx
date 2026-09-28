@@ -24,9 +24,6 @@ const ProteccionDatos = lazy(() => import("@/features/legal/proteccion-datos"));
 const InternetSano = lazy(() => import("@/features/legal/internet-sano"));
 const Filtrado = lazy(() => import("@/features/legal/filtrado"));
 const Seguridad = lazy(() => import("@/features/legal/seguridad"));
-const ComparadorTarifas = lazy(
-  () => import("@/features/legal/comparador-tarifas")
-);
 
 // Error Pages
 const NotFoundPage = lazy(() => import("@/features/not-found"));
@@ -111,10 +108,6 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.LEGAL.SEGURIDAD,
         element: withSuspense(Seguridad),
-      },
-      {
-        path: ROUTES.LEGAL.COMPARADOR_TARIFAS,
-        element: withSuspense(ComparadorTarifas),
       },
       // Services Routes
       {

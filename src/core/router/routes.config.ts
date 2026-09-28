@@ -19,7 +19,6 @@ export const ROUTES = {
     INTERNET_SANO: '/legal/internet-sano',
     FILTRADO: '/legal/filtrado',
     SEGURIDAD: '/legal/seguridad',
-    COMPARADOR_TARIFAS: '/legal/comparador-tarifas',
   },
 
   // Services Routes

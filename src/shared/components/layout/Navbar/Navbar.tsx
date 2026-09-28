@@ -9,7 +9,6 @@ import {
   AlertCircle,
   FileText,
   Filter,
-  DollarSign,
   Sun,
   Moon,
 } from "lucide-react";
@@ -29,7 +28,7 @@ function Navbar() {
   const isDark = theme === "dark";
 
   // Menú Legal: VISIBLE — los temas legales son obligatorios para un ISP en Colombia
-  // (Protección de Datos, Comparador de Tarifas, etc.) y NO pueden ocultarse.
+  // (Protección de Datos, etc.) y NO pueden ocultarse.
   const MOSTRAR_LEGAL_NAV = true;
 
   // MODO EXPECTATIVA: enlaces "Nosotros" y "Precios" ocultos del header.
@@ -404,39 +403,6 @@ function Navbar() {
                             }`}
                           >
                             Protocolos y medidas
-                          </p>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to={ROUTES.LEGAL.COMPARADOR_TARIFAS}
-                        className={`group/item relative flex items-start gap-3 px-4 py-3.5 rounded-2xl border transition-all duration-300 ${
-                          isDark
-                            ? "bg-linear-to-br from-[#7A8FFF]/5 to-transparent hover:from-[#7A8FFF]/15 hover:to-[#4A5CFF]/5 border-transparent hover:border-[#7A8FFF]/30"
-                            : "bg-linear-to-br from-indigo-100/80 to-indigo-50/40 hover:from-indigo-200 hover:to-purple-100 border-indigo-200 hover:border-indigo-400 hover:shadow-lg"
-                        }`}
-                      >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-[#5B6FFF]/20 to-[#4A5CFF]/10 group-hover/item:from-[#7A8FFF]/30 group-hover/item:to-[#4A5CFF]/20 transition-all duration-300 shadow-lg shadow-[#5B6FFF]/10">
-                          <DollarSign className="w-4 h-4 text-[#4A5CFF] group-hover/item:scale-110 transition-transform" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div
-                            className={`text-sm font-semibold transition-colors mb-0.5 ${
-                              isDark
-                                ? "text-gray-200 group-hover/item:text-white"
-                                : "text-gray-700 group-hover/item:text-gray-900"
-                            }`}
-                          >
-                            Comparador Tarifas
-                          </div>
-                          <p
-                            className={`text-xs transition-colors ${
-                              isDark
-                                ? "text-gray-500 group-hover/item:text-gray-400"
-                                : "text-gray-600 group-hover/item:text-gray-800"
-                            }`}
-                          >
-                            Mejores opciones
                           </p>
                         </div>
                       </Link>
@@ -925,14 +891,6 @@ function Navbar() {
                   >
                     <Shield className="w-3.5 h-3.5" />
                     <span>Seguridad en la Red</span>
-                  </Link>
-                  <Link
-                    to={ROUTES.LEGAL.COMPARADOR_TARIFAS}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-400 hover:text-purple-400 hover:bg-white/5 rounded-lg transition-all duration-200"
-                  >
-                    <DollarSign className="w-3.5 h-3.5" />
-                    <span>Comparador de Tarifas</span>
                   </Link>
                   <Link
                     to={ROUTES.LEGAL.PROTECCION_INFANTIL}
