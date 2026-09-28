@@ -124,6 +124,7 @@ Hechos recientes que no hay que rehacer:
 - Analítica `/api/analytics` (commit `af25d23`): `real_visits` y `daily_visits` son **IPs únicas de navegadores** que pidieron una página HTML (GET 200/304, UA Mozilla, sin bots, sin `/api`, `/_next`, assets ni probes). Ya no son sesiones de 30 min ni solicitudes. Campo `metric: unique_browser_ip_per_day`. Rango reciente ~85–200 personas/día, no 300–500. `unique_visitors` es el total de IPs distintas del periodo.
 - PQR NextCore producción operativo. Fixes UI de selects y anexos en español ya desplegados.
 - Informes: `/home/tecnologia/INFORME_PRODUCCION.md`, `/home/tecnologia/REPORTE_PQR_NEXTCORE.md`, `/home/tecnologia/DEPLOY_CONTEXT.md`.
+- Meta Pixel en el `<head>` de `web/src/app/layout.tsx` (ID `2029802294377064`, `fbq('track','PageView')` + `<noscript>`). Ya buildeado y servido. No duplicar el snippet.
 
 ---
 
