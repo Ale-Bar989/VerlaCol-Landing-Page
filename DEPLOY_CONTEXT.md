@@ -110,3 +110,19 @@ Fecha de configuración: 03-04/Sep/2026
   - Enviar informe a Telegram: `reporte-visitas --telegram` (o `reporte-visitas -t -tg` para el de hoy)
 - **Bot:** `@RtsJh_bot`
 - **Chat ID:** `958871570`
+
+---
+
+## 7. Estado al compactar sesión (28 Sep 2026)
+
+Repos TreeNet y Verla deben quedar al día con `origin/main`. Servicios `treenet` (3000), `verla` (3001) y `nginx` activos. Deploy TreeNet: `cd /var/www/treenet.com.co/web && npm run build && sudo systemctl restart treenet`.
+
+Hechos recientes que no hay que rehacer:
+
+- PDF `web/public/legal/centro-de-seguridad.pdf` reemplazado (8 páginas). `centro-de-seguridad_old.pdf` descartado (commit `819fc26`).
+- Verlina (`VerlinaWidget.tsx` + `globals.css`): saludo único `Hola, soy Verlina en que puedo ayudarte?`. Texto del bot en negro. El campo donde escribe el usuario va en negro sobre blanco (`#verlina-chat textarea`, `color-scheme: light`) porque `html { color-scheme: dark }` lo dejaba blanco sobre blanco. Commit `f4dfc4c`.
+- Analítica `/api/analytics` (commit `af25d23`): `real_visits` y `daily_visits` son **IPs únicas de navegadores** que pidieron una página HTML (GET 200/304, UA Mozilla, sin bots, sin `/api`, `/_next`, assets ni probes). Ya no son sesiones de 30 min ni solicitudes. Campo `metric: unique_browser_ip_per_day`. Rango reciente ~85–200 personas/día, no 300–500. `unique_visitors` es el total de IPs distintas del periodo.
+- PQR NextCore producción operativo. Fixes UI de selects y anexos en español ya desplegados.
+- Informes: `/home/tecnologia/INFORME_PRODUCCION.md`, `/home/tecnologia/REPORTE_PQR_NEXTCORE.md`, `/home/tecnologia/DEPLOY_CONTEXT.md`.
+
+
