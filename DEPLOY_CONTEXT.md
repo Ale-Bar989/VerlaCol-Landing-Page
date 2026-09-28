@@ -125,4 +125,23 @@ Hechos recientes que no hay que rehacer:
 - PQR NextCore producción operativo. Fixes UI de selects y anexos en español ya desplegados.
 - Informes: `/home/tecnologia/INFORME_PRODUCCION.md`, `/home/tecnologia/REPORTE_PQR_NEXTCORE.md`, `/home/tecnologia/DEPLOY_CONTEXT.md`.
 
+---
+
+## 8. Estado al compactar sesión (28 Sep 2026, tarde)
+
+Verificación en vivo de `https://verla.com.co` y `https://www.verla.com.co`: HTTP 200. JS, CSS, icono, service worker y manifest en 200. `nginx -t` ok. Certificado de origen `CN=verla.com.co` válido hasta el 4 Sep 2027. `verla.service` activo (`server.mjs` en `127.0.0.1:3001`, desde el 10 Sep). `POST /api/lead` vacío responde 422 (`El nombre es obligatorio`).
+
+Pendiente. No disparar leads de prueba:
+
+- Webhook n8n `POST verla/crear-lead-llm` respondió 404 el 17 y 18 Sep (workflow no registrado/activo). Journal sin entradas desde el 19. Activar ese workflow en n8n si el formulario debe crear leads.
+
+Comparador de tarifas despublicado. No volver a publicar `/legal/comparador-tarifas` ni los precios comentados 79.900 / 119.900 / 169.900:
+
+- Ruta y lazy import eliminados en `src/core/router/routes.config.ts` y `src/core/router/index.tsx`.
+- Enlaces quitados del Navbar (desktop y móvil). El slide "Ver Canales" apunta a `ROUTES.SERVICES.TV_DIGITAL` (`src/features/home/data/slides.data.ts`).
+- Carpeta `src/features/legal/comparador-tarifas/` borrada.
+- `npm run build` ya corrido. Nginx sirve el `dist/` nuevo (`assets/index-Y_7LokgD.js`). Esa URL cae en not-found. El bundle no contiene `comparador-tarifas`.
+- `/precios` sigue en modo expectativa (`MOSTRAR_PLANES = false` en `src/features/pricing/index.tsx`). No activarlo.
+- `dist/` está en `.gitignore`. Un build desde un checkout anterior a este cambio republicaría la página.
+
 
