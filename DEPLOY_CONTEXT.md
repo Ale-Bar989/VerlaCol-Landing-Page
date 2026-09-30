@@ -33,7 +33,7 @@ Fecha de configuración: 03-04/Sep/2026
 - **Framework:** Next.js 16.3.3 (Turbopack), React 19, Tailwind CSS v4, TypeScript
 - **Variables de entorno:** `/var/www/treenet.com.co/web/.env.local`
 - **Integraciones:**
-  - NextCore FTTH (`NEXTCORE_BASE_URL=https://staging.nextcorenow.com`): verificación de viabilidad, distancia y puertos libres en cajas de fibra.
+  - NextCore FTTH Producción (`NEXTCORE_BASE_URL=https://nextcorenow.com` con API Key `nck_cx_...` y Workspace `85754df3-d8d0-4720-87ec-eaca667daff6`): verificación de viabilidad, distancia y puertos libres en cajas de fibra en tiempo real.
   - Webhook de Leads (`LEAD_WEBHOOK_URL=https://n8njh.verla.cloud/webhook/verlina-web-treenet`): arquitectura resiliente con persistencia local en `data/leads.jsonl` y reenvío con header de autenticación `x-api-key`.
   - Proxy Seguro Verlina (`/api/verlina`): el navegador se comunica en el mismo dominio (cero problemas de CORS). El servidor inyecta privadamente la cabecera `x-api-key` hacia n8n, bloqueando peticiones vacías o \n\n.
   - Flujo Cobertura ➜ Verlina: traspaso automático de datos del lead y confirmación de cobertura disponible con cláusula de consentimiento de WhatsApp.
@@ -124,7 +124,8 @@ Hechos recientes que no hay que rehacer:
 - Analítica `/api/analytics` (commit `af25d23`): `real_visits` y `daily_visits` son **IPs únicas de navegadores** que pidieron una página HTML (GET 200/304, UA Mozilla, sin bots, sin `/api`, `/_next`, assets ni probes). Ya no son sesiones de 30 min ni solicitudes. Campo `metric: unique_browser_ip_per_day`. Rango reciente ~85–200 personas/día, no 300–500. `unique_visitors` es el total de IPs distintas del periodo.
 - PQR NextCore producción operativo. Fixes UI de selects y anexos en español ya desplegados.
 - Informes: `/home/tecnologia/INFORME_PRODUCCION.md`, `/home/tecnologia/REPORTE_PQR_NEXTCORE.md`, `/home/tecnologia/DEPLOY_CONTEXT.md`.
-- Meta Pixel en el `<head>` de `web/src/app/layout.tsx` (ID `2029802294377064`, `fbq('track','PageView')` + `<noscript>`). Ya buildeado y servido. No duplicar el snippet.
+- Meta Pixel en el `<head>` de `web/src/app/layout.tsx` (ID actualizado a `1018986454493231`, `fbq('track','PageView')` + `<noscript>`). En producción y commiteado.
+- Cobertura NextCore migrada a producción directa: `https://nextcorenow.com` (sin staging ni app) con API key `nck_cx_...` y workspace `85754df3-d8d0-4720-87ec-eaca667daff6`. Verificado con `/api/address-suggest` y `/api/coverage`. Commit `f18f437`.
 
 ---
 
