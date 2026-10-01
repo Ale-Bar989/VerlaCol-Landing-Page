@@ -146,4 +146,16 @@ Comparador de tarifas despublicado. No volver a publicar `/legal/comparador-tari
 - `/precios` sigue en modo expectativa (`MOSTRAR_PLANES = false` en `src/features/pricing/index.tsx`). No activarlo.
 - `dist/` está en `.gitignore`. Un build desde un checkout anterior a este cambio republicaría la página.
 
+---
+
+## 9. Estado al compactar sesión (1 Oct 2026)
+
+TreeNet en producción en commit de oferta de octubre (`6c07cca`) más el ajuste local de botones de planes. Servicio `treenet` activo. No tocar Verla, nginx ni Cloudflare salvo pedido explícito.
+
+- Oferta pública: "Oferta válida del 1 al 15 de octubre de 2026", estratos 1 al 6. Hero es carrusel (`hero-familia.webp` + `hero-promo.webp`). Footer: T&C octubre encima de T&C septiembre; el PDF de septiembre sigue en `web/public/legal/terminos-oferta.pdf`. FAQ de IVA menciona 1 al 15 de octubre.
+- Cada lead avisa a ventas por `LEAD_EMAIL_WEBHOOK_URL` (`send-email-generic`, no `webhook-test`). Clave en `LEAD_EMAIL_API_KEY` dentro de `.env.local` (600, dueño tecnologia, fuera de git). El código ya manda `cc` a ventas@verla.com.co y `replyTo` del cliente. En n8n el nodo de correo todavía tiene que leer el campo `cc`; eso no se arregla con el deploy.
+- Botones "¡Quiero mi llamada!" de los tres planes: todos `bg-brand` y centrados bajo la ficha (`article` con `flex flex-col items-center`). `.btn-pill` es `inline-flex`, por eso `mx-auto` no centraba.
+- Cobertura sigue en `https://nextcorenow.com` (sin staging ni app). Pixel Meta `1018986454493231`.
+
+
 
