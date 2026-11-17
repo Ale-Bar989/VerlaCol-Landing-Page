@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "@/core/router/routes.config";
 import { DATA_PRINCIPLES } from "./data/privacy.data";
 
+const POLICY_PDF = "/documents/pdf/politica-tratamiento-datos-personales.pdf";
+
 // Página de Política de Tratamiento de Datos Personales
 // Ubicación: src/ui/pages/legal/proteccion-datos/index.tsx
 
@@ -42,6 +44,22 @@ export default function ProteccionDatosPage() {
 
         {/* Content */}
         <div className="space-y-12">
+          <section className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-8">
+            <h2 className="text-2xl font-bold mb-4">Documento de Política de Tratamiento de Datos Personales</h2>
+            <a
+              href={POLICY_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mb-6 bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) px-6 py-3 rounded-xl font-semibold text-white"
+            >
+              Abrir documento PDF
+            </a>
+            <iframe
+              src={POLICY_PDF}
+              title="Política de Tratamiento de Datos Personales de VERLA"
+              className="w-full h-[75vh] min-h-[400px] rounded-xl bg-white"
+            />
+          </section>
           {/* Introducción */}
           <section className="bg-white/5 border border-white/10 rounded-2xl p-8">
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -206,9 +224,9 @@ export default function ProteccionDatosPage() {
               >
                 Solicitar Información
               </Link>
-              <button className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
+              <a href={POLICY_PDF} download className="bg-white/10 border border-white/20 px-8 py-3 rounded-xl font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-700 ease-in-out">
                 Descargar Política Completa
-              </button>
+              </a>
             </div>
           </section>
         </div>
