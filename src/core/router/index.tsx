@@ -5,14 +5,10 @@ import { ROUTES } from "./routes.config";
 import { LoadingFallback } from "@/shared/components";
 import App from "@/App";
 
-// Lazy loading de páginas para optimizar tiempos de carga - Screaming Architecture
-// Ubicación: src/core/router/index.tsx
+// Portal Institucional Grupo VERLA
 const Home = lazy(() => import("@/features/home/Home"));
-const About = lazy(() => import("@/features/about/About"));
-const Contact = lazy(() => import("@/features/contact/Contact"));
-const Pricing = lazy(() => import("@/features/pricing"));
 
-// Legal Pages
+// Legal Pages (cumplimiento regulatorio Colombia, accesibles desde footer)
 const ProteccionUsuarios = lazy(
   () => import("@/features/legal/proteccion-usuarios")
 );
@@ -32,16 +28,6 @@ const ServiceUnavailablePage = lazy(
   () => import("@/features/service-unavailable")
 );
 
-// Services Pages
-const FibraResidencial = lazy(
-  () => import("@/features/services/fibra-residencial")
-);
-const PlanesEmpresariales = lazy(
-  () => import("@/features/services/planes-empresariales")
-);
-const TVDigital = lazy(() => import("@/features/services/tv-digital"));
-
-// Wrapper para aplicar Suspense a las rutas lazy
 const withSuspense = (Component: ComponentType) => (
   <Suspense fallback={<LoadingFallback />}>
     <Component />
@@ -68,17 +54,31 @@ export const router = createBrowserRouter([
         path: ROUTES.SERVICE_UNAVAILABLE,
         element: withSuspense(ServiceUnavailablePage),
       },
+      // Redirecciones de rutas anteriores hacia secciones del portal institucional
       {
         path: ROUTES.ABOUT,
-        element: withSuspense(About),
+        element: <Navigate to="/#grupo-empresarial" replace />,
       },
       {
         path: ROUTES.CONTACT,
-        element: withSuspense(Contact),
+        element: <Navigate to="/#contacto" replace />,
       },
+      // Rutas comerciales retiradas -> redirigen al portal institucional
       {
         path: ROUTES.PRICING,
-        element: withSuspense(Pricing),
+        element: <Navigate to={ROUTES.HOME} replace />,
+      },
+      {
+        path: ROUTES.SERVICES.FIBRA_RESIDENCIAL,
+        element: <Navigate to={ROUTES.HOME} replace />,
+      },
+      {
+        path: ROUTES.SERVICES.PLANES_EMPRESARIALES,
+        element: <Navigate to={ROUTES.HOME} replace />,
+      },
+      {
+        path: ROUTES.SERVICES.TV_DIGITAL,
+        element: <Navigate to={ROUTES.HOME} replace />,
       },
       // Legal Routes
       {
@@ -109,20 +109,7 @@ export const router = createBrowserRouter([
         path: ROUTES.LEGAL.SEGURIDAD,
         element: withSuspense(Seguridad),
       },
-      // Services Routes
-      {
-        path: ROUTES.SERVICES.FIBRA_RESIDENCIAL,
-        element: withSuspense(FibraResidencial),
-      },
-      {
-        path: ROUTES.SERVICES.PLANES_EMPRESARIALES,
-        element: withSuspense(PlanesEmpresariales),
-      },
-      {
-        path: ROUTES.SERVICES.TV_DIGITAL,
-        element: withSuspense(TVDigital),
-      },
-      // Wildcard DEBE estar AL FINAL para no interceptar archivos estáticos
+      // Wildcard al final
       {
         path: "*",
         element: <Navigate to={ROUTES.NOTFOUND} replace />,

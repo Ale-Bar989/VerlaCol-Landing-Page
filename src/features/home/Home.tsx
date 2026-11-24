@@ -1,74 +1,59 @@
-import { lazy, Suspense, memo } from "react";
+import { useEffect, memo } from "react";
+import { useLocation } from "react-router-dom";
+import { Navbar } from "@/shared/components";
+import InstitutionalHero from "./components/sections/InstitutionalHero";
+import IdentitySection from "./components/sections/IdentitySection";
+import LeadershipSection from "./components/sections/LeadershipSection";
+import TreenetSection from "./components/sections/TreenetSection";
+import NewsAndInfraSection from "./components/sections/NewsAndInfraSection";
+import TalentAndContactSection from "./components/sections/TalentAndContactSection";
+import FooterSection from "./components/sections/FooterSection";
 
-import { Navbar } from '@/shared//components';
-import {
-  BackgroundEffects,
-  HeroSection,
-} from "./components";
-import { LazySection } from '@/shared//components';
-
-// Lazy loading para secciones below-the-fold
-const ProductsSection = lazy(() => import("./components/sections/ProductsSection"));
-const StatsSection = lazy(() => import("./components/sections/StatsSection"));
-const ProblemSection = lazy(() => import("./components/sections/ProblemSection"));
-const FeaturesSection = lazy(() => import("./components/sections/FeaturesSection"));
-const FooterSection = lazy(() => import("./components/sections/FooterSection"));
-
-// Componente de carga simple - memoizado
-const SectionLoader = memo(() => (
-  <div className="w-full h-32 flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-[#4A5CFF] border-t-transparent rounded-full animate-spin gpu-accelerated" />
-  </div>
-));
-
-SectionLoader.displayName = 'SectionLoader';
-
-// Página Home con diseño moderno tipo Superhuman + Lazy Loading - Optimizado
-// Ubicación: src/ui/pages/home/Home.tsx
+// Portal Institucional Grupo Empresarial VERLA
+// Orden vertical estricto según Especificación de Rediseño Web (Paneles 1 a 8)
 function Home() {
-  return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background effects */}
-      <BackgroundEffects />
+  const { hash } = useLocation();
 
+  useEffect(() => {
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 80);
+      }
+    }
+  }, [hash]);
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      {/* Panel 1: Barra de Navegación Superior */}
       <Navbar />
 
-      {/* Hero Section - Carga inmediata (above the fold) */}
-      <HeroSection />
+      <main>
+        {/* Panel 2: Portada Principal (Hero Institucional) */}
+        <InstitutionalHero />
 
-      {/* Secciones con lazy loading + Intersection Observer (below the fold) */}
-      <LazySection fallback={<SectionLoader />}>
-        <Suspense fallback={<SectionLoader />}>
-          <ProductsSection />
-        </Suspense>
-      </LazySection>
+        {/* Panel 3: Identidad Corporativa (Misión, Visión al 2030 y Valores) */}
+        <IdentitySection />
 
-      <LazySection fallback={<SectionLoader />}>
-        <Suspense fallback={<SectionLoader />}>
-          <StatsSection />
-        </Suspense>
-      </LazySection>
+        {/* Panel 4: Liderazgo Directivo */}
+        <LeadershipSection />
 
-      <LazySection fallback={<SectionLoader />}>
-        <Suspense fallback={<SectionLoader />}>
-          <ProblemSection />
-        </Suspense>
-      </LazySection>
+        {/* Panel 5: Respaldo Operativo ("Operamos treenet") */}
+        <TreenetSection />
 
-      <LazySection fallback={<SectionLoader />}>
-        <Suspense fallback={<SectionLoader />}>
-          <FeaturesSection />
-        </Suspense>
-      </LazySection>
+        {/* Paneles 6 y 7: Estrategia, Ingeniería de Infraestructura, Noticias, Logros y Blog */}
+        <NewsAndInfraSection />
 
-      <LazySection fallback={<SectionLoader />}>
-        <Suspense fallback={<SectionLoader />}>
-          <FooterSection />
-        </Suspense>
-      </LazySection>
+        {/* Panel 8 (Parte 1): Talento, Proyectos de Infraestructura y Contacto Corporativo */}
+        <TalentAndContactSection />
+      </main>
+
+      {/* Panel 8 (Parte 2): Pie de Página Corporativo */}
+      <FooterSection />
     </div>
   );
 }
 
-// Memoizar para evitar re-renders innecesarios
 export default memo(Home);

@@ -15,11 +15,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Verlapage',
-        short_name: 'Verlapage',
-        description: 'Proveedor de Internet de Alta Velocidad',
-        theme_color: '#4A5CFF',
-        background_color: '#000000',
+        name: 'VERLA | Grupo Empresarial',
+        short_name: 'VERLA',
+        description: 'Grupo Empresarial de Telecomunicaciones e Infraestructura FTTH en Colombia',
+        theme_color: '#1D4ED8',
+        background_color: '#ffffff',
         display: 'standalone',
         icons: [
           {
