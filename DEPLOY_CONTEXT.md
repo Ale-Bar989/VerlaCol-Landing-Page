@@ -157,5 +157,22 @@ TreeNet en producción en commit de oferta de octubre (`6c07cca`) más el ajuste
 - Botones "¡Quiero mi llamada!" de los tres planes: todos `bg-brand` y centrados bajo la ficha (`article` con `flex flex-col items-center`). `.btn-pill` es `inline-flex`, por eso `mx-auto` no centraba.
 - Cobertura sigue en `https://nextcorenow.com` (sin staging ni app). Pixel Meta `1018986454493231`.
 
+---
+
+## 10. Rediseño Portal Institucional VERLA y Formulario Corporativo (24 Nov 2026)
+
+Renovación integral de `https://verla.com.co` y `https://www.verla.com.co` hacia portal institucional de Grupo Empresarial VERLA (sin tocar `treenet.com.co`).
+
+- **Paneles implementados (1 a 8):**
+  - Header institucional (`Navbar.tsx`): logo VERLA, *Grupo Empresarial*, *Noticias y Logros*, *Contacto*, y CTA externo **Ir a treenet** (`https://www.treenet.com.co`). Sin *Planes*, sin desplegable *Legal* en header, sin *Contratar*.
+  - Hero institucional (`InstitutionalHero.tsx`), Identidad Corporativa (`IdentitySection.tsx`: Misión, Visión al 2030, 4 Valores), Liderazgo Directivo (`LeadershipSection.tsx`: CEO Ximena Mora, CFO Sebastián Mendoza, CMCO John Ospina, CTIO Guillermo Holguín, COO Joel Vásquez con retratos extraídos de `SVG_WEB.svg` y fondo `bg-white/60` en texto de tarjetas C-LEVEL), Respaldo Operativo (`TreenetSection.tsx`: "Operamos treenet"), Estrategia/Ingeniería/Noticias/Blog (`NewsAndInfraSection.tsx` con **Ver blog** a `https://www.treenet.com.co/blog`), Talento/Proyectos/Contacto Corporativo (`TalentAndContactSection.tsx`) y Footer institucional (`FooterSection.tsx`).
+  - Dirección oficial verificada: `Carrera 69 # 25B - 44. Edificio World Business Port, Oficina 613. Bogotá, Cundinamarca, Salitre`.
+- **Módulos comerciales retirados:** eliminados *Descubre nuestra gama*, *Speed Test / Estadísticas en Vivo*, *Soluciones Simples!* y *Conectividad Sin Límites*. Rutas `/precios` y `/services/*` redirigen a `/`.
+- **Imágenes institucionales:** 11 PNGs en `public/images/institucional/`.
+- **Formulario de Contacto Corporativo → n8n:**
+  - `server.mjs` (`POST /api/lead` y `POST /api/contacto`, `verla.service` en `127.0.0.1:3001`) reenvía a `VERLA_CONTACTO_WEBHOOK_URL=https://n8njh.verla.cloud/webhook/verla/contacto-corporativo` con header `x-api-key: <VERLA_CONTACTO_TOKEN>` desde `.env.local` (permisos `600`, fuera de Git).
+  - Valida `nombre` + al menos `correo` o `telefono` (422 `"Faltan datos obligatorios"`), formato de correo si viene, permite contacto solo con teléfono, timeout 15s sin reintentos. Probado en producción con 422 y prueba real `HTTP 200` (`success: true`).
+
+
 
 
